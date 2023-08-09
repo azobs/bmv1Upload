@@ -1,0 +1,42 @@
+type: object
+description: 'A Command in the system'
+properties:
+  cmdCode:
+    type: string
+  cmdDate:
+    type: string
+    format: datetime
+  cmdComment:
+    type: string
+  cmdState:
+    type: string
+    enum:
+      - InEditing
+      - Edited
+      - InDelivery
+      - Delivery
+  cmdNature:
+    type: string
+    enum:
+      - Cash
+      - Cover
+      - Damage
+  cmdDelivery:
+    type: object
+    $ref: '../../delivery/dto/DeliveryDto.yaml'
+  cmdLoading:
+    type: object
+    $ref: '../../../loading/loading/dto/LoadingDto.yaml'
+  cmdClient:
+    type: object
+    $ref: '../../../client/client/dto/ClientDto.yaml'
+  cmdSaler:
+    type: object
+    $ref: '../../../userbm/dto/UserbmDto.yaml'
+  cmdInvoice:
+    type: object
+    $ref: '../../saleinvoice/dto/SaleinvoiceDto.yaml'
+  cmdPos:
+    type: object
+    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  

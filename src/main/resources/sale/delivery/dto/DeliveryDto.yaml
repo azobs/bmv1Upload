@@ -1,0 +1,23 @@
+type: object
+description: 'A Delivery in the system which can contain multiple command'
+properties:
+  deliveryCode:
+    type: string
+  deliveryDate:
+    type: string
+    format: datetime
+  deliveryComment:
+    type: string
+  deliveryState:
+    type: string
+    enum:
+      - InEditing
+      - Edited
+      - Delivery
+  deliveryDeliver:
+    type: object
+    $ref: '../../../userbm/dto/UserbmDto.yaml'
+  deliveryPos:
+    type: object
+    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  

@@ -1,0 +1,27 @@
+post:
+  summary: Path used to upload a picture that represent a resource in the system
+  operationId: uploadPicture
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              nullable: false
+            fileName:
+              type: string
+              format: binary
+              nullable: true
+  responses:
+    '200':
+      description: Resource uploaded successfully
+      content:
+        image/*:
+          schema:
+            type: string
+            format: binary
+summary: Represents a route used to upload a picture in the system
+description: Upload a picture in the system

@@ -1,0 +1,60 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+    readOnly: true
+  userLogin:
+    type: string
+    minLength: 3
+    maxLength: 15
+    nullable: false
+  userCni:
+    type: string
+    minLength: 3
+    maxLength: 17
+  userPassword:
+    type: string
+    minLength: 4
+    nullable: false
+    writeOnly: true # Used in POST/PUT/PATCH, not returned by GET
+  userRepassword:
+    type: string
+    minLength: 4
+    nullable: false
+    writeOnly: true # Used in POST/PUT/PATCH, not returned by GET
+  userName:
+    type: string
+    minLength: 2
+    maxLength: 30
+    nullable: false
+  userSurname:
+    type: string
+    minLength: 2
+    maxLength: 30
+  userDob:
+    type: string
+    format: date
+    minLength: 10
+    maxLength: 19
+  userPicture:
+    type: string
+    minLength: 1
+    maxLength: 15
+  userState:
+    type: string
+    enum:
+      - Activated
+      - Deactivated
+      - Connected
+      - Disconnected
+  userAddress:
+    type: object
+    $ref: "../../general/dto/AddressDto.yaml"
+required:
+  - bmLogin
+  - bmName
+  - bmState
+  - bmAddress
+  - bmPassword
+  

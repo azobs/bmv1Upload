@@ -1,0 +1,18 @@
+post:
+  summary: Path used to list command that respect certain criteria. A criteria is an instance of a Filter object
+  operationId: getCommandList
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../../general/dto/FilterRequest.yaml' #FilterRequest
+  responses:
+    '200':
+      description: Command list found successfully
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              $ref: '../dto/CommandDto.yaml'

@@ -1,0 +1,12 @@
+type: object
+description: 'A format used to format product in the system'
+properties:
+  formatName:
+    type: string
+  formatCapacity:
+    type: number
+    format: double
+  formatPos:
+    type: object
+    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  

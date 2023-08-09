@@ -1,0 +1,6 @@
+type: object
+properties:
+  accessToken:
+    type: string
+    nullable: false
+  

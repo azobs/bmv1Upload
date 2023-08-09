@@ -1,0 +1,15 @@
+type: object
+description: 'A Backin in the system which represent articles return back by a client after delivery'
+properties:
+  bidQuantity:
+    type: number
+    format: double
+  bidComment:
+    type: string
+  bidArticle:
+    type: object
+    $ref: '../../../product/article/dto/ArticleDto.yaml'
+  bidBackin:
+    type: object
+    $ref: '../../backin/dto/BackinDto.yaml'
+  

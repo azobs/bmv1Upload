@@ -1,0 +1,14 @@
+type: object
+description: 'An Inventory used in the system'
+properties:
+  invComment:
+    type: string
+  invDate:
+    type: string
+    format: datetime
+  invCode:
+    type: string
+  invPos:
+    type: object
+    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  

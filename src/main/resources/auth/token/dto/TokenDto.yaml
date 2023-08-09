@@ -1,0 +1,21 @@
+type: object
+description: 'A token to open a session on the system'
+properties:
+  tokenValue:
+    type: string
+  tokenType:
+    type: string
+    enum:
+      - Bearer
+      - Jwt
+  expired:
+    type: boolean
+  revoked:
+    type: boolean
+  userbmDto:
+    type: object
+    $ref: '../../../userbm/dto/UserbmDto.yaml'
+required:
+  - tokenValue
+  - tokenType
+  - userbmDto

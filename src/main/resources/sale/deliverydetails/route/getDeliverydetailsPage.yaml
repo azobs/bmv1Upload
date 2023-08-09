@@ -1,0 +1,17 @@
+post:
+  summary: Path used to list deliverydetails page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+  operationId: getDeliverydetailsPage
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../../general/dto/FilterRequest.yaml' #FilterRequest
+  responses:
+    '200':
+      description: Deliverydetails page found successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: '../dto/PageofDeliverydetailsDto.yaml'
+  

@@ -1,0 +1,34 @@
+type: object
+description: 'An account for pointofsale, provider or a client in the system'
+properties:
+  coverNumber:
+    type: integer
+    format: int32
+  damageNumber:
+    type: integer
+    format: int32
+  packageNumber:
+    type: integer
+    format: int32
+  accountType:
+    type: string
+    enum:
+      - Client
+      - Pos
+      - Provider
+  accountClientDto:
+    type: object
+    $ref: '../../../client/client/dto/ClientDto.yaml'
+  accountPosDto:
+    type: object
+    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  accountProviderDto:
+    type: object
+    $ref: '../../../provider/provider/dto/ProviderDto.yaml'
+  accountArticleDto:
+    type: object
+    $ref: '../../../product/article/dto/ArticleDto.yaml'
+  accountPackagingDto:
+    type: object
+    $ref: '../../../packaging/packaging/dto/PackagingDto.yaml'
+  

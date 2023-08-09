@@ -1,0 +1,13 @@
+type: object
+properties:
+  pagenum:
+    type: integer
+    format: int32
+    minimum: 1
+    exclusiveMinimum: false
+  pagesize:
+    type: integer
+    format: int32
+    minimum: 10
+    exclusiveMinimum: false
+  

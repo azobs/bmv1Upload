@@ -1,0 +1,30 @@
+get:
+  summary: Find a Userbm in the system by its cni number
+  operationId: getUserbmByCni
+  parameters:
+    - in: path
+      name: cni
+      schema:
+        type: string
+      required: true
+      description: The cni number that represent the Userbm found. It's compulsory if not the operation can't proceed
+  responses:
+    '200':
+      description: Userbm found successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../dto/UserbmDto.yaml'
+    '400':
+      description: Bad request. User cni number must be an string and not empty.
+    '401':
+      description: Authorization information is missing or invalid.
+    '403':
+      description: The user who ask the ressource is Forbidden.
+    '404':
+      description: The expected ressource is not found.
+    '500':
+      description: Unexpected error at the server side.
+summary: Represents a route used to find a user for this system
+description: Find an existing user in the system
+  

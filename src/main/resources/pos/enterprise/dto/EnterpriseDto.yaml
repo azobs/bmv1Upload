@@ -1,0 +1,21 @@
+type: object
+description: 'An enterprise which can contain multiple pointofsale all manage in the system'
+properties:
+  entRegime:
+    type: string
+  entSocialreason:
+    type: string
+  entDescription:
+    type: string
+  entNiu:
+    type: string
+  entName:
+    type: string
+  entAcronym:
+    type: string
+  entLogo:
+    type: string
+  entAdmin:
+    type: object
+    $ref: '../../../userbm/dto/UserbmDto.yaml'
+  

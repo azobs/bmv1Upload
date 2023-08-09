@@ -1,0 +1,10 @@
+type: object
+description: 'Different sort criteria'
+properties:
+  sortColumn:
+    type: string
+  sortDirection:
+    type: string
+    enum:
+      - ASC
+      - DESC

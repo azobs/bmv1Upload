@@ -1,0 +1,16 @@
+type: object
+description: 'A client in the system'
+properties:
+  appliedDate:
+    type: string
+    format: datetime
+  client:
+    type: object
+    $ref: '../../client/dto/ClientDto.yaml'
+  specialprice:
+    type: object
+    $ref: '../../../price/specialprice/dto/SpecialpriceDto.yaml'
+  article:
+    type: object
+    $ref: '../../../product/article/dto/ArticleDto.yaml'
+  

@@ -1,0 +1,667 @@
+openapi: 3.0.3
+info:
+  title: Bussiness management api
+  description: This is used to describe the api of our future application used to manage bussiness
+  version: 1.0.0
+  contact:
+    name: C2PSI company
+    url: https://www.c2psi-prestation.com
+    email: c2psi-prestation@gmail.com
+servers:
+  - url: '{protocol}://{host}:{port}/bm/v1'
+    description: All endpoint for Demoopenapi api
+    variables:
+      protocol:
+        enum:
+          - 'http'
+          - 'https'
+        default: 'http'
+      host:
+        default: localhost
+        description: The local server where the Demoopenapi api is located
+      port:
+        enum:
+          - '8080'
+          - '8081'
+        default: '8081'
+        description: The default port where the Demoopenapi api responds
+paths:
+  /test:
+    get:
+      operationId: apiTest
+      responses:
+        '200':
+          description: Sucessfull Test Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestDto'
+########################################################################################################################
+#Api for Address management
+  /address/create:
+    $ref: 'general/route/createAddress.yaml'
+  /address/update:
+    $ref: 'general/route/updateAddress.yaml'
+  /address/delete:
+    $ref: 'general/route/deleteAddressById.yaml'
+  /address/getby/{id}:
+    $ref: 'general/route/getAddressById.yaml'
+  /address/getby/{email}:
+    $ref: 'general/route/getAddressByEmail.yaml'
+
+########################################################################################################################
+########################################################################################################################
+#Api for Userbm management
+  /userbm/create:
+    $ref: 'userbm/route/createUserbm.yaml'
+  /userbm/update:
+    $ref: 'userbm/route/updateUserbm.yaml'
+  /userbm/delete/{id}:
+    $ref: 'userbm/route/deleteUserbmById.yaml'
+  /userbm/getby/{id}:
+    $ref: 'userbm/route/getUserbmById.yaml'
+  /userbm/getby/{login}:
+    $ref: 'userbm/route/getUserbmByLogin.yaml'
+  /userbm/getby/{cni}:
+    $ref: 'userbm/route/getUserbmByCni.yaml'
+  /userbm/getby/{email}:
+    $ref: 'userbm/route/getUserbmByEmail.yaml'
+  /userbm/list:
+    $ref: 'userbm/route/getUserbmList.yaml'
+  /userbm/page:
+    $ref: 'userbm/route/getUserbmPage.yaml'
+
+########################################################################################################################
+########################################################################################################################
+#Api for Role management
+  /role/create:
+    $ref: 'role/route/createRole.yaml'
+  /role/update:
+    $ref: 'role/route/updateRole.yaml'
+  /role/delete/{id}:
+    $ref: 'role/route/deleteRoleById.yaml'
+  /role/getby/{roletype}:
+    $ref: 'role/route/getRoleByRoletype.yaml'
+  /role/getby/{id}:
+    $ref: 'role/route/getRoleById.yaml'
+  /role/list:
+    $ref: 'role/route/getRoleList.yaml'
+  /role/page:
+    $ref: 'role/route/getRolePage.yaml'
+
+########################################################################################################################
+########################################################################################################################
+#Api for UserbmRole management
+  /userbm_role/create:
+    $ref: 'userbmrole/route/createUserbmRole.yaml'
+  /userbm_role/changepermission:
+    $ref: 'userbmrole/route/changePermission.yaml'
+  /userbm_role/delete/{id}:
+    $ref: 'userbmrole/route/deleteUserbmRoleById.yaml'
+  /userbm_role/getby/{id}:
+    $ref: 'userbmrole/route/getUserbmRoleById.yaml'
+  /userbm_role/list:
+    $ref: 'userbmrole/route/getUserbmRoleList.yaml'
+  /userbm_role/page:
+    $ref: 'userbmrole/route/getUserbmRolePage.yaml'
+########################################################################################################################
+########################################################################################################################
+#Api for authentication
+  /auth/authenticate:
+    $ref: 'auth/route/authenticate.yaml'
+
+# Permission management
+  /auth/permission/create:
+    $ref: 'auth/permission/route/createPermission.yaml'
+  /auth/permission/delete/{id}:
+    $ref: 'auth/permission/route/deletePermissionById.yaml'
+  /auth/permission/getby/{id}:
+    $ref: 'auth/permission/route/getPermissionById.yaml'
+  /auth/permission/getby/{name}:
+    $ref: 'auth/permission/route/getPermissionByName.yaml'
+  /auth/permission/list:
+    $ref: 'auth/permission/route/getPermissionList.yaml'
+  /auth/permission/page:
+    $ref: 'auth/permission/route/getPermissionPage.yaml'
+
+#connexion Token management
+  /auth/token/create:
+    $ref: 'auth/token/route/createToken.yaml'
+  /auth/token/delete/{id}:
+    $ref: 'auth/token/route/deleteTokenById.yaml'
+  /auth/token/getby/{id}:
+    $ref: 'auth/token/route/getTokenById.yaml'
+  /auth/token/getby/{tokenValue}:
+    $ref: 'auth/token/route/getTokenByTokenvalue.yaml'
+  /auth/token/list:
+    $ref: 'auth/token/route/getTokenList.yaml'
+
+########################################################################################################################
+########################################################################################################################
+#Api product management
+#Category management
+  /category/create:
+    $ref: 'product/category/route/createCategory.yaml'
+  /category/update:
+    $ref: 'product/category/route/updateCategory.yaml'
+  /category/delete/{id}:
+    $ref: 'product/category/route/deleteCategoryById.yaml'
+  /category/getby/{id}:
+    $ref: 'product/category/route/getCategoryById.yaml'
+  /category/list:
+    $ref: 'product/category/route/getCategoryList.yaml'
+  /category/page:
+    $ref: 'product/category/route/getCategoryPage.yaml'
+
+#Product management
+  /product/create:
+    $ref: 'product/product/route/createProduct.yaml'
+  /product/update:
+    $ref: 'product/product/route/updateProduct.yaml'
+  /product/delete:
+    $ref: 'product/product/route/deleteProductById.yaml'
+  /product/getby/{id}:
+    $ref: 'product/product/route/getProductById.yaml'
+  /product/list:
+    $ref: 'product/product/route/getProductList.yaml'
+  /product/page:
+    $ref: 'product/product/route/getProductPage.yaml'
+
+#Format management
+  /format/create:
+    $ref: 'product/format/route/createFormat.yaml'
+  /format/update:
+    $ref: 'product/format/route/updateFormat.yaml'
+  /format/delete/{id}:
+    $ref: 'product/format/route/deleteFormatById.yaml'
+  /format/getby/{id}:
+    $ref: 'product/format/route/getFormatById.yaml'
+  /format/list:
+    $ref: 'product/format/route/getFormatList.yaml'
+  /format/page:
+    $ref: 'product/format/route/getFormatPage.yaml'
+
+#Productformated management
+  /pf/create:
+    $ref: 'product/pf/route/createPF.yaml'
+  /pf/update:
+    $ref: 'product/pf/route/updatePF.yaml'
+  /pf/delete/{id}:
+    $ref: 'product/pf/route/deletePFById.yaml'
+  /pf/getby/{id}:
+    $ref: 'product/pf/route/getPFById.yaml'
+  /pf/list:
+    $ref: 'product/pf/route/getPFList.yaml'
+  /pf/page:
+    $ref: 'product/pf/route/getPFPage.yaml'
+
+#Unit management
+  /unit/unit/create:
+    $ref: 'product/unit/unit/route/createUnit.yaml'
+  /unit/unit/update:
+    $ref: 'product/unit/unit/route/updateUnit.yaml'
+  /unit/unit/delete/{id}:
+    $ref: 'product/unit/unit/route/deleteUnitById.yaml'
+  /unit/unit/getby/{id}:
+    $ref: 'product/unit/unit/route/getUnitById.yaml'
+  /unit/unit/list:
+    $ref: 'product/unit/unit/route/getUnitList.yaml'
+  /unit/unit/page:
+    $ref: 'product/unit/unit/route/getUnitPage.yaml'
+
+#UnitConversion management
+  /unit/conversion/create:
+    $ref: 'product/unit/unitconversion/route/createUnitconversion.yaml'
+  /unit/conversion/update:
+    $ref: 'product/unit/unitconversion/route/updateUnitconversion.yaml'
+  /unit/conversion/delete/{id}:
+    $ref: 'product/unit/unitconversion/route/deleteUnitconversionById.yaml'
+  /unit/conversion/getby/{id}:
+    $ref: 'product/unit/unitconversion/route/getUnitconversionById.yaml'
+  /unit/conversion/list:
+    $ref: 'product/unit/unitconversion/route/getUnitconversionList.yaml'
+  /unit/conversion/page:
+    $ref: 'product/unit/unitconversion/route/getUnitconversionPage.yaml'
+
+#Article management
+  /article/create:
+    $ref: 'product/article/route/createArticle.yaml'
+  /article/update:
+    $ref: 'product/article/route/updateArticle.yaml'
+  /article/delete/{id}:
+    $ref: 'product/article/route/deleteArticleById.yaml'
+  /article/getby/{id}:
+    $ref: 'product/article/route/getArticleById.yaml'
+  /article/list:
+    $ref: 'product/article/route/getArticleList.yaml'
+  /article/page:
+    $ref: 'product/article/route/getArticlePage.yaml'
+
+
+########################################################################################################################
+########################################################################################################################
+#Api price management
+#Baseprice management
+  /bp/create:
+    $ref: 'price/baseprice/route/createBp.yaml'
+  /bp/update:
+    $ref: 'price/baseprice/route/updateBp.yaml'
+  /bp/delete/{id}:
+    $ref: 'price/baseprice/route/deleteBpById.yaml'
+  /bp/getby/{id}:
+    $ref: 'price/baseprice/route/getBpById.yaml'
+
+#Specialprice management
+  /sp/create:
+    $ref: 'price/specialprice/route/createSp.yaml'
+  /sp/update:
+    $ref: 'price/specialprice/route/updateSp.yaml'
+  /sp/delete/{id}:
+    $ref: 'price/specialprice/route/deleteSpById.yaml'
+  /sp/getby/{id}:
+    $ref: 'price/specialprice/route/getSpById.yaml'
+
+########################################################################################################################
+########################################################################################################################
+#Api Loading management
+#Loading management
+  /loading/create:
+    $ref: 'loading/loading/route/createLoading.yaml'
+  /loading/update:
+    $ref: 'loading/loading/route/updateLoading.yaml'
+  /loading/delete/{id}:
+    $ref: 'loading/loading/route/deleteLoadingById.yaml'
+  /loading/getby/{id}:
+    $ref: 'loading/loading/route/getLoadingById.yaml'
+  /loading/list:
+    $ref: 'loading/loading/route/getLoadingList.yaml'
+  /loading/page:
+    $ref: 'loading/loading/route/getLoadingPage.yaml'
+
+#Lodingdetails management
+  /loadingdetails/create:
+    $ref: 'loading/loadingdetails/route/createLoadingdetails.yaml'
+  /loadingdetails/update:
+    $ref: 'loading/loadingdetails/route/updateLoadingdetails.yaml'
+  /loadingdetails/delete/{id}:
+    $ref: 'loading/loadingdetails/route/deleteLoadingdetailsById.yaml'
+  /loadingdetails/getby/{id}:
+    $ref: 'loading/loadingdetails/route/getLoadingdetailsById.yaml'
+  /loadingdetails/list:
+    $ref: 'loading/loadingdetails/route/getLoadingdetailsList.yaml'
+  /loadingdetails/page:
+    $ref: 'loading/loadingdetails/route/getLoadingdetailsPage.yaml'
+
+#Packaging details management
+  /packagingdetails/create:
+    $ref: 'loading/packagingdetails/route/createPackagingdetails.yaml'
+  /packagingdetails/update:
+    $ref: 'loading/packagingdetails/route/updatePackagingdetails.yaml'
+  /packagingdetails/delete/{id}:
+    $ref: 'loading/packagingdetails/route/deletePackagingdetailsById.yaml'
+  /packagingdetails/getby/{id}:
+    $ref: 'loading/packagingdetails/route/getPackagingdetailsById.yaml'
+  /packagingdetails/list:
+    $ref: 'loading/packagingdetails/route/getPackagingdetailsList.yaml'
+  /packagingdetails/page:
+    $ref: 'loading/packagingdetails/route/getPackagingdetailsPage.yaml'
+
+########################################################################################################################
+########################################################################################################################
+#Api Arrival management
+#Arrival management
+  /arrival/create:
+    $ref: 'arrival/arrival/route/createArrival.yaml'
+  /arrival/update:
+    $ref: 'arrival/arrival/route/updateArrival.yaml'
+  /arrival/delete/{id}:
+    $ref: 'arrival/arrival/route/deleteArrivalById.yaml'
+  /arrival/getby/{id}:
+    $ref: 'arrival/arrival/route/getArrivalById.yaml'
+  /arrival/list:
+    $ref: 'arrival/arrival/route/getArrivalList.yaml'
+  /arrival/page:
+    $ref: 'arrival/arrival/route/getArrivalPage.yaml'
+
+#Supplyinvoice management
+  /supplyinvoice/create:
+    $ref: 'arrival/supplyinvoice/route/createSupplyinvoice.yaml'
+  /supplyinvoice/update:
+    $ref: 'arrival/supplyinvoice/route/updateSupplyinvoice.yaml'
+  /supplyinvoice/delete/{id}:
+    $ref: 'arrival/supplyinvoice/route/deleteSupplyinvoiceById.yaml'
+  /supplyinvoice/getby/{id}:
+    $ref: 'arrival/supplyinvoice/route/getSupplyinvoiceById.yaml'
+  /supplyinvoice/list:
+    $ref: 'arrival/supplyinvoice/route/getSupplyinvoiceList.yaml'
+  /supplyinvoice/page:
+    $ref: 'arrival/supplyinvoice/route/getSupplyinvoicePage.yaml'
+
+########################################################################################################################
+########################################################################################################################
+#Api sale management
+#Command management
+  /command/create:
+    $ref: 'sale/command/route/createCommand.yaml'
+  /command/update:
+    $ref: 'sale/command/route/updateCommand.yaml'
+  /command/delete/{id}:
+    $ref: 'sale/command/route/deleteCommandById.yaml'
+  /command/getby/{id}:
+    $ref: 'sale/command/route/getCommandById.yaml'
+  /command/list:
+    $ref: 'sale/command/route/getCommandList.yaml'
+  /command/page:
+    $ref: 'sale/command/route/getCommandPage.yaml'
+
+#Sale management
+  /sale/create:
+    $ref: 'sale/sale/route/createSale.yaml'
+  /sale/update:
+    $ref: 'sale/sale/route/updateSale.yaml'
+  /sale/delete/{id}:
+    $ref: 'sale/sale/route/deleteSaleById.yaml'
+  /sale/getby/{id}:
+    $ref: 'sale/sale/route/getSaleById.yaml'
+  /sale/list:
+    $ref: 'sale/sale/route/getSaleList.yaml'
+  /sale/page:
+    $ref: 'sale/sale/route/getSalePage.yaml'
+
+#Delivery management
+  /delivery/create:
+    $ref: 'sale/delivery/route/createDelivery.yaml'
+  /delivery/update:
+    $ref: 'sale/delivery/route/updateDelivery.yaml'
+  /delivery/delete/{id}:
+    $ref: 'sale/delivery/route/deleteDeliveryById.yaml'
+  /delivery/getby/{id}:
+    $ref: 'sale/delivery/route/getDeliveryById.yaml'
+  /delivery/list:
+    $ref: 'sale/delivery/route/getDeliveryList.yaml'
+  /delivery/page:
+    $ref: 'sale/delivery/route/getDeliveryPage.yaml'
+
+#Deliverydetails management
+  /deliverydetails/create:
+    $ref: 'sale/deliverydetails/route/createDeliverydetails.yaml'
+  /deliverydetails/update:
+    $ref: 'sale/deliverydetails/route/updateDeliverydetails.yaml'
+  /deliverydetails/delete/{id}:
+    $ref: 'sale/deliverydetails/route/deleteDeliverydetailsById.yaml'
+  /deliverydetails/getby/{id}:
+    $ref: 'sale/deliverydetails/route/getDeliverydetailsById.yaml'
+  /deliverydetails/list:
+    $ref: 'sale/deliverydetails/route/getDeliverydetailsList.yaml'
+  /deliverydetails/page:
+    $ref: 'sale/deliverydetails/route/getDeliverydetailsPage.yaml'
+
+#Backin management
+  /backin/create:
+    $ref: 'sale/backin/route/createBackin.yaml'
+  /backin/update:
+    $ref: 'sale/backin/route/updateBackin.yaml'
+  /backin/delete/{id}:
+    $ref: 'sale/backin/route/deleteBackinById.yaml'
+  /backin/getby/{id}:
+    $ref: 'sale/backin/route/getBackinById.yaml'
+  /backin/list:
+    $ref: 'sale/backin/route/getBackinList.yaml'
+  /backin/page:
+    $ref: 'sale/backin/route/getBackinPage.yaml'
+
+#Backindetails management
+  /backindetails/create:
+    $ref: 'sale/backindetails/route/createBackindetails.yaml'
+  /backindetails/update:
+    $ref: 'sale/backindetails/route/updateBackindetails.yaml'
+  /backindetails/delete/{id}:
+    $ref: 'sale/backindetails/route/deleteBackindetailsById.yaml'
+  /backindetails/getby/{id}:
+    $ref: 'sale/backindetails/route/getBackindetailsById.yaml'
+  /backindetails/list:
+    $ref: 'sale/backindetails/route/getBackindetailsList.yaml'
+  /backindetails/page:
+    $ref: 'sale/backindetails/route/getBackindetailsPage.yaml'
+
+#Saleinvoice management
+  /saleinvoice/create:
+    $ref: 'sale/saleinvoice/route/createSaleinvoice.yaml'
+  /saleinvoice/update:
+    $ref: 'sale/saleinvoice/route/updateSaleinvoice.yaml'
+  /saleinvoice/delete/{id}:
+    $ref: 'sale/saleinvoice/route/deleteSaleinvoiceById.yaml'
+  /saleinvoice/getby/{id}:
+    $ref: 'sale/saleinvoice/route/getSaleinvoiceById.yaml'
+  /saleinvoice/list:
+    $ref: 'sale/saleinvoice/route/getSaleinvoiceList.yaml'
+  /saleinvoice/page:
+    $ref: 'sale/saleinvoice/route/getSaleinvoicePage.yaml'
+
+########################################################################################################################
+########################################################################################################################
+#Api Pos management
+#Pointofsale management
+  /pos/create:
+    $ref: 'pos/pos/route/createPos.yaml'
+  /pos/update:
+    $ref: 'pos/pos/route/updatePos.yaml'
+  /pos/delete/{id}:
+    $ref: 'pos/pos/route/deletePosById.yaml'
+  /pos/getby/{id}:
+    $ref: 'pos/pos/route/getPosById.yaml'
+  /pos/list:
+    $ref: 'pos/pos/route/getPosList.yaml'
+  /pos/page:
+    $ref: 'pos/pos/route/getPosPage.yaml'
+
+#Enterprise management
+  /enterprise/create:
+    $ref: 'pos/enterprise/route/createEnterprise.yaml'
+  /enterprise/update:
+    $ref: 'pos/enterprise/route/updateEnterprise.yaml'
+  /enterprise/delete/{id}:
+    $ref: 'pos/enterprise/route/deleteEnterpriseById.yaml'
+  /enterprise/getby/{id}:
+    $ref: 'pos/enterprise/route/getEnterpriseById.yaml'
+  /enterprise/list:
+    $ref: 'pos/enterprise/route/getEnterpriseList.yaml'
+  /enterprise/page:
+    $ref: 'pos/enterprise/route/getEnterprisePage.yaml'
+
+########################################################################################################################
+########################################################################################################################
+#Api Client management
+#Client management
+  /client/create:
+    $ref: 'client/client/route/createClient.yaml'
+  /client/update:
+    $ref: 'client/client/route/updateClient.yaml'
+  /client/delete/{id}:
+    $ref: 'client/client/route/deleteClientById.yaml'
+  /client/getby/{id}:
+    $ref: 'client/client/route/getClientById.yaml'
+  /client/list:
+    $ref: 'client/client/route/getClientList.yaml'
+  /client/page:
+    $ref: 'client/client/route/getClientPage.yaml'
+
+#ClientSpecialprice management
+  /clientspecialprice/create:
+    $ref: 'client/clientspecialprice/route/createClientSpecialprice.yaml'
+  /clientspecialprice/update:
+    $ref: 'client/clientspecialprice/route/updateClientSpecialprice.yaml'
+  /clientspecialprice/delete/{id}:
+    $ref: 'client/clientspecialprice/route/deleteClientSpecialpriceById.yaml'
+  /clientspecialprice/getby/{id}:
+    $ref: 'client/clientspecialprice/route/getClientSpecialpriceById.yaml'
+  /clientspecialprice/list:
+    $ref: 'client/clientspecialprice/route/getClientSpecialpriceList.yaml'
+  /clientspecialprice/page:
+    $ref: 'client/clientspecialprice/route/getClientSpecialpricePage.yaml'
+
+
+########################################################################################################################
+########################################################################################################################
+#Api Provider management
+#Provider management
+  /provider/create:
+    $ref: 'provider/provider/route/createProvider.yaml'
+  /provider/update:
+    $ref: 'provider/provider/route/updateProvider.yaml'
+  /provider/delete/{id}:
+    $ref: 'provider/provider/route/deleteProviderById.yaml'
+  /provider/getby/{id}:
+    $ref: 'provider/provider/route/getProviderById.yaml'
+  /provider/list:
+    $ref: 'provider/provider/route/getProviderList.yaml'
+  /provider/page:
+    $ref: 'provider/provider/route/getProviderPage.yaml'
+
+########################################################################################################################
+########################################################################################################################
+#Api Currency management
+  /currency/create:
+    $ref: 'currency/currency/route/createCurrency.yaml'
+  /currency/update:
+    $ref: 'currency/currency/route/updateCurrency.yaml'
+  /currency/delete/{id}:
+    $ref: 'currency/currency/route/deleteCurrencyById.yaml'
+  /currency/getby/{id}:
+    $ref: 'currency/currency/route/getCurrencyById.yaml'
+  /currency/list:
+    $ref: 'currency/currency/route/getCurrencyList.yaml'
+  /currency/page:
+    $ref: 'currency/currency/route/getCurrencyPage.yaml'
+
+#Api Currencyconversion management
+  /currency/conversion/create:
+    $ref: 'currency/currencyconversion/route/createCurrencyconversion.yaml'
+  /currency/conversion/update:
+    $ref: 'currency/currencyconversion/route/updateCurrencyconversion.yaml'
+  /currency/conversion/delete/{id}:
+    $ref: 'currency/currencyconversion/route/deleteCurrencyconversionById.yaml'
+  /currency/conversion/getby/{id}:
+    $ref: 'currency/currencyconversion/route/getCurrencyconversionById.yaml'
+  /currency/conversion/list:
+    $ref: 'currency/currencyconversion/route/getCurrencyconversionList.yaml'
+  /currency/conversion/page:
+    $ref: 'currency/currencyconversion/route/getCurrencyconversionPage.yaml'
+
+
+########################################################################################################################
+########################################################################################################################
+#Api Account management
+#Account management
+  /account/create:
+    $ref: 'account/account/route/createAccount.yaml'
+  /account/update:
+    $ref: 'account/account/route/updateAccount.yaml'
+  /account/delete/{id}:
+    $ref: 'account/account/route/deleteAccountById.yaml'
+  /account/getby/{id}:
+    $ref: 'account/account/route/getAccountById.yaml'
+  /account/list:
+    $ref: 'account/account/route/getAccountList.yaml'
+  /account/page:
+    $ref: 'account/account/route/getAccountPage.yaml'
+
+#Operation management
+  /operation/create:
+    $ref: 'account/operation/route/createOperation.yaml'
+  /operation/update:
+    $ref: 'account/operation/route/updateOperation.yaml'
+  /operation/delete/{id}:
+    $ref: 'account/operation/route/deleteOperationById.yaml'
+  /operation/getby/{id}:
+    $ref: 'account/operation/route/getOperationById.yaml'
+  /operation/list:
+    $ref: 'account/operation/route/getOperationList.yaml'
+  /operation/page:
+    $ref: 'account/operation/route/getOperationPage.yaml'
+
+#AccountOperation management
+  /account/operation/create:
+    $ref: 'account/accountoperation/route/createAccountOperation.yaml'
+  /account/operation/update:
+    $ref: 'account/accountoperation/route/updateAccountOperation.yaml'
+  /account/operation/delete/{id}:
+    $ref: 'account/accountoperation/route/deleteAccountOperationById.yaml'
+  /account/operation/getby/{id}:
+    $ref: 'account/accountoperation/route/getAccountOperationById.yaml'
+  /account/operation/list:
+    $ref: 'account/accountoperation/route/getAccountOperationList.yaml'
+  /account/operation/page:
+    $ref: 'account/accountoperation/route/getAccountOperationPage.yaml'
+
+
+########################################################################################################################
+########################################################################################################################
+#Api Inventory management
+#Inventory management
+  /inventory/create:
+    $ref: 'inventory/inventory/route/createInventory.yaml'
+  /inventory/update:
+    $ref: 'inventory/inventory/route/updateInventory.yaml'
+  /inventory/delete/{id}:
+    $ref: 'inventory/inventory/route/deleteInventoryById.yaml'
+  /inventory/getby/{id}:
+    $ref: 'inventory/inventory/route/getInventoryById.yaml'
+  /inventory/list:
+    $ref: 'inventory/inventory/route/getInventoryList.yaml'
+  /inventory/page:
+    $ref: 'inventory/inventory/route/getInventoryPage.yaml'
+
+#Inventoryline management
+  /inventoryline/create:
+    $ref: 'inventory/inventoryline/route/createInventoryline.yaml'
+  /inventoryline/update:
+    $ref: 'inventory/inventoryline/route/updateInventoryline.yaml'
+  /inventoryline/delete/{id}:
+    $ref: 'inventory/inventoryline/route/deleteInventorylineById.yaml'
+  /inventoryline/getby/{id}:
+    $ref: 'inventory/inventoryline/route/getInventorylineById.yaml'
+  /inventoryline/list:
+    $ref: 'inventory/inventoryline/route/getInventorylineList.yaml'
+  /inventoryline/page:
+    $ref: 'inventory/inventoryline/route/getInventorylinePage.yaml'
+
+
+########################################################################################################################
+########################################################################################################################
+#Api Packaging management
+#Packaging management
+  /packaging/create:
+    $ref: 'packaging/packaging/route/createPackaging.yaml'
+  /packaging/update:
+    $ref: 'packaging/packaging/route/updatePackaging.yaml'
+  /packaging/delete/{id}:
+    $ref: 'packaging/packaging/route/deletePackagingById.yaml'
+  /packaging/getby/{id}:
+    $ref: 'packaging/packaging/route/getPackagingById.yaml'
+  /packaging/list:
+    $ref: 'packaging/packaging/route/getPackagingList.yaml'
+  /packaging/page:
+    $ref: 'packaging/packaging/route/getPackagingPage.yaml'
+
+########################################################################################################################
+########################################################################################################################
+  #Api for file Uploaded with the id of the resource for which the image is uploaded
+  /upload/picture:
+    $ref: 'general/route/pictureUploadFile.yaml'
+  /load/picture/{id}:
+    $ref: 'general/route/pictureLoadFile.yaml'
+
+
+########################################################################################################################
+
+components:
+  schemas:
+    TestDto:
+      type: object
+      properties:
+        test:
+          type: string
+#    UserbmDto:
+#      $ref: 'userbm/dto/UserbmDto.yaml'
+

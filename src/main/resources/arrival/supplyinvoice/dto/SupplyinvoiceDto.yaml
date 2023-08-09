@@ -1,0 +1,34 @@
+type: object
+description: 'A Supply invoice in the system'
+properties:
+  siCode:
+    type: string
+  siComment:
+    type: string
+  siPicture:
+    type: string
+  siDeliverydate:
+    type: string
+    format: datetime
+  siInvoicingdate:
+    type: string
+    format: datetime
+  siTotalcolis:
+    type: number
+    format: double
+  siExpectedamount:
+    type: number
+    format: double
+  siPaidamount:
+    type: number
+    format: double
+  siPaymentmethod:
+    type: string
+    enum:
+      - Cash
+      - Momo
+      - Om
+  siPos:
+    type: object
+    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  

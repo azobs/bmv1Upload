@@ -1,0 +1,12 @@
+type: object
+description: 'A selling unit of product formated in the system'
+properties:
+  unitName:
+    type: string
+  unitAbbreviation:
+    type: string
+  unitPos:
+    type: object
+    $ref: '../../../../pos/pos/dto/PointofsaleDto.yaml'
+
+  

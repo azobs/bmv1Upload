@@ -1,0 +1,21 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+    readOnly: true
+  roleName:
+    type: string
+    minLength: 3
+    maxLength: 20
+    nullable: false
+  roleDescription:
+    type: string
+    maxLength: 256
+  roleType:
+    type: string
+    enum:
+      - ADMINBM
+      - ADMINENTERPRISE
+      - EMPLOYE
+  

@@ -1,0 +1,19 @@
+type: object
+description: 'A provider in the system'
+properties:
+  providerName:
+    type: string
+  providerAcronym:
+    type: string
+  providerDescription:
+    type: string
+  providerBalance:
+    type: integer
+    format: int32
+  providerAddress:
+    type: object
+    $ref: '../../../general/dto/AddressDto.yaml'
+  providerPos:
+    type: object
+    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  

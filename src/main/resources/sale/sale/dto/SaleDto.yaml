@@ -1,0 +1,25 @@
+type: object
+description: 'A Sale in the system'
+properties:
+  saleQuantity:
+    type: number
+    format: double
+  saleComment:
+    type: string
+  saleFinalprice:
+    type: number
+    format: double
+  saleType:
+    type: string
+    enum:
+      - Details
+      - Permutation
+      - Semiwhole
+      - Whole
+  saleCommand:
+    type: object
+    $ref: '../../command/dto/CommandDto.yaml'
+  saleArticle:
+    type: object
+    $ref: '../../../product/article/dto/ArticleDto.yaml'
+  

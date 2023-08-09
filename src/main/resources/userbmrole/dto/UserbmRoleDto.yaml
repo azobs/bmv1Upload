@@ -1,0 +1,22 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+    readOnly: true
+  userbm:
+    type: object
+    $ref: "../../userbm/dto/UserbmDto.yaml"
+  role:
+    type: object
+    $ref: "../../role/dto/RoleDto.yaml"
+  permissions:
+    type: array
+    items:
+      type: object
+      $ref: '../../auth/permission/dto/PermissionDto.yaml'
+required:
+  - userbm
+  - role
+##There are some permissions that can't be affected to certain RoleType. For example, A role with the roleType AdminBM
+## can't get permission to modify an Article because an article belong to a Pointofsale

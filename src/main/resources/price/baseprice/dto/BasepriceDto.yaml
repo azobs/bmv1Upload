@@ -1,0 +1,25 @@
+type: object
+description: 'A product formated in the system'
+properties:
+  bpPurchaseprice:
+    type: number
+    format: double
+  bpWholeprice:
+    type: number
+    format: double
+  bpSemiwholeprice:
+    type: number
+    format: double
+  bpDetailsprice:
+    type: number
+    format: double
+  bpPrecompte:
+    type: number
+    format: double
+  bpRistourne:
+    type: number
+    format: double
+  bpCurrency:
+    type: object
+    $ref: '../../../currency/currency/dto/CurrencyDto.yaml'
+  

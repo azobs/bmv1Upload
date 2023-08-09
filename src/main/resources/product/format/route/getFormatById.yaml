@@ -1,0 +1,30 @@
+get:
+  summary: Find a Format in the system by its id
+  operationId: getFormatById
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: integer
+        format: int64
+      required: true
+      description: The id that represent the Format found. It's compulsory if not the operation can't proceed
+  responses:
+    '200':
+      description: Format found successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../dto/FormatDto.yaml'
+    '400':
+      description: Bad request. Format ID must be an integer and larger than 0.
+    '401':
+      description: Authorization information is missing or invalid.
+    '403':
+      description: The user who ask the ressource is Forbidden.
+    '404':
+      description: The expected ressource is not found.
+    '500':
+      description: Unexpected error at the server side.
+summary: Represents a route used to find a format for this system
+description: Find an existing format in the system

@@ -1,0 +1,16 @@
+type: object
+description: 'A Packaging details in the system'
+properties:
+  packagenumberUsed:
+    type: integer
+    format: int32
+  packagenumberReturn:
+    type: integer
+    format: int32
+  pdPackaging:
+    type: object
+    $ref: '../../../packaging/packaging/dto/PackagingDto.yaml'
+  pdLoading:
+    type: object
+    $ref: '../../loading/dto/LoadingDto.yaml'
+  

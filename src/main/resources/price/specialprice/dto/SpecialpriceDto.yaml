@@ -1,0 +1,22 @@
+type: object
+description: 'A Specialprice in the system'
+properties:
+  spWholeprice:
+    type: number
+    format: double
+  spSemiwholeprice:
+    type: number
+    format: double
+  spDetailsprice:
+    type: number
+    format: double
+  spRistourne:
+    type: number
+    format: double
+  spPrecompte:
+    type: number
+    format: double
+  spBaseprice:
+    type: object
+    $ref: '../../baseprice/dto/BasepriceDto.yaml'
+  

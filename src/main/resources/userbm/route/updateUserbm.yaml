@@ -1,0 +1,28 @@
+put:
+  summary: Path used to update or modify an existing user in the system
+  operationId: updateUserbm
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../dto/UserbmDto.yaml'
+  responses:
+    '200':
+      description: Userbm updated successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../dto/UserbmDto.yaml'
+    '400':
+      description: Bad request. There is something wrong in the request.
+    '401':
+      description: Authorization information is missing or invalid.
+    '403':
+      description: The user who ask the ressource is Forbidden.
+    '404':
+      description: The expected ressource is not found.
+    '500':
+      description: Unexpected error at the server side.
+summary: Represents a route used to update a user for this system
+description: Update an existing user in the system
+  

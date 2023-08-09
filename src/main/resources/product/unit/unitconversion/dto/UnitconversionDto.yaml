@@ -1,0 +1,12 @@
+type: object
+description: 'A conversion rule used to convert one unit in another'
+properties:
+  conversionFactor:
+    type: number
+    format: double
+  unitSourceDto:
+    type: object
+    $ref: '../../unit/dto/UnitDto.yaml'
+  unitDestinationDto:
+    type: object
+    $ref: '../../unit/dto/UnitDto.yaml'

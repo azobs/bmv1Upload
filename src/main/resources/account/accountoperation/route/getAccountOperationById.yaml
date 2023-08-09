@@ -1,0 +1,30 @@
+get:
+  summary: Find an AccountOperation in the system by its id
+  operationId: getAccountOperationById
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: integer
+        format: int64
+      required: true
+      description: The id that represent the AccountOperation found. It's compulsory if not the operation can't proceed
+  responses:
+    '200':
+      description: AccountOperation found successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../dto/AccountOperationDto.yaml'
+    '400':
+      description: Bad request. Operation ID must be an integer and larger than 0.
+    '401':
+      description: Authorization information is missing or invalid.
+    '403':
+      description: The user who ask the ressource is Forbidden.
+    '404':
+      description: The expected ressource is not found.
+    '500':
+      description: Unexpected error at the server side.
+summary: Represents a route used to find an AccountOperation for this system
+description: Find an existing AccountOperation in the system

@@ -1,0 +1,20 @@
+post:
+  summary: Path used to list saleinvoice that respect certain criteria. A criteria is an instance of a Filter object
+  operationId: getSaleinvoiceList
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../../general/dto/FilterRequest.yaml' #FilterRequest
+  responses:
+    '200':
+      description: Saleinvoice list found successfully
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              $ref: '../dto/SaleinvoiceDto.yaml'
+
+  

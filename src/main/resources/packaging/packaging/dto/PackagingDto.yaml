@@ -1,0 +1,19 @@
+type: object
+description: 'A Packaging in the system'
+properties:
+  packLabel:
+    type: string
+  packDescription:
+    type: string
+  packFirstcolor:
+    type: string
+  packPrice:
+    type: number
+    format: double
+  packagingPos:
+    type: object
+    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  packagingProvider:
+    type: object
+    $ref: '../../../provider/provider/dto/ProviderDto.yaml'
+  

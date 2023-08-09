@@ -1,0 +1,21 @@
+type: object
+description: 'A pointofsale object of the system'
+properties:
+  posName:
+    type: string
+  posAcronym:
+    type: string
+  posDescription:
+    type: string
+  posAddressDto:
+    type: object
+    $ref: '../../../general/dto/AddressDto.yaml'
+  posAccountDto:
+    type: object
+    $ref: '../../../account/account/dto/AccountDto.yaml'
+  posCurrency:
+    type: object
+    $ref: '../../../currency/currency/dto/CurrencyDto.yaml'
+  posEnterprise:
+    type: object
+    $ref: '../../enterprise/dto/EnterpriseDto.yaml'

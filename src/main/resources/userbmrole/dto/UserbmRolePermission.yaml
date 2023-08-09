@@ -1,0 +1,14 @@
+type: object
+properties:
+  userbmroleId:
+    type: integer
+    format: int64
+  permissionId:
+    type: integer
+    format: int64
+  operation:
+    type: string
+    enum:
+      - ADD
+      - REMOVE
+  

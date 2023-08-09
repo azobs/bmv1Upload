@@ -1,0 +1,24 @@
+type: object
+description: 'Model used to precise search criteria and sort criteria'
+properties:
+  filters:
+    type: array
+    items:
+      type: object
+      $ref: './Filter.yaml'
+  logicOperator:
+    type: string
+    enum:
+      - AND
+      - OR
+  orderby:
+    type: array
+    items:
+      type: object
+      $ref: './Orderby.yaml'
+  page:
+    type: object
+    $ref: './Page.yaml'
+
+
+

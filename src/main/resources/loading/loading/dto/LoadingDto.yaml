@@ -1,0 +1,29 @@
+type: object
+description: 'A Loading in the system'
+properties:
+  loadCode:
+    type: string
+  loadDate:
+    type: string
+    format: datetime
+  loadExpectedamount:
+    type: number
+    format: double
+  loadPaidamount:
+    type: number
+    format: double
+  loadRemise:
+    type: number
+    format: double
+  loadReport:
+    type: string
+  loadManager:
+    type: object
+    $ref: '../../../userbm/dto/UserbmDto.yaml'
+  loadSaler:
+    type: object
+    $ref: '../../../userbm/dto/UserbmDto.yaml'
+  loadPos:
+    type: object
+    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  

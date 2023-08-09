@@ -1,0 +1,21 @@
+get:
+  summary: Load a picture
+  operationId: loadResourceById
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: integer
+        format: int64
+      required: true
+      description: The id of the element that represent the resource found. It's compulsory if not the operation can't proceed
+  responses:
+    '200':
+      description: Resource found successfully
+      content:
+        image/*:
+          schema:
+            type: string
+            format: binary
+summary: Represents a route used to load a resource from the system
+description: Download a picture from the system

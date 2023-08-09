@@ -1,0 +1,35 @@
+type: object
+description: 'A article in the system'
+properties:
+  artCode:
+    type: string
+  artName:
+    type: string
+  artShortname:
+    type: string
+  artDescription:
+    type: string
+  artThreshold:
+    type: integer
+    format: int32
+  artLowlimitwholesale:
+    type: integer
+    format: int32
+  artlowlimitSemiwholesale:
+    type: integer
+    format: int32
+  artQuantityinstock:
+    type: integer
+    format: int32
+  artPf:
+    type: object
+    $ref: '../../pf/dto/ProductformatedDto.yaml'
+  artUnit:
+    type: object
+    $ref: '../../unit/unit/dto/UnitDto.yaml'
+  artBaseprice:
+    type: object
+    $ref: '../../../price/baseprice/dto/BasepriceDto.yaml'
+  artPos:
+    type: object
+    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'

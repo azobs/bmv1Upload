@@ -1,0 +1,18 @@
+type: object
+description: 'An operation in the system'
+properties:
+  opDate:
+    type: string
+    format: datetime
+  opObject:
+    type: string
+  opDescription:
+    type: string
+  opType:
+    type: string
+    enum:
+      - Credit
+      - Withdrawal
+      - Change
+      - Others
+  

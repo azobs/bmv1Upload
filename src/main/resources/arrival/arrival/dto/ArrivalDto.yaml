@@ -1,0 +1,30 @@
+type: object
+description: 'An arrival in the system'
+properties:
+  deliveryQuantity:
+    type: number
+    format: double
+  arrivalDate:
+    type: string
+    format: datetime
+  arrivalUnitprice:
+    type: number
+    format: double
+  arrivalType:
+    type: string
+    enum:
+      - Standard
+      - Divers
+  arrivalNature:
+    type: string
+    enum:
+      - Cash
+      - Cover
+      - Damage
+  arrivalArticle:
+    type: object
+    $ref: '../../../product/article/dto/ArticleDto.yaml'
+  arrivalInvoice:
+    type: object
+    $ref: '../../supplyinvoice/dto/SupplyinvoiceDto.yaml'
+  

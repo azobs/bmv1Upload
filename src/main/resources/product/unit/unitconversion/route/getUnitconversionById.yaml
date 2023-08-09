@@ -1,0 +1,30 @@
+get:
+  summary: Find a Unitconversion in the system by its id
+  operationId: getUnitconversionById
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: integer
+        format: int64
+      required: true
+      description: The id that represent the Unitconversion found. It's compulsory if not the operation can't proceed
+  responses:
+    '200':
+      description: Unitconversion found successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../dto/UnitconversionDto.yaml'
+    '400':
+      description: Bad request. Unitconversion ID must be an integer and larger than 0.
+    '401':
+      description: Authorization information is missing or invalid.
+    '403':
+      description: The user who ask the ressource is Forbidden.
+    '404':
+      description: The expected ressource is not found.
+    '500':
+      description: Unexpected error at the server side.
+summary: Represents a route used to find a unitconversion for this system
+description: Find an existing unitconversion in the system

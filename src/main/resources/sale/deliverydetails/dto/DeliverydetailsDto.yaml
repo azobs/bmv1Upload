@@ -1,0 +1,16 @@
+type: object
+description: 'A Deliverydetails in the system which can contain multiple command'
+properties:
+  packageUsed:
+    type: integer
+    format: int32
+  packageReturn:
+    type: integer
+    format: int32
+  ddPackaging:
+    type: object
+    $ref: '../../../packaging/packaging/dto/PackagingDto.yaml'
+  ddDelivery:
+    type: object
+    $ref: '../../delivery/dto/DeliveryDto.yaml'
+  

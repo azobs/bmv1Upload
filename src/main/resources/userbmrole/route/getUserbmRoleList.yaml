@@ -1,0 +1,18 @@
+post:
+  summary: Path used to list user_role that respect certain criteria. A criteria is an instance of a Filter object
+  operationId: getUserbmRoleList
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../general/dto/FilterRequest.yaml' #FilterRequest
+  responses:
+    '200':
+      description: UserbmRole list found successfully
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              $ref: '../dto/UserbmRoleDto.yaml'

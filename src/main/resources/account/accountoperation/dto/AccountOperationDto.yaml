@@ -1,0 +1,13 @@
+type: object
+description: 'An account operation in the system'
+properties:
+  quantityinMvt:
+    type: number
+    format: double
+  operation:
+    type: object
+    $ref: '../../operation/dto/OperationDto.yaml'
+  account:
+    type: object
+    $ref: '../../account/dto/AccountDto.yaml'
+  

@@ -1,0 +1,12 @@
+type: object
+description: 'A product formated in the system'
+properties:
+  pfPicture:
+    type: string
+  pfProduct:
+    type: object
+    $ref: '../../product/dto/ProductDto.yaml'
+  pfFormat:
+    type: object
+    $ref: '../../format/dto/FormatDto.yaml'
+  

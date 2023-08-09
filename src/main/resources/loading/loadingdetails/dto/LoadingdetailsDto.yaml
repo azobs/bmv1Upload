@@ -1,0 +1,16 @@
+type: object
+description: 'A Loading details in the system'
+properties:
+  quantityTaken:
+    type: number
+    format: double
+  quantityReturn:
+    type: number
+    format: double
+  ldArticle:
+    type: object
+    $ref: '../../../product/article/dto/ArticleDto.yaml'
+  ldLoading:
+    type: object
+    $ref: '../../loading/dto/LoadingDto.yaml'
+  

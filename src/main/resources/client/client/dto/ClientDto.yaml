@@ -1,0 +1,19 @@
+type: object
+description: 'A client in the system'
+properties:
+  clientName:
+    type: string
+  clientOthername:
+    type: string
+  clientCni:
+    type: string
+  clientBalance:
+    type: integer
+    format: int32
+  clientAddress:
+    type: object
+    $ref: '../../../general/dto/AddressDto.yaml'
+  clientPos:
+    type: object
+    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  

@@ -1,0 +1,31 @@
+get:
+  summary: Find a Saleinvoice in the system by its id
+  operationId: getSaleinvoiceById
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: integer
+        format: int64
+      required: true
+      description: The id that represent the Saleinvoice found. It's compulsory if not the operation can't proceed
+  responses:
+    '200':
+      description: Saleinvoice found successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../dto/SaleinvoiceDto.yaml'
+    '400':
+      description: Bad request. Saleinvoice ID must be an integer and larger than 0.
+    '401':
+      description: Authorization information is missing or invalid.
+    '403':
+      description: The user who ask the ressource is Forbidden.
+    '404':
+      description: The expected ressource is not found.
+    '500':
+      description: Unexpected error at the server side.
+summary: Represents a route used to find a saleinvoice for this system
+description: Find an existing Saleinvoice in the system
+  

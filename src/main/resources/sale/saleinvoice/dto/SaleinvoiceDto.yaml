@@ -1,0 +1,28 @@
+type: object
+description: 'A Sale invoice in the system'
+properties:
+  siCode:
+    type: string
+  siComment:
+    type: string
+  siInvoicingdate:
+    type: string
+    format: datetime
+  siTotalcolis:
+    type: number
+    format: double
+  siExpectedamount: #It can be a number of cover or damage. In that time the payment method must be cash
+    type: number
+    format: double
+  siPaidamount:
+    type: number
+    format: double
+  siPaymentmethod:
+    type: string
+    enum:
+      - Cash
+      - Momo
+      - Om
+  siPos:
+    type: object
+    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'

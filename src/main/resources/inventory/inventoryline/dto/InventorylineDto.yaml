@@ -1,0 +1,18 @@
+type: object
+description: 'An Inventory line in the system'
+properties:
+  invlineComment:
+    type: string
+  realqteinStock:
+    type: number
+    format: double
+  logicqteinStock:
+    type: number
+    format: double
+  inventory:
+    type: object
+    $ref: '../../inventory/dto/InventoryDto.yaml'
+  invlineArticle:
+    type: object
+    $ref: '../../../product/article/dto/ArticleDto.yaml'
+  

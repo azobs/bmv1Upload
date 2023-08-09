@@ -1,0 +1,28 @@
+type: object
+description: 'A permission that really give right to act on an object of the system'
+properties:
+  catName:
+    type: string
+    minLength: 2
+    maxLength: 50
+    nullable: false
+  catShortname:
+    type: string
+    minLength: 2
+    maxLength: 20
+  catCode:
+    type: string
+    minLength: 3
+    maxLength: 7
+  catDescription:
+    type: string
+    maxLength: 256
+  catParentDto:
+    type: object
+    $ref: './CategoryDto.yaml'
+  catPosDto:
+    type: object
+    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+required:
+  - catName
+  - posofCat

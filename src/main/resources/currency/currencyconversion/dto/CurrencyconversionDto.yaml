@@ -1,0 +1,13 @@
+type: object
+description: 'A conversion rule used to convert one currency in another'
+properties:
+  conversionFactor:
+    type: number
+    format: double
+  currencySource:
+    type: object
+    $ref: '../../currency/dto/CurrencyDto.yaml'
+  currencyDestination:
+    type: object
+    $ref: '../../currency/dto/CurrencyDto.yaml'
+  

@@ -1,0 +1,12 @@
+type: object
+description: 'A currency used in the system'
+properties:
+  currencyName:
+    type: string
+    maxLength: 30
+    nullable: false
+  currencyAbbreviation:
+    type: string
+    maxLength: 5
+    nullable: false
+  
