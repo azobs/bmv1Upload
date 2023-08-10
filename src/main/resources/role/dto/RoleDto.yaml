@@ -9,6 +9,7 @@ properties:
     minLength: 3
     maxLength: 20
     nullable: false
+    example: Admin
   roleDescription:
     type: string
     maxLength: 256
@@ -18,4 +19,15 @@ properties:
       - ADMINBM
       - ADMINENTERPRISE
       - EMPLOYE
+    example: ADMINBM
+  #If the role is ADMINENTERPRISE the enterprise must not be null
+  #If the role is EMPLOYE the pointofsale must not be null
+  #The two are null if the role concerned the system itself
+  #Each role has now his own list of permission
+  rolePos:
+    type: object
+    $ref: '../../pos/pos/dto/PointofsaleDto.yaml'
+  roleEnt:
+    type: object
+    $ref: '../../pos/enterprise/dto/EnterpriseDto.yaml'
   

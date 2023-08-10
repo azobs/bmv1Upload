@@ -3,8 +3,10 @@ description: 'A article in the system'
 properties:
   artCode:
     type: string
+    example: A0000
   artName:
     type: string
+    example: artName
   artShortname:
     type: string
   artDescription:
@@ -12,15 +14,19 @@ properties:
   artThreshold:
     type: integer
     format: int32
+    example: 0
   artLowlimitwholesale:
     type: integer
     format: int32
+    example: 30
   artlowlimitSemiwholesale:
     type: integer
     format: int32
+    example: 25
   artQuantityinstock:
     type: integer
     format: int32
+    example: 0
   artPf:
     type: object
     $ref: '../../pf/dto/ProductformatedDto.yaml'

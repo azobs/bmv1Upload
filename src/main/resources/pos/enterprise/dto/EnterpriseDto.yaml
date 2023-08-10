@@ -3,6 +3,13 @@ description: 'An enterprise which can contain multiple pointofsale all manage in
 properties:
   entRegime:
     type: string
+    enum:
+      - IL
+      - SI
+      - SARL
+      - SA
+      - GRP
+    example: IL
   entSocialreason:
     type: string
   entDescription:
@@ -11,6 +18,7 @@ properties:
     type: string
   entName:
     type: string
+    example: entName
   entAcronym:
     type: string
   entLogo:

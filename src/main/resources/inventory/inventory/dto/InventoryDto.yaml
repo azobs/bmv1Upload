@@ -8,6 +8,7 @@ properties:
     format: datetime
   invCode:
     type: string
+    example: I0000
   invPos:
     type: object
     $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'

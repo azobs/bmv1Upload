@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * A Loading in the system
  */
 @ApiModel(description = "A Loading in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class LoadingDto   {
   @JsonProperty("loadCode")
   private String loadCode;
@@ -53,7 +53,7 @@ public class LoadingDto   {
    * Get loadCode
    * @return loadCode
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "L0000", value = "")
 
 
   public String getLoadCode() {
@@ -91,11 +91,12 @@ public class LoadingDto   {
 
   /**
    * Get loadExpectedamount
+   * minimum: 1
    * @return loadExpectedamount
   */
   @ApiModelProperty(value = "")
 
-
+@DecimalMin("1") 
   public Double getLoadExpectedamount() {
     return loadExpectedamount;
   }
@@ -111,11 +112,12 @@ public class LoadingDto   {
 
   /**
    * Get loadPaidamount
+   * minimum: 1
    * @return loadPaidamount
   */
   @ApiModelProperty(value = "")
 
-
+@DecimalMin("1") 
   public Double getLoadPaidamount() {
     return loadPaidamount;
   }
@@ -131,11 +133,12 @@ public class LoadingDto   {
 
   /**
    * Get loadRemise
+   * minimum: 0
    * @return loadRemise
   */
   @ApiModelProperty(value = "")
 
-
+@DecimalMin("0") 
   public Double getLoadRemise() {
     return loadRemise;
   }

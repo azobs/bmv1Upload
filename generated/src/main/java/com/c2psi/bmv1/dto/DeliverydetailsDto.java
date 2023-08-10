@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * A Deliverydetails in the system which can contain multiple command
  */
 @ApiModel(description = "A Deliverydetails in the system which can contain multiple command")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class DeliverydetailsDto   {
   @JsonProperty("packageUsed")
   private Integer packageUsed;
@@ -38,7 +38,7 @@ public class DeliverydetailsDto   {
    * Get packageUsed
    * @return packageUsed
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
 
   public Integer getPackageUsed() {
@@ -58,7 +58,7 @@ public class DeliverydetailsDto   {
    * Get packageReturn
    * @return packageReturn
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
 
   public Integer getPackageReturn() {

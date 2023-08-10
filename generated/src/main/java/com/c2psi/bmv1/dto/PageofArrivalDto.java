@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 /**
  * PageofArrivalDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class PageofArrivalDto   {
   @JsonProperty("totalElements")
   private Integer totalElements;
@@ -80,11 +80,12 @@ public class PageofArrivalDto   {
 
   /**
    * Get currentPage
+   * minimum: 0
    * @return currentPage
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
-
+@Min(0) 
   public Integer getCurrentPage() {
     return currentPage;
   }
@@ -100,11 +101,12 @@ public class PageofArrivalDto   {
 
   /**
    * Get pageSize
+   * minimum: 0
    * @return pageSize
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "10", value = "")
 
-
+@Min(0) 
   public Integer getPageSize() {
     return pageSize;
   }

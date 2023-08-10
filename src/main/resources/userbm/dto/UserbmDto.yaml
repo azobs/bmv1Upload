@@ -9,25 +9,30 @@ properties:
     minLength: 3
     maxLength: 15
     nullable: false
+    example: login
   userCni:
     type: string
-    minLength: 3
+    minLength: 9
     maxLength: 17
+    example: 107235260
   userPassword:
     type: string
     minLength: 4
     nullable: false
     writeOnly: true # Used in POST/PUT/PATCH, not returned by GET
+    example: password
   userRepassword:
     type: string
     minLength: 4
     nullable: false
     writeOnly: true # Used in POST/PUT/PATCH, not returned by GET
+    example: password
   userName:
     type: string
     minLength: 2
     maxLength: 30
     nullable: false
+    example: userName
   userSurname:
     type: string
     minLength: 2

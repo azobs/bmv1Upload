@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * A Sale invoice in the system
  */
 @ApiModel(description = "A Sale invoice in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class SaleinvoiceDto   {
   @JsonProperty("siCode")
   private String siCode;
@@ -87,7 +87,7 @@ public class SaleinvoiceDto   {
    * Get siCode
    * @return siCode
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
 
   public String getSiCode() {
@@ -207,7 +207,7 @@ public class SaleinvoiceDto   {
    * Get siPaymentmethod
    * @return siPaymentmethod
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "Cash", value = "")
 
 
   public SiPaymentmethodEnum getSiPaymentmethod() {

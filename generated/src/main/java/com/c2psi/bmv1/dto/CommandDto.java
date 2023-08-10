@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
  * A Command in the system
  */
 @ApiModel(description = "A Command in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class CommandDto   {
   @JsonProperty("cmdCode")
   private String cmdCode;
@@ -140,7 +140,7 @@ public class CommandDto   {
    * Get cmdCode
    * @return cmdCode
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "C0000", value = "")
 
 
   public String getCmdCode() {
@@ -200,7 +200,7 @@ public class CommandDto   {
    * Get cmdState
    * @return cmdState
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "InEditing", value = "")
 
 
   public CmdStateEnum getCmdState() {
@@ -220,7 +220,7 @@ public class CommandDto   {
    * Get cmdNature
    * @return cmdNature
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "Cash", value = "")
 
 
   public CmdNatureEnum getCmdNature() {

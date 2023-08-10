@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "enterprise", description = "the enterprise API")
 public interface EnterpriseApi {
@@ -32,7 +32,7 @@ public interface EnterpriseApi {
     }
 
     /**
-     * DELETE /enterprise/delete/{id} : Path used to delete a Enterprise in the system with its id
+     * DELETE /enterprise/bmV1.0/delete/{id} : Path used to delete a Enterprise in the system with its id
      *
      * @param id The id that represent the Enterprise to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Enterprise deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface EnterpriseApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/enterprise/delete/{id}",
+        value = "/enterprise/bmV1.0/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteEnterpriseById(@ApiParam(value = "The id that represent the Enterprise to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface EnterpriseApi {
 
 
     /**
-     * GET /enterprise/getby/{id} : Find an Enterprise in the system by its id
+     * GET /enterprise/bmV1.0/getby/{id} : Find an Enterprise in the system by its id
      *
      * @param id The id that represent the Enterprise found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Enterprise found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface EnterpriseApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/enterprise/getby/{id}",
+        value = "/enterprise/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<EnterpriseDto> _getEnterpriseById(@ApiParam(value = "The id that represent the Enterprise found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -99,7 +99,7 @@ public interface EnterpriseApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"entAcronym\" : \"entAcronym\", \"entNiu\" : \"entNiu\", \"entSocialreason\" : \"entSocialreason\", \"entName\" : \"entName\", \"entLogo\" : \"entLogo\", \"entRegime\" : \"entRegime\", \"entDescription\" : \"entDescription\", \"entAdmin\" : { \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" } }";
+                    String exampleString = "{ \"entAcronym\" : \"entAcronym\", \"entNiu\" : \"entNiu\", \"entSocialreason\" : \"entSocialreason\", \"entName\" : \"entName\", \"entLogo\" : \"entLogo\", \"entRegime\" : \"IL\", \"entDescription\" : \"entDescription\", \"entAdmin\" : { \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -111,7 +111,7 @@ public interface EnterpriseApi {
 
 
     /**
-     * POST /enterprise/list : Path used to list enterprise that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /enterprise/bmV1.0/list : Path used to list enterprise that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Enterprise list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface EnterpriseApi {
         @ApiResponse(code = 200, message = "Enterprise list found successfully", response = EnterpriseDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/enterprise/list",
+        value = "/enterprise/bmV1.0/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -134,7 +134,7 @@ public interface EnterpriseApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"entAcronym\" : \"entAcronym\", \"entNiu\" : \"entNiu\", \"entSocialreason\" : \"entSocialreason\", \"entName\" : \"entName\", \"entLogo\" : \"entLogo\", \"entRegime\" : \"entRegime\", \"entDescription\" : \"entDescription\", \"entAdmin\" : { \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" } }";
+                    String exampleString = "{ \"entAcronym\" : \"entAcronym\", \"entNiu\" : \"entNiu\", \"entSocialreason\" : \"entSocialreason\", \"entName\" : \"entName\", \"entLogo\" : \"entLogo\", \"entRegime\" : \"IL\", \"entDescription\" : \"entDescription\", \"entAdmin\" : { \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -146,7 +146,7 @@ public interface EnterpriseApi {
 
 
     /**
-     * POST /enterprise/page : Path used to list Enterprise page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /enterprise/bmV1.0/page : Path used to list Enterprise page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Enterprise page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface EnterpriseApi {
         @ApiResponse(code = 200, message = "Enterprise page found successfully", response = PageofEnterpriseDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/enterprise/page",
+        value = "/enterprise/bmV1.0/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -169,7 +169,7 @@ public interface EnterpriseApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 5, \"currentPage\" : 1, \"content\" : [ { \"entAcronym\" : \"entAcronym\", \"entNiu\" : \"entNiu\", \"entSocialreason\" : \"entSocialreason\", \"entName\" : \"entName\", \"entLogo\" : \"entLogo\", \"entRegime\" : \"entRegime\", \"entDescription\" : \"entDescription\", \"entAdmin\" : { \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" } }, { \"entAcronym\" : \"entAcronym\", \"entNiu\" : \"entNiu\", \"entSocialreason\" : \"entSocialreason\", \"entName\" : \"entName\", \"entLogo\" : \"entLogo\", \"entRegime\" : \"entRegime\", \"entDescription\" : \"entDescription\", \"entAdmin\" : { \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" } } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"entAcronym\" : \"entAcronym\", \"entNiu\" : \"entNiu\", \"entSocialreason\" : \"entSocialreason\", \"entName\" : \"entName\", \"entLogo\" : \"entLogo\", \"entRegime\" : \"IL\", \"entDescription\" : \"entDescription\", \"entAdmin\" : { \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" } }, { \"entAcronym\" : \"entAcronym\", \"entNiu\" : \"entNiu\", \"entSocialreason\" : \"entSocialreason\", \"entName\" : \"entName\", \"entLogo\" : \"entLogo\", \"entRegime\" : \"IL\", \"entDescription\" : \"entDescription\", \"entAdmin\" : { \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" } } ], \"totalElements\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -181,7 +181,7 @@ public interface EnterpriseApi {
 
 
     /**
-     * POST /enterprise/create : Path used to save a new Enterprise in the system
+     * POST /enterprise/bmV1.0/create : Path used to save a new Enterprise in the system
      *
      * @param enterpriseDto  (optional)
      * @return Enterprise saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface EnterpriseApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/enterprise/create",
+        value = "/enterprise/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -214,7 +214,7 @@ public interface EnterpriseApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"entAcronym\" : \"entAcronym\", \"entNiu\" : \"entNiu\", \"entSocialreason\" : \"entSocialreason\", \"entName\" : \"entName\", \"entLogo\" : \"entLogo\", \"entRegime\" : \"entRegime\", \"entDescription\" : \"entDescription\", \"entAdmin\" : { \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" } }";
+                    String exampleString = "{ \"entAcronym\" : \"entAcronym\", \"entNiu\" : \"entNiu\", \"entSocialreason\" : \"entSocialreason\", \"entName\" : \"entName\", \"entLogo\" : \"entLogo\", \"entRegime\" : \"IL\", \"entDescription\" : \"entDescription\", \"entAdmin\" : { \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -226,7 +226,7 @@ public interface EnterpriseApi {
 
 
     /**
-     * PUT /enterprise/update : Path used to update or modify an existing Enterprise in the system
+     * PUT /enterprise/bmV1.0/update : Path used to update or modify an existing Enterprise in the system
      *
      * @param enterpriseDto  (optional)
      * @return Enterprise updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface EnterpriseApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/enterprise/update",
+        value = "/enterprise/bmV1.0/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -259,7 +259,7 @@ public interface EnterpriseApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"entAcronym\" : \"entAcronym\", \"entNiu\" : \"entNiu\", \"entSocialreason\" : \"entSocialreason\", \"entName\" : \"entName\", \"entLogo\" : \"entLogo\", \"entRegime\" : \"entRegime\", \"entDescription\" : \"entDescription\", \"entAdmin\" : { \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" } }";
+                    String exampleString = "{ \"entAcronym\" : \"entAcronym\", \"entNiu\" : \"entNiu\", \"entSocialreason\" : \"entSocialreason\", \"entName\" : \"entName\", \"entLogo\" : \"entLogo\", \"entRegime\" : \"IL\", \"entDescription\" : \"entDescription\", \"entAdmin\" : { \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

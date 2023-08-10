@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * A Backin in the system which represent articles return back by a client after delivery
  */
 @ApiModel(description = "A Backin in the system which represent articles return back by a client after delivery")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class BackindetailsDto   {
   @JsonProperty("bidQuantity")
   private Double bidQuantity;
@@ -38,7 +38,7 @@ public class BackindetailsDto   {
    * Get bidQuantity
    * @return bidQuantity
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
 
   public Double getBidQuantity() {

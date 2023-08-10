@@ -9,9 +9,14 @@ properties:
   currentPage:
     type: integer
     format: int32
+    minimum: 0
+    exclusiveMinimum: false
   pageSize:
     type: integer
     format: int32
+    minimum: 1
+    exclusiveMinimum: false
+    example: 10
   content:
     type: array
     items:

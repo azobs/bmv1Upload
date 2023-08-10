@@ -1,6 +1,6 @@
 package com.c2psi.bmv1.address.models;
 
-import com.c2psi.bmv1.abstracts.models.AbstractEntity;
+import com.c2psi.bmv1.global.models.AbstractEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

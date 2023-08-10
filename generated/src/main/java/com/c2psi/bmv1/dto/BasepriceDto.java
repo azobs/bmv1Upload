@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * A product formated in the system
  */
 @ApiModel(description = "A product formated in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class BasepriceDto   {
   @JsonProperty("bpPurchaseprice")
   private Double bpPurchaseprice;
@@ -44,11 +44,12 @@ public class BasepriceDto   {
 
   /**
    * Get bpPurchaseprice
+   * minimum: 0
    * @return bpPurchaseprice
   */
   @ApiModelProperty(value = "")
 
-
+@DecimalMin(value = "0", inclusive = false) 
   public Double getBpPurchaseprice() {
     return bpPurchaseprice;
   }
@@ -64,11 +65,12 @@ public class BasepriceDto   {
 
   /**
    * Get bpWholeprice
+   * minimum: 0
    * @return bpWholeprice
   */
   @ApiModelProperty(value = "")
 
-
+@DecimalMin(value = "0", inclusive = false) 
   public Double getBpWholeprice() {
     return bpWholeprice;
   }
@@ -84,11 +86,12 @@ public class BasepriceDto   {
 
   /**
    * Get bpSemiwholeprice
+   * minimum: 0
    * @return bpSemiwholeprice
   */
   @ApiModelProperty(value = "")
 
-
+@DecimalMin(value = "0", inclusive = false) 
   public Double getBpSemiwholeprice() {
     return bpSemiwholeprice;
   }
@@ -104,11 +107,12 @@ public class BasepriceDto   {
 
   /**
    * Get bpDetailsprice
+   * minimum: 0
    * @return bpDetailsprice
   */
   @ApiModelProperty(value = "")
 
-
+@DecimalMin(value = "0", inclusive = false) 
   public Double getBpDetailsprice() {
     return bpDetailsprice;
   }
@@ -126,7 +130,7 @@ public class BasepriceDto   {
    * Get bpPrecompte
    * @return bpPrecompte
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
 
   public Double getBpPrecompte() {
@@ -146,7 +150,7 @@ public class BasepriceDto   {
    * Get bpRistourne
    * @return bpRistourne
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
 
   public Double getBpRistourne() {

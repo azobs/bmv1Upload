@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "pf", description = "the pf API")
 public interface PfApi {
@@ -32,7 +32,7 @@ public interface PfApi {
     }
 
     /**
-     * DELETE /pf/delete/{id} : Path used to delete a product formated in the system with its id
+     * DELETE /pf/bmV1.0/delete/{id} : Path used to delete a product formated in the system with its id
      *
      * @param id The id that represent the Productformated to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Productformated deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface PfApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/pf/delete/{id}",
+        value = "/pf/bmV1.0/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteProductformatedById(@ApiParam(value = "The id that represent the Productformated to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface PfApi {
 
 
     /**
-     * GET /pf/getby/{id} : Find a Productformated in the system by its id
+     * GET /pf/bmV1.0/getby/{id} : Find a Productformated in the system by its id
      *
      * @param id The id that represent the Productformated found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Productformated found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface PfApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/pf/getby/{id}",
+        value = "/pf/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<ProductformatedDto> _getProductformatedById(@ApiParam(value = "The id that represent the Productformated found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -99,7 +99,7 @@ public interface PfApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 } }";
+                    String exampleString = "{ \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -111,7 +111,7 @@ public interface PfApi {
 
 
     /**
-     * POST /pf/list : Path used to list productformated that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /pf/bmV1.0/list : Path used to list productformated that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Productformated list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface PfApi {
         @ApiResponse(code = 200, message = "Productformated list found successfully", response = ProductformatedDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/pf/list",
+        value = "/pf/bmV1.0/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -134,7 +134,7 @@ public interface PfApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 } }";
+                    String exampleString = "{ \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -146,7 +146,7 @@ public interface PfApi {
 
 
     /**
-     * POST /pf/page : Path used to list productformated page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /pf/bmV1.0/page : Path used to list productformated page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Productformated page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface PfApi {
         @ApiResponse(code = 200, message = "Productformated page found successfully", response = PageofProductformatedDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/pf/page",
+        value = "/pf/bmV1.0/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -169,7 +169,7 @@ public interface PfApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 5, \"currentPage\" : 1, \"content\" : [ { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 } }, { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 } } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 } }, { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 } } ], \"totalElements\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -181,7 +181,7 @@ public interface PfApi {
 
 
     /**
-     * POST /pf/create : Path used to save a new product formated in the system
+     * POST /pf/bmV1.0/create : Path used to save a new product formated in the system
      *
      * @param productformatedDto  (optional)
      * @return Product formated saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface PfApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/pf/create",
+        value = "/pf/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -214,7 +214,7 @@ public interface PfApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 } }";
+                    String exampleString = "{ \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -226,7 +226,7 @@ public interface PfApi {
 
 
     /**
-     * PUT /pf/update : Path used to update or modify an existing product formated in the system
+     * PUT /pf/bmV1.0/update : Path used to update or modify an existing product formated in the system
      *
      * @param productformatedDto  (optional)
      * @return Productformated updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface PfApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/pf/update",
+        value = "/pf/bmV1.0/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -259,7 +259,7 @@ public interface PfApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 } }";
+                    String exampleString = "{ \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

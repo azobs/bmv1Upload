@@ -3,6 +3,7 @@ description: 'A Command in the system'
 properties:
   cmdCode:
     type: string
+    example: C0000
   cmdDate:
     type: string
     format: datetime
@@ -15,12 +16,14 @@ properties:
       - Edited
       - InDelivery
       - Delivery
+    example: InEditing
   cmdNature:
     type: string
     enum:
       - Cash
       - Cover
       - Damage
+    example: Cash
   cmdDelivery:
     type: object
     $ref: '../../delivery/dto/DeliveryDto.yaml'

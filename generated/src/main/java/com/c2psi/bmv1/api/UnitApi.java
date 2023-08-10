@@ -24,7 +24,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "unit", description = "the unit API")
 public interface UnitApi {
@@ -34,7 +34,7 @@ public interface UnitApi {
     }
 
     /**
-     * DELETE /unit/unit/delete/{id} : Path used to delete a unit in the system with its id
+     * DELETE /unit/unit/bmV1.0/delete/{id} : Path used to delete a unit in the system with its id
      *
      * @param id The id that represent the Unit to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Unit deleted successfully (status code 200)
@@ -54,7 +54,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/unit/unit/delete/{id}",
+        value = "/unit/unit/bmV1.0/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteUnitById(@ApiParam(value = "The id that represent the Unit to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -69,7 +69,7 @@ public interface UnitApi {
 
 
     /**
-     * DELETE /unit/conversion/delete/{id} : Path used to delete a unit conversion in the system with its id
+     * DELETE /unit/conversion/bmV1.0/delete/{id} : Path used to delete a unit conversion in the system with its id
      *
      * @param id The id that represent the Unitconversion to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Unitconversion deleted successfully (status code 200)
@@ -89,7 +89,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/unit/conversion/delete/{id}",
+        value = "/unit/conversion/bmV1.0/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteUnitconversionById(@ApiParam(value = "The id that represent the Unitconversion to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -104,7 +104,7 @@ public interface UnitApi {
 
 
     /**
-     * GET /unit/unit/getby/{id} : Find a Unit in the system by its id
+     * GET /unit/unit/bmV1.0/getby/{id} : Find a Unit in the system by its id
      *
      * @param id The id that represent the Unit found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Unit found successfully (status code 200)
@@ -124,7 +124,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/unit/unit/getby/{id}",
+        value = "/unit/unit/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<UnitDto> _getUnitById(@ApiParam(value = "The id that represent the Unit found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -136,7 +136,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }";
+                    String exampleString = "{ \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -148,7 +148,7 @@ public interface UnitApi {
 
 
     /**
-     * POST /unit/unit/list : Path used to list unit that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /unit/unit/bmV1.0/list : Path used to list unit that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Unit list found successfully (status code 200)
@@ -158,7 +158,7 @@ public interface UnitApi {
         @ApiResponse(code = 200, message = "Unit list found successfully", response = UnitDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/unit/unit/list",
+        value = "/unit/unit/bmV1.0/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -171,7 +171,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }";
+                    String exampleString = "{ \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -183,7 +183,7 @@ public interface UnitApi {
 
 
     /**
-     * POST /unit/unit/page : Path used to list unit page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /unit/unit/bmV1.0/page : Path used to list unit page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Unit page found successfully (status code 200)
@@ -193,7 +193,7 @@ public interface UnitApi {
         @ApiResponse(code = 200, message = "Unit page found successfully", response = PageofUnitDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/unit/unit/page",
+        value = "/unit/unit/bmV1.0/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -206,7 +206,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 5, \"currentPage\" : 1, \"content\" : [ { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }, { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } ], \"totalElements\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -218,7 +218,7 @@ public interface UnitApi {
 
 
     /**
-     * GET /unit/conversion/getby/{id} : Find a Unitconversion in the system by its id
+     * GET /unit/conversion/bmV1.0/getby/{id} : Find a Unitconversion in the system by its id
      *
      * @param id The id that represent the Unitconversion found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Unitconversion found successfully (status code 200)
@@ -238,7 +238,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/unit/conversion/getby/{id}",
+        value = "/unit/conversion/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<UnitconversionDto> _getUnitconversionById(@ApiParam(value = "The id that represent the Unitconversion found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -250,7 +250,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" } }";
+                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -262,7 +262,7 @@ public interface UnitApi {
 
 
     /**
-     * POST /unit/conversion/list : Path used to list unitconversion that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /unit/conversion/bmV1.0/list : Path used to list unitconversion that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Unitconversion list found successfully (status code 200)
@@ -272,7 +272,7 @@ public interface UnitApi {
         @ApiResponse(code = 200, message = "Unitconversion list found successfully", response = UnitconversionDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/unit/conversion/list",
+        value = "/unit/conversion/bmV1.0/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -285,7 +285,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" } }";
+                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -297,7 +297,7 @@ public interface UnitApi {
 
 
     /**
-     * POST /unit/conversion/page : Path used to list unitconversion page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /unit/conversion/bmV1.0/page : Path used to list unitconversion page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Unitconversion page found successfully (status code 200)
@@ -307,7 +307,7 @@ public interface UnitApi {
         @ApiResponse(code = 200, message = "Unitconversion page found successfully", response = PageofUnitconversionDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/unit/conversion/page",
+        value = "/unit/conversion/bmV1.0/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -320,7 +320,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 5, \"currentPage\" : 1, \"content\" : [ { \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" } }, { \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" } } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } }, { \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } } ], \"totalElements\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -332,7 +332,7 @@ public interface UnitApi {
 
 
     /**
-     * POST /unit/unit/create : Path used to save a new unit used to sell productformated in the system
+     * POST /unit/unit/bmV1.0/create : Path used to save a new unit used to sell productformated in the system
      *
      * @param unitDto  (optional)
      * @return Unit saved successfully (status code 200)
@@ -352,7 +352,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/unit/unit/create",
+        value = "/unit/unit/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -365,7 +365,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }";
+                    String exampleString = "{ \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -377,7 +377,7 @@ public interface UnitApi {
 
 
     /**
-     * POST /unit/conversion/create : Path used to save a new unitconversion used to sell productformated in the system
+     * POST /unit/conversion/bmV1.0/create : Path used to save a new unitconversion used to sell productformated in the system
      *
      * @param unitconversionDto  (optional)
      * @return Unitconversion saved successfully (status code 200)
@@ -397,7 +397,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/unit/conversion/create",
+        value = "/unit/conversion/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -410,7 +410,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" } }";
+                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -422,7 +422,7 @@ public interface UnitApi {
 
 
     /**
-     * PUT /unit/unit/update : Path used to update or modify an existing unit in the system
+     * PUT /unit/unit/bmV1.0/update : Path used to update or modify an existing unit in the system
      *
      * @param unitDto  (optional)
      * @return Unit updated successfully (status code 200)
@@ -442,7 +442,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/unit/unit/update",
+        value = "/unit/unit/bmV1.0/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -455,7 +455,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }";
+                    String exampleString = "{ \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -467,7 +467,7 @@ public interface UnitApi {
 
 
     /**
-     * PUT /unit/conversion/update : Path used to update or modify an existing unitconversion in the system
+     * PUT /unit/conversion/bmV1.0/update : Path used to update or modify an existing unitconversion in the system
      *
      * @param unitconversionDto  (optional)
      * @return Unitconversion updated successfully (status code 200)
@@ -487,7 +487,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/unit/conversion/update",
+        value = "/unit/conversion/bmV1.0/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -500,7 +500,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" } }";
+                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

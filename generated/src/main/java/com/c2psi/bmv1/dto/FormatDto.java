@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * A format used to format product in the system
  */
 @ApiModel(description = "A format used to format product in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class FormatDto   {
   @JsonProperty("formatName")
   private String formatName;
@@ -34,7 +34,7 @@ public class FormatDto   {
    * Get formatName
    * @return formatName
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "formatName", value = "")
 
 
   public String getFormatName() {

@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "sp", description = "the sp API")
 public interface SpApi {
@@ -30,7 +30,7 @@ public interface SpApi {
     }
 
     /**
-     * DELETE /sp/delete/{id} : Path used to delete a specialprice in the system with its id
+     * DELETE /sp/bmV1.0/delete/{id} : Path used to delete a specialprice in the system with its id
      *
      * @param id The id that represent the Specialprice to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Specialprice deleted successfully (status code 200)
@@ -50,7 +50,7 @@ public interface SpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/sp/delete/{id}",
+        value = "/sp/bmV1.0/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteSpecialpriceById(@ApiParam(value = "The id that represent the Specialprice to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -65,7 +65,7 @@ public interface SpApi {
 
 
     /**
-     * GET /sp/getby/{id} : Find a Specialprice in the system by its id
+     * GET /sp/bmV1.0/getby/{id} : Find a Specialprice in the system by its id
      *
      * @param id The id that represent the Specialprice found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Specialprice found successfully (status code 200)
@@ -85,7 +85,7 @@ public interface SpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/sp/getby/{id}",
+        value = "/sp/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<SpecialpriceDto> _getSpecialpriceById(@ApiParam(value = "The id that represent the Specialprice found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -97,7 +97,7 @@ public interface SpApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"spSemiwholeprice\" : 6.027456183070403, \"spBaseprice\" : { \"bpSemiwholeprice\" : 1.2315135367772556, \"bpPurchaseprice\" : 4.145608029883936, \"bpDetailsprice\" : 1.0246457001441578, \"bpRistourne\" : 6.84685269835264, \"bpCurrency\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"bpWholeprice\" : 7.386281948385884, \"bpPrecompte\" : 1.4894159098541704 }, \"spWholeprice\" : 0.8008281904610115, \"spRistourne\" : 5.962133916683182, \"spDetailsprice\" : 1.4658129805029452, \"spPrecompte\" : 5.637376656633329 }";
+                    String exampleString = "{ \"spSemiwholeprice\" : 0.6027456183070403, \"spBaseprice\" : { \"bpSemiwholeprice\" : 0.23021358869347652, \"bpPurchaseprice\" : 0.5962133916683182, \"bpDetailsprice\" : 0.7061401241503109, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"bpWholeprice\" : 0.5637376656633328, \"bpPrecompte\" : 0 }, \"spWholeprice\" : 0.08008281904610115, \"spRistourne\" : 0, \"spDetailsprice\" : 0.14658129805029452, \"spPrecompte\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -109,7 +109,7 @@ public interface SpApi {
 
 
     /**
-     * POST /sp/create : Path used to save a new Specialprice of an article link to a Baseprice in the system
+     * POST /sp/bmV1.0/create : Path used to save a new Specialprice of an article link to a Baseprice in the system
      *
      * @param specialpriceDto  (optional)
      * @return Specialprice for a Baseprice of an article saved successfully (status code 200)
@@ -129,7 +129,7 @@ public interface SpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/sp/create",
+        value = "/sp/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -142,7 +142,7 @@ public interface SpApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"spSemiwholeprice\" : 6.027456183070403, \"spBaseprice\" : { \"bpSemiwholeprice\" : 1.2315135367772556, \"bpPurchaseprice\" : 4.145608029883936, \"bpDetailsprice\" : 1.0246457001441578, \"bpRistourne\" : 6.84685269835264, \"bpCurrency\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"bpWholeprice\" : 7.386281948385884, \"bpPrecompte\" : 1.4894159098541704 }, \"spWholeprice\" : 0.8008281904610115, \"spRistourne\" : 5.962133916683182, \"spDetailsprice\" : 1.4658129805029452, \"spPrecompte\" : 5.637376656633329 }";
+                    String exampleString = "{ \"spSemiwholeprice\" : 0.6027456183070403, \"spBaseprice\" : { \"bpSemiwholeprice\" : 0.23021358869347652, \"bpPurchaseprice\" : 0.5962133916683182, \"bpDetailsprice\" : 0.7061401241503109, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"bpWholeprice\" : 0.5637376656633328, \"bpPrecompte\" : 0 }, \"spWholeprice\" : 0.08008281904610115, \"spRistourne\" : 0, \"spDetailsprice\" : 0.14658129805029452, \"spPrecompte\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -154,7 +154,7 @@ public interface SpApi {
 
 
     /**
-     * PUT /sp/update : Path used to update or modify an existing Specialprice in the system
+     * PUT /sp/bmV1.0/update : Path used to update or modify an existing Specialprice in the system
      *
      * @param specialpriceDto  (optional)
      * @return Special price updated successfully (status code 200)
@@ -174,7 +174,7 @@ public interface SpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/sp/update",
+        value = "/sp/bmV1.0/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -187,7 +187,7 @@ public interface SpApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"spSemiwholeprice\" : 6.027456183070403, \"spBaseprice\" : { \"bpSemiwholeprice\" : 1.2315135367772556, \"bpPurchaseprice\" : 4.145608029883936, \"bpDetailsprice\" : 1.0246457001441578, \"bpRistourne\" : 6.84685269835264, \"bpCurrency\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"bpWholeprice\" : 7.386281948385884, \"bpPrecompte\" : 1.4894159098541704 }, \"spWholeprice\" : 0.8008281904610115, \"spRistourne\" : 5.962133916683182, \"spDetailsprice\" : 1.4658129805029452, \"spPrecompte\" : 5.637376656633329 }";
+                    String exampleString = "{ \"spSemiwholeprice\" : 0.6027456183070403, \"spBaseprice\" : { \"bpSemiwholeprice\" : 0.23021358869347652, \"bpPurchaseprice\" : 0.5962133916683182, \"bpDetailsprice\" : 0.7061401241503109, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"bpWholeprice\" : 0.5637376656633328, \"bpPrecompte\" : 0 }, \"spWholeprice\" : 0.08008281904610115, \"spRistourne\" : 0, \"spDetailsprice\" : 0.14658129805029452, \"spPrecompte\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * A Loading details in the system
  */
 @ApiModel(description = "A Loading details in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class LoadingdetailsDto   {
   @JsonProperty("quantityTaken")
   private Double quantityTaken;
@@ -38,7 +38,7 @@ public class LoadingdetailsDto   {
    * Get quantityTaken
    * @return quantityTaken
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "1", value = "")
 
 
   public Double getQuantityTaken() {
@@ -58,7 +58,7 @@ public class LoadingdetailsDto   {
    * Get quantityReturn
    * @return quantityReturn
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
 
   public Double getQuantityReturn() {

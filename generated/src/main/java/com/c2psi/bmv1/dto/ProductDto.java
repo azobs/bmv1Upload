@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * A product in the system
  */
 @ApiModel(description = "A product in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class ProductDto   {
   @JsonProperty("prodName")
   private String prodName;
@@ -43,7 +43,7 @@ public class ProductDto   {
    * Get prodName
    * @return prodName
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "prodName", value = "")
 
 
   public String getProdName() {
@@ -63,7 +63,7 @@ public class ProductDto   {
    * Get prodCode
    * @return prodCode
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "P0000", value = "")
 
 
   public String getProdCode() {
@@ -123,7 +123,7 @@ public class ProductDto   {
    * Get prodPerishable
    * @return prodPerishable
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "false", value = "")
 
 
   public Boolean getProdPerishable() {

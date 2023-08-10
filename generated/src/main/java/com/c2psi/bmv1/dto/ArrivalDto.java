@@ -16,7 +16,7 @@ import javax.validation.constraints.*;
  * An arrival in the system
  */
 @ApiModel(description = "An arrival in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class ArrivalDto   {
   @JsonProperty("deliveryQuantity")
   private Double deliveryQuantity;
@@ -118,11 +118,12 @@ public class ArrivalDto   {
 
   /**
    * Get deliveryQuantity
+   * minimum: 0
    * @return deliveryQuantity
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "1", value = "")
 
-
+@DecimalMin(value = "0", inclusive = false) 
   public Double getDeliveryQuantity() {
     return deliveryQuantity;
   }
@@ -158,11 +159,12 @@ public class ArrivalDto   {
 
   /**
    * Get arrivalUnitprice
+   * minimum: 0
    * @return arrivalUnitprice
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "1", value = "")
 
-
+@DecimalMin(value = "0", inclusive = false) 
   public Double getArrivalUnitprice() {
     return arrivalUnitprice;
   }
@@ -180,7 +182,7 @@ public class ArrivalDto   {
    * Get arrivalType
    * @return arrivalType
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "Standard", value = "")
 
 
   public ArrivalTypeEnum getArrivalType() {
@@ -200,7 +202,7 @@ public class ArrivalDto   {
    * Get arrivalNature
    * @return arrivalNature
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "Cash", value = "")
 
 
   public ArrivalNatureEnum getArrivalNature() {

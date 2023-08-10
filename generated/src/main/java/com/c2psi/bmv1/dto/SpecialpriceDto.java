@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * A Specialprice in the system
  */
 @ApiModel(description = "A Specialprice in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class SpecialpriceDto   {
   @JsonProperty("spWholeprice")
   private Double spWholeprice;
@@ -41,11 +41,12 @@ public class SpecialpriceDto   {
 
   /**
    * Get spWholeprice
+   * minimum: 0
    * @return spWholeprice
   */
   @ApiModelProperty(value = "")
 
-
+@DecimalMin(value = "0", inclusive = false) 
   public Double getSpWholeprice() {
     return spWholeprice;
   }
@@ -61,11 +62,12 @@ public class SpecialpriceDto   {
 
   /**
    * Get spSemiwholeprice
+   * minimum: 0
    * @return spSemiwholeprice
   */
   @ApiModelProperty(value = "")
 
-
+@DecimalMin(value = "0", inclusive = false) 
   public Double getSpSemiwholeprice() {
     return spSemiwholeprice;
   }
@@ -81,11 +83,12 @@ public class SpecialpriceDto   {
 
   /**
    * Get spDetailsprice
+   * minimum: 0
    * @return spDetailsprice
   */
   @ApiModelProperty(value = "")
 
-
+@DecimalMin(value = "0", inclusive = false) 
   public Double getSpDetailsprice() {
     return spDetailsprice;
   }
@@ -103,7 +106,7 @@ public class SpecialpriceDto   {
    * Get spRistourne
    * @return spRistourne
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
 
   public Double getSpRistourne() {
@@ -123,7 +126,7 @@ public class SpecialpriceDto   {
    * Get spPrecompte
    * @return spPrecompte
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
 
   public Double getSpPrecompte() {

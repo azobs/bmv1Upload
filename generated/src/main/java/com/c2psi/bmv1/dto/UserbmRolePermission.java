@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
 /**
  * UserbmRolePermission
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class UserbmRolePermission   {
   @JsonProperty("userbmroleId")
   private Long userbmroleId;
@@ -108,7 +108,7 @@ public class UserbmRolePermission   {
    * Get operation
    * @return operation
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "ADD", value = "")
 
 
   public OperationEnum getOperation() {

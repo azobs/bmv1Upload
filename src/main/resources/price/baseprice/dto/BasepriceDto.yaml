@@ -4,21 +4,31 @@ properties:
   bpPurchaseprice:
     type: number
     format: double
+    minimum: 0
+    exclusiveMinimum: true
   bpWholeprice:
     type: number
     format: double
+    minimum: 0
+    exclusiveMinimum: true
   bpSemiwholeprice:
     type: number
     format: double
+    minimum: 0
+    exclusiveMinimum: true
   bpDetailsprice:
     type: number
     format: double
+    minimum: 0
+    exclusiveMinimum: true
   bpPrecompte:
     type: number
     format: double
+    example: 0
   bpRistourne:
     type: number
     format: double
+    example: 0
   bpCurrency:
     type: object
     $ref: '../../../currency/currency/dto/CurrencyDto.yaml'

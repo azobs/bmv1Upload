@@ -15,4 +15,5 @@ properties:
       - Withdrawal
       - Change
       - Others
+    example: Credit
   

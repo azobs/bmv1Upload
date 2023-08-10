@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * A Supply invoice in the system
  */
 @ApiModel(description = "A Supply invoice in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class SupplyinvoiceDto   {
   @JsonProperty("siCode")
   private String siCode;
@@ -93,7 +93,7 @@ public class SupplyinvoiceDto   {
    * Get siCode
    * @return siCode
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "SuI0000", value = "")
 
 
   public String getSiCode() {
@@ -191,11 +191,12 @@ public class SupplyinvoiceDto   {
 
   /**
    * Get siTotalcolis
+   * minimum: 1
    * @return siTotalcolis
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "1", value = "")
 
-
+@DecimalMin("1") 
   public Double getSiTotalcolis() {
     return siTotalcolis;
   }
@@ -211,11 +212,12 @@ public class SupplyinvoiceDto   {
 
   /**
    * Get siExpectedamount
+   * minimum: 0
    * @return siExpectedamount
   */
   @ApiModelProperty(value = "")
 
-
+@DecimalMin(value = "0", inclusive = false) 
   public Double getSiExpectedamount() {
     return siExpectedamount;
   }
@@ -231,11 +233,12 @@ public class SupplyinvoiceDto   {
 
   /**
    * Get siPaidamount
+   * minimum: 0
    * @return siPaidamount
   */
   @ApiModelProperty(value = "")
 
-
+@DecimalMin("0") 
   public Double getSiPaidamount() {
     return siPaidamount;
   }
@@ -253,7 +256,7 @@ public class SupplyinvoiceDto   {
    * Get siPaymentmethod
    * @return siPaymentmethod
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "Cash", value = "")
 
 
   public SiPaymentmethodEnum getSiPaymentmethod() {

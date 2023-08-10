@@ -1,0 +1,8 @@
+git init
+git status
+git add .
+git commit -m "message"
+git remote add origin https://github.com/azobs/bmv1.git
+git branch -m master main #that is to rename local branch master to main
+git pull origin main #to synchronize the local repos with the remote one
+git push -u origin main #To push all local modification online

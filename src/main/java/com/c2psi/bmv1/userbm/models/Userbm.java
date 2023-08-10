@@ -1,8 +1,8 @@
 package com.c2psi.bmv1.userbm.models;
 
-import com.c2psi.bmv1.abstracts.models.AbstractEntity;
+import com.c2psi.bmv1.global.models.AbstractEntity;
 import com.c2psi.bmv1.address.models.Address;
-import com.c2psi.bmv1.userbm.enumerations.UserbmState;
+import com.c2psi.bmv1.userbm.enumerations.UserStateEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -11,7 +11,7 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -49,10 +49,13 @@ public class Userbm extends AbstractEntity {
     @Size(max = 30, message = "A user surname must have at most 30 characters")
     String userSurname;
     @DateTimeFormat(pattern="yyyy-MM-dd")
-    Date userDob;
+    LocalDate userDob;
     String userPicture;
     @NotNull(message = "A user state can't be null value")
-    UserbmState userState;
+    UserStateEnum userState;
+    /*********************************
+     * Relation with other entities
+     *********************************/
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     @NotNull(message = "A user address can't be null value")

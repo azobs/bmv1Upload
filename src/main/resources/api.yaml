@@ -26,7 +26,7 @@ servers:
         default: '8081'
         description: The default port where the Demoopenapi api responds
 paths:
-  /test:
+  /test/bmV1.0:
     get:
       operationId: apiTest
       responses:
@@ -38,71 +38,71 @@ paths:
                 $ref: '#/components/schemas/TestDto'
 ########################################################################################################################
 #Api for Address management
-  /address/create:
+  /address/bmV1.0/create:
     $ref: 'general/route/createAddress.yaml'
-  /address/update:
+  /address/bmV1.0/update:
     $ref: 'general/route/updateAddress.yaml'
   /address/delete:
     $ref: 'general/route/deleteAddressById.yaml'
-  /address/getby/{id}:
+  /address/bmV1.0/getby/{id}:
     $ref: 'general/route/getAddressById.yaml'
-  /address/getby/{email}:
+  /address/bmV1.0/getby/{email}:
     $ref: 'general/route/getAddressByEmail.yaml'
 
 ########################################################################################################################
 ########################################################################################################################
 #Api for Userbm management
-  /userbm/create:
+  /userbm/bmV1.0/create:
     $ref: 'userbm/route/createUserbm.yaml'
-  /userbm/update:
+  /userbm/bmV1.0/update:
     $ref: 'userbm/route/updateUserbm.yaml'
-  /userbm/delete/{id}:
+  /userbm/bmV1.0/delete/{id}:
     $ref: 'userbm/route/deleteUserbmById.yaml'
-  /userbm/getby/{id}:
+  /userbm/bmV1.0/getby/{id}:
     $ref: 'userbm/route/getUserbmById.yaml'
-  /userbm/getby/{login}:
+  /userbm/bmV1.0/getby/{login}:
     $ref: 'userbm/route/getUserbmByLogin.yaml'
-  /userbm/getby/{cni}:
+  /userbm/bmV1.0/getby/{cni}:
     $ref: 'userbm/route/getUserbmByCni.yaml'
-  /userbm/getby/{email}:
+  /userbm/bmV1.0/getby/{email}:
     $ref: 'userbm/route/getUserbmByEmail.yaml'
-  /userbm/list:
+  /userbm/bmV1.0/list:
     $ref: 'userbm/route/getUserbmList.yaml'
-  /userbm/page:
+  /userbm/bmV1.0/page:
     $ref: 'userbm/route/getUserbmPage.yaml'
 
 ########################################################################################################################
 ########################################################################################################################
 #Api for Role management
-  /role/create:
+  /role/bmV1.0/create:
     $ref: 'role/route/createRole.yaml'
-  /role/update:
+  /role/bmV1.0/update:
     $ref: 'role/route/updateRole.yaml'
-  /role/delete/{id}:
+  /role/bmV1.0/delete/{id}:
     $ref: 'role/route/deleteRoleById.yaml'
   /role/getby/{roletype}:
     $ref: 'role/route/getRoleByRoletype.yaml'
-  /role/getby/{id}:
+  /role/bmV1.0/getby/{id}:
     $ref: 'role/route/getRoleById.yaml'
-  /role/list:
+  /role/bmV1.0/list:
     $ref: 'role/route/getRoleList.yaml'
-  /role/page:
+  /role/bmV1.0/page:
     $ref: 'role/route/getRolePage.yaml'
 
 ########################################################################################################################
 ########################################################################################################################
 #Api for UserbmRole management
-  /userbm_role/create:
+  /userbm_role/bmV1.0/create:
     $ref: 'userbmrole/route/createUserbmRole.yaml'
   /userbm_role/changepermission:
     $ref: 'userbmrole/route/changePermission.yaml'
-  /userbm_role/delete/{id}:
+  /userbm_role/bmV1.0/delete/{id}:
     $ref: 'userbmrole/route/deleteUserbmRoleById.yaml'
-  /userbm_role/getby/{id}:
+  /userbm_role/bmV1.0/getby/{id}:
     $ref: 'userbmrole/route/getUserbmRoleById.yaml'
-  /userbm_role/list:
+  /userbm_role/bmV1.0/list:
     $ref: 'userbmrole/route/getUserbmRoleList.yaml'
-  /userbm_role/page:
+  /userbm_role/bmV1.0/page:
     $ref: 'userbmrole/route/getUserbmRolePage.yaml'
 ########################################################################################################################
 ########################################################################################################################
@@ -111,130 +111,130 @@ paths:
     $ref: 'auth/route/authenticate.yaml'
 
 # Permission management
-  /auth/permission/create:
+  /auth/permission/bmV1.0/create:
     $ref: 'auth/permission/route/createPermission.yaml'
-  /auth/permission/delete/{id}:
+  /auth/permission/bmV1.0/delete/{id}:
     $ref: 'auth/permission/route/deletePermissionById.yaml'
-  /auth/permission/getby/{id}:
+  /auth/permission/bmV1.0/getby/{id}:
     $ref: 'auth/permission/route/getPermissionById.yaml'
   /auth/permission/getby/{name}:
     $ref: 'auth/permission/route/getPermissionByName.yaml'
-  /auth/permission/list:
+  /auth/permission/bmV1.0/list:
     $ref: 'auth/permission/route/getPermissionList.yaml'
-  /auth/permission/page:
+  /auth/permission/bmV1.0/page:
     $ref: 'auth/permission/route/getPermissionPage.yaml'
 
 #connexion Token management
-  /auth/token/create:
+  /auth/token/bmV1.0/create:
     $ref: 'auth/token/route/createToken.yaml'
-  /auth/token/delete/{id}:
+  /auth/token/bmV1.0/delete/{id}:
     $ref: 'auth/token/route/deleteTokenById.yaml'
-  /auth/token/getby/{id}:
+  /auth/token/bmV1.0/getby/{id}:
     $ref: 'auth/token/route/getTokenById.yaml'
   /auth/token/getby/{tokenValue}:
     $ref: 'auth/token/route/getTokenByTokenvalue.yaml'
-  /auth/token/list:
+  /auth/token/bmV1.0/list:
     $ref: 'auth/token/route/getTokenList.yaml'
 
 ########################################################################################################################
 ########################################################################################################################
 #Api product management
 #Category management
-  /category/create:
+  /category/bmV1.0/create:
     $ref: 'product/category/route/createCategory.yaml'
-  /category/update:
+  /category/bmV1.0/update:
     $ref: 'product/category/route/updateCategory.yaml'
-  /category/delete/{id}:
+  /category/bmV1.0/delete/{id}:
     $ref: 'product/category/route/deleteCategoryById.yaml'
-  /category/getby/{id}:
+  /category/bmV1.0/getby/{id}:
     $ref: 'product/category/route/getCategoryById.yaml'
-  /category/list:
+  /category/bmV1.0/list:
     $ref: 'product/category/route/getCategoryList.yaml'
-  /category/page:
+  /category/bmV1.0/page:
     $ref: 'product/category/route/getCategoryPage.yaml'
 
 #Product management
-  /product/create:
+  /product/bmV1.0/create:
     $ref: 'product/product/route/createProduct.yaml'
-  /product/update:
+  /product/bmV1.0/update:
     $ref: 'product/product/route/updateProduct.yaml'
   /product/delete:
     $ref: 'product/product/route/deleteProductById.yaml'
-  /product/getby/{id}:
+  /product/bmV1.0/getby/{id}:
     $ref: 'product/product/route/getProductById.yaml'
-  /product/list:
+  /product/bmV1.0/list:
     $ref: 'product/product/route/getProductList.yaml'
-  /product/page:
+  /product/bmV1.0/page:
     $ref: 'product/product/route/getProductPage.yaml'
 
 #Format management
-  /format/create:
+  /format/bmV1.0/create:
     $ref: 'product/format/route/createFormat.yaml'
-  /format/update:
+  /format/bmV1.0/update:
     $ref: 'product/format/route/updateFormat.yaml'
-  /format/delete/{id}:
+  /format/bmV1.0/delete/{id}:
     $ref: 'product/format/route/deleteFormatById.yaml'
-  /format/getby/{id}:
+  /format/bmV1.0/getby/{id}:
     $ref: 'product/format/route/getFormatById.yaml'
-  /format/list:
+  /format/bmV1.0/list:
     $ref: 'product/format/route/getFormatList.yaml'
-  /format/page:
+  /format/bmV1.0/page:
     $ref: 'product/format/route/getFormatPage.yaml'
 
 #Productformated management
-  /pf/create:
+  /pf/bmV1.0/create:
     $ref: 'product/pf/route/createPF.yaml'
-  /pf/update:
+  /pf/bmV1.0/update:
     $ref: 'product/pf/route/updatePF.yaml'
-  /pf/delete/{id}:
+  /pf/bmV1.0/delete/{id}:
     $ref: 'product/pf/route/deletePFById.yaml'
-  /pf/getby/{id}:
+  /pf/bmV1.0/getby/{id}:
     $ref: 'product/pf/route/getPFById.yaml'
-  /pf/list:
+  /pf/bmV1.0/list:
     $ref: 'product/pf/route/getPFList.yaml'
-  /pf/page:
+  /pf/bmV1.0/page:
     $ref: 'product/pf/route/getPFPage.yaml'
 
 #Unit management
-  /unit/unit/create:
+  /unit/unit/bmV1.0/create:
     $ref: 'product/unit/unit/route/createUnit.yaml'
-  /unit/unit/update:
+  /unit/unit/bmV1.0/update:
     $ref: 'product/unit/unit/route/updateUnit.yaml'
-  /unit/unit/delete/{id}:
+  /unit/unit/bmV1.0/delete/{id}:
     $ref: 'product/unit/unit/route/deleteUnitById.yaml'
-  /unit/unit/getby/{id}:
+  /unit/unit/bmV1.0/getby/{id}:
     $ref: 'product/unit/unit/route/getUnitById.yaml'
-  /unit/unit/list:
+  /unit/unit/bmV1.0/list:
     $ref: 'product/unit/unit/route/getUnitList.yaml'
-  /unit/unit/page:
+  /unit/unit/bmV1.0/page:
     $ref: 'product/unit/unit/route/getUnitPage.yaml'
 
 #UnitConversion management
-  /unit/conversion/create:
+  /unit/conversion/bmV1.0/create:
     $ref: 'product/unit/unitconversion/route/createUnitconversion.yaml'
-  /unit/conversion/update:
+  /unit/conversion/bmV1.0/update:
     $ref: 'product/unit/unitconversion/route/updateUnitconversion.yaml'
-  /unit/conversion/delete/{id}:
+  /unit/conversion/bmV1.0/delete/{id}:
     $ref: 'product/unit/unitconversion/route/deleteUnitconversionById.yaml'
-  /unit/conversion/getby/{id}:
+  /unit/conversion/bmV1.0/getby/{id}:
     $ref: 'product/unit/unitconversion/route/getUnitconversionById.yaml'
-  /unit/conversion/list:
+  /unit/conversion/bmV1.0/list:
     $ref: 'product/unit/unitconversion/route/getUnitconversionList.yaml'
-  /unit/conversion/page:
+  /unit/conversion/bmV1.0/page:
     $ref: 'product/unit/unitconversion/route/getUnitconversionPage.yaml'
 
 #Article management
-  /article/create:
+  /article/bmV1.0/create:
     $ref: 'product/article/route/createArticle.yaml'
-  /article/update:
+  /article/bmV1.0/update:
     $ref: 'product/article/route/updateArticle.yaml'
-  /article/delete/{id}:
+  /article/bmV1.0/delete/{id}:
     $ref: 'product/article/route/deleteArticleById.yaml'
-  /article/getby/{id}:
+  /article/bmV1.0/getby/{id}:
     $ref: 'product/article/route/getArticleById.yaml'
-  /article/list:
+  /article/bmV1.0/list:
     $ref: 'product/article/route/getArticleList.yaml'
-  /article/page:
+  /article/bmV1.0/page:
     $ref: 'product/article/route/getArticlePage.yaml'
 
 
@@ -242,262 +242,262 @@ paths:
 ########################################################################################################################
 #Api price management
 #Baseprice management
-  /bp/create:
+  /bp/bmV1.0/create:
     $ref: 'price/baseprice/route/createBp.yaml'
-  /bp/update:
+  /bp/bmV1.0/update:
     $ref: 'price/baseprice/route/updateBp.yaml'
-  /bp/delete/{id}:
+  /bp/bmV1.0/delete/{id}:
     $ref: 'price/baseprice/route/deleteBpById.yaml'
-  /bp/getby/{id}:
+  /bp/bmV1.0/getby/{id}:
     $ref: 'price/baseprice/route/getBpById.yaml'
 
 #Specialprice management
-  /sp/create:
+  /sp/bmV1.0/create:
     $ref: 'price/specialprice/route/createSp.yaml'
-  /sp/update:
+  /sp/bmV1.0/update:
     $ref: 'price/specialprice/route/updateSp.yaml'
-  /sp/delete/{id}:
+  /sp/bmV1.0/delete/{id}:
     $ref: 'price/specialprice/route/deleteSpById.yaml'
-  /sp/getby/{id}:
+  /sp/bmV1.0/getby/{id}:
     $ref: 'price/specialprice/route/getSpById.yaml'
 
 ########################################################################################################################
 ########################################################################################################################
 #Api Loading management
 #Loading management
-  /loading/create:
+  /loading/bmV1.0/create:
     $ref: 'loading/loading/route/createLoading.yaml'
-  /loading/update:
+  /loading/bmV1.0/update:
     $ref: 'loading/loading/route/updateLoading.yaml'
-  /loading/delete/{id}:
+  /loading/bmV1.0/delete/{id}:
     $ref: 'loading/loading/route/deleteLoadingById.yaml'
-  /loading/getby/{id}:
+  /loading/bmV1.0/getby/{id}:
     $ref: 'loading/loading/route/getLoadingById.yaml'
-  /loading/list:
+  /loading/bmV1.0/list:
     $ref: 'loading/loading/route/getLoadingList.yaml'
-  /loading/page:
+  /loading/bmV1.0/page:
     $ref: 'loading/loading/route/getLoadingPage.yaml'
 
 #Lodingdetails management
-  /loadingdetails/create:
+  /loadingdetails/bmV1.0/create:
     $ref: 'loading/loadingdetails/route/createLoadingdetails.yaml'
-  /loadingdetails/update:
+  /loadingdetails/bmV1.0/update:
     $ref: 'loading/loadingdetails/route/updateLoadingdetails.yaml'
-  /loadingdetails/delete/{id}:
+  /loadingdetails/bmV1.0/delete/{id}:
     $ref: 'loading/loadingdetails/route/deleteLoadingdetailsById.yaml'
-  /loadingdetails/getby/{id}:
+  /loadingdetails/bmV1.0/getby/{id}:
     $ref: 'loading/loadingdetails/route/getLoadingdetailsById.yaml'
-  /loadingdetails/list:
+  /loadingdetails/bmV1.0/list:
     $ref: 'loading/loadingdetails/route/getLoadingdetailsList.yaml'
-  /loadingdetails/page:
+  /loadingdetails/bmV1.0/page:
     $ref: 'loading/loadingdetails/route/getLoadingdetailsPage.yaml'
 
 #Packaging details management
-  /packagingdetails/create:
+  /packagingdetails/bmV1.0/create:
     $ref: 'loading/packagingdetails/route/createPackagingdetails.yaml'
-  /packagingdetails/update:
+  /packagingdetails/bmV1.0/update:
     $ref: 'loading/packagingdetails/route/updatePackagingdetails.yaml'
-  /packagingdetails/delete/{id}:
+  /packagingdetails/bmV1.0/delete/{id}:
     $ref: 'loading/packagingdetails/route/deletePackagingdetailsById.yaml'
-  /packagingdetails/getby/{id}:
+  /packagingdetails/bmV1.0/getby/{id}:
     $ref: 'loading/packagingdetails/route/getPackagingdetailsById.yaml'
-  /packagingdetails/list:
+  /packagingdetails/bmV1.0/list:
     $ref: 'loading/packagingdetails/route/getPackagingdetailsList.yaml'
-  /packagingdetails/page:
+  /packagingdetails/bmV1.0/page:
     $ref: 'loading/packagingdetails/route/getPackagingdetailsPage.yaml'
 
 ########################################################################################################################
 ########################################################################################################################
 #Api Arrival management
 #Arrival management
-  /arrival/create:
+  /arrival/bmV1.0/create:
     $ref: 'arrival/arrival/route/createArrival.yaml'
-  /arrival/update:
+  /arrival/bmV1.0/update:
     $ref: 'arrival/arrival/route/updateArrival.yaml'
-  /arrival/delete/{id}:
+  /arrival/bmV1.0/delete/{id}:
     $ref: 'arrival/arrival/route/deleteArrivalById.yaml'
-  /arrival/getby/{id}:
+  /arrival/bmV1.0/getby/{id}:
     $ref: 'arrival/arrival/route/getArrivalById.yaml'
-  /arrival/list:
+  /arrival/bmV1.0/list:
     $ref: 'arrival/arrival/route/getArrivalList.yaml'
-  /arrival/page:
+  /arrival/bmV1.0/page:
     $ref: 'arrival/arrival/route/getArrivalPage.yaml'
 
 #Supplyinvoice management
-  /supplyinvoice/create:
+  /supplyinvoice/bmV1.0/create:
     $ref: 'arrival/supplyinvoice/route/createSupplyinvoice.yaml'
-  /supplyinvoice/update:
+  /supplyinvoice/bmV1.0/update:
     $ref: 'arrival/supplyinvoice/route/updateSupplyinvoice.yaml'
-  /supplyinvoice/delete/{id}:
+  /supplyinvoice/bmV1.0/delete/{id}:
     $ref: 'arrival/supplyinvoice/route/deleteSupplyinvoiceById.yaml'
-  /supplyinvoice/getby/{id}:
+  /supplyinvoice/bmV1.0/getby/{id}:
     $ref: 'arrival/supplyinvoice/route/getSupplyinvoiceById.yaml'
-  /supplyinvoice/list:
+  /supplyinvoice/bmV1.0/list:
     $ref: 'arrival/supplyinvoice/route/getSupplyinvoiceList.yaml'
-  /supplyinvoice/page:
+  /supplyinvoice/bmV1.0/page:
     $ref: 'arrival/supplyinvoice/route/getSupplyinvoicePage.yaml'
 
 ########################################################################################################################
 ########################################################################################################################
 #Api sale management
 #Command management
-  /command/create:
+  /command/bmV1.0/create:
     $ref: 'sale/command/route/createCommand.yaml'
-  /command/update:
+  /command/bmV1.0/update:
     $ref: 'sale/command/route/updateCommand.yaml'
-  /command/delete/{id}:
+  /command/bmV1.0/delete/{id}:
     $ref: 'sale/command/route/deleteCommandById.yaml'
-  /command/getby/{id}:
+  /command/bmV1.0/getby/{id}:
     $ref: 'sale/command/route/getCommandById.yaml'
-  /command/list:
+  /command/bmV1.0/list:
     $ref: 'sale/command/route/getCommandList.yaml'
-  /command/page:
+  /command/bmV1.0/page:
     $ref: 'sale/command/route/getCommandPage.yaml'
 
 #Sale management
-  /sale/create:
+  /sale/bmV1.0/create:
     $ref: 'sale/sale/route/createSale.yaml'
-  /sale/update:
+  /sale/bmV1.0/update:
     $ref: 'sale/sale/route/updateSale.yaml'
-  /sale/delete/{id}:
+  /sale/bmV1.0/delete/{id}:
     $ref: 'sale/sale/route/deleteSaleById.yaml'
-  /sale/getby/{id}:
+  /sale/bmV1.0/getby/{id}:
     $ref: 'sale/sale/route/getSaleById.yaml'
-  /sale/list:
+  /sale/bmV1.0/list:
     $ref: 'sale/sale/route/getSaleList.yaml'
-  /sale/page:
+  /sale/bmV1.0/page:
     $ref: 'sale/sale/route/getSalePage.yaml'
 
 #Delivery management
-  /delivery/create:
+  /delivery/bmV1.0/create:
     $ref: 'sale/delivery/route/createDelivery.yaml'
-  /delivery/update:
+  /delivery/bmV1.0/update:
     $ref: 'sale/delivery/route/updateDelivery.yaml'
-  /delivery/delete/{id}:
+  /delivery/bmV1.0/delete/{id}:
     $ref: 'sale/delivery/route/deleteDeliveryById.yaml'
-  /delivery/getby/{id}:
+  /delivery/bmV1.0/getby/{id}:
     $ref: 'sale/delivery/route/getDeliveryById.yaml'
-  /delivery/list:
+  /delivery/bmV1.0/list:
     $ref: 'sale/delivery/route/getDeliveryList.yaml'
-  /delivery/page:
+  /delivery/bmV1.0/page:
     $ref: 'sale/delivery/route/getDeliveryPage.yaml'
 
 #Deliverydetails management
-  /deliverydetails/create:
+  /deliverydetails/bmV1.0/create:
     $ref: 'sale/deliverydetails/route/createDeliverydetails.yaml'
-  /deliverydetails/update:
+  /deliverydetails/bmV1.0/update:
     $ref: 'sale/deliverydetails/route/updateDeliverydetails.yaml'
-  /deliverydetails/delete/{id}:
+  /deliverydetails/bmV1.0/delete/{id}:
     $ref: 'sale/deliverydetails/route/deleteDeliverydetailsById.yaml'
-  /deliverydetails/getby/{id}:
+  /deliverydetails/bmV1.0/getby/{id}:
     $ref: 'sale/deliverydetails/route/getDeliverydetailsById.yaml'
-  /deliverydetails/list:
+  /deliverydetails/bmV1.0/list:
     $ref: 'sale/deliverydetails/route/getDeliverydetailsList.yaml'
-  /deliverydetails/page:
+  /deliverydetails/bmV1.0/page:
     $ref: 'sale/deliverydetails/route/getDeliverydetailsPage.yaml'
 
 #Backin management
-  /backin/create:
+  /backin/bmV1.0/create:
     $ref: 'sale/backin/route/createBackin.yaml'
-  /backin/update:
+  /backin/bmV1.0/update:
     $ref: 'sale/backin/route/updateBackin.yaml'
-  /backin/delete/{id}:
+  /backin/bmV1.0/delete/{id}:
     $ref: 'sale/backin/route/deleteBackinById.yaml'
-  /backin/getby/{id}:
+  /backin/bmV1.0/getby/{id}:
     $ref: 'sale/backin/route/getBackinById.yaml'
-  /backin/list:
+  /backin/bmV1.0/list:
     $ref: 'sale/backin/route/getBackinList.yaml'
-  /backin/page:
+  /backin/bmV1.0/page:
     $ref: 'sale/backin/route/getBackinPage.yaml'
 
 #Backindetails management
-  /backindetails/create:
+  /backindetails/bmV1.0/create:
     $ref: 'sale/backindetails/route/createBackindetails.yaml'
-  /backindetails/update:
+  /backindetails/bmV1.0/update:
     $ref: 'sale/backindetails/route/updateBackindetails.yaml'
-  /backindetails/delete/{id}:
+  /backindetails/bmV1.0/delete/{id}:
     $ref: 'sale/backindetails/route/deleteBackindetailsById.yaml'
-  /backindetails/getby/{id}:
+  /backindetails/bmV1.0/getby/{id}:
     $ref: 'sale/backindetails/route/getBackindetailsById.yaml'
-  /backindetails/list:
+  /backindetails/bmV1.0/list:
     $ref: 'sale/backindetails/route/getBackindetailsList.yaml'
-  /backindetails/page:
+  /backindetails/bmV1.0/page:
     $ref: 'sale/backindetails/route/getBackindetailsPage.yaml'
 
 #Saleinvoice management
-  /saleinvoice/create:
+  /saleinvoice/bmV1.0/create:
     $ref: 'sale/saleinvoice/route/createSaleinvoice.yaml'
-  /saleinvoice/update:
+  /saleinvoice/bmV1.0/update:
     $ref: 'sale/saleinvoice/route/updateSaleinvoice.yaml'
-  /saleinvoice/delete/{id}:
+  /saleinvoice/bmV1.0/delete/{id}:
     $ref: 'sale/saleinvoice/route/deleteSaleinvoiceById.yaml'
-  /saleinvoice/getby/{id}:
+  /saleinvoice/bmV1.0/getby/{id}:
     $ref: 'sale/saleinvoice/route/getSaleinvoiceById.yaml'
-  /saleinvoice/list:
+  /saleinvoice/bmV1.0/list:
     $ref: 'sale/saleinvoice/route/getSaleinvoiceList.yaml'
-  /saleinvoice/page:
+  /saleinvoice/bmV1.0/page:
     $ref: 'sale/saleinvoice/route/getSaleinvoicePage.yaml'
 
 ########################################################################################################################
 ########################################################################################################################
 #Api Pos management
 #Pointofsale management
-  /pos/create:
+  /pos/bmV1.0/create:
     $ref: 'pos/pos/route/createPos.yaml'
-  /pos/update:
+  /pos/bmV1.0/update:
     $ref: 'pos/pos/route/updatePos.yaml'
-  /pos/delete/{id}:
+  /pos/bmV1.0/delete/{id}:
     $ref: 'pos/pos/route/deletePosById.yaml'
-  /pos/getby/{id}:
+  /pos/bmV1.0/getby/{id}:
     $ref: 'pos/pos/route/getPosById.yaml'
-  /pos/list:
+  /pos/bmV1.0/list:
     $ref: 'pos/pos/route/getPosList.yaml'
-  /pos/page:
+  /pos/bmV1.0/page:
     $ref: 'pos/pos/route/getPosPage.yaml'
 
 #Enterprise management
-  /enterprise/create:
+  /enterprise/bmV1.0/create:
     $ref: 'pos/enterprise/route/createEnterprise.yaml'
-  /enterprise/update:
+  /enterprise/bmV1.0/update:
     $ref: 'pos/enterprise/route/updateEnterprise.yaml'
-  /enterprise/delete/{id}:
+  /enterprise/bmV1.0/delete/{id}:
     $ref: 'pos/enterprise/route/deleteEnterpriseById.yaml'
-  /enterprise/getby/{id}:
+  /enterprise/bmV1.0/getby/{id}:
     $ref: 'pos/enterprise/route/getEnterpriseById.yaml'
-  /enterprise/list:
+  /enterprise/bmV1.0/list:
     $ref: 'pos/enterprise/route/getEnterpriseList.yaml'
-  /enterprise/page:
+  /enterprise/bmV1.0/page:
     $ref: 'pos/enterprise/route/getEnterprisePage.yaml'
 
 ########################################################################################################################
 ########################################################################################################################
 #Api Client management
 #Client management
-  /client/create:
+  /client/bmV1.0/create:
     $ref: 'client/client/route/createClient.yaml'
-  /client/update:
+  /client/bmV1.0/update:
     $ref: 'client/client/route/updateClient.yaml'
-  /client/delete/{id}:
+  /client/bmV1.0/delete/{id}:
     $ref: 'client/client/route/deleteClientById.yaml'
-  /client/getby/{id}:
+  /client/bmV1.0/getby/{id}:
     $ref: 'client/client/route/getClientById.yaml'
-  /client/list:
+  /client/bmV1.0/list:
     $ref: 'client/client/route/getClientList.yaml'
-  /client/page:
+  /client/bmV1.0/page:
     $ref: 'client/client/route/getClientPage.yaml'
 
 #ClientSpecialprice management
-  /clientspecialprice/create:
+  /clientspecialprice/bmV1.0/create:
     $ref: 'client/clientspecialprice/route/createClientSpecialprice.yaml'
-  /clientspecialprice/update:
+  /clientspecialprice/bmV1.0/update:
     $ref: 'client/clientspecialprice/route/updateClientSpecialprice.yaml'
-  /clientspecialprice/delete/{id}:
+  /clientspecialprice/bmV1.0/delete/{id}:
     $ref: 'client/clientspecialprice/route/deleteClientSpecialpriceById.yaml'
-  /clientspecialprice/getby/{id}:
+  /clientspecialprice/bmV1.0/getby/{id}:
     $ref: 'client/clientspecialprice/route/getClientSpecialpriceById.yaml'
-  /clientspecialprice/list:
+  /clientspecialprice/bmV1.0/list:
     $ref: 'client/clientspecialprice/route/getClientSpecialpriceList.yaml'
-  /clientspecialprice/page:
+  /clientspecialprice/bmV1.0/page:
     $ref: 'client/clientspecialprice/route/getClientSpecialpricePage.yaml'
 
 
@@ -505,47 +505,47 @@ paths:
 ########################################################################################################################
 #Api Provider management
 #Provider management
-  /provider/create:
+  /provider/bmV1.0/create:
     $ref: 'provider/provider/route/createProvider.yaml'
-  /provider/update:
+  /provider/bmV1.0/update:
     $ref: 'provider/provider/route/updateProvider.yaml'
-  /provider/delete/{id}:
+  /provider/bmV1.0/delete/{id}:
     $ref: 'provider/provider/route/deleteProviderById.yaml'
-  /provider/getby/{id}:
+  /provider/bmV1.0/getby/{id}:
     $ref: 'provider/provider/route/getProviderById.yaml'
-  /provider/list:
+  /provider/bmV1.0/list:
     $ref: 'provider/provider/route/getProviderList.yaml'
-  /provider/page:
+  /provider/bmV1.0/page:
     $ref: 'provider/provider/route/getProviderPage.yaml'
 
 ########################################################################################################################
 ########################################################################################################################
 #Api Currency management
-  /currency/create:
+  /currency/bmV1.0/create:
     $ref: 'currency/currency/route/createCurrency.yaml'
-  /currency/update:
+  /currency/bmV1.0/update:
     $ref: 'currency/currency/route/updateCurrency.yaml'
-  /currency/delete/{id}:
+  /currency/bmV1.0/delete/{id}:
     $ref: 'currency/currency/route/deleteCurrencyById.yaml'
-  /currency/getby/{id}:
+  /currency/bmV1.0/getby/{id}:
     $ref: 'currency/currency/route/getCurrencyById.yaml'
-  /currency/list:
+  /currency/bmV1.0/list:
     $ref: 'currency/currency/route/getCurrencyList.yaml'
-  /currency/page:
+  /currency/bmV1.0/page:
     $ref: 'currency/currency/route/getCurrencyPage.yaml'
 
 #Api Currencyconversion management
-  /currency/conversion/create:
+  /currency/conversion/bmV1.0/create:
     $ref: 'currency/currencyconversion/route/createCurrencyconversion.yaml'
-  /currency/conversion/update:
+  /currency/conversion/bmV1.0/update:
     $ref: 'currency/currencyconversion/route/updateCurrencyconversion.yaml'
-  /currency/conversion/delete/{id}:
+  /currency/conversion/bmV1.0/delete/{id}:
     $ref: 'currency/currencyconversion/route/deleteCurrencyconversionById.yaml'
-  /currency/conversion/getby/{id}:
+  /currency/conversion/bmV1.0/getby/{id}:
     $ref: 'currency/currencyconversion/route/getCurrencyconversionById.yaml'
-  /currency/conversion/list:
+  /currency/conversion/bmV1.0/list:
     $ref: 'currency/currencyconversion/route/getCurrencyconversionList.yaml'
-  /currency/conversion/page:
+  /currency/conversion/bmV1.0/page:
     $ref: 'currency/currencyconversion/route/getCurrencyconversionPage.yaml'
 
 
@@ -553,45 +553,45 @@ paths:
 ########################################################################################################################
 #Api Account management
 #Account management
-  /account/create:
+  /account/bmV1.0/create:
     $ref: 'account/account/route/createAccount.yaml'
-  /account/update:
+  /account/bmV1.0/update:
     $ref: 'account/account/route/updateAccount.yaml'
-  /account/delete/{id}:
+  /account/bmV1.0/delete/{id}:
     $ref: 'account/account/route/deleteAccountById.yaml'
-  /account/getby/{id}:
+  /account/bmV1.0/getby/{id}:
     $ref: 'account/account/route/getAccountById.yaml'
-  /account/list:
+  /account/bmV1.0/list:
     $ref: 'account/account/route/getAccountList.yaml'
-  /account/page:
+  /account/bmV1.0/page:
     $ref: 'account/account/route/getAccountPage.yaml'
 
 #Operation management
-  /operation/create:
+  /operation/bmV1.0/create:
     $ref: 'account/operation/route/createOperation.yaml'
-  /operation/update:
+  /operation/bmV1.0/update:
     $ref: 'account/operation/route/updateOperation.yaml'
-  /operation/delete/{id}:
+  /operation/bmV1.0/delete/{id}:
     $ref: 'account/operation/route/deleteOperationById.yaml'
-  /operation/getby/{id}:
+  /operation/bmV1.0/getby/{id}:
     $ref: 'account/operation/route/getOperationById.yaml'
-  /operation/list:
+  /operation/bmV1.0/list:
     $ref: 'account/operation/route/getOperationList.yaml'
-  /operation/page:
+  /operation/bmV1.0/page:
     $ref: 'account/operation/route/getOperationPage.yaml'
 
 #AccountOperation management
-  /account/operation/create:
+  /account/operation/bmV1.0/create:
     $ref: 'account/accountoperation/route/createAccountOperation.yaml'
-  /account/operation/update:
+  /account/operation/bmV1.0/update:
     $ref: 'account/accountoperation/route/updateAccountOperation.yaml'
-  /account/operation/delete/{id}:
+  /account/operation/bmV1.0/delete/{id}:
     $ref: 'account/accountoperation/route/deleteAccountOperationById.yaml'
-  /account/operation/getby/{id}:
+  /account/operation/bmV1.0/getby/{id}:
     $ref: 'account/accountoperation/route/getAccountOperationById.yaml'
-  /account/operation/list:
+  /account/operation/bmV1.0/list:
     $ref: 'account/accountoperation/route/getAccountOperationList.yaml'
-  /account/operation/page:
+  /account/operation/bmV1.0/page:
     $ref: 'account/accountoperation/route/getAccountOperationPage.yaml'
 
 
@@ -599,31 +599,31 @@ paths:
 ########################################################################################################################
 #Api Inventory management
 #Inventory management
-  /inventory/create:
+  /inventory/bmV1.0/create:
     $ref: 'inventory/inventory/route/createInventory.yaml'
-  /inventory/update:
+  /inventory/bmV1.0/update:
     $ref: 'inventory/inventory/route/updateInventory.yaml'
-  /inventory/delete/{id}:
+  /inventory/bmV1.0/delete/{id}:
     $ref: 'inventory/inventory/route/deleteInventoryById.yaml'
-  /inventory/getby/{id}:
+  /inventory/bmV1.0/getby/{id}:
     $ref: 'inventory/inventory/route/getInventoryById.yaml'
-  /inventory/list:
+  /inventory/bmV1.0/list:
     $ref: 'inventory/inventory/route/getInventoryList.yaml'
-  /inventory/page:
+  /inventory/bmV1.0/page:
     $ref: 'inventory/inventory/route/getInventoryPage.yaml'
 
 #Inventoryline management
-  /inventoryline/create:
+  /inventoryline/bmV1.0/create:
     $ref: 'inventory/inventoryline/route/createInventoryline.yaml'
-  /inventoryline/update:
+  /inventoryline/bmV1.0/update:
     $ref: 'inventory/inventoryline/route/updateInventoryline.yaml'
-  /inventoryline/delete/{id}:
+  /inventoryline/bmV1.0/delete/{id}:
     $ref: 'inventory/inventoryline/route/deleteInventorylineById.yaml'
-  /inventoryline/getby/{id}:
+  /inventoryline/bmV1.0/getby/{id}:
     $ref: 'inventory/inventoryline/route/getInventorylineById.yaml'
-  /inventoryline/list:
+  /inventoryline/bmV1.0/list:
     $ref: 'inventory/inventoryline/route/getInventorylineList.yaml'
-  /inventoryline/page:
+  /inventoryline/bmV1.0/page:
     $ref: 'inventory/inventoryline/route/getInventorylinePage.yaml'
 
 
@@ -631,25 +631,25 @@ paths:
 ########################################################################################################################
 #Api Packaging management
 #Packaging management
-  /packaging/create:
+  /packaging/bmV1.0/create:
     $ref: 'packaging/packaging/route/createPackaging.yaml'
-  /packaging/update:
+  /packaging/bmV1.0/update:
     $ref: 'packaging/packaging/route/updatePackaging.yaml'
-  /packaging/delete/{id}:
+  /packaging/bmV1.0/delete/{id}:
     $ref: 'packaging/packaging/route/deletePackagingById.yaml'
-  /packaging/getby/{id}:
+  /packaging/bmV1.0/getby/{id}:
     $ref: 'packaging/packaging/route/getPackagingById.yaml'
-  /packaging/list:
+  /packaging/bmV1.0/list:
     $ref: 'packaging/packaging/route/getPackagingList.yaml'
-  /packaging/page:
+  /packaging/bmV1.0/page:
     $ref: 'packaging/packaging/route/getPackagingPage.yaml'
 
 ########################################################################################################################
 ########################################################################################################################
   #Api for file Uploaded with the id of the resource for which the image is uploaded
-  /upload/picture:
+  /upload/bmV1.0/picture:
     $ref: 'general/route/pictureUploadFile.yaml'
-  /load/picture/{id}:
+  /load/bmV1.0/picture/{id}:
     $ref: 'general/route/pictureLoadFile.yaml'
 
 

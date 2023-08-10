@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "product", description = "the product API")
 public interface ProductApi {
@@ -67,7 +67,7 @@ public interface ProductApi {
 
 
     /**
-     * GET /product/getby/{id} : Find a Product in the system by its id
+     * GET /product/bmV1.0/getby/{id} : Find a Product in the system by its id
      *
      * @param id The id that represent the Product found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Product found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface ProductApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/product/getby/{id}",
+        value = "/product/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<ProductDto> _getProductById(@ApiParam(value = "The id that represent the Product found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -99,7 +99,7 @@ public interface ProductApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }";
+                    String exampleString = "{ \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -111,7 +111,7 @@ public interface ProductApi {
 
 
     /**
-     * POST /product/list : Path used to list product that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /product/bmV1.0/list : Path used to list product that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Product list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface ProductApi {
         @ApiResponse(code = 200, message = "Product list found successfully", response = ProductDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/product/list",
+        value = "/product/bmV1.0/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -134,7 +134,7 @@ public interface ProductApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }";
+                    String exampleString = "{ \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -146,7 +146,7 @@ public interface ProductApi {
 
 
     /**
-     * POST /product/page : Path used to list product page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /product/bmV1.0/page : Path used to list product page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Product page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface ProductApi {
         @ApiResponse(code = 200, message = "Product page found successfully", response = PageofProductDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/product/page",
+        value = "/product/bmV1.0/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -169,7 +169,7 @@ public interface ProductApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 5, \"currentPage\" : 1, \"content\" : [ { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }, { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }, { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" } ], \"totalElements\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -181,7 +181,7 @@ public interface ProductApi {
 
 
     /**
-     * POST /product/create : Path used to save a new product of product in the system
+     * POST /product/bmV1.0/create : Path used to save a new product of product in the system
      *
      * @param productDto  (optional)
      * @return Product saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface ProductApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/product/create",
+        value = "/product/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -214,7 +214,7 @@ public interface ProductApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }";
+                    String exampleString = "{ \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -226,7 +226,7 @@ public interface ProductApi {
 
 
     /**
-     * PUT /product/update : Path used to update or modify an existing product in the system
+     * PUT /product/bmV1.0/update : Path used to update or modify an existing product in the system
      *
      * @param productDto  (optional)
      * @return Product updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface ProductApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/product/update",
+        value = "/product/bmV1.0/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -259,7 +259,7 @@ public interface ProductApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }";
+                    String exampleString = "{ \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

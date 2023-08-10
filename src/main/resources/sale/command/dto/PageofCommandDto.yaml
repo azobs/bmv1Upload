@@ -9,9 +9,11 @@ properties:
   currentPage:
     type: integer
     format: int32
+    integer: 0
   pageSize:
     type: integer
     format: int32
+    example: 10
   content:
     type: array
     items:

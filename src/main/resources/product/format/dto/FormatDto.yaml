@@ -3,6 +3,7 @@ description: 'A format used to format product in the system'
 properties:
   formatName:
     type: string
+    example: formatName
   formatCapacity:
     type: number
     format: double

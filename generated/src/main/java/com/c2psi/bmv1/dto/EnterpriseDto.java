@@ -4,6 +4,7 @@ import java.util.Objects;
 import com.c2psi.bmv1.dto.UserbmDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -14,10 +15,51 @@ import javax.validation.constraints.*;
  * An enterprise which can contain multiple pointofsale all manage in the system
  */
 @ApiModel(description = "An enterprise which can contain multiple pointofsale all manage in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class EnterpriseDto   {
+  /**
+   * Gets or Sets entRegime
+   */
+  public enum EntRegimeEnum {
+    IL("IL"),
+    
+    SI("SI"),
+    
+    SARL("SARL"),
+    
+    SA("SA"),
+    
+    GRP("GRP");
+
+    private String value;
+
+    EntRegimeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static EntRegimeEnum fromValue(String value) {
+      for (EntRegimeEnum b : EntRegimeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   @JsonProperty("entRegime")
-  private String entRegime;
+  private EntRegimeEnum entRegime;
 
   @JsonProperty("entSocialreason")
   private String entSocialreason;
@@ -40,7 +82,7 @@ public class EnterpriseDto   {
   @JsonProperty("entAdmin")
   private UserbmDto entAdmin;
 
-  public EnterpriseDto entRegime(String entRegime) {
+  public EnterpriseDto entRegime(EntRegimeEnum entRegime) {
     this.entRegime = entRegime;
     return this;
   }
@@ -49,14 +91,14 @@ public class EnterpriseDto   {
    * Get entRegime
    * @return entRegime
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "IL", value = "")
 
 
-  public String getEntRegime() {
+  public EntRegimeEnum getEntRegime() {
     return entRegime;
   }
 
-  public void setEntRegime(String entRegime) {
+  public void setEntRegime(EntRegimeEnum entRegime) {
     this.entRegime = entRegime;
   }
 
@@ -129,7 +171,7 @@ public class EnterpriseDto   {
    * Get entName
    * @return entName
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "entName", value = "")
 
 
   public String getEntName() {

@@ -3,6 +3,7 @@ description: 'A Packaging in the system'
 properties:
   packLabel:
     type: string
+    example: packLabel
   packDescription:
     type: string
   packFirstcolor:

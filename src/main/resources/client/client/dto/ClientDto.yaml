@@ -10,6 +10,8 @@ properties:
   clientBalance:
     type: integer
     format: int32
+    minimum: 0
+    exclusiveMinimum: false
   clientAddress:
     type: object
     $ref: '../../../general/dto/AddressDto.yaml'

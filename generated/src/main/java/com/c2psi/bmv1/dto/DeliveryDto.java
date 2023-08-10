@@ -16,7 +16,7 @@ import javax.validation.constraints.*;
  * A Delivery in the system which can contain multiple command
  */
 @ApiModel(description = "A Delivery in the system which can contain multiple command")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class DeliveryDto   {
   @JsonProperty("deliveryCode")
   private String deliveryCode;
@@ -82,7 +82,7 @@ public class DeliveryDto   {
    * Get deliveryCode
    * @return deliveryCode
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "D0001", value = "")
 
 
   public String getDeliveryCode() {
@@ -142,7 +142,7 @@ public class DeliveryDto   {
    * Get deliveryState
    * @return deliveryState
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "InEditing", value = "")
 
 
   public DeliveryStateEnum getDeliveryState() {

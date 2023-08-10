@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * An operation in the system
  */
 @ApiModel(description = "An operation in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class OperationDto   {
   @JsonProperty("opDate")
   private String opDate;
@@ -136,7 +136,7 @@ public class OperationDto   {
    * Get opType
    * @return opType
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "Credit", value = "")
 
 
   public OpTypeEnum getOpType() {

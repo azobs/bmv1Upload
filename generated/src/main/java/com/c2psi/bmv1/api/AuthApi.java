@@ -25,7 +25,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "auth", description = "the auth API")
 public interface AuthApi {
@@ -80,7 +80,7 @@ public interface AuthApi {
 
 
     /**
-     * DELETE /auth/permission/delete/{id} : Path used to delete a permission in the system with its id
+     * DELETE /auth/permission/bmV1.0/delete/{id} : Path used to delete a permission in the system with its id
      *
      * @param id The id that represent the Permission to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Permission deleted successfully (status code 200)
@@ -100,7 +100,7 @@ public interface AuthApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/auth/permission/delete/{id}",
+        value = "/auth/permission/bmV1.0/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deletePermissionById(@ApiParam(value = "The id that represent the Permission to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -115,7 +115,7 @@ public interface AuthApi {
 
 
     /**
-     * DELETE /auth/token/delete/{id} : Path used to delete a token in the system with its id
+     * DELETE /auth/token/bmV1.0/delete/{id} : Path used to delete a token in the system with its id
      *
      * @param id The id that represent the Token to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Token deleted successfully (status code 200)
@@ -135,7 +135,7 @@ public interface AuthApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/auth/token/delete/{id}",
+        value = "/auth/token/bmV1.0/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteTokenById(@ApiParam(value = "The id that represent the Token to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -150,7 +150,7 @@ public interface AuthApi {
 
 
     /**
-     * GET /auth/permission/getby/{id} : Find a Permission in the system by its id
+     * GET /auth/permission/bmV1.0/getby/{id} : Find a Permission in the system by its id
      *
      * @param id The id that represent the Permission found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Permission found successfully (status code 200)
@@ -170,7 +170,7 @@ public interface AuthApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/auth/permission/getby/{id}",
+        value = "/auth/permission/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<PermissionDto> _getPermissionById(@ApiParam(value = "The id that represent the Permission found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -270,7 +270,7 @@ public interface AuthApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"expired\" : true, \"userbmDto\" : { \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" }, \"tokenType\" : \"Bearer\", \"revoked\" : true, \"tokenValue\" : \"tokenValue\" }";
+                    String exampleString = "{ \"expired\" : true, \"userbmDto\" : { \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" }, \"tokenType\" : \"Bearer\", \"revoked\" : true, \"tokenValue\" : \"tokenValue\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -282,7 +282,7 @@ public interface AuthApi {
 
 
     /**
-     * POST /auth/permission/list : Path used to list permission that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /auth/permission/bmV1.0/list : Path used to list permission that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Permission list found successfully (status code 200)
@@ -292,7 +292,7 @@ public interface AuthApi {
         @ApiResponse(code = 200, message = "Permission list found successfully", response = PermissionDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/auth/permission/list",
+        value = "/auth/permission/bmV1.0/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -317,7 +317,7 @@ public interface AuthApi {
 
 
     /**
-     * POST /auth/permission/page : Path used to list permission page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /auth/permission/bmV1.0/page : Path used to list permission page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Permission page found successfully (status code 200)
@@ -327,7 +327,7 @@ public interface AuthApi {
         @ApiResponse(code = 200, message = "Permission page found successfully", response = PageofPermissionDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/auth/permission/page",
+        value = "/auth/permission/bmV1.0/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -352,7 +352,7 @@ public interface AuthApi {
 
 
     /**
-     * GET /auth/token/getby/{id} : Find a token in the system by its id
+     * GET /auth/token/bmV1.0/getby/{id} : Find a token in the system by its id
      *
      * @param id The id that represent the Token found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Token found successfully (status code 200)
@@ -372,7 +372,7 @@ public interface AuthApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/auth/token/getby/{id}",
+        value = "/auth/token/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<TokenDto> _getTokenById(@ApiParam(value = "The id that represent the Token found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -384,7 +384,7 @@ public interface AuthApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"expired\" : true, \"userbmDto\" : { \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" }, \"tokenType\" : \"Bearer\", \"revoked\" : true, \"tokenValue\" : \"tokenValue\" }";
+                    String exampleString = "{ \"expired\" : true, \"userbmDto\" : { \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" }, \"tokenType\" : \"Bearer\", \"revoked\" : true, \"tokenValue\" : \"tokenValue\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -396,7 +396,7 @@ public interface AuthApi {
 
 
     /**
-     * POST /auth/token/list : Path used to list token that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /auth/token/bmV1.0/list : Path used to list token that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Token list found successfully (status code 200)
@@ -406,7 +406,7 @@ public interface AuthApi {
         @ApiResponse(code = 200, message = "Token list found successfully", response = TokenDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/auth/token/list",
+        value = "/auth/token/bmV1.0/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -419,7 +419,7 @@ public interface AuthApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"expired\" : true, \"userbmDto\" : { \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" }, \"tokenType\" : \"Bearer\", \"revoked\" : true, \"tokenValue\" : \"tokenValue\" }";
+                    String exampleString = "{ \"expired\" : true, \"userbmDto\" : { \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" }, \"tokenType\" : \"Bearer\", \"revoked\" : true, \"tokenValue\" : \"tokenValue\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -431,7 +431,7 @@ public interface AuthApi {
 
 
     /**
-     * POST /auth/permission/create : Path used to save a new permission associate to a role in the system
+     * POST /auth/permission/bmV1.0/create : Path used to save a new permission associate to a role in the system
      *
      * @param permissionDto  (optional)
      * @return Permission saved successfully (status code 200)
@@ -451,7 +451,7 @@ public interface AuthApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/auth/permission/create",
+        value = "/auth/permission/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -476,7 +476,7 @@ public interface AuthApi {
 
 
     /**
-     * POST /auth/token/create : Path used to save a new connexion token in the system
+     * POST /auth/token/bmV1.0/create : Path used to save a new connexion token in the system
      *
      * @param tokenDto  (optional)
      * @return Permission saved successfully (status code 200)
@@ -496,7 +496,7 @@ public interface AuthApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/auth/token/create",
+        value = "/auth/token/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -509,7 +509,7 @@ public interface AuthApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"expired\" : true, \"userbmDto\" : { \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" }, \"tokenType\" : \"Bearer\", \"revoked\" : true, \"tokenValue\" : \"tokenValue\" }";
+                    String exampleString = "{ \"expired\" : true, \"userbmDto\" : { \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" }, \"tokenType\" : \"Bearer\", \"revoked\" : true, \"tokenValue\" : \"tokenValue\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

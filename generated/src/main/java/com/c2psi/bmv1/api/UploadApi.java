@@ -19,7 +19,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "upload", description = "the upload API")
 public interface UploadApi {
@@ -29,7 +29,7 @@ public interface UploadApi {
     }
 
     /**
-     * POST /upload/picture : Path used to upload a picture that represent a resource in the system
+     * POST /upload/bmV1.0/picture : Path used to upload a picture that represent a resource in the system
      *
      * @param id  (optional)
      * @param fileName  (optional)
@@ -40,7 +40,7 @@ public interface UploadApi {
         @ApiResponse(code = 200, message = "Resource uploaded successfully", response = org.springframework.core.io.Resource.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/upload/picture",
+        value = "/upload/bmV1.0/picture",
         produces = { "image/_*" },
         consumes = { "multipart/form-data" }
     )

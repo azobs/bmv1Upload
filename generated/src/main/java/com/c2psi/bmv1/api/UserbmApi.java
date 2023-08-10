@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "userbm", description = "the userbm API")
 public interface UserbmApi {
@@ -32,7 +32,7 @@ public interface UserbmApi {
     }
 
     /**
-     * DELETE /userbm/delete/{id} : Path used to delete a userbm in the system with its id
+     * DELETE /userbm/bmV1.0/delete/{id} : Path used to delete a userbm in the system with its id
      *
      * @param id The id that represent the Userbm to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Userbm deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface UserbmApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/userbm/delete/{id}",
+        value = "/userbm/bmV1.0/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteUserbmById(@ApiParam(value = "The id that represent the Userbm to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface UserbmApi {
 
 
     /**
-     * GET /userbm/getby/{cni} : Find a Userbm in the system by its cni number
+     * GET /userbm/bmV1.0/getby/{cni} : Find a Userbm in the system by its cni number
      *
      * @param cni The cni number that represent the Userbm found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Userbm found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface UserbmApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/userbm/getby/{cni}",
+        value = "/userbm/bmV1.0/getby/{cni}",
         produces = { "application/json" }
     )
     default ResponseEntity<UserbmDto> _getUserbmByCni(@ApiParam(value = "The cni number that represent the Userbm found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("cni") String cni) {
@@ -99,7 +99,7 @@ public interface UserbmApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" }";
+                    String exampleString = "{ \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -111,7 +111,7 @@ public interface UserbmApi {
 
 
     /**
-     * GET /userbm/getby/{email} : Find a Userbm in the system by its email address
+     * GET /userbm/bmV1.0/getby/{email} : Find a Userbm in the system by its email address
      *
      * @param email The email that represent the Userbm found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Userbm found successfully (status code 200)
@@ -131,7 +131,7 @@ public interface UserbmApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/userbm/getby/{email}",
+        value = "/userbm/bmV1.0/getby/{email}",
         produces = { "application/json" }
     )
     default ResponseEntity<UserbmDto> _getUserbmByEmail(@ApiParam(value = "The email that represent the Userbm found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("email") String email) {
@@ -143,7 +143,7 @@ public interface UserbmApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" }";
+                    String exampleString = "{ \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -155,7 +155,7 @@ public interface UserbmApi {
 
 
     /**
-     * GET /userbm/getby/{id} : Find a Userbm in the system by its id
+     * GET /userbm/bmV1.0/getby/{id} : Find a Userbm in the system by its id
      *
      * @param id The id that represent the Userbm found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Userbm found successfully (status code 200)
@@ -175,7 +175,7 @@ public interface UserbmApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/userbm/getby/{id}",
+        value = "/userbm/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<UserbmDto> _getUserbmById(@ApiParam(value = "The id that represent the Userbm found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -187,7 +187,7 @@ public interface UserbmApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" }";
+                    String exampleString = "{ \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -199,7 +199,7 @@ public interface UserbmApi {
 
 
     /**
-     * GET /userbm/getby/{login} : Find a Userbm in the system by its login
+     * GET /userbm/bmV1.0/getby/{login} : Find a Userbm in the system by its login
      *
      * @param login The login that represent the Userbm found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Userbm found successfully (status code 200)
@@ -219,7 +219,7 @@ public interface UserbmApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/userbm/getby/{login}",
+        value = "/userbm/bmV1.0/getby/{login}",
         produces = { "application/json" }
     )
     default ResponseEntity<UserbmDto> _getUserbmByLogin(@ApiParam(value = "The login that represent the Userbm found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("login") String login) {
@@ -231,7 +231,7 @@ public interface UserbmApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" }";
+                    String exampleString = "{ \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -243,7 +243,7 @@ public interface UserbmApi {
 
 
     /**
-     * POST /userbm/list : Path used to list user that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /userbm/bmV1.0/list : Path used to list user that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Userbm list found successfully (status code 200)
@@ -253,7 +253,7 @@ public interface UserbmApi {
         @ApiResponse(code = 200, message = "Userbm list found successfully", response = UserbmDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/userbm/list",
+        value = "/userbm/bmV1.0/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -266,7 +266,7 @@ public interface UserbmApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" }";
+                    String exampleString = "{ \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -278,7 +278,7 @@ public interface UserbmApi {
 
 
     /**
-     * POST /userbm/page : Path used to list users page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /userbm/bmV1.0/page : Path used to list users page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Userbm page found successfully (status code 200)
@@ -288,7 +288,7 @@ public interface UserbmApi {
         @ApiResponse(code = 200, message = "Userbm page found successfully", response = PageofUserbmDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/userbm/page",
+        value = "/userbm/bmV1.0/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -301,7 +301,7 @@ public interface UserbmApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 5, \"currentPage\" : 1, \"content\" : [ { \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" }, { \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 1, \"currentPage\" : 0, \"content\" : [ { \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" }, { \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" } ], \"totalElements\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -313,7 +313,7 @@ public interface UserbmApi {
 
 
     /**
-     * POST /userbm/create : Path used to save a new user in the system
+     * POST /userbm/bmV1.0/create : Path used to save a new user in the system
      *
      * @param userbmDto  (optional)
      * @return Userbm saved successfully (status code 200)
@@ -333,7 +333,7 @@ public interface UserbmApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/userbm/create",
+        value = "/userbm/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -346,7 +346,7 @@ public interface UserbmApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" }";
+                    String exampleString = "{ \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -358,7 +358,7 @@ public interface UserbmApi {
 
 
     /**
-     * PUT /userbm/update : Path used to update or modify an existing user in the system
+     * PUT /userbm/bmV1.0/update : Path used to update or modify an existing user in the system
      *
      * @param userbmDto  (optional)
      * @return Userbm updated successfully (status code 200)
@@ -378,7 +378,7 @@ public interface UserbmApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/userbm/update",
+        value = "/userbm/bmV1.0/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -391,7 +391,7 @@ public interface UserbmApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"userLogin\" : \"userLogin\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"userPassword\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"userCni\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"userRepassword\", \"userSurname\" : \"userSurname\" }";
+                    String exampleString = "{ \"userLogin\" : \"login\", \"userAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"userPicture\" : \"userPicture\", \"userPassword\" : \"password\", \"userState\" : \"Activated\", \"userDob\" : \"2000-01-23\", \"userCni\" : \"107235260\", \"id\" : 0, \"userName\" : \"userName\", \"userRepassword\" : \"password\", \"userSurname\" : \"userSurname\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

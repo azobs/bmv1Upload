@@ -3,14 +3,17 @@ description: 'A product in the system'
 properties:
   prodName:
     type: string
+    example: prodName
   prodCode:
     type: string
+    example: P0000
   prodDescription:
     type: string
   prodAlias:
     type: string
   prodPerishable:
     type: boolean
+    example: false
   prodCat:
     type: object
     $ref: '../../category/dto/CategoryDto.yaml'

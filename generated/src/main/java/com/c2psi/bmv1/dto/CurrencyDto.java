@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * A currency used in the system
  */
 @ApiModel(description = "A currency used in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class CurrencyDto   {
   @JsonProperty("currencyName")
   private String currencyName;
@@ -30,7 +30,7 @@ public class CurrencyDto   {
    * Get currencyName
    * @return currencyName
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "franc cfa", value = "")
 
 @Size(max = 30) 
   public String getCurrencyName() {
@@ -50,7 +50,7 @@ public class CurrencyDto   {
    * Get currencyAbbreviation
    * @return currencyAbbreviation
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "F cfa", value = "")
 
 @Size(max = 5) 
   public String getCurrencyAbbreviation() {

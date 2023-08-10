@@ -3,6 +3,7 @@ description: 'A pointofsale object of the system'
 properties:
   posName:
     type: string
+    example: posName
   posAcronym:
     type: string
   posDescription:

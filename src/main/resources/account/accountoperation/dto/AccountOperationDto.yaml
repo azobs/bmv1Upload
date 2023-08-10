@@ -4,6 +4,9 @@ properties:
   quantityinMvt:
     type: number
     format: double
+    minimum: 0
+    exclusiveMinimum: true
+    example: 1
   operation:
     type: object
     $ref: '../../operation/dto/OperationDto.yaml'

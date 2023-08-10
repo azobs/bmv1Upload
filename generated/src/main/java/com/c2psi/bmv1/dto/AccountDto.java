@@ -19,7 +19,7 @@ import javax.validation.constraints.*;
  * An account for pointofsale, provider or a client in the system
  */
 @ApiModel(description = "An account for pointofsale, provider or a client in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class AccountDto   {
   @JsonProperty("coverNumber")
   private Integer coverNumber;
@@ -92,11 +92,12 @@ public class AccountDto   {
 
   /**
    * Get coverNumber
+   * minimum: 0
    * @return coverNumber
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
-
+@Min(0) 
   public Integer getCoverNumber() {
     return coverNumber;
   }
@@ -112,11 +113,12 @@ public class AccountDto   {
 
   /**
    * Get damageNumber
+   * minimum: 0
    * @return damageNumber
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
-
+@Min(0) 
   public Integer getDamageNumber() {
     return damageNumber;
   }
@@ -132,11 +134,12 @@ public class AccountDto   {
 
   /**
    * Get packageNumber
+   * minimum: 0
    * @return packageNumber
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
-
+@Min(0) 
   public Integer getPackageNumber() {
     return packageNumber;
   }
@@ -154,7 +157,7 @@ public class AccountDto   {
    * Get accountType
    * @return accountType
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "Pos", value = "")
 
 
   public AccountTypeEnum getAccountType() {

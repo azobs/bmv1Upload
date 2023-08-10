@@ -3,8 +3,10 @@ description: 'A selling unit of product formated in the system'
 properties:
   unitName:
     type: string
+    example: unitName
   unitAbbreviation:
     type: string
+    example: UN
   unitPos:
     type: object
     $ref: '../../../../pos/pos/dto/PointofsaleDto.yaml'

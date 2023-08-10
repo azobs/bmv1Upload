@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "address", description = "the address API")
 public interface AddressApi {
@@ -65,7 +65,7 @@ public interface AddressApi {
 
 
     /**
-     * GET /address/getby/{email} : Find a Address in the system by its email address
+     * GET /address/bmV1.0/getby/{email} : Find a Address in the system by its email address
      *
      * @param email The email that represent the Address found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Address found successfully (status code 200)
@@ -85,7 +85,7 @@ public interface AddressApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/address/getby/{email}",
+        value = "/address/bmV1.0/getby/{email}",
         produces = { "application/json" }
     )
     default ResponseEntity<AddressDto> _getAddressByEmail(@ApiParam(value = "The email that represent the Address found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("email") String email) {
@@ -109,7 +109,7 @@ public interface AddressApi {
 
 
     /**
-     * GET /address/getby/{id} : Find an Address in the system by its id
+     * GET /address/bmV1.0/getby/{id} : Find an Address in the system by its id
      *
      * @param id The id that represent the Address found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Address found successfully (status code 200)
@@ -129,7 +129,7 @@ public interface AddressApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/address/getby/{id}",
+        value = "/address/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<AddressDto> _getAddressById(@ApiParam(value = "The id that represent the Address found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -153,7 +153,7 @@ public interface AddressApi {
 
 
     /**
-     * POST /address/create : Path used to save a new address in the system
+     * POST /address/bmV1.0/create : Path used to save a new address in the system
      *
      * @param addressDto  (optional)
      * @return Address saved successfully (status code 200)
@@ -173,7 +173,7 @@ public interface AddressApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/address/create",
+        value = "/address/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -198,7 +198,7 @@ public interface AddressApi {
 
 
     /**
-     * PUT /address/update : Path used to update or modify an existing address in the system
+     * PUT /address/bmV1.0/update : Path used to update or modify an existing address in the system
      *
      * @param addressDto  (optional)
      * @return Address updated successfully (status code 200)
@@ -218,7 +218,7 @@ public interface AddressApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/address/update",
+        value = "/address/bmV1.0/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * A selling unit of product formated in the system
  */
 @ApiModel(description = "A selling unit of product formated in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class UnitDto   {
   @JsonProperty("unitName")
   private String unitName;
@@ -34,7 +34,7 @@ public class UnitDto   {
    * Get unitName
    * @return unitName
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "unitName", value = "")
 
 
   public String getUnitName() {
@@ -54,7 +54,7 @@ public class UnitDto   {
    * Get unitAbbreviation
    * @return unitAbbreviation
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "UN", value = "")
 
 
   public String getUnitAbbreviation() {

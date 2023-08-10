@@ -4,6 +4,7 @@ properties:
   bidQuantity:
     type: number
     format: double
+    example: 0
   bidComment:
     type: string
   bidArticle:

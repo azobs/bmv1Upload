@@ -3,6 +3,7 @@ description: 'A Delivery in the system which can contain multiple command'
 properties:
   deliveryCode:
     type: string
+    example: D0001
   deliveryDate:
     type: string
     format: datetime
@@ -14,6 +15,7 @@ properties:
       - InEditing
       - Edited
       - Delivery
+    example: InEditing
   deliveryDeliver:
     type: object
     $ref: '../../../userbm/dto/UserbmDto.yaml'

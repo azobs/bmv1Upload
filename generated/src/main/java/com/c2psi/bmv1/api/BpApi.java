@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "bp", description = "the bp API")
 public interface BpApi {
@@ -30,7 +30,7 @@ public interface BpApi {
     }
 
     /**
-     * DELETE /bp/delete/{id} : Path used to delete a baseprice in the system with its id
+     * DELETE /bp/bmV1.0/delete/{id} : Path used to delete a baseprice in the system with its id
      *
      * @param id The id that represent the Baseprice to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Baseprice deleted successfully (status code 200)
@@ -50,7 +50,7 @@ public interface BpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/bp/delete/{id}",
+        value = "/bp/bmV1.0/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteBasepriceById(@ApiParam(value = "The id that represent the Baseprice to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -65,7 +65,7 @@ public interface BpApi {
 
 
     /**
-     * GET /bp/getby/{id} : Find a Baseprice in the system by its id
+     * GET /bp/bmV1.0/getby/{id} : Find a Baseprice in the system by its id
      *
      * @param id The id that represent the Baseprice found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Baseprice found successfully (status code 200)
@@ -85,7 +85,7 @@ public interface BpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/bp/getby/{id}",
+        value = "/bp/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<BasepriceDto> _getBasepriceById(@ApiParam(value = "The id that represent the Baseprice found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -97,7 +97,7 @@ public interface BpApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"bpSemiwholeprice\" : 1.2315135367772556, \"bpPurchaseprice\" : 4.145608029883936, \"bpDetailsprice\" : 1.0246457001441578, \"bpRistourne\" : 6.84685269835264, \"bpCurrency\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"bpWholeprice\" : 7.386281948385884, \"bpPrecompte\" : 1.4894159098541704 }";
+                    String exampleString = "{ \"bpSemiwholeprice\" : 0.23021358869347652, \"bpPurchaseprice\" : 0.5962133916683182, \"bpDetailsprice\" : 0.7061401241503109, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"bpWholeprice\" : 0.5637376656633328, \"bpPrecompte\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -109,7 +109,7 @@ public interface BpApi {
 
 
     /**
-     * POST /bp/create : Path used to save a new Baseprice of an article in the system
+     * POST /bp/bmV1.0/create : Path used to save a new Baseprice of an article in the system
      *
      * @param basepriceDto  (optional)
      * @return Baseprice of an article saved successfully (status code 200)
@@ -129,7 +129,7 @@ public interface BpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/bp/create",
+        value = "/bp/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -142,7 +142,7 @@ public interface BpApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"bpSemiwholeprice\" : 1.2315135367772556, \"bpPurchaseprice\" : 4.145608029883936, \"bpDetailsprice\" : 1.0246457001441578, \"bpRistourne\" : 6.84685269835264, \"bpCurrency\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"bpWholeprice\" : 7.386281948385884, \"bpPrecompte\" : 1.4894159098541704 }";
+                    String exampleString = "{ \"bpSemiwholeprice\" : 0.23021358869347652, \"bpPurchaseprice\" : 0.5962133916683182, \"bpDetailsprice\" : 0.7061401241503109, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"bpWholeprice\" : 0.5637376656633328, \"bpPrecompte\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -154,7 +154,7 @@ public interface BpApi {
 
 
     /**
-     * PUT /bp/update : Path used to update or modify an existing Baseprice in the system
+     * PUT /bp/bmV1.0/update : Path used to update or modify an existing Baseprice in the system
      *
      * @param basepriceDto  (optional)
      * @return Baseprice updated successfully (status code 200)
@@ -174,7 +174,7 @@ public interface BpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/bp/update",
+        value = "/bp/bmV1.0/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -187,7 +187,7 @@ public interface BpApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"bpSemiwholeprice\" : 1.2315135367772556, \"bpPurchaseprice\" : 4.145608029883936, \"bpDetailsprice\" : 1.0246457001441578, \"bpRistourne\" : 6.84685269835264, \"bpCurrency\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"bpWholeprice\" : 7.386281948385884, \"bpPrecompte\" : 1.4894159098541704 }";
+                    String exampleString = "{ \"bpSemiwholeprice\" : 0.23021358869347652, \"bpPurchaseprice\" : 0.5962133916683182, \"bpDetailsprice\" : 0.7061401241503109, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"bpWholeprice\" : 0.5637376656633328, \"bpPrecompte\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

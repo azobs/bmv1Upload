@@ -3,18 +3,25 @@ description: 'A Loading in the system'
 properties:
   loadCode:
     type: string
+    example: L0000
   loadDate:
     type: string
     format: datetime
   loadExpectedamount:
     type: number
     format: double
+    minimum: 1
+    exclusiveMinimum: false
   loadPaidamount:
     type: number
     format: double
+    minimum: 1
+    exclusiveMinimum: false
   loadRemise:
     type: number
     format: double
+    minimum: 0
+    exclusiveMinimum: false
   loadReport:
     type: string
   loadManager:

@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 /**
  * UserbmDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class UserbmDto   {
   @JsonProperty("id")
   private Long id;
@@ -119,7 +119,7 @@ public class UserbmDto   {
    * Get userLogin
    * @return userLogin
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "login", value = "")
 
 @Size(min = 3, max = 15) 
   public String getUserLogin() {
@@ -139,9 +139,9 @@ public class UserbmDto   {
    * Get userCni
    * @return userCni
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "107235260", value = "")
 
-@Size(min = 3, max = 17) 
+@Size(min = 9, max = 17) 
   public String getUserCni() {
     return userCni;
   }
@@ -159,7 +159,7 @@ public class UserbmDto   {
    * Get userPassword
    * @return userPassword
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "password", value = "")
 
 @Size(min = 4) 
   public String getUserPassword() {
@@ -179,7 +179,7 @@ public class UserbmDto   {
    * Get userRepassword
    * @return userRepassword
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "password", value = "")
 
 @Size(min = 4) 
   public String getUserRepassword() {
@@ -199,7 +199,7 @@ public class UserbmDto   {
    * Get userName
    * @return userName
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "userName", value = "")
 
 @Size(min = 2, max = 30) 
   public String getUserName() {

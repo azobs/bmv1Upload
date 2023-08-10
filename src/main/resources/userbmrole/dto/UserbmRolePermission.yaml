@@ -11,4 +11,4 @@ properties:
     enum:
       - ADD
       - REMOVE
-  
+    example: ADD

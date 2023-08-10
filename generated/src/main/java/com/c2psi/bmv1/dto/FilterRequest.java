@@ -19,7 +19,7 @@ import javax.validation.constraints.*;
  * Model used to precise search criteria and sort criteria
  */
 @ApiModel(description = "Model used to precise search criteria and sort criteria")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class FilterRequest   {
   @JsonProperty("filters")
   @Valid

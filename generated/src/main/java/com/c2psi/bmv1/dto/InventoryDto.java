@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * An Inventory used in the system
  */
 @ApiModel(description = "An Inventory used in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class InventoryDto   {
   @JsonProperty("invComment")
   private String invComment;
@@ -77,7 +77,7 @@ public class InventoryDto   {
    * Get invCode
    * @return invCode
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "I0000", value = "")
 
 
   public String getInvCode() {

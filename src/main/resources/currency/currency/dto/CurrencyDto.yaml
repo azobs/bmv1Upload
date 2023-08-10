@@ -5,8 +5,10 @@ properties:
     type: string
     maxLength: 30
     nullable: false
+    example: franc cfa
   currencyAbbreviation:
     type: string
     maxLength: 5
     nullable: false
+    example: F cfa
   

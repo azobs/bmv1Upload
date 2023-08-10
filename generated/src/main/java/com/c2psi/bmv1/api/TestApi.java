@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "test", description = "the test API")
 public interface TestApi {
@@ -30,7 +30,7 @@ public interface TestApi {
     }
 
     /**
-     * GET /test
+     * GET /test/bmV1.0
      *
      * @return Sucessfull Test Operation (status code 200)
      */
@@ -39,7 +39,7 @@ public interface TestApi {
         @ApiResponse(code = 200, message = "Sucessfull Test Operation", response = TestDto.class) })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/test",
+        value = "/test/bmV1.0",
         produces = { "application/json" }
     )
     default ResponseEntity<TestDto> _apiTest() {

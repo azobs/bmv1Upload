@@ -24,7 +24,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "currency", description = "the currency API")
 public interface CurrencyApi {
@@ -34,7 +34,7 @@ public interface CurrencyApi {
     }
 
     /**
-     * DELETE /currency/delete/{id} : Path used to delete a currency in the system with its id
+     * DELETE /currency/bmV1.0/delete/{id} : Path used to delete a currency in the system with its id
      *
      * @param id The id that represent the Currency to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Currency deleted successfully (status code 200)
@@ -54,7 +54,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/currency/delete/{id}",
+        value = "/currency/bmV1.0/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteCurrencyById(@ApiParam(value = "The id that represent the Currency to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -69,7 +69,7 @@ public interface CurrencyApi {
 
 
     /**
-     * DELETE /currency/conversion/delete/{id} : Path used to delete a currency conversion in the system with its id
+     * DELETE /currency/conversion/bmV1.0/delete/{id} : Path used to delete a currency conversion in the system with its id
      *
      * @param id The id that represent the Currencyconversion to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Currencyconversion deleted successfully (status code 200)
@@ -89,7 +89,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/currency/conversion/delete/{id}",
+        value = "/currency/conversion/bmV1.0/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteCurrencyconversionById(@ApiParam(value = "The id that represent the Currencyconversion to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -104,7 +104,7 @@ public interface CurrencyApi {
 
 
     /**
-     * GET /currency/getby/{id} : Find a Currency in the system by its id
+     * GET /currency/bmV1.0/getby/{id} : Find a Currency in the system by its id
      *
      * @param id The id that represent the Currency found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Currency found successfully (status code 200)
@@ -124,7 +124,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/currency/getby/{id}",
+        value = "/currency/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<CurrencyDto> _getCurrencyById(@ApiParam(value = "The id that represent the Currency found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -136,7 +136,7 @@ public interface CurrencyApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }";
+                    String exampleString = "{ \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -148,7 +148,7 @@ public interface CurrencyApi {
 
 
     /**
-     * POST /currency/list : Path used to list currency that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /currency/bmV1.0/list : Path used to list currency that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Currency list found successfully (status code 200)
@@ -158,7 +158,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 200, message = "Currency list found successfully", response = CurrencyDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/currency/list",
+        value = "/currency/bmV1.0/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -171,7 +171,7 @@ public interface CurrencyApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }";
+                    String exampleString = "{ \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -183,7 +183,7 @@ public interface CurrencyApi {
 
 
     /**
-     * POST /currency/page : Path used to list currency page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /currency/bmV1.0/page : Path used to list currency page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Currency page found successfully (status code 200)
@@ -193,7 +193,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 200, message = "Currency page found successfully", response = PageofCurrencyDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/currency/page",
+        value = "/currency/bmV1.0/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -206,7 +206,7 @@ public interface CurrencyApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 5, \"currentPage\" : 1, \"content\" : [ { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" } ], \"totalElements\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -218,7 +218,7 @@ public interface CurrencyApi {
 
 
     /**
-     * GET /currency/conversion/getby/{id} : Find a Currencyconversion in the system by its id
+     * GET /currency/conversion/bmV1.0/getby/{id} : Find a Currencyconversion in the system by its id
      *
      * @param id The id that represent the Currencyconversion found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Currencyconversion found successfully (status code 200)
@@ -238,7 +238,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/currency/conversion/getby/{id}",
+        value = "/currency/conversion/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<CurrencyconversionDto> _getCurrencyconversionById(@ApiParam(value = "The id that represent the Currencyconversion found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -250,7 +250,7 @@ public interface CurrencyApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"currencyDestination\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"conversionFactor\" : 0.8008281904610115, \"currencySource\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" } }";
+                    String exampleString = "{ \"currencyDestination\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"conversionFactor\" : 0.8008281904610115, \"currencySource\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -262,7 +262,7 @@ public interface CurrencyApi {
 
 
     /**
-     * POST /currency/conversion/list : Path used to list currencyconversion that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /currency/conversion/bmV1.0/list : Path used to list currencyconversion that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Currencyconversion list found successfully (status code 200)
@@ -272,7 +272,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 200, message = "Currencyconversion list found successfully", response = CurrencyconversionDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/currency/conversion/list",
+        value = "/currency/conversion/bmV1.0/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -285,7 +285,7 @@ public interface CurrencyApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"currencyDestination\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"conversionFactor\" : 0.8008281904610115, \"currencySource\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" } }";
+                    String exampleString = "{ \"currencyDestination\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"conversionFactor\" : 0.8008281904610115, \"currencySource\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -297,7 +297,7 @@ public interface CurrencyApi {
 
 
     /**
-     * POST /currency/conversion/page : Path used to list currencyconversion page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /currency/conversion/bmV1.0/page : Path used to list currencyconversion page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Currencyconversion page found successfully (status code 200)
@@ -307,7 +307,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 200, message = "Currencyconversion page found successfully", response = PageofCurrencyconversionDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/currency/conversion/page",
+        value = "/currency/conversion/bmV1.0/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -320,7 +320,7 @@ public interface CurrencyApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 5, \"currentPage\" : 1, \"content\" : [ { \"currencyDestination\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"conversionFactor\" : 0.8008281904610115, \"currencySource\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" } }, { \"currencyDestination\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"conversionFactor\" : 0.8008281904610115, \"currencySource\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" } } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 5, \"currentPage\" : 1, \"content\" : [ { \"currencyDestination\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"conversionFactor\" : 0.8008281904610115, \"currencySource\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" } }, { \"currencyDestination\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"conversionFactor\" : 0.8008281904610115, \"currencySource\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" } } ], \"totalElements\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -332,7 +332,7 @@ public interface CurrencyApi {
 
 
     /**
-     * POST /currency/create : Path used to save a new Currency of product in the system
+     * POST /currency/bmV1.0/create : Path used to save a new Currency of product in the system
      *
      * @param currencyDto  (optional)
      * @return Currency saved successfully (status code 200)
@@ -352,7 +352,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/currency/create",
+        value = "/currency/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -365,7 +365,7 @@ public interface CurrencyApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }";
+                    String exampleString = "{ \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -377,7 +377,7 @@ public interface CurrencyApi {
 
 
     /**
-     * POST /currency/conversion/create : Path used to save a new Currencyconversion of product in the system
+     * POST /currency/conversion/bmV1.0/create : Path used to save a new Currencyconversion of product in the system
      *
      * @param currencyconversionDto  (optional)
      * @return Currencyconversion saved successfully (status code 200)
@@ -397,7 +397,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/currency/conversion/create",
+        value = "/currency/conversion/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -410,7 +410,7 @@ public interface CurrencyApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"currencyDestination\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"conversionFactor\" : 0.8008281904610115, \"currencySource\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" } }";
+                    String exampleString = "{ \"currencyDestination\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"conversionFactor\" : 0.8008281904610115, \"currencySource\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -422,7 +422,7 @@ public interface CurrencyApi {
 
 
     /**
-     * PUT /currency/update : Path used to update or modify an existing currency in the system
+     * PUT /currency/bmV1.0/update : Path used to update or modify an existing currency in the system
      *
      * @param currencyDto  (optional)
      * @return Currency updated successfully (status code 200)
@@ -442,7 +442,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/currency/update",
+        value = "/currency/bmV1.0/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -455,7 +455,7 @@ public interface CurrencyApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }";
+                    String exampleString = "{ \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -467,7 +467,7 @@ public interface CurrencyApi {
 
 
     /**
-     * PUT /currency/conversion/update : Path used to update or modify an existing currencyconversion in the system
+     * PUT /currency/conversion/bmV1.0/update : Path used to update or modify an existing currencyconversion in the system
      *
      * @param currencyconversionDto  (optional)
      * @return Currencyconversion updated successfully (status code 200)
@@ -487,7 +487,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/currency/conversion/update",
+        value = "/currency/conversion/bmV1.0/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -500,7 +500,7 @@ public interface CurrencyApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"currencyDestination\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"conversionFactor\" : 0.8008281904610115, \"currencySource\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" } }";
+                    String exampleString = "{ \"currencyDestination\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"conversionFactor\" : 0.8008281904610115, \"currencySource\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

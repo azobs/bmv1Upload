@@ -3,6 +3,7 @@ description: 'A Supply invoice in the system'
 properties:
   siCode:
     type: string
+    example: SuI0000
   siComment:
     type: string
   siPicture:
@@ -16,18 +17,26 @@ properties:
   siTotalcolis:
     type: number
     format: double
+    minimum: 1
+    exclusiveMinimum: false
+    example: 1
   siExpectedamount:
     type: number
     format: double
+    minimum: 0
+    exclusiveMinimum: true
   siPaidamount:
     type: number
     format: double
+    minimum: 0
+    exclusiveMinimum: false
   siPaymentmethod:
     type: string
     enum:
       - Cash
       - Momo
       - Om
+    example: Cash
   siPos:
     type: object
     $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'

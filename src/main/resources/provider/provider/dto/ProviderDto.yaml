@@ -3,13 +3,16 @@ description: 'A provider in the system'
 properties:
   providerName:
     type: string
+    example: providerName
   providerAcronym:
     type: string
+    example: PN
   providerDescription:
     type: string
   providerBalance:
     type: integer
     format: int32
+    example: 0
   providerAddress:
     type: object
     $ref: '../../../general/dto/AddressDto.yaml'

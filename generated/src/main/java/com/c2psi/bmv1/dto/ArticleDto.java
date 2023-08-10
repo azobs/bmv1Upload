@@ -17,7 +17,7 @@ import javax.validation.constraints.*;
  * A article in the system
  */
 @ApiModel(description = "A article in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class ArticleDto   {
   @JsonProperty("artCode")
   private String artCode;
@@ -64,7 +64,7 @@ public class ArticleDto   {
    * Get artCode
    * @return artCode
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "A0000", value = "")
 
 
   public String getArtCode() {
@@ -84,7 +84,7 @@ public class ArticleDto   {
    * Get artName
    * @return artName
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "artName", value = "")
 
 
   public String getArtName() {
@@ -144,7 +144,7 @@ public class ArticleDto   {
    * Get artThreshold
    * @return artThreshold
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
 
   public Integer getArtThreshold() {
@@ -164,7 +164,7 @@ public class ArticleDto   {
    * Get artLowlimitwholesale
    * @return artLowlimitwholesale
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "30", value = "")
 
 
   public Integer getArtLowlimitwholesale() {
@@ -184,7 +184,7 @@ public class ArticleDto   {
    * Get artlowlimitSemiwholesale
    * @return artlowlimitSemiwholesale
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "25", value = "")
 
 
   public Integer getArtlowlimitSemiwholesale() {
@@ -204,7 +204,7 @@ public class ArticleDto   {
    * Get artQuantityinstock
    * @return artQuantityinstock
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
 
   public Integer getArtQuantityinstock() {

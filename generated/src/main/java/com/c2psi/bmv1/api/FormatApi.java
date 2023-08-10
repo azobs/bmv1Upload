@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "format", description = "the format API")
 public interface FormatApi {
@@ -32,7 +32,7 @@ public interface FormatApi {
     }
 
     /**
-     * DELETE /format/delete/{id} : Path used to delete a format in the system with its id
+     * DELETE /format/bmV1.0/delete/{id} : Path used to delete a format in the system with its id
      *
      * @param id The id that represent the Format to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Format deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface FormatApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/format/delete/{id}",
+        value = "/format/bmV1.0/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteFormatById(@ApiParam(value = "The id that represent the Format to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface FormatApi {
 
 
     /**
-     * GET /format/getby/{id} : Find a Format in the system by its id
+     * GET /format/bmV1.0/getby/{id} : Find a Format in the system by its id
      *
      * @param id The id that represent the Format found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Format found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface FormatApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/format/getby/{id}",
+        value = "/format/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<FormatDto> _getFormatById(@ApiParam(value = "The id that represent the Format found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -99,7 +99,7 @@ public interface FormatApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 }";
+                    String exampleString = "{ \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -111,7 +111,7 @@ public interface FormatApi {
 
 
     /**
-     * POST /format/list : Path used to list format that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /format/bmV1.0/list : Path used to list format that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Format list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface FormatApi {
         @ApiResponse(code = 200, message = "Format list found successfully", response = FormatDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/format/list",
+        value = "/format/bmV1.0/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -134,7 +134,7 @@ public interface FormatApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 }";
+                    String exampleString = "{ \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -146,7 +146,7 @@ public interface FormatApi {
 
 
     /**
-     * POST /format/page : Path used to list format page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /format/bmV1.0/page : Path used to list format page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Format page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface FormatApi {
         @ApiResponse(code = 200, message = "Format page found successfully", response = PageofFormatDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/format/page",
+        value = "/format/bmV1.0/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -169,7 +169,7 @@ public interface FormatApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 5, \"currentPage\" : 1, \"content\" : [ { \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 }, { \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 }, { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 } ], \"totalElements\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -181,7 +181,7 @@ public interface FormatApi {
 
 
     /**
-     * POST /format/create : Path used to save a new format of product in the system
+     * POST /format/bmV1.0/create : Path used to save a new format of product in the system
      *
      * @param formatDto  (optional)
      * @return Format saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface FormatApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/format/create",
+        value = "/format/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -214,7 +214,7 @@ public interface FormatApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 }";
+                    String exampleString = "{ \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -226,7 +226,7 @@ public interface FormatApi {
 
 
     /**
-     * PUT /format/update : Path used to update or modify an existing format in the system
+     * PUT /format/bmV1.0/update : Path used to update or modify an existing format in the system
      *
      * @param formatDto  (optional)
      * @return Format updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface FormatApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/format/update",
+        value = "/format/bmV1.0/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -259,7 +259,7 @@ public interface FormatApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 }";
+                    String exampleString = "{ \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

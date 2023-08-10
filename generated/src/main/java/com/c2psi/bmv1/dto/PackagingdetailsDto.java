@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * A Packaging details in the system
  */
 @ApiModel(description = "A Packaging details in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class PackagingdetailsDto   {
   @JsonProperty("packagenumberUsed")
   private Integer packagenumberUsed;
@@ -38,7 +38,7 @@ public class PackagingdetailsDto   {
    * Get packagenumberUsed
    * @return packagenumberUsed
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "1", value = "")
 
 
   public Integer getPackagenumberUsed() {
@@ -58,7 +58,7 @@ public class PackagingdetailsDto   {
    * Get packagenumberReturn
    * @return packagenumberReturn
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "1", value = "")
 
 
   public Integer getPackagenumberReturn() {

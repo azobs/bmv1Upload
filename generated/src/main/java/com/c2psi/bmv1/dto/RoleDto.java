@@ -1,6 +1,8 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
+import com.c2psi.bmv1.dto.EnterpriseDto;
+import com.c2psi.bmv1.dto.PointofsaleDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -13,7 +15,7 @@ import javax.validation.constraints.*;
 /**
  * RoleDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class RoleDto   {
   @JsonProperty("id")
   private Long id;
@@ -64,6 +66,12 @@ public class RoleDto   {
   @JsonProperty("roleType")
   private RoleTypeEnum roleType;
 
+  @JsonProperty("rolePos")
+  private PointofsaleDto rolePos;
+
+  @JsonProperty("roleEnt")
+  private EnterpriseDto roleEnt;
+
   public RoleDto id(Long id) {
     this.id = id;
     return this;
@@ -93,7 +101,7 @@ public class RoleDto   {
    * Get roleName
    * @return roleName
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "Admin", value = "")
 
 @Size(min = 3, max = 20) 
   public String getRoleName() {
@@ -133,7 +141,7 @@ public class RoleDto   {
    * Get roleType
    * @return roleType
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "ADMINBM", value = "")
 
 
   public RoleTypeEnum getRoleType() {
@@ -142,6 +150,48 @@ public class RoleDto   {
 
   public void setRoleType(RoleTypeEnum roleType) {
     this.roleType = roleType;
+  }
+
+  public RoleDto rolePos(PointofsaleDto rolePos) {
+    this.rolePos = rolePos;
+    return this;
+  }
+
+  /**
+   * Get rolePos
+   * @return rolePos
+  */
+  @ApiModelProperty(value = "")
+
+  @Valid
+
+  public PointofsaleDto getRolePos() {
+    return rolePos;
+  }
+
+  public void setRolePos(PointofsaleDto rolePos) {
+    this.rolePos = rolePos;
+  }
+
+  public RoleDto roleEnt(EnterpriseDto roleEnt) {
+    this.roleEnt = roleEnt;
+    return this;
+  }
+
+  /**
+   * Get roleEnt
+   * @return roleEnt
+  */
+  @ApiModelProperty(value = "")
+
+  @Valid
+
+  public EnterpriseDto getRoleEnt() {
+    return roleEnt;
+  }
+
+  public void setRoleEnt(EnterpriseDto roleEnt) {
+    this.roleEnt = roleEnt;
   }
 
 
@@ -157,12 +207,14 @@ public class RoleDto   {
     return Objects.equals(this.id, roleDto.id) &&
         Objects.equals(this.roleName, roleDto.roleName) &&
         Objects.equals(this.roleDescription, roleDto.roleDescription) &&
-        Objects.equals(this.roleType, roleDto.roleType);
+        Objects.equals(this.roleType, roleDto.roleType) &&
+        Objects.equals(this.rolePos, roleDto.rolePos) &&
+        Objects.equals(this.roleEnt, roleDto.roleEnt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, roleName, roleDescription, roleType);
+    return Objects.hash(id, roleName, roleDescription, roleType, rolePos, roleEnt);
   }
 
   @Override
@@ -174,6 +226,8 @@ public class RoleDto   {
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    roleDescription: ").append(toIndentedString(roleDescription)).append("\n");
     sb.append("    roleType: ").append(toIndentedString(roleType)).append("\n");
+    sb.append("    rolePos: ").append(toIndentedString(rolePos)).append("\n");
+    sb.append("    roleEnt: ").append(toIndentedString(roleEnt)).append("\n");
     sb.append("}");
     return sb.toString();
   }

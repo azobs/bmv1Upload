@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 /**
  * PageofCommandDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class PageofCommandDto   {
   @JsonProperty("totalElements")
   private Integer totalElements;
@@ -102,7 +102,7 @@ public class PageofCommandDto   {
    * Get pageSize
    * @return pageSize
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "10", value = "")
 
 
   public Integer getPageSize() {

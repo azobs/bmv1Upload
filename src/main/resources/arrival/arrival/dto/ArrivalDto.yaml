@@ -4,23 +4,31 @@ properties:
   deliveryQuantity:
     type: number
     format: double
+    minimum: 0
+    example: 1
+    exclusiveMinimum: true
   arrivalDate:
     type: string
     format: datetime
   arrivalUnitprice:
     type: number
     format: double
+    minimum: 0
+    example: 1
+    exclusiveMinimum: true
   arrivalType:
     type: string
     enum:
       - Standard
       - Divers
+    example: Standard
   arrivalNature:
     type: string
     enum:
       - Cash
       - Cover
       - Damage
+    example: Cash
   arrivalArticle:
     type: object
     $ref: '../../../product/article/dto/ArticleDto.yaml'

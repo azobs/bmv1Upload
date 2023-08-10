@@ -4,9 +4,11 @@ properties:
   quantityTaken:
     type: number
     format: double
+    example: 1
   quantityReturn:
     type: number
     format: double
+    example: 0
   ldArticle:
     type: object
     $ref: '../../../product/article/dto/ArticleDto.yaml'

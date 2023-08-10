@@ -4,18 +4,26 @@ properties:
   spWholeprice:
     type: number
     format: double
+    minimum: 0
+    exclusiveMinimum: true
   spSemiwholeprice:
     type: number
     format: double
+    minimum: 0
+    exclusiveMinimum: true
   spDetailsprice:
     type: number
     format: double
+    minimum: 0
+    exclusiveMinimum: true
   spRistourne:
     type: number
     format: double
+    example: 0
   spPrecompte:
     type: number
     format: double
+    example: 0
   spBaseprice:
     type: object
     $ref: '../../baseprice/dto/BasepriceDto.yaml'

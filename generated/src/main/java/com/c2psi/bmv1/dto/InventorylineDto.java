@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * An Inventory line in the system
  */
 @ApiModel(description = "An Inventory line in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class InventorylineDto   {
   @JsonProperty("invlineComment")
   private String invlineComment;
@@ -59,11 +59,12 @@ public class InventorylineDto   {
 
   /**
    * Get realqteinStock
+   * minimum: 0
    * @return realqteinStock
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
-
+@DecimalMin("0") 
   public Double getRealqteinStock() {
     return realqteinStock;
   }
@@ -79,11 +80,12 @@ public class InventorylineDto   {
 
   /**
    * Get logicqteinStock
+   * minimum: 0
    * @return logicqteinStock
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "0", value = "")
 
-
+@DecimalMin("0") 
   public Double getLogicqteinStock() {
     return logicqteinStock;
   }

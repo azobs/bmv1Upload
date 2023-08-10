@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * An account operation in the system
  */
 @ApiModel(description = "An account operation in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 public class AccountOperationDto   {
   @JsonProperty("quantityinMvt")
   private Double quantityinMvt;
@@ -33,11 +33,12 @@ public class AccountOperationDto   {
 
   /**
    * Get quantityinMvt
+   * minimum: 0
    * @return quantityinMvt
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "1", value = "")
 
-
+@DecimalMin(value = "0", inclusive = false) 
   public Double getQuantityinMvt() {
     return quantityinMvt;
   }

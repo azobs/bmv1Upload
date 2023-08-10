@@ -15,4 +15,5 @@ properties:
       - LOWER THAN
       - LOWER OR EQUAL
       - BETWEEN
+    example: EQUAL
   

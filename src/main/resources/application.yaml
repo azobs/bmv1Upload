@@ -22,7 +22,8 @@ spring:
           storage_engine: innodb
         jdbc:
           time_zone: UTC
-#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: true
+  #    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   servlet:
     multipart:
       max-file-size: 75MB

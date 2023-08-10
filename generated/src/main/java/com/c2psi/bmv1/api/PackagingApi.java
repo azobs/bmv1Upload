@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "packaging", description = "the packaging API")
 public interface PackagingApi {
@@ -32,7 +32,7 @@ public interface PackagingApi {
     }
 
     /**
-     * DELETE /packaging/delete/{id} : Path used to delete a packaging in the system with its id
+     * DELETE /packaging/bmV1.0/delete/{id} : Path used to delete a packaging in the system with its id
      *
      * @param id The id that represent the Packaging to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Packaging deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface PackagingApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/packaging/delete/{id}",
+        value = "/packaging/bmV1.0/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deletePackagingById(@ApiParam(value = "The id that represent the Packaging to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface PackagingApi {
 
 
     /**
-     * GET /packaging/getby/{id} : Find a Packaging in the system by its id
+     * GET /packaging/bmV1.0/getby/{id} : Find a Packaging in the system by its id
      *
      * @param id The id that represent the Packaging found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Packaging found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface PackagingApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/packaging/getby/{id}",
+        value = "/packaging/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<PackagingDto> _getPackagingById(@ApiParam(value = "The id that represent the Packaging found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -99,7 +99,7 @@ public interface PackagingApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"packDescription\" : \"packDescription\", \"packagingProvider\" : { \"providerBalance\" : 5, \"providerAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"providerAcronym\" : \"providerAcronym\", \"providerDescription\" : \"providerDescription\", \"providerName\" : \"providerName\" }, \"packLabel\" : \"packLabel\", \"packFirstcolor\" : \"packFirstcolor\", \"packPrice\" : 7.457744773683766 }";
+                    String exampleString = "{ \"packDescription\" : \"packDescription\", \"packagingProvider\" : { \"providerBalance\" : 0, \"providerAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"providerAcronym\" : \"PN\", \"providerDescription\" : \"providerDescription\", \"providerName\" : \"providerName\" }, \"packLabel\" : \"packLabel\", \"packFirstcolor\" : \"packFirstcolor\", \"packPrice\" : 9.301444243932576 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -111,7 +111,7 @@ public interface PackagingApi {
 
 
     /**
-     * POST /packaging/list : Path used to list packaging that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /packaging/bmV1.0/list : Path used to list packaging that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Packaging list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface PackagingApi {
         @ApiResponse(code = 200, message = "Packaging list found successfully", response = PackagingDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/packaging/list",
+        value = "/packaging/bmV1.0/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -134,7 +134,7 @@ public interface PackagingApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"packDescription\" : \"packDescription\", \"packagingProvider\" : { \"providerBalance\" : 5, \"providerAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"providerAcronym\" : \"providerAcronym\", \"providerDescription\" : \"providerDescription\", \"providerName\" : \"providerName\" }, \"packLabel\" : \"packLabel\", \"packFirstcolor\" : \"packFirstcolor\", \"packPrice\" : 7.457744773683766 }";
+                    String exampleString = "{ \"packDescription\" : \"packDescription\", \"packagingProvider\" : { \"providerBalance\" : 0, \"providerAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"providerAcronym\" : \"PN\", \"providerDescription\" : \"providerDescription\", \"providerName\" : \"providerName\" }, \"packLabel\" : \"packLabel\", \"packFirstcolor\" : \"packFirstcolor\", \"packPrice\" : 9.301444243932576 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -146,7 +146,7 @@ public interface PackagingApi {
 
 
     /**
-     * POST /packaging/page : Path used to list packaging page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /packaging/bmV1.0/page : Path used to list packaging page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Packaging page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface PackagingApi {
         @ApiResponse(code = 200, message = "Packaging page found successfully", response = PageofPackagingDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/packaging/page",
+        value = "/packaging/bmV1.0/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -169,7 +169,7 @@ public interface PackagingApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 5, \"currentPage\" : 1, \"content\" : [ { \"packDescription\" : \"packDescription\", \"packagingProvider\" : { \"providerBalance\" : 5, \"providerAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"providerAcronym\" : \"providerAcronym\", \"providerDescription\" : \"providerDescription\", \"providerName\" : \"providerName\" }, \"packLabel\" : \"packLabel\", \"packFirstcolor\" : \"packFirstcolor\", \"packPrice\" : 7.457744773683766 }, { \"packDescription\" : \"packDescription\", \"packagingProvider\" : { \"providerBalance\" : 5, \"providerAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"providerAcronym\" : \"providerAcronym\", \"providerDescription\" : \"providerDescription\", \"providerName\" : \"providerName\" }, \"packLabel\" : \"packLabel\", \"packFirstcolor\" : \"packFirstcolor\", \"packPrice\" : 7.457744773683766 } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"packDescription\" : \"packDescription\", \"packagingProvider\" : { \"providerBalance\" : 0, \"providerAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"providerAcronym\" : \"PN\", \"providerDescription\" : \"providerDescription\", \"providerName\" : \"providerName\" }, \"packLabel\" : \"packLabel\", \"packFirstcolor\" : \"packFirstcolor\", \"packPrice\" : 9.301444243932576 }, { \"packDescription\" : \"packDescription\", \"packagingProvider\" : { \"providerBalance\" : 0, \"providerAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"providerAcronym\" : \"PN\", \"providerDescription\" : \"providerDescription\", \"providerName\" : \"providerName\" }, \"packLabel\" : \"packLabel\", \"packFirstcolor\" : \"packFirstcolor\", \"packPrice\" : 9.301444243932576 } ], \"totalElements\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -181,7 +181,7 @@ public interface PackagingApi {
 
 
     /**
-     * POST /packaging/create : Path used to save a new Packaging in the system
+     * POST /packaging/bmV1.0/create : Path used to save a new Packaging in the system
      *
      * @param packagingDto  (optional)
      * @return Packaging saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface PackagingApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/packaging/create",
+        value = "/packaging/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -214,7 +214,7 @@ public interface PackagingApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"packDescription\" : \"packDescription\", \"packagingProvider\" : { \"providerBalance\" : 5, \"providerAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"providerAcronym\" : \"providerAcronym\", \"providerDescription\" : \"providerDescription\", \"providerName\" : \"providerName\" }, \"packLabel\" : \"packLabel\", \"packFirstcolor\" : \"packFirstcolor\", \"packPrice\" : 7.457744773683766 }";
+                    String exampleString = "{ \"packDescription\" : \"packDescription\", \"packagingProvider\" : { \"providerBalance\" : 0, \"providerAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"providerAcronym\" : \"PN\", \"providerDescription\" : \"providerDescription\", \"providerName\" : \"providerName\" }, \"packLabel\" : \"packLabel\", \"packFirstcolor\" : \"packFirstcolor\", \"packPrice\" : 9.301444243932576 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -226,7 +226,7 @@ public interface PackagingApi {
 
 
     /**
-     * PUT /packaging/update : Path used to update or modify an existing Packaging in the system
+     * PUT /packaging/bmV1.0/update : Path used to update or modify an existing Packaging in the system
      *
      * @param packagingDto  (optional)
      * @return Packaging updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface PackagingApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/packaging/update",
+        value = "/packaging/bmV1.0/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -259,7 +259,7 @@ public interface PackagingApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"packDescription\" : \"packDescription\", \"packagingProvider\" : { \"providerBalance\" : 5, \"providerAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"providerAcronym\" : \"providerAcronym\", \"providerDescription\" : \"providerDescription\", \"providerName\" : \"providerName\" }, \"packLabel\" : \"packLabel\", \"packFirstcolor\" : \"packFirstcolor\", \"packPrice\" : 7.457744773683766 }";
+                    String exampleString = "{ \"packDescription\" : \"packDescription\", \"packagingProvider\" : { \"providerBalance\" : 0, \"providerAddress\" : { \"country\" : \"country\", \"numtel3\" : \"numtel3\", \"town\" : \"town\", \"numtel1\" : \"678470262\", \"numtel2\" : \"numtel2\", \"localisation\" : \"localisation\", \"id\" : 0, \"email\" : \"abc@gmail.com\", \"quarter\" : \"quarter\" }, \"providerAcronym\" : \"PN\", \"providerDescription\" : \"providerDescription\", \"providerName\" : \"providerName\" }, \"packLabel\" : \"packLabel\", \"packFirstcolor\" : \"packFirstcolor\", \"packPrice\" : 9.301444243932576 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

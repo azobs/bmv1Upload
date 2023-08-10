@@ -3,6 +3,7 @@ description: 'A Sale invoice in the system'
 properties:
   siCode:
     type: string
+    example: 0000
   siComment:
     type: string
   siInvoicingdate:
@@ -23,6 +24,7 @@ properties:
       - Cash
       - Momo
       - Om
+    example: Cash
   siPos:
     type: object
     $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'

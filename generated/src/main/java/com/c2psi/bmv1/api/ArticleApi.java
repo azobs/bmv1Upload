@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-08T23:11:35.582723400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "article", description = "the article API")
 public interface ArticleApi {
@@ -32,7 +32,7 @@ public interface ArticleApi {
     }
 
     /**
-     * DELETE /article/delete/{id} : Path used to delete an article in the system with its id
+     * DELETE /article/bmV1.0/delete/{id} : Path used to delete an article in the system with its id
      *
      * @param id The id that represent the Article to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Article deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface ArticleApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/article/delete/{id}",
+        value = "/article/bmV1.0/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteArticleById(@ApiParam(value = "The id that represent the Article to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface ArticleApi {
 
 
     /**
-     * GET /article/getby/{id} : Find an Article in the system by its id
+     * GET /article/bmV1.0/getby/{id} : Find an Article in the system by its id
      *
      * @param id The id that represent the Article found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Article found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface ArticleApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/article/getby/{id}",
+        value = "/article/bmV1.0/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<ArticleDto> _getArticleById(@ApiParam(value = "The id that represent the Article found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -99,7 +99,7 @@ public interface ArticleApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"artName\" : \"artName\", \"artQuantityinstock\" : 3, \"artPf\" : { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 } }, \"artCode\" : \"artCode\", \"artLowlimitwholesale\" : 7, \"artUnit\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }, \"artDescription\" : \"artDescription\", \"artThreshold\" : 2, \"artlowlimitSemiwholesale\" : 9, \"artShortname\" : \"artShortname\", \"artBaseprice\" : { \"bpSemiwholeprice\" : 1.2315135367772556, \"bpPurchaseprice\" : 4.145608029883936, \"bpDetailsprice\" : 1.0246457001441578, \"bpRistourne\" : 6.84685269835264, \"bpCurrency\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"bpWholeprice\" : 7.386281948385884, \"bpPrecompte\" : 1.4894159098541704 } }";
+                    String exampleString = "{ \"artName\" : \"artName\", \"artQuantityinstock\" : 0, \"artPf\" : { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 } }, \"artCode\" : \"A0000\", \"artLowlimitwholesale\" : 30, \"artUnit\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"artDescription\" : \"artDescription\", \"artThreshold\" : 0, \"artlowlimitSemiwholesale\" : 25, \"artShortname\" : \"artShortname\", \"artBaseprice\" : { \"bpSemiwholeprice\" : 0.23021358869347652, \"bpPurchaseprice\" : 0.5962133916683182, \"bpDetailsprice\" : 0.7061401241503109, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"bpWholeprice\" : 0.5637376656633328, \"bpPrecompte\" : 0 } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -111,7 +111,7 @@ public interface ArticleApi {
 
 
     /**
-     * POST /article/list : Path used to list article that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /article/bmV1.0/list : Path used to list article that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Article list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface ArticleApi {
         @ApiResponse(code = 200, message = "Article list found successfully", response = ArticleDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/article/list",
+        value = "/article/bmV1.0/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -134,7 +134,7 @@ public interface ArticleApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"artName\" : \"artName\", \"artQuantityinstock\" : 3, \"artPf\" : { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 } }, \"artCode\" : \"artCode\", \"artLowlimitwholesale\" : 7, \"artUnit\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }, \"artDescription\" : \"artDescription\", \"artThreshold\" : 2, \"artlowlimitSemiwholesale\" : 9, \"artShortname\" : \"artShortname\", \"artBaseprice\" : { \"bpSemiwholeprice\" : 1.2315135367772556, \"bpPurchaseprice\" : 4.145608029883936, \"bpDetailsprice\" : 1.0246457001441578, \"bpRistourne\" : 6.84685269835264, \"bpCurrency\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"bpWholeprice\" : 7.386281948385884, \"bpPrecompte\" : 1.4894159098541704 } }";
+                    String exampleString = "{ \"artName\" : \"artName\", \"artQuantityinstock\" : 0, \"artPf\" : { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 } }, \"artCode\" : \"A0000\", \"artLowlimitwholesale\" : 30, \"artUnit\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"artDescription\" : \"artDescription\", \"artThreshold\" : 0, \"artlowlimitSemiwholesale\" : 25, \"artShortname\" : \"artShortname\", \"artBaseprice\" : { \"bpSemiwholeprice\" : 0.23021358869347652, \"bpPurchaseprice\" : 0.5962133916683182, \"bpDetailsprice\" : 0.7061401241503109, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"bpWholeprice\" : 0.5637376656633328, \"bpPrecompte\" : 0 } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -146,7 +146,7 @@ public interface ArticleApi {
 
 
     /**
-     * POST /article/page : Path used to list article page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /article/bmV1.0/page : Path used to list article page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Article page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface ArticleApi {
         @ApiResponse(code = 200, message = "Article page found successfully", response = PageofArticleDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/article/page",
+        value = "/article/bmV1.0/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -169,7 +169,7 @@ public interface ArticleApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 5, \"currentPage\" : 1, \"content\" : [ { \"artName\" : \"artName\", \"artQuantityinstock\" : 3, \"artPf\" : { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 } }, \"artCode\" : \"artCode\", \"artLowlimitwholesale\" : 7, \"artUnit\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }, \"artDescription\" : \"artDescription\", \"artThreshold\" : 2, \"artlowlimitSemiwholesale\" : 9, \"artShortname\" : \"artShortname\", \"artBaseprice\" : { \"bpSemiwholeprice\" : 1.2315135367772556, \"bpPurchaseprice\" : 4.145608029883936, \"bpDetailsprice\" : 1.0246457001441578, \"bpRistourne\" : 6.84685269835264, \"bpCurrency\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"bpWholeprice\" : 7.386281948385884, \"bpPrecompte\" : 1.4894159098541704 } }, { \"artName\" : \"artName\", \"artQuantityinstock\" : 3, \"artPf\" : { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 } }, \"artCode\" : \"artCode\", \"artLowlimitwholesale\" : 7, \"artUnit\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }, \"artDescription\" : \"artDescription\", \"artThreshold\" : 2, \"artlowlimitSemiwholesale\" : 9, \"artShortname\" : \"artShortname\", \"artBaseprice\" : { \"bpSemiwholeprice\" : 1.2315135367772556, \"bpPurchaseprice\" : 4.145608029883936, \"bpDetailsprice\" : 1.0246457001441578, \"bpRistourne\" : 6.84685269835264, \"bpCurrency\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"bpWholeprice\" : 7.386281948385884, \"bpPrecompte\" : 1.4894159098541704 } } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"artName\" : \"artName\", \"artQuantityinstock\" : 0, \"artPf\" : { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 } }, \"artCode\" : \"A0000\", \"artLowlimitwholesale\" : 30, \"artUnit\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"artDescription\" : \"artDescription\", \"artThreshold\" : 0, \"artlowlimitSemiwholesale\" : 25, \"artShortname\" : \"artShortname\", \"artBaseprice\" : { \"bpSemiwholeprice\" : 0.23021358869347652, \"bpPurchaseprice\" : 0.5962133916683182, \"bpDetailsprice\" : 0.7061401241503109, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"bpWholeprice\" : 0.5637376656633328, \"bpPrecompte\" : 0 } }, { \"artName\" : \"artName\", \"artQuantityinstock\" : 0, \"artPf\" : { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 } }, \"artCode\" : \"A0000\", \"artLowlimitwholesale\" : 30, \"artUnit\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"artDescription\" : \"artDescription\", \"artThreshold\" : 0, \"artlowlimitSemiwholesale\" : 25, \"artShortname\" : \"artShortname\", \"artBaseprice\" : { \"bpSemiwholeprice\" : 0.23021358869347652, \"bpPurchaseprice\" : 0.5962133916683182, \"bpDetailsprice\" : 0.7061401241503109, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"bpWholeprice\" : 0.5637376656633328, \"bpPrecompte\" : 0 } } ], \"totalElements\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -181,7 +181,7 @@ public interface ArticleApi {
 
 
     /**
-     * POST /article/create : Path used to save a new Article of product in the system
+     * POST /article/bmV1.0/create : Path used to save a new Article of product in the system
      *
      * @param articleDto  (optional)
      * @return Article saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface ArticleApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/article/create",
+        value = "/article/bmV1.0/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -214,7 +214,7 @@ public interface ArticleApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"artName\" : \"artName\", \"artQuantityinstock\" : 3, \"artPf\" : { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 } }, \"artCode\" : \"artCode\", \"artLowlimitwholesale\" : 7, \"artUnit\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }, \"artDescription\" : \"artDescription\", \"artThreshold\" : 2, \"artlowlimitSemiwholesale\" : 9, \"artShortname\" : \"artShortname\", \"artBaseprice\" : { \"bpSemiwholeprice\" : 1.2315135367772556, \"bpPurchaseprice\" : 4.145608029883936, \"bpDetailsprice\" : 1.0246457001441578, \"bpRistourne\" : 6.84685269835264, \"bpCurrency\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"bpWholeprice\" : 7.386281948385884, \"bpPrecompte\" : 1.4894159098541704 } }";
+                    String exampleString = "{ \"artName\" : \"artName\", \"artQuantityinstock\" : 0, \"artPf\" : { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 } }, \"artCode\" : \"A0000\", \"artLowlimitwholesale\" : 30, \"artUnit\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"artDescription\" : \"artDescription\", \"artThreshold\" : 0, \"artlowlimitSemiwholesale\" : 25, \"artShortname\" : \"artShortname\", \"artBaseprice\" : { \"bpSemiwholeprice\" : 0.23021358869347652, \"bpPurchaseprice\" : 0.5962133916683182, \"bpDetailsprice\" : 0.7061401241503109, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"bpWholeprice\" : 0.5637376656633328, \"bpPrecompte\" : 0 } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -226,7 +226,7 @@ public interface ArticleApi {
 
 
     /**
-     * PUT /article/update : Path used to update or modify an existing article in the system
+     * PUT /article/bmV1.0/update : Path used to update or modify an existing article in the system
      *
      * @param articleDto  (optional)
      * @return Article updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface ArticleApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/article/update",
+        value = "/article/bmV1.0/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -259,7 +259,7 @@ public interface ArticleApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"artName\" : \"artName\", \"artQuantityinstock\" : 3, \"artPf\" : { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"prodCode\", \"prodName\" : \"prodName\", \"prodPerishable\" : true, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 2.027123023002322 } }, \"artCode\" : \"artCode\", \"artLowlimitwholesale\" : 7, \"artUnit\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"unitAbbreviation\" }, \"artDescription\" : \"artDescription\", \"artThreshold\" : 2, \"artlowlimitSemiwholesale\" : 9, \"artShortname\" : \"artShortname\", \"artBaseprice\" : { \"bpSemiwholeprice\" : 1.2315135367772556, \"bpPurchaseprice\" : 4.145608029883936, \"bpDetailsprice\" : 1.0246457001441578, \"bpRistourne\" : 6.84685269835264, \"bpCurrency\" : { \"currencyName\" : \"currencyName\", \"currencyAbbreviation\" : \"currencyAbbreviation\" }, \"bpWholeprice\" : 7.386281948385884, \"bpPrecompte\" : 1.4894159098541704 } }";
+                    String exampleString = "{ \"artName\" : \"artName\", \"artQuantityinstock\" : 0, \"artPf\" : { \"pfProduct\" : { \"prodDescription\" : \"prodDescription\", \"prodCode\" : \"P0000\", \"prodCat\" : { \"catCode\" : \"CA000\", \"catName\" : \"catName\", \"catDescription\" : \"catDescription\", \"catShortname\" : \"catShortname\" }, \"prodName\" : \"prodName\", \"prodPerishable\" : false, \"prodAlias\" : \"prodAlias\" }, \"pfPicture\" : \"pfPicture\", \"pfFormat\" : { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 } }, \"artCode\" : \"A0000\", \"artLowlimitwholesale\" : 30, \"artUnit\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"artDescription\" : \"artDescription\", \"artThreshold\" : 0, \"artlowlimitSemiwholesale\" : 25, \"artShortname\" : \"artShortname\", \"artBaseprice\" : { \"bpSemiwholeprice\" : 0.23021358869347652, \"bpPurchaseprice\" : 0.5962133916683182, \"bpDetailsprice\" : 0.7061401241503109, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\" }, \"bpWholeprice\" : 0.5637376656633328, \"bpPrecompte\" : 0 } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

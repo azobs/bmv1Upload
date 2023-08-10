@@ -6,9 +6,15 @@ properties:
   realqteinStock:
     type: number
     format: double
+    minimum: 0
+    exclusiveMinimum: false
+    example: 0
   logicqteinStock:
     type: number
     format: double
+    minimum: 0
+    exclusiveMinimum: false
+    example: 0
   inventory:
     type: object
     $ref: '../../inventory/dto/InventoryDto.yaml'

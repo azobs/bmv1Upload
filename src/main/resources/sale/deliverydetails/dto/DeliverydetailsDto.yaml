@@ -4,9 +4,11 @@ properties:
   packageUsed:
     type: integer
     format: int32
+    example: 0
   packageReturn:
     type: integer
     format: int32
+    example: 0
   ddPackaging:
     type: object
     $ref: '../../../packaging/packaging/dto/PackagingDto.yaml'

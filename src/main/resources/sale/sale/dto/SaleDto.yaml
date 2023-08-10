@@ -16,6 +16,7 @@ properties:
       - Permutation
       - Semiwhole
       - Whole
+    example: Whole
   saleCommand:
     type: object
     $ref: '../../command/dto/CommandDto.yaml'

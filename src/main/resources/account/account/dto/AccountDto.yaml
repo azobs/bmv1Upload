@@ -4,18 +4,28 @@ properties:
   coverNumber:
     type: integer
     format: int32
+    minimum: 0
+    exclusiveMinimum: false
+    example: 0
   damageNumber:
     type: integer
     format: int32
+    minimum: 0
+    exclusiveMinimum: false
+    example: 0
   packageNumber:
     type: integer
     format: int32
+    minimum: 0
+    exclusiveMinimum: false
+    example: 0
   accountType:
     type: string
     enum:
       - Client
       - Pos
       - Provider
+    example: Pos
   accountClientDto:
     type: object
     $ref: '../../../client/client/dto/ClientDto.yaml'
