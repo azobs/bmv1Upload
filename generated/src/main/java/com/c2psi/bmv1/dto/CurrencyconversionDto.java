@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * A conversion rule used to convert one currency in another
  */
 @ApiModel(description = "A conversion rule used to convert one currency in another")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T17:01:56.543198200+01:00[Africa/Douala]")
 public class CurrencyconversionDto   {
   @JsonProperty("id")
   private Long id;

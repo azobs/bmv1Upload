@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * A provider in the system
  */
 @ApiModel(description = "A provider in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T17:01:56.543198200+01:00[Africa/Douala]")
 public class ProviderDto   {
   @JsonProperty("id")
   private Long id;

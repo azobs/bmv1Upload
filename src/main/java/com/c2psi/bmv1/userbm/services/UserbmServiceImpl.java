@@ -207,6 +207,7 @@ public class UserbmServiceImpl implements UserbmService{
             Pageable pageable = new BmPageDto().getPageable(page);
             userbmPage = userbmDao.findAll(pageable);
             //log.error("dsdsds {}", userbmPage.getTotalElements());
+            return getPageofUserbmDto(userbmPage);
         }
         else{
             if(filterRequest.getPage() == null){
@@ -214,9 +215,11 @@ public class UserbmServiceImpl implements UserbmService{
                 page.setPagesize(1);
                 filterRequest.setPage(page);
             }
+
             if(filterRequest.getFilters() == null && filterRequest.getOrderby() == null){
                 Pageable pageable = new BmPageDto().getPageable(filterRequest.getPage());
                 userbmPage = userbmDao.findAll(pageable);
+                return getPageofUserbmDto(userbmPage);
             }
 
             if(filterRequest.getFilters() == null && filterRequest.getOrderby() != null){
@@ -224,25 +227,19 @@ public class UserbmServiceImpl implements UserbmService{
                 Pageable pageable = PageRequest.of(filterRequest.getPage().getPagenum(),
                         filterRequest.getPage().getPagesize(), sort);
                 userbmPage = userbmDao.findAll(pageable);
+                return getPageofUserbmDto(userbmPage);
             }
 
-            if(filterRequest.getFilters() != null && filterRequest.getOrderby() == null){
-                if(filterRequest.getLogicOperator() == null && filterRequest.getFilters().size() > 1){
-                    throw new NullValueException("L'operateur logique permettant de lier les filtres ne peut etre null");
-                }
-                Specification<Userbm> userbmSpecification = userbmSpecService.getUserbmSpecification(filterRequest.getFilters(),
-                        filterRequest.getLogicOperator(), filterRequest.getOrderby());
-                Pageable pageable = new BmPageDto().getPageable(filterRequest.getPage());
-                userbmPage = userbmDao.findAll(userbmSpecification, pageable);
+            if(filterRequest.getLogicOperator() == null && filterRequest.getFilters().size() > 1){
+                throw new NullValueException("L'operateur logique permettant de lier les filtres ne peut etre null");
             }
-            if (filterRequest.getFilters() != null && filterRequest.getOrderby() != null){
-                Specification<Userbm> userbmSpecification = userbmSpecService.getUserbmSpecification(filterRequest.getFilters(),
-                        filterRequest.getLogicOperator(), filterRequest.getOrderby());
-                Pageable pageable = new BmPageDto().getPageable(filterRequest.getPage());
-                userbmPage = userbmDao.findAll(userbmSpecification, pageable);
-            }
+
+            Specification<Userbm> userbmSpecification = userbmSpecService.getUserbmSpecification(filterRequest.getFilters(),
+                    filterRequest.getLogicOperator(), filterRequest.getOrderby());
+            Pageable pageable = new BmPageDto().getPageable(filterRequest.getPage());
+            userbmPage = userbmDao.findAll(userbmSpecification, pageable);
+            return getPageofUserbmDto(userbmPage);
         }
-        return getPageofUserbmDto(userbmPage);
     }
 
     PageofUserbmDto getPageofUserbmDto(Page<Userbm> userbmPage){

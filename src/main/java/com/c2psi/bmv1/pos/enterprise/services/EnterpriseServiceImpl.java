@@ -9,8 +9,10 @@ import com.c2psi.bmv1.bmapp.enumerations.EnterpriseErrorCode;
 import com.c2psi.bmv1.pos.enterprise.mappers.EnterpriseMapper;
 import com.c2psi.bmv1.pos.enterprise.models.Enterprise;
 import com.c2psi.bmv1.pos.enterprise.validators.EnterpriseValidator;
+import com.c2psi.bmv1.userbm.models.Userbm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -236,6 +238,17 @@ public class EnterpriseServiceImpl implements EnterpriseService{
     @Override
     public PageofEnterpriseDto getPageofEnterprise(FilterRequest filterRequest) {
         return null;
+    }
+
+    PageofEnterpriseDto getPageofEnterpriseDto(Page<Enterprise> enterprisePage){
+        PageofEnterpriseDto pageofEnterpriseDto = new PageofEnterpriseDto();
+        pageofEnterpriseDto.setContent(enterpriseMapper.entityToDto(enterprisePage.getContent()));
+        pageofEnterpriseDto.setCurrentPage(enterprisePage.getNumber());
+        pageofEnterpriseDto.setPageSize(enterprisePage.getSize());
+        pageofEnterpriseDto.setTotalElements(enterprisePage.getTotalElements());
+        pageofEnterpriseDto.setTotalPages(enterprisePage.getTotalPages());
+
+        return pageofEnterpriseDto;
     }
 
 }

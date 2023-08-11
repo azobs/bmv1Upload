@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * A permission that really give right to act on an object of the system
  */
 @ApiModel(description = "A permission that really give right to act on an object of the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T17:01:56.543198200+01:00[Africa/Douala]")
 public class CategoryDto   {
   @JsonProperty("id")
   private Long id;
