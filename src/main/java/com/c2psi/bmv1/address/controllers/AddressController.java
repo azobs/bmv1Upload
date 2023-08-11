@@ -1,6 +1,6 @@
 package com.c2psi.bmv1.address.controllers;
 
-import com.c2psi.bmv1.address.service.AddressService;
+import com.c2psi.bmv1.address.services.AddressService;
 import com.c2psi.bmv1.api.AddressApi;
 import com.c2psi.bmv1.dto.AddressDto;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,9 @@
 type: object
 description: 'A Supply invoice in the system'
 properties:
+  id:
+    type: integer
+    format: int64
   siCode:
     type: string
     example: SuI0000
@@ -10,10 +13,10 @@ properties:
     type: string
   siDeliverydate:
     type: string
-    format: datetime
+    format: date-time
   siInvoicingdate:
     type: string
-    format: datetime
+    format: date-time
   siTotalcolis:
     type: number
     format: double

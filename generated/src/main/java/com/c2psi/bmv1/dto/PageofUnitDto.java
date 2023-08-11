@@ -15,8 +15,11 @@ import javax.validation.constraints.*;
 /**
  * PageofUnitDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class PageofUnitDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("totalElements")
   private Integer totalElements;
 
@@ -32,6 +35,26 @@ public class PageofUnitDto   {
   @JsonProperty("content")
   @Valid
   private List<UnitDto> content = null;
+
+  public PageofUnitDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public PageofUnitDto totalElements(Integer totalElements) {
     this.totalElements = totalElements;
@@ -152,7 +175,8 @@ public class PageofUnitDto   {
       return false;
     }
     PageofUnitDto pageofUnitDto = (PageofUnitDto) o;
-    return Objects.equals(this.totalElements, pageofUnitDto.totalElements) &&
+    return Objects.equals(this.id, pageofUnitDto.id) &&
+        Objects.equals(this.totalElements, pageofUnitDto.totalElements) &&
         Objects.equals(this.totalPages, pageofUnitDto.totalPages) &&
         Objects.equals(this.currentPage, pageofUnitDto.currentPage) &&
         Objects.equals(this.pageSize, pageofUnitDto.pageSize) &&
@@ -161,7 +185,7 @@ public class PageofUnitDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalElements, totalPages, currentPage, pageSize, content);
+    return Objects.hash(id, totalElements, totalPages, currentPage, pageSize, content);
   }
 
   @Override
@@ -169,6 +193,7 @@ public class PageofUnitDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class PageofUnitDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    totalElements: ").append(toIndentedString(totalElements)).append("\n");
     sb.append("    totalPages: ").append(toIndentedString(totalPages)).append("\n");
     sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");

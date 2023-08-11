@@ -14,8 +14,11 @@ import javax.validation.constraints.*;
  * A product in the system
  */
 @ApiModel(description = "A product in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class ProductDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("prodName")
   private String prodName;
 
@@ -33,6 +36,26 @@ public class ProductDto   {
 
   @JsonProperty("prodCat")
   private CategoryDto prodCat;
+
+  public ProductDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public ProductDto prodName(String prodName) {
     this.prodName = prodName;
@@ -165,7 +188,8 @@ public class ProductDto   {
       return false;
     }
     ProductDto productDto = (ProductDto) o;
-    return Objects.equals(this.prodName, productDto.prodName) &&
+    return Objects.equals(this.id, productDto.id) &&
+        Objects.equals(this.prodName, productDto.prodName) &&
         Objects.equals(this.prodCode, productDto.prodCode) &&
         Objects.equals(this.prodDescription, productDto.prodDescription) &&
         Objects.equals(this.prodAlias, productDto.prodAlias) &&
@@ -175,7 +199,7 @@ public class ProductDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(prodName, prodCode, prodDescription, prodAlias, prodPerishable, prodCat);
+    return Objects.hash(id, prodName, prodCode, prodDescription, prodAlias, prodPerishable, prodCat);
   }
 
   @Override
@@ -183,6 +207,7 @@ public class ProductDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProductDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    prodName: ").append(toIndentedString(prodName)).append("\n");
     sb.append("    prodCode: ").append(toIndentedString(prodCode)).append("\n");
     sb.append("    prodDescription: ").append(toIndentedString(prodDescription)).append("\n");

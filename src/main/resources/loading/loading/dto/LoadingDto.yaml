@@ -1,12 +1,16 @@
 type: object
 description: 'A Loading in the system'
 properties:
+  id:
+    type: integer
+    format: int64
+    readOnly: true # Returned by GET, not used in POST/PUT/PATCH
   loadCode:
     type: string
     example: L0000
   loadDate:
     type: string
-    format: datetime
+    format: date-time
   loadExpectedamount:
     type: number
     format: double

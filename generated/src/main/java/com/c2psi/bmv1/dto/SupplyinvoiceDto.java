@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -15,8 +16,11 @@ import javax.validation.constraints.*;
  * A Supply invoice in the system
  */
 @ApiModel(description = "A Supply invoice in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class SupplyinvoiceDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("siCode")
   private String siCode;
 
@@ -27,10 +31,12 @@ public class SupplyinvoiceDto   {
   private String siPicture;
 
   @JsonProperty("siDeliverydate")
-  private String siDeliverydate;
+  @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime siDeliverydate;
 
   @JsonProperty("siInvoicingdate")
-  private String siInvoicingdate;
+  @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime siInvoicingdate;
 
   @JsonProperty("siTotalcolis")
   private Double siTotalcolis;
@@ -83,6 +89,26 @@ public class SupplyinvoiceDto   {
 
   @JsonProperty("siPos")
   private PointofsaleDto siPos;
+
+  public SupplyinvoiceDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public SupplyinvoiceDto siCode(String siCode) {
     this.siCode = siCode;
@@ -144,7 +170,7 @@ public class SupplyinvoiceDto   {
     this.siPicture = siPicture;
   }
 
-  public SupplyinvoiceDto siDeliverydate(String siDeliverydate) {
+  public SupplyinvoiceDto siDeliverydate(OffsetDateTime siDeliverydate) {
     this.siDeliverydate = siDeliverydate;
     return this;
   }
@@ -155,16 +181,17 @@ public class SupplyinvoiceDto   {
   */
   @ApiModelProperty(value = "")
 
+  @Valid
 
-  public String getSiDeliverydate() {
+  public OffsetDateTime getSiDeliverydate() {
     return siDeliverydate;
   }
 
-  public void setSiDeliverydate(String siDeliverydate) {
+  public void setSiDeliverydate(OffsetDateTime siDeliverydate) {
     this.siDeliverydate = siDeliverydate;
   }
 
-  public SupplyinvoiceDto siInvoicingdate(String siInvoicingdate) {
+  public SupplyinvoiceDto siInvoicingdate(OffsetDateTime siInvoicingdate) {
     this.siInvoicingdate = siInvoicingdate;
     return this;
   }
@@ -175,12 +202,13 @@ public class SupplyinvoiceDto   {
   */
   @ApiModelProperty(value = "")
 
+  @Valid
 
-  public String getSiInvoicingdate() {
+  public OffsetDateTime getSiInvoicingdate() {
     return siInvoicingdate;
   }
 
-  public void setSiInvoicingdate(String siInvoicingdate) {
+  public void setSiInvoicingdate(OffsetDateTime siInvoicingdate) {
     this.siInvoicingdate = siInvoicingdate;
   }
 
@@ -298,7 +326,8 @@ public class SupplyinvoiceDto   {
       return false;
     }
     SupplyinvoiceDto supplyinvoiceDto = (SupplyinvoiceDto) o;
-    return Objects.equals(this.siCode, supplyinvoiceDto.siCode) &&
+    return Objects.equals(this.id, supplyinvoiceDto.id) &&
+        Objects.equals(this.siCode, supplyinvoiceDto.siCode) &&
         Objects.equals(this.siComment, supplyinvoiceDto.siComment) &&
         Objects.equals(this.siPicture, supplyinvoiceDto.siPicture) &&
         Objects.equals(this.siDeliverydate, supplyinvoiceDto.siDeliverydate) &&
@@ -312,7 +341,7 @@ public class SupplyinvoiceDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(siCode, siComment, siPicture, siDeliverydate, siInvoicingdate, siTotalcolis, siExpectedamount, siPaidamount, siPaymentmethod, siPos);
+    return Objects.hash(id, siCode, siComment, siPicture, siDeliverydate, siInvoicingdate, siTotalcolis, siExpectedamount, siPaidamount, siPaymentmethod, siPos);
   }
 
   @Override
@@ -320,6 +349,7 @@ public class SupplyinvoiceDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class SupplyinvoiceDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    siCode: ").append(toIndentedString(siCode)).append("\n");
     sb.append("    siComment: ").append(toIndentedString(siComment)).append("\n");
     sb.append("    siPicture: ").append(toIndentedString(siPicture)).append("\n");

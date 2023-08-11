@@ -14,8 +14,11 @@ import javax.validation.constraints.*;
  * A Specialprice in the system
  */
 @ApiModel(description = "A Specialprice in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class SpecialpriceDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("spWholeprice")
   private Double spWholeprice;
 
@@ -33,6 +36,26 @@ public class SpecialpriceDto   {
 
   @JsonProperty("spBaseprice")
   private BasepriceDto spBaseprice;
+
+  public SpecialpriceDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public SpecialpriceDto spWholeprice(Double spWholeprice) {
     this.spWholeprice = spWholeprice;
@@ -168,7 +191,8 @@ public class SpecialpriceDto   {
       return false;
     }
     SpecialpriceDto specialpriceDto = (SpecialpriceDto) o;
-    return Objects.equals(this.spWholeprice, specialpriceDto.spWholeprice) &&
+    return Objects.equals(this.id, specialpriceDto.id) &&
+        Objects.equals(this.spWholeprice, specialpriceDto.spWholeprice) &&
         Objects.equals(this.spSemiwholeprice, specialpriceDto.spSemiwholeprice) &&
         Objects.equals(this.spDetailsprice, specialpriceDto.spDetailsprice) &&
         Objects.equals(this.spRistourne, specialpriceDto.spRistourne) &&
@@ -178,7 +202,7 @@ public class SpecialpriceDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(spWholeprice, spSemiwholeprice, spDetailsprice, spRistourne, spPrecompte, spBaseprice);
+    return Objects.hash(id, spWholeprice, spSemiwholeprice, spDetailsprice, spRistourne, spPrecompte, spBaseprice);
   }
 
   @Override
@@ -186,6 +210,7 @@ public class SpecialpriceDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class SpecialpriceDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    spWholeprice: ").append(toIndentedString(spWholeprice)).append("\n");
     sb.append("    spSemiwholeprice: ").append(toIndentedString(spSemiwholeprice)).append("\n");
     sb.append("    spDetailsprice: ").append(toIndentedString(spDetailsprice)).append("\n");

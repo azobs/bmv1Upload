@@ -15,8 +15,11 @@ import javax.validation.constraints.*;
  * An account operation in the system
  */
 @ApiModel(description = "An account operation in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class AccountOperationDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("quantityinMvt")
   private Double quantityinMvt;
 
@@ -25,6 +28,26 @@ public class AccountOperationDto   {
 
   @JsonProperty("account")
   private AccountDto account;
+
+  public AccountOperationDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public AccountOperationDto quantityinMvt(Double quantityinMvt) {
     this.quantityinMvt = quantityinMvt;
@@ -99,14 +122,15 @@ public class AccountOperationDto   {
       return false;
     }
     AccountOperationDto accountOperationDto = (AccountOperationDto) o;
-    return Objects.equals(this.quantityinMvt, accountOperationDto.quantityinMvt) &&
+    return Objects.equals(this.id, accountOperationDto.id) &&
+        Objects.equals(this.quantityinMvt, accountOperationDto.quantityinMvt) &&
         Objects.equals(this.operation, accountOperationDto.operation) &&
         Objects.equals(this.account, accountOperationDto.account);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(quantityinMvt, operation, account);
+    return Objects.hash(id, quantityinMvt, operation, account);
   }
 
   @Override
@@ -114,6 +138,7 @@ public class AccountOperationDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountOperationDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    quantityinMvt: ").append(toIndentedString(quantityinMvt)).append("\n");
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
     sb.append("    account: ").append(toIndentedString(account)).append("\n");

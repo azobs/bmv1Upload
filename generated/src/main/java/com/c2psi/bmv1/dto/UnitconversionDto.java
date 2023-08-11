@@ -14,8 +14,11 @@ import javax.validation.constraints.*;
  * A conversion rule used to convert one unit in another
  */
 @ApiModel(description = "A conversion rule used to convert one unit in another")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class UnitconversionDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("conversionFactor")
   private Double conversionFactor;
 
@@ -24,6 +27,26 @@ public class UnitconversionDto   {
 
   @JsonProperty("unitDestinationDto")
   private UnitDto unitDestinationDto;
+
+  public UnitconversionDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public UnitconversionDto conversionFactor(Double conversionFactor) {
     this.conversionFactor = conversionFactor;
@@ -97,14 +120,15 @@ public class UnitconversionDto   {
       return false;
     }
     UnitconversionDto unitconversionDto = (UnitconversionDto) o;
-    return Objects.equals(this.conversionFactor, unitconversionDto.conversionFactor) &&
+    return Objects.equals(this.id, unitconversionDto.id) &&
+        Objects.equals(this.conversionFactor, unitconversionDto.conversionFactor) &&
         Objects.equals(this.unitSourceDto, unitconversionDto.unitSourceDto) &&
         Objects.equals(this.unitDestinationDto, unitconversionDto.unitDestinationDto);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversionFactor, unitSourceDto, unitDestinationDto);
+    return Objects.hash(id, conversionFactor, unitSourceDto, unitDestinationDto);
   }
 
   @Override
@@ -112,6 +136,7 @@ public class UnitconversionDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class UnitconversionDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    conversionFactor: ").append(toIndentedString(conversionFactor)).append("\n");
     sb.append("    unitSourceDto: ").append(toIndentedString(unitSourceDto)).append("\n");
     sb.append("    unitDestinationDto: ").append(toIndentedString(unitDestinationDto)).append("\n");

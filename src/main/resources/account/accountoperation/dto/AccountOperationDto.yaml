@@ -1,6 +1,9 @@
 type: object
 description: 'An account operation in the system'
 properties:
+  id:
+    type: integer
+    format: int64
   quantityinMvt:
     type: number
     format: double

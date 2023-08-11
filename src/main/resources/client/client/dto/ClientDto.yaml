@@ -1,6 +1,9 @@
 type: object
 description: 'A client in the system'
 properties:
+  id:
+    type: integer
+    format: int64
   clientName:
     type: string
   clientOthername:

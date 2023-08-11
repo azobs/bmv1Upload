@@ -1,6 +1,10 @@
 type: object
 description: 'A conversion rule used to convert one unit in another'
 properties:
+  id:
+    type: integer
+    format: int64
+    readOnly: true # Returned by GET, not used in POST/PUT/PATCH
   conversionFactor:
     type: number
     format: double

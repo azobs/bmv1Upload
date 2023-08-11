@@ -14,8 +14,11 @@ import javax.validation.constraints.*;
  * A format used to format product in the system
  */
 @ApiModel(description = "A format used to format product in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class FormatDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("formatName")
   private String formatName;
 
@@ -24,6 +27,26 @@ public class FormatDto   {
 
   @JsonProperty("formatPos")
   private PointofsaleDto formatPos;
+
+  public FormatDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public FormatDto formatName(String formatName) {
     this.formatName = formatName;
@@ -96,14 +119,15 @@ public class FormatDto   {
       return false;
     }
     FormatDto formatDto = (FormatDto) o;
-    return Objects.equals(this.formatName, formatDto.formatName) &&
+    return Objects.equals(this.id, formatDto.id) &&
+        Objects.equals(this.formatName, formatDto.formatName) &&
         Objects.equals(this.formatCapacity, formatDto.formatCapacity) &&
         Objects.equals(this.formatPos, formatDto.formatPos);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(formatName, formatCapacity, formatPos);
+    return Objects.hash(id, formatName, formatCapacity, formatPos);
   }
 
   @Override
@@ -111,6 +135,7 @@ public class FormatDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormatDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    formatName: ").append(toIndentedString(formatName)).append("\n");
     sb.append("    formatCapacity: ").append(toIndentedString(formatCapacity)).append("\n");
     sb.append("    formatPos: ").append(toIndentedString(formatPos)).append("\n");

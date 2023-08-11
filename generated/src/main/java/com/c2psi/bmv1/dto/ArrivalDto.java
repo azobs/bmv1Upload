@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -16,13 +17,17 @@ import javax.validation.constraints.*;
  * An arrival in the system
  */
 @ApiModel(description = "An arrival in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class ArrivalDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("deliveryQuantity")
   private Double deliveryQuantity;
 
   @JsonProperty("arrivalDate")
-  private String arrivalDate;
+  @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime arrivalDate;
 
   @JsonProperty("arrivalUnitprice")
   private Double arrivalUnitprice;
@@ -111,6 +116,26 @@ public class ArrivalDto   {
   @JsonProperty("arrivalInvoice")
   private SupplyinvoiceDto arrivalInvoice;
 
+  public ArrivalDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
   public ArrivalDto deliveryQuantity(Double deliveryQuantity) {
     this.deliveryQuantity = deliveryQuantity;
     return this;
@@ -132,7 +157,7 @@ public class ArrivalDto   {
     this.deliveryQuantity = deliveryQuantity;
   }
 
-  public ArrivalDto arrivalDate(String arrivalDate) {
+  public ArrivalDto arrivalDate(OffsetDateTime arrivalDate) {
     this.arrivalDate = arrivalDate;
     return this;
   }
@@ -143,12 +168,13 @@ public class ArrivalDto   {
   */
   @ApiModelProperty(value = "")
 
+  @Valid
 
-  public String getArrivalDate() {
+  public OffsetDateTime getArrivalDate() {
     return arrivalDate;
   }
 
-  public void setArrivalDate(String arrivalDate) {
+  public void setArrivalDate(OffsetDateTime arrivalDate) {
     this.arrivalDate = arrivalDate;
   }
 
@@ -265,7 +291,8 @@ public class ArrivalDto   {
       return false;
     }
     ArrivalDto arrivalDto = (ArrivalDto) o;
-    return Objects.equals(this.deliveryQuantity, arrivalDto.deliveryQuantity) &&
+    return Objects.equals(this.id, arrivalDto.id) &&
+        Objects.equals(this.deliveryQuantity, arrivalDto.deliveryQuantity) &&
         Objects.equals(this.arrivalDate, arrivalDto.arrivalDate) &&
         Objects.equals(this.arrivalUnitprice, arrivalDto.arrivalUnitprice) &&
         Objects.equals(this.arrivalType, arrivalDto.arrivalType) &&
@@ -276,7 +303,7 @@ public class ArrivalDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryQuantity, arrivalDate, arrivalUnitprice, arrivalType, arrivalNature, arrivalArticle, arrivalInvoice);
+    return Objects.hash(id, deliveryQuantity, arrivalDate, arrivalUnitprice, arrivalType, arrivalNature, arrivalArticle, arrivalInvoice);
   }
 
   @Override
@@ -284,6 +311,7 @@ public class ArrivalDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class ArrivalDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    deliveryQuantity: ").append(toIndentedString(deliveryQuantity)).append("\n");
     sb.append("    arrivalDate: ").append(toIndentedString(arrivalDate)).append("\n");
     sb.append("    arrivalUnitprice: ").append(toIndentedString(arrivalUnitprice)).append("\n");

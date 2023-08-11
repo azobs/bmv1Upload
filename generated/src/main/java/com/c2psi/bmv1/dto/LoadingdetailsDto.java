@@ -15,8 +15,11 @@ import javax.validation.constraints.*;
  * A Loading details in the system
  */
 @ApiModel(description = "A Loading details in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class LoadingdetailsDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("quantityTaken")
   private Double quantityTaken;
 
@@ -28,6 +31,26 @@ public class LoadingdetailsDto   {
 
   @JsonProperty("ldLoading")
   private LoadingDto ldLoading;
+
+  public LoadingdetailsDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public LoadingdetailsDto quantityTaken(Double quantityTaken) {
     this.quantityTaken = quantityTaken;
@@ -121,7 +144,8 @@ public class LoadingdetailsDto   {
       return false;
     }
     LoadingdetailsDto loadingdetailsDto = (LoadingdetailsDto) o;
-    return Objects.equals(this.quantityTaken, loadingdetailsDto.quantityTaken) &&
+    return Objects.equals(this.id, loadingdetailsDto.id) &&
+        Objects.equals(this.quantityTaken, loadingdetailsDto.quantityTaken) &&
         Objects.equals(this.quantityReturn, loadingdetailsDto.quantityReturn) &&
         Objects.equals(this.ldArticle, loadingdetailsDto.ldArticle) &&
         Objects.equals(this.ldLoading, loadingdetailsDto.ldLoading);
@@ -129,7 +153,7 @@ public class LoadingdetailsDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(quantityTaken, quantityReturn, ldArticle, ldLoading);
+    return Objects.hash(id, quantityTaken, quantityReturn, ldArticle, ldLoading);
   }
 
   @Override
@@ -137,6 +161,7 @@ public class LoadingdetailsDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class LoadingdetailsDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    quantityTaken: ").append(toIndentedString(quantityTaken)).append("\n");
     sb.append("    quantityReturn: ").append(toIndentedString(quantityReturn)).append("\n");
     sb.append("    ldArticle: ").append(toIndentedString(ldArticle)).append("\n");

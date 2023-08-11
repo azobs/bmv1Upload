@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -15,13 +16,17 @@ import javax.validation.constraints.*;
  * A Loading in the system
  */
 @ApiModel(description = "A Loading in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class LoadingDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("loadCode")
   private String loadCode;
 
   @JsonProperty("loadDate")
-  private String loadDate;
+  @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime loadDate;
 
   @JsonProperty("loadExpectedamount")
   private Double loadExpectedamount;
@@ -44,6 +49,26 @@ public class LoadingDto   {
   @JsonProperty("loadPos")
   private PointofsaleDto loadPos;
 
+  public LoadingDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
   public LoadingDto loadCode(String loadCode) {
     this.loadCode = loadCode;
     return this;
@@ -64,7 +89,7 @@ public class LoadingDto   {
     this.loadCode = loadCode;
   }
 
-  public LoadingDto loadDate(String loadDate) {
+  public LoadingDto loadDate(OffsetDateTime loadDate) {
     this.loadDate = loadDate;
     return this;
   }
@@ -75,12 +100,13 @@ public class LoadingDto   {
   */
   @ApiModelProperty(value = "")
 
+  @Valid
 
-  public String getLoadDate() {
+  public OffsetDateTime getLoadDate() {
     return loadDate;
   }
 
-  public void setLoadDate(String loadDate) {
+  public void setLoadDate(OffsetDateTime loadDate) {
     this.loadDate = loadDate;
   }
 
@@ -240,7 +266,8 @@ public class LoadingDto   {
       return false;
     }
     LoadingDto loadingDto = (LoadingDto) o;
-    return Objects.equals(this.loadCode, loadingDto.loadCode) &&
+    return Objects.equals(this.id, loadingDto.id) &&
+        Objects.equals(this.loadCode, loadingDto.loadCode) &&
         Objects.equals(this.loadDate, loadingDto.loadDate) &&
         Objects.equals(this.loadExpectedamount, loadingDto.loadExpectedamount) &&
         Objects.equals(this.loadPaidamount, loadingDto.loadPaidamount) &&
@@ -253,7 +280,7 @@ public class LoadingDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadCode, loadDate, loadExpectedamount, loadPaidamount, loadRemise, loadReport, loadManager, loadSaler, loadPos);
+    return Objects.hash(id, loadCode, loadDate, loadExpectedamount, loadPaidamount, loadRemise, loadReport, loadManager, loadSaler, loadPos);
   }
 
   @Override
@@ -261,6 +288,7 @@ public class LoadingDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class LoadingDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    loadCode: ").append(toIndentedString(loadCode)).append("\n");
     sb.append("    loadDate: ").append(toIndentedString(loadDate)).append("\n");
     sb.append("    loadExpectedamount: ").append(toIndentedString(loadExpectedamount)).append("\n");

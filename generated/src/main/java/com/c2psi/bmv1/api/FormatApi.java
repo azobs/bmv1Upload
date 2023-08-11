@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "format", description = "the format API")
 public interface FormatApi {
@@ -99,7 +99,7 @@ public interface FormatApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 }";
+                    String exampleString = "{ \"formatName\" : \"formatName\", \"id\" : 4, \"formatCapacity\" : 7.386281948385884 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -134,7 +134,7 @@ public interface FormatApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 }";
+                    String exampleString = "{ \"formatName\" : \"formatName\", \"id\" : 4, \"formatCapacity\" : 7.386281948385884 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -169,7 +169,7 @@ public interface FormatApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 }, { \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"formatName\" : \"formatName\", \"id\" : 4, \"formatCapacity\" : 7.386281948385884 }, { \"formatName\" : \"formatName\", \"id\" : 4, \"formatCapacity\" : 7.386281948385884 } ], \"totalElements\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -214,7 +214,7 @@ public interface FormatApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 }";
+                    String exampleString = "{ \"formatName\" : \"formatName\", \"id\" : 4, \"formatCapacity\" : 7.386281948385884 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -259,7 +259,7 @@ public interface FormatApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"formatName\" : \"formatName\", \"formatCapacity\" : 1.4658129805029452 }";
+                    String exampleString = "{ \"formatName\" : \"formatName\", \"id\" : 4, \"formatCapacity\" : 7.386281948385884 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

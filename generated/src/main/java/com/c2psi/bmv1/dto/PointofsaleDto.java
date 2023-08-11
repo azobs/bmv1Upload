@@ -17,8 +17,11 @@ import javax.validation.constraints.*;
  * A pointofsale object of the system
  */
 @ApiModel(description = "A pointofsale object of the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class PointofsaleDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("posName")
   private String posName;
 
@@ -39,6 +42,26 @@ public class PointofsaleDto   {
 
   @JsonProperty("posEnterprise")
   private EnterpriseDto posEnterprise;
+
+  public PointofsaleDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public PointofsaleDto posName(String posName) {
     this.posName = posName;
@@ -194,7 +217,8 @@ public class PointofsaleDto   {
       return false;
     }
     PointofsaleDto pointofsaleDto = (PointofsaleDto) o;
-    return Objects.equals(this.posName, pointofsaleDto.posName) &&
+    return Objects.equals(this.id, pointofsaleDto.id) &&
+        Objects.equals(this.posName, pointofsaleDto.posName) &&
         Objects.equals(this.posAcronym, pointofsaleDto.posAcronym) &&
         Objects.equals(this.posDescription, pointofsaleDto.posDescription) &&
         Objects.equals(this.posAddressDto, pointofsaleDto.posAddressDto) &&
@@ -205,7 +229,7 @@ public class PointofsaleDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(posName, posAcronym, posDescription, posAddressDto, posAccountDto, posCurrency, posEnterprise);
+    return Objects.hash(id, posName, posAcronym, posDescription, posAddressDto, posAccountDto, posCurrency, posEnterprise);
   }
 
   @Override
@@ -213,6 +237,7 @@ public class PointofsaleDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class PointofsaleDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    posName: ").append(toIndentedString(posName)).append("\n");
     sb.append("    posAcronym: ").append(toIndentedString(posAcronym)).append("\n");
     sb.append("    posDescription: ").append(toIndentedString(posDescription)).append("\n");

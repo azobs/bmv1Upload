@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 /**
  * PageofCurrencyDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class PageofCurrencyDto   {
   @JsonProperty("totalElements")
   private Integer totalElements;

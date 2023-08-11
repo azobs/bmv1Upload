@@ -15,8 +15,11 @@ import javax.validation.constraints.*;
 /**
  * PageofUserbmRoleDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class PageofUserbmRoleDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("totalElements")
   private Integer totalElements;
 
@@ -32,6 +35,26 @@ public class PageofUserbmRoleDto   {
   @JsonProperty("content")
   @Valid
   private List<UserbmRoleDto> content = null;
+
+  public PageofUserbmRoleDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public PageofUserbmRoleDto totalElements(Integer totalElements) {
     this.totalElements = totalElements;
@@ -152,7 +175,8 @@ public class PageofUserbmRoleDto   {
       return false;
     }
     PageofUserbmRoleDto pageofUserbmRoleDto = (PageofUserbmRoleDto) o;
-    return Objects.equals(this.totalElements, pageofUserbmRoleDto.totalElements) &&
+    return Objects.equals(this.id, pageofUserbmRoleDto.id) &&
+        Objects.equals(this.totalElements, pageofUserbmRoleDto.totalElements) &&
         Objects.equals(this.totalPages, pageofUserbmRoleDto.totalPages) &&
         Objects.equals(this.currentPage, pageofUserbmRoleDto.currentPage) &&
         Objects.equals(this.pageSize, pageofUserbmRoleDto.pageSize) &&
@@ -161,7 +185,7 @@ public class PageofUserbmRoleDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalElements, totalPages, currentPage, pageSize, content);
+    return Objects.hash(id, totalElements, totalPages, currentPage, pageSize, content);
   }
 
   @Override
@@ -169,6 +193,7 @@ public class PageofUserbmRoleDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class PageofUserbmRoleDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    totalElements: ").append(toIndentedString(totalElements)).append("\n");
     sb.append("    totalPages: ").append(toIndentedString(totalPages)).append("\n");
     sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");

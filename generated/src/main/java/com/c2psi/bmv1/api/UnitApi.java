@@ -24,7 +24,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "unit", description = "the unit API")
 public interface UnitApi {
@@ -206,7 +206,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 1, \"pageSize\" : 10, \"id\" : 0, \"currentPage\" : 0, \"content\" : [ { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } ], \"totalElements\" : 6 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -250,7 +250,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } }";
+                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 6.027456183070403, \"id\" : 0, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -285,7 +285,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } }";
+                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 6.027456183070403, \"id\" : 0, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -320,7 +320,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } }, { \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 6.027456183070403, \"id\" : 0, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } }, { \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 6.027456183070403, \"id\" : 0, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } } ], \"totalElements\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -410,7 +410,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } }";
+                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 6.027456183070403, \"id\" : 0, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -500,7 +500,7 @@ public interface UnitApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 0.8008281904610115, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } }";
+                    String exampleString = "{ \"unitSourceDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" }, \"conversionFactor\" : 6.027456183070403, \"id\" : 0, \"unitDestinationDto\" : { \"unitName\" : \"unitName\", \"unitAbbreviation\" : \"UN\" } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

@@ -15,8 +15,11 @@ import javax.validation.constraints.*;
  * A Backin in the system which represent articles return back by a client after delivery
  */
 @ApiModel(description = "A Backin in the system which represent articles return back by a client after delivery")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class BackindetailsDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("bidQuantity")
   private Double bidQuantity;
 
@@ -28,6 +31,26 @@ public class BackindetailsDto   {
 
   @JsonProperty("bidBackin")
   private BackinDto bidBackin;
+
+  public BackindetailsDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public BackindetailsDto bidQuantity(Double bidQuantity) {
     this.bidQuantity = bidQuantity;
@@ -121,7 +144,8 @@ public class BackindetailsDto   {
       return false;
     }
     BackindetailsDto backindetailsDto = (BackindetailsDto) o;
-    return Objects.equals(this.bidQuantity, backindetailsDto.bidQuantity) &&
+    return Objects.equals(this.id, backindetailsDto.id) &&
+        Objects.equals(this.bidQuantity, backindetailsDto.bidQuantity) &&
         Objects.equals(this.bidComment, backindetailsDto.bidComment) &&
         Objects.equals(this.bidArticle, backindetailsDto.bidArticle) &&
         Objects.equals(this.bidBackin, backindetailsDto.bidBackin);
@@ -129,7 +153,7 @@ public class BackindetailsDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bidQuantity, bidComment, bidArticle, bidBackin);
+    return Objects.hash(id, bidQuantity, bidComment, bidArticle, bidBackin);
   }
 
   @Override
@@ -137,6 +161,7 @@ public class BackindetailsDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class BackindetailsDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    bidQuantity: ").append(toIndentedString(bidQuantity)).append("\n");
     sb.append("    bidComment: ").append(toIndentedString(bidComment)).append("\n");
     sb.append("    bidArticle: ").append(toIndentedString(bidArticle)).append("\n");

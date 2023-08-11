@@ -14,8 +14,11 @@ import javax.validation.constraints.*;
  * A conversion rule used to convert one currency in another
  */
 @ApiModel(description = "A conversion rule used to convert one currency in another")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class CurrencyconversionDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("conversionFactor")
   private Double conversionFactor;
 
@@ -24,6 +27,26 @@ public class CurrencyconversionDto   {
 
   @JsonProperty("currencyDestination")
   private CurrencyDto currencyDestination;
+
+  public CurrencyconversionDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public CurrencyconversionDto conversionFactor(Double conversionFactor) {
     this.conversionFactor = conversionFactor;
@@ -97,14 +120,15 @@ public class CurrencyconversionDto   {
       return false;
     }
     CurrencyconversionDto currencyconversionDto = (CurrencyconversionDto) o;
-    return Objects.equals(this.conversionFactor, currencyconversionDto.conversionFactor) &&
+    return Objects.equals(this.id, currencyconversionDto.id) &&
+        Objects.equals(this.conversionFactor, currencyconversionDto.conversionFactor) &&
         Objects.equals(this.currencySource, currencyconversionDto.currencySource) &&
         Objects.equals(this.currencyDestination, currencyconversionDto.currencyDestination);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversionFactor, currencySource, currencyDestination);
+    return Objects.hash(id, conversionFactor, currencySource, currencyDestination);
   }
 
   @Override
@@ -112,6 +136,7 @@ public class CurrencyconversionDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class CurrencyconversionDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    conversionFactor: ").append(toIndentedString(conversionFactor)).append("\n");
     sb.append("    currencySource: ").append(toIndentedString(currencySource)).append("\n");
     sb.append("    currencyDestination: ").append(toIndentedString(currencyDestination)).append("\n");

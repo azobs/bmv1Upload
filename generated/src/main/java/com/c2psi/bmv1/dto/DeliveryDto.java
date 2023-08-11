@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -16,13 +17,17 @@ import javax.validation.constraints.*;
  * A Delivery in the system which can contain multiple command
  */
 @ApiModel(description = "A Delivery in the system which can contain multiple command")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class DeliveryDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("deliveryCode")
   private String deliveryCode;
 
   @JsonProperty("deliveryDate")
-  private String deliveryDate;
+  @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime deliveryDate;
 
   @JsonProperty("deliveryComment")
   private String deliveryComment;
@@ -73,6 +78,26 @@ public class DeliveryDto   {
   @JsonProperty("deliveryPos")
   private PointofsaleDto deliveryPos;
 
+  public DeliveryDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
   public DeliveryDto deliveryCode(String deliveryCode) {
     this.deliveryCode = deliveryCode;
     return this;
@@ -93,7 +118,7 @@ public class DeliveryDto   {
     this.deliveryCode = deliveryCode;
   }
 
-  public DeliveryDto deliveryDate(String deliveryDate) {
+  public DeliveryDto deliveryDate(OffsetDateTime deliveryDate) {
     this.deliveryDate = deliveryDate;
     return this;
   }
@@ -104,12 +129,13 @@ public class DeliveryDto   {
   */
   @ApiModelProperty(value = "")
 
+  @Valid
 
-  public String getDeliveryDate() {
+  public OffsetDateTime getDeliveryDate() {
     return deliveryDate;
   }
 
-  public void setDeliveryDate(String deliveryDate) {
+  public void setDeliveryDate(OffsetDateTime deliveryDate) {
     this.deliveryDate = deliveryDate;
   }
 
@@ -205,7 +231,8 @@ public class DeliveryDto   {
       return false;
     }
     DeliveryDto deliveryDto = (DeliveryDto) o;
-    return Objects.equals(this.deliveryCode, deliveryDto.deliveryCode) &&
+    return Objects.equals(this.id, deliveryDto.id) &&
+        Objects.equals(this.deliveryCode, deliveryDto.deliveryCode) &&
         Objects.equals(this.deliveryDate, deliveryDto.deliveryDate) &&
         Objects.equals(this.deliveryComment, deliveryDto.deliveryComment) &&
         Objects.equals(this.deliveryState, deliveryDto.deliveryState) &&
@@ -215,7 +242,7 @@ public class DeliveryDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryCode, deliveryDate, deliveryComment, deliveryState, deliveryDeliver, deliveryPos);
+    return Objects.hash(id, deliveryCode, deliveryDate, deliveryComment, deliveryState, deliveryDeliver, deliveryPos);
   }
 
   @Override
@@ -223,6 +250,7 @@ public class DeliveryDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeliveryDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    deliveryCode: ").append(toIndentedString(deliveryCode)).append("\n");
     sb.append("    deliveryDate: ").append(toIndentedString(deliveryDate)).append("\n");
     sb.append("    deliveryComment: ").append(toIndentedString(deliveryComment)).append("\n");

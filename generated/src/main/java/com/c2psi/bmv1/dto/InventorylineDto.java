@@ -15,8 +15,11 @@ import javax.validation.constraints.*;
  * An Inventory line in the system
  */
 @ApiModel(description = "An Inventory line in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class InventorylineDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("invlineComment")
   private String invlineComment;
 
@@ -31,6 +34,26 @@ public class InventorylineDto   {
 
   @JsonProperty("invlineArticle")
   private ArticleDto invlineArticle;
+
+  public InventorylineDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public InventorylineDto invlineComment(String invlineComment) {
     this.invlineComment = invlineComment;
@@ -146,7 +169,8 @@ public class InventorylineDto   {
       return false;
     }
     InventorylineDto inventorylineDto = (InventorylineDto) o;
-    return Objects.equals(this.invlineComment, inventorylineDto.invlineComment) &&
+    return Objects.equals(this.id, inventorylineDto.id) &&
+        Objects.equals(this.invlineComment, inventorylineDto.invlineComment) &&
         Objects.equals(this.realqteinStock, inventorylineDto.realqteinStock) &&
         Objects.equals(this.logicqteinStock, inventorylineDto.logicqteinStock) &&
         Objects.equals(this.inventory, inventorylineDto.inventory) &&
@@ -155,7 +179,7 @@ public class InventorylineDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(invlineComment, realqteinStock, logicqteinStock, inventory, invlineArticle);
+    return Objects.hash(id, invlineComment, realqteinStock, logicqteinStock, inventory, invlineArticle);
   }
 
   @Override
@@ -163,6 +187,7 @@ public class InventorylineDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class InventorylineDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    invlineComment: ").append(toIndentedString(invlineComment)).append("\n");
     sb.append("    realqteinStock: ").append(toIndentedString(realqteinStock)).append("\n");
     sb.append("    logicqteinStock: ").append(toIndentedString(logicqteinStock)).append("\n");

@@ -15,8 +15,11 @@ import javax.validation.constraints.*;
  * A Deliverydetails in the system which can contain multiple command
  */
 @ApiModel(description = "A Deliverydetails in the system which can contain multiple command")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class DeliverydetailsDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("packageUsed")
   private Integer packageUsed;
 
@@ -28,6 +31,26 @@ public class DeliverydetailsDto   {
 
   @JsonProperty("ddDelivery")
   private DeliveryDto ddDelivery;
+
+  public DeliverydetailsDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public DeliverydetailsDto packageUsed(Integer packageUsed) {
     this.packageUsed = packageUsed;
@@ -121,7 +144,8 @@ public class DeliverydetailsDto   {
       return false;
     }
     DeliverydetailsDto deliverydetailsDto = (DeliverydetailsDto) o;
-    return Objects.equals(this.packageUsed, deliverydetailsDto.packageUsed) &&
+    return Objects.equals(this.id, deliverydetailsDto.id) &&
+        Objects.equals(this.packageUsed, deliverydetailsDto.packageUsed) &&
         Objects.equals(this.packageReturn, deliverydetailsDto.packageReturn) &&
         Objects.equals(this.ddPackaging, deliverydetailsDto.ddPackaging) &&
         Objects.equals(this.ddDelivery, deliverydetailsDto.ddDelivery);
@@ -129,7 +153,7 @@ public class DeliverydetailsDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageUsed, packageReturn, ddPackaging, ddDelivery);
+    return Objects.hash(id, packageUsed, packageReturn, ddPackaging, ddDelivery);
   }
 
   @Override
@@ -137,6 +161,7 @@ public class DeliverydetailsDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeliverydetailsDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    packageUsed: ").append(toIndentedString(packageUsed)).append("\n");
     sb.append("    packageReturn: ").append(toIndentedString(packageReturn)).append("\n");
     sb.append("    ddPackaging: ").append(toIndentedString(ddPackaging)).append("\n");

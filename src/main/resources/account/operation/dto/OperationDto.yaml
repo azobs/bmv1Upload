@@ -1,9 +1,12 @@
 type: object
 description: 'An operation in the system'
 properties:
+  id:
+    type: integer
+    format: int64
   opDate:
     type: string
-    format: datetime
+    format: date-time
   opObject:
     type: string
   opDescription:

@@ -1,6 +1,9 @@
 type: object
 description: 'A token to open a session on the system'
 properties:
+  id:
+    type: integer
+    format: int64
   tokenValue:
     type: string
   tokenType:

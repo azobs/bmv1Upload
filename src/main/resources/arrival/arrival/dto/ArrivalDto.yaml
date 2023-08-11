@@ -1,6 +1,9 @@
 type: object
 description: 'An arrival in the system'
 properties:
+  id:
+    type: integer
+    format: int64
   deliveryQuantity:
     type: number
     format: double
@@ -9,7 +12,7 @@ properties:
     exclusiveMinimum: true
   arrivalDate:
     type: string
-    format: datetime
+    format: date-time
   arrivalUnitprice:
     type: number
     format: double

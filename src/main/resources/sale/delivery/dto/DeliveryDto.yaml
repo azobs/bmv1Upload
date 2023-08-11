@@ -1,12 +1,16 @@
 type: object
 description: 'A Delivery in the system which can contain multiple command'
 properties:
+  id:
+    type: integer
+    format: int64
+    readOnly: true # Returned by GET, not used in POST/PUT/PATCH
   deliveryCode:
     type: string
     example: D0001
   deliveryDate:
     type: string
-    format: datetime
+    format: date-time
   deliveryComment:
     type: string
   deliveryState:

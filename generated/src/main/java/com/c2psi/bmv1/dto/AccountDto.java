@@ -19,8 +19,11 @@ import javax.validation.constraints.*;
  * An account for pointofsale, provider or a client in the system
  */
 @ApiModel(description = "An account for pointofsale, provider or a client in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class AccountDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("coverNumber")
   private Integer coverNumber;
 
@@ -84,6 +87,26 @@ public class AccountDto   {
 
   @JsonProperty("accountPackagingDto")
   private PackagingDto accountPackagingDto;
+
+  public AccountDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public AccountDto coverNumber(Integer coverNumber) {
     this.coverNumber = coverNumber;
@@ -283,7 +306,8 @@ public class AccountDto   {
       return false;
     }
     AccountDto accountDto = (AccountDto) o;
-    return Objects.equals(this.coverNumber, accountDto.coverNumber) &&
+    return Objects.equals(this.id, accountDto.id) &&
+        Objects.equals(this.coverNumber, accountDto.coverNumber) &&
         Objects.equals(this.damageNumber, accountDto.damageNumber) &&
         Objects.equals(this.packageNumber, accountDto.packageNumber) &&
         Objects.equals(this.accountType, accountDto.accountType) &&
@@ -296,7 +320,7 @@ public class AccountDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(coverNumber, damageNumber, packageNumber, accountType, accountClientDto, accountPosDto, accountProviderDto, accountArticleDto, accountPackagingDto);
+    return Objects.hash(id, coverNumber, damageNumber, packageNumber, accountType, accountClientDto, accountPosDto, accountProviderDto, accountArticleDto, accountPackagingDto);
   }
 
   @Override
@@ -304,6 +328,7 @@ public class AccountDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    coverNumber: ").append(toIndentedString(coverNumber)).append("\n");
     sb.append("    damageNumber: ").append(toIndentedString(damageNumber)).append("\n");
     sb.append("    packageNumber: ").append(toIndentedString(packageNumber)).append("\n");

@@ -1,7 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.UserbmDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -15,8 +14,11 @@ import javax.validation.constraints.*;
  * An enterprise which can contain multiple pointofsale all manage in the system
  */
 @ApiModel(description = "An enterprise which can contain multiple pointofsale all manage in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class EnterpriseDto   {
+  @JsonProperty("id")
+  private Long id;
+
   /**
    * Gets or Sets entRegime
    */
@@ -79,8 +81,25 @@ public class EnterpriseDto   {
   @JsonProperty("entLogo")
   private String entLogo;
 
-  @JsonProperty("entAdmin")
-  private UserbmDto entAdmin;
+  public EnterpriseDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public EnterpriseDto entRegime(EntRegimeEnum entRegime) {
     this.entRegime = entRegime;
@@ -113,7 +132,7 @@ public class EnterpriseDto   {
   */
   @ApiModelProperty(value = "")
 
-
+@Size(max = 30) 
   public String getEntSocialreason() {
     return entSocialreason;
   }
@@ -133,7 +152,7 @@ public class EnterpriseDto   {
   */
   @ApiModelProperty(value = "")
 
-
+@Size(max = 256) 
   public String getEntDescription() {
     return entDescription;
   }
@@ -153,7 +172,7 @@ public class EnterpriseDto   {
   */
   @ApiModelProperty(value = "")
 
-
+@Size(min = 3, max = 15) 
   public String getEntNiu() {
     return entNiu;
   }
@@ -173,7 +192,7 @@ public class EnterpriseDto   {
   */
   @ApiModelProperty(example = "entName", value = "")
 
-
+@Size(min = 2, max = 30) 
   public String getEntName() {
     return entName;
   }
@@ -193,7 +212,7 @@ public class EnterpriseDto   {
   */
   @ApiModelProperty(value = "")
 
-
+@Size(min = 1, max = 15) 
   public String getEntAcronym() {
     return entAcronym;
   }
@@ -222,27 +241,6 @@ public class EnterpriseDto   {
     this.entLogo = entLogo;
   }
 
-  public EnterpriseDto entAdmin(UserbmDto entAdmin) {
-    this.entAdmin = entAdmin;
-    return this;
-  }
-
-  /**
-   * Get entAdmin
-   * @return entAdmin
-  */
-  @ApiModelProperty(value = "")
-
-  @Valid
-
-  public UserbmDto getEntAdmin() {
-    return entAdmin;
-  }
-
-  public void setEntAdmin(UserbmDto entAdmin) {
-    this.entAdmin = entAdmin;
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -253,19 +251,19 @@ public class EnterpriseDto   {
       return false;
     }
     EnterpriseDto enterpriseDto = (EnterpriseDto) o;
-    return Objects.equals(this.entRegime, enterpriseDto.entRegime) &&
+    return Objects.equals(this.id, enterpriseDto.id) &&
+        Objects.equals(this.entRegime, enterpriseDto.entRegime) &&
         Objects.equals(this.entSocialreason, enterpriseDto.entSocialreason) &&
         Objects.equals(this.entDescription, enterpriseDto.entDescription) &&
         Objects.equals(this.entNiu, enterpriseDto.entNiu) &&
         Objects.equals(this.entName, enterpriseDto.entName) &&
         Objects.equals(this.entAcronym, enterpriseDto.entAcronym) &&
-        Objects.equals(this.entLogo, enterpriseDto.entLogo) &&
-        Objects.equals(this.entAdmin, enterpriseDto.entAdmin);
+        Objects.equals(this.entLogo, enterpriseDto.entLogo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(entRegime, entSocialreason, entDescription, entNiu, entName, entAcronym, entLogo, entAdmin);
+    return Objects.hash(id, entRegime, entSocialreason, entDescription, entNiu, entName, entAcronym, entLogo);
   }
 
   @Override
@@ -273,6 +271,7 @@ public class EnterpriseDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class EnterpriseDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    entRegime: ").append(toIndentedString(entRegime)).append("\n");
     sb.append("    entSocialreason: ").append(toIndentedString(entSocialreason)).append("\n");
     sb.append("    entDescription: ").append(toIndentedString(entDescription)).append("\n");
@@ -280,7 +279,6 @@ public class EnterpriseDto   {
     sb.append("    entName: ").append(toIndentedString(entName)).append("\n");
     sb.append("    entAcronym: ").append(toIndentedString(entAcronym)).append("\n");
     sb.append("    entLogo: ").append(toIndentedString(entLogo)).append("\n");
-    sb.append("    entAdmin: ").append(toIndentedString(entAdmin)).append("\n");
     sb.append("}");
     return sb.toString();
   }

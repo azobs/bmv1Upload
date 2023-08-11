@@ -1,6 +1,9 @@
 type: object
 description: 'An account for pointofsale, provider or a client in the system'
 properties:
+  id:
+    type: integer
+    format: int64
   coverNumber:
     type: integer
     format: int32

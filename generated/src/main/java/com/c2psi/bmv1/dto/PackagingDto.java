@@ -15,8 +15,11 @@ import javax.validation.constraints.*;
  * A Packaging in the system
  */
 @ApiModel(description = "A Packaging in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class PackagingDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("packLabel")
   private String packLabel;
 
@@ -34,6 +37,26 @@ public class PackagingDto   {
 
   @JsonProperty("packagingProvider")
   private ProviderDto packagingProvider;
+
+  public PackagingDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public PackagingDto packLabel(String packLabel) {
     this.packLabel = packLabel;
@@ -167,7 +190,8 @@ public class PackagingDto   {
       return false;
     }
     PackagingDto packagingDto = (PackagingDto) o;
-    return Objects.equals(this.packLabel, packagingDto.packLabel) &&
+    return Objects.equals(this.id, packagingDto.id) &&
+        Objects.equals(this.packLabel, packagingDto.packLabel) &&
         Objects.equals(this.packDescription, packagingDto.packDescription) &&
         Objects.equals(this.packFirstcolor, packagingDto.packFirstcolor) &&
         Objects.equals(this.packPrice, packagingDto.packPrice) &&
@@ -177,7 +201,7 @@ public class PackagingDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(packLabel, packDescription, packFirstcolor, packPrice, packagingPos, packagingProvider);
+    return Objects.hash(id, packLabel, packDescription, packFirstcolor, packPrice, packagingPos, packagingProvider);
   }
 
   @Override
@@ -185,6 +209,7 @@ public class PackagingDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackagingDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    packLabel: ").append(toIndentedString(packLabel)).append("\n");
     sb.append("    packDescription: ").append(toIndentedString(packDescription)).append("\n");
     sb.append("    packFirstcolor: ").append(toIndentedString(packFirstcolor)).append("\n");

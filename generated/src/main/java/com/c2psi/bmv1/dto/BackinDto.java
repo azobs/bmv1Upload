@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -15,10 +16,14 @@ import javax.validation.constraints.*;
  * A Backin in the system which represent articles return back by a client after delivery
  */
 @ApiModel(description = "A Backin in the system which represent articles return back by a client after delivery")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class BackinDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("biDate")
-  private String biDate;
+  @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime biDate;
 
   @JsonProperty("biComment")
   private String biComment;
@@ -29,7 +34,27 @@ public class BackinDto   {
   @JsonProperty("biSaler")
   private UserbmDto biSaler;
 
-  public BackinDto biDate(String biDate) {
+  public BackinDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public BackinDto biDate(OffsetDateTime biDate) {
     this.biDate = biDate;
     return this;
   }
@@ -40,12 +65,13 @@ public class BackinDto   {
   */
   @ApiModelProperty(value = "")
 
+  @Valid
 
-  public String getBiDate() {
+  public OffsetDateTime getBiDate() {
     return biDate;
   }
 
-  public void setBiDate(String biDate) {
+  public void setBiDate(OffsetDateTime biDate) {
     this.biDate = biDate;
   }
 
@@ -121,7 +147,8 @@ public class BackinDto   {
       return false;
     }
     BackinDto backinDto = (BackinDto) o;
-    return Objects.equals(this.biDate, backinDto.biDate) &&
+    return Objects.equals(this.id, backinDto.id) &&
+        Objects.equals(this.biDate, backinDto.biDate) &&
         Objects.equals(this.biComment, backinDto.biComment) &&
         Objects.equals(this.biCommand, backinDto.biCommand) &&
         Objects.equals(this.biSaler, backinDto.biSaler);
@@ -129,7 +156,7 @@ public class BackinDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(biDate, biComment, biCommand, biSaler);
+    return Objects.hash(id, biDate, biComment, biCommand, biSaler);
   }
 
   @Override
@@ -137,6 +164,7 @@ public class BackinDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class BackinDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    biDate: ").append(toIndentedString(biDate)).append("\n");
     sb.append("    biComment: ").append(toIndentedString(biComment)).append("\n");
     sb.append("    biCommand: ").append(toIndentedString(biCommand)).append("\n");

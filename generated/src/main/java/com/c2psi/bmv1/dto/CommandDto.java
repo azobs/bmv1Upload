@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -20,13 +21,17 @@ import javax.validation.constraints.*;
  * A Command in the system
  */
 @ApiModel(description = "A Command in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class CommandDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("cmdCode")
   private String cmdCode;
 
   @JsonProperty("cmdDate")
-  private String cmdDate;
+  @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime cmdDate;
 
   @JsonProperty("cmdComment")
   private String cmdComment;
@@ -131,6 +136,26 @@ public class CommandDto   {
   @JsonProperty("cmdPos")
   private PointofsaleDto cmdPos;
 
+  public CommandDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
   public CommandDto cmdCode(String cmdCode) {
     this.cmdCode = cmdCode;
     return this;
@@ -151,7 +176,7 @@ public class CommandDto   {
     this.cmdCode = cmdCode;
   }
 
-  public CommandDto cmdDate(String cmdDate) {
+  public CommandDto cmdDate(OffsetDateTime cmdDate) {
     this.cmdDate = cmdDate;
     return this;
   }
@@ -162,12 +187,13 @@ public class CommandDto   {
   */
   @ApiModelProperty(value = "")
 
+  @Valid
 
-  public String getCmdDate() {
+  public OffsetDateTime getCmdDate() {
     return cmdDate;
   }
 
-  public void setCmdDate(String cmdDate) {
+  public void setCmdDate(OffsetDateTime cmdDate) {
     this.cmdDate = cmdDate;
   }
 
@@ -367,7 +393,8 @@ public class CommandDto   {
       return false;
     }
     CommandDto commandDto = (CommandDto) o;
-    return Objects.equals(this.cmdCode, commandDto.cmdCode) &&
+    return Objects.equals(this.id, commandDto.id) &&
+        Objects.equals(this.cmdCode, commandDto.cmdCode) &&
         Objects.equals(this.cmdDate, commandDto.cmdDate) &&
         Objects.equals(this.cmdComment, commandDto.cmdComment) &&
         Objects.equals(this.cmdState, commandDto.cmdState) &&
@@ -382,7 +409,7 @@ public class CommandDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cmdCode, cmdDate, cmdComment, cmdState, cmdNature, cmdDelivery, cmdLoading, cmdClient, cmdSaler, cmdInvoice, cmdPos);
+    return Objects.hash(id, cmdCode, cmdDate, cmdComment, cmdState, cmdNature, cmdDelivery, cmdLoading, cmdClient, cmdSaler, cmdInvoice, cmdPos);
   }
 
   @Override
@@ -390,6 +417,7 @@ public class CommandDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommandDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    cmdCode: ").append(toIndentedString(cmdCode)).append("\n");
     sb.append("    cmdDate: ").append(toIndentedString(cmdDate)).append("\n");
     sb.append("    cmdComment: ").append(toIndentedString(cmdComment)).append("\n");

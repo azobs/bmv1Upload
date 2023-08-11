@@ -1,15 +1,20 @@
 package com.c2psi.bmv1.userbm.controllers;
 
 import com.c2psi.bmv1.api.UserbmApi;
+import com.c2psi.bmv1.dto.FilterRequest;
+import com.c2psi.bmv1.dto.PageofUserbmDto;
 import com.c2psi.bmv1.dto.UserbmDto;
-import com.c2psi.bmv1.userbm.service.UserbmService;
+import com.c2psi.bmv1.userbm.models.Userbm;
+import com.c2psi.bmv1.userbm.services.UserbmService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -30,5 +35,33 @@ public class UserbmController implements UserbmApi {
         map.put("data", userbmDtoSaved);
         map.put("cause", "RAS");
         return new ResponseEntity(map, HttpStatus.CREATED);
+    }
+
+    @Override
+    public ResponseEntity<List<UserbmDto>> getUserbmList(FilterRequest filterRequest) {
+        Map<String, Object> map = new LinkedHashMap<>();
+        List<UserbmDto> userbmDtoList = userbmService.getListofUserbm(filterRequest);
+        log.info("Userbm list found successfully");
+
+        map.clear();
+        map.put("status", HttpStatus.OK);
+        map.put("message", "Userbm list found successfully");
+        map.put("data", userbmDtoList);
+        map.put("cause", "RAS");
+        return new ResponseEntity(map, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<PageofUserbmDto> getUserbmPage(FilterRequest filterRequest) {
+        Map<String, Object> map = new LinkedHashMap<>();
+        PageofUserbmDto userbmDtoPage = userbmService.getPageofUserbm(filterRequest);
+        log.info("Userbm Page found successfully");
+
+        map.clear();
+        map.put("status", HttpStatus.OK);
+        map.put("message", "Userbm page found successfully");
+        map.put("data", userbmDtoPage);
+        map.put("cause", "RAS");
+        return new ResponseEntity(map, HttpStatus.OK);
     }
 }

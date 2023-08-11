@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -15,8 +16,11 @@ import javax.validation.constraints.*;
  * A Sale invoice in the system
  */
 @ApiModel(description = "A Sale invoice in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class SaleinvoiceDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("siCode")
   private String siCode;
 
@@ -24,7 +28,8 @@ public class SaleinvoiceDto   {
   private String siComment;
 
   @JsonProperty("siInvoicingdate")
-  private String siInvoicingdate;
+  @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime siInvoicingdate;
 
   @JsonProperty("siTotalcolis")
   private Double siTotalcolis;
@@ -78,6 +83,26 @@ public class SaleinvoiceDto   {
   @JsonProperty("siPos")
   private PointofsaleDto siPos;
 
+  public SaleinvoiceDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
   public SaleinvoiceDto siCode(String siCode) {
     this.siCode = siCode;
     return this;
@@ -118,7 +143,7 @@ public class SaleinvoiceDto   {
     this.siComment = siComment;
   }
 
-  public SaleinvoiceDto siInvoicingdate(String siInvoicingdate) {
+  public SaleinvoiceDto siInvoicingdate(OffsetDateTime siInvoicingdate) {
     this.siInvoicingdate = siInvoicingdate;
     return this;
   }
@@ -129,12 +154,13 @@ public class SaleinvoiceDto   {
   */
   @ApiModelProperty(value = "")
 
+  @Valid
 
-  public String getSiInvoicingdate() {
+  public OffsetDateTime getSiInvoicingdate() {
     return siInvoicingdate;
   }
 
-  public void setSiInvoicingdate(String siInvoicingdate) {
+  public void setSiInvoicingdate(OffsetDateTime siInvoicingdate) {
     this.siInvoicingdate = siInvoicingdate;
   }
 
@@ -249,7 +275,8 @@ public class SaleinvoiceDto   {
       return false;
     }
     SaleinvoiceDto saleinvoiceDto = (SaleinvoiceDto) o;
-    return Objects.equals(this.siCode, saleinvoiceDto.siCode) &&
+    return Objects.equals(this.id, saleinvoiceDto.id) &&
+        Objects.equals(this.siCode, saleinvoiceDto.siCode) &&
         Objects.equals(this.siComment, saleinvoiceDto.siComment) &&
         Objects.equals(this.siInvoicingdate, saleinvoiceDto.siInvoicingdate) &&
         Objects.equals(this.siTotalcolis, saleinvoiceDto.siTotalcolis) &&
@@ -261,7 +288,7 @@ public class SaleinvoiceDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(siCode, siComment, siInvoicingdate, siTotalcolis, siExpectedamount, siPaidamount, siPaymentmethod, siPos);
+    return Objects.hash(id, siCode, siComment, siInvoicingdate, siTotalcolis, siExpectedamount, siPaidamount, siPaymentmethod, siPos);
   }
 
   @Override
@@ -269,6 +296,7 @@ public class SaleinvoiceDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class SaleinvoiceDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    siCode: ").append(toIndentedString(siCode)).append("\n");
     sb.append("    siComment: ").append(toIndentedString(siComment)).append("\n");
     sb.append("    siInvoicingdate: ").append(toIndentedString(siInvoicingdate)).append("\n");

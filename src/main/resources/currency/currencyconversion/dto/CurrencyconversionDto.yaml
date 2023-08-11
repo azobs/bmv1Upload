@@ -1,6 +1,9 @@
 type: object
 description: 'A conversion rule used to convert one currency in another'
 properties:
+  id:
+    type: integer
+    format: int64
   conversionFactor:
     type: number
     format: double

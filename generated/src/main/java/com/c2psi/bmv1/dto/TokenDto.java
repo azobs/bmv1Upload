@@ -15,8 +15,11 @@ import javax.validation.constraints.*;
  * A token to open a session on the system
  */
 @ApiModel(description = "A token to open a session on the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class TokenDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("tokenValue")
   private String tokenValue;
 
@@ -66,6 +69,26 @@ public class TokenDto   {
 
   @JsonProperty("userbmDto")
   private UserbmDto userbmDto;
+
+  public TokenDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public TokenDto tokenValue(String tokenValue) {
     this.tokenValue = tokenValue;
@@ -181,7 +204,8 @@ public class TokenDto   {
       return false;
     }
     TokenDto tokenDto = (TokenDto) o;
-    return Objects.equals(this.tokenValue, tokenDto.tokenValue) &&
+    return Objects.equals(this.id, tokenDto.id) &&
+        Objects.equals(this.tokenValue, tokenDto.tokenValue) &&
         Objects.equals(this.tokenType, tokenDto.tokenType) &&
         Objects.equals(this.expired, tokenDto.expired) &&
         Objects.equals(this.revoked, tokenDto.revoked) &&
@@ -190,7 +214,7 @@ public class TokenDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tokenValue, tokenType, expired, revoked, userbmDto);
+    return Objects.hash(id, tokenValue, tokenType, expired, revoked, userbmDto);
   }
 
   @Override
@@ -198,6 +222,7 @@ public class TokenDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class TokenDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    tokenValue: ").append(toIndentedString(tokenValue)).append("\n");
     sb.append("    tokenType: ").append(toIndentedString(tokenType)).append("\n");
     sb.append("    expired: ").append(toIndentedString(expired)).append("\n");

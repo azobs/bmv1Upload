@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -14,19 +15,43 @@ import javax.validation.constraints.*;
  * An Inventory used in the system
  */
 @ApiModel(description = "An Inventory used in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class InventoryDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("invComment")
   private String invComment;
 
   @JsonProperty("invDate")
-  private String invDate;
+  @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime invDate;
 
   @JsonProperty("invCode")
   private String invCode;
 
   @JsonProperty("invPos")
   private PointofsaleDto invPos;
+
+  public InventoryDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public InventoryDto invComment(String invComment) {
     this.invComment = invComment;
@@ -48,7 +73,7 @@ public class InventoryDto   {
     this.invComment = invComment;
   }
 
-  public InventoryDto invDate(String invDate) {
+  public InventoryDto invDate(OffsetDateTime invDate) {
     this.invDate = invDate;
     return this;
   }
@@ -59,12 +84,13 @@ public class InventoryDto   {
   */
   @ApiModelProperty(value = "")
 
+  @Valid
 
-  public String getInvDate() {
+  public OffsetDateTime getInvDate() {
     return invDate;
   }
 
-  public void setInvDate(String invDate) {
+  public void setInvDate(OffsetDateTime invDate) {
     this.invDate = invDate;
   }
 
@@ -119,7 +145,8 @@ public class InventoryDto   {
       return false;
     }
     InventoryDto inventoryDto = (InventoryDto) o;
-    return Objects.equals(this.invComment, inventoryDto.invComment) &&
+    return Objects.equals(this.id, inventoryDto.id) &&
+        Objects.equals(this.invComment, inventoryDto.invComment) &&
         Objects.equals(this.invDate, inventoryDto.invDate) &&
         Objects.equals(this.invCode, inventoryDto.invCode) &&
         Objects.equals(this.invPos, inventoryDto.invPos);
@@ -127,7 +154,7 @@ public class InventoryDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(invComment, invDate, invCode, invPos);
+    return Objects.hash(id, invComment, invDate, invCode, invPos);
   }
 
   @Override
@@ -135,6 +162,7 @@ public class InventoryDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class InventoryDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    invComment: ").append(toIndentedString(invComment)).append("\n");
     sb.append("    invDate: ").append(toIndentedString(invDate)).append("\n");
     sb.append("    invCode: ").append(toIndentedString(invCode)).append("\n");

@@ -17,8 +17,11 @@ import javax.validation.constraints.*;
  * A article in the system
  */
 @ApiModel(description = "A article in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class ArticleDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("artCode")
   private String artCode;
 
@@ -54,6 +57,26 @@ public class ArticleDto   {
 
   @JsonProperty("artPos")
   private PointofsaleDto artPos;
+
+  public ArticleDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public ArticleDto artCode(String artCode) {
     this.artCode = artCode;
@@ -309,7 +332,8 @@ public class ArticleDto   {
       return false;
     }
     ArticleDto articleDto = (ArticleDto) o;
-    return Objects.equals(this.artCode, articleDto.artCode) &&
+    return Objects.equals(this.id, articleDto.id) &&
+        Objects.equals(this.artCode, articleDto.artCode) &&
         Objects.equals(this.artName, articleDto.artName) &&
         Objects.equals(this.artShortname, articleDto.artShortname) &&
         Objects.equals(this.artDescription, articleDto.artDescription) &&
@@ -325,7 +349,7 @@ public class ArticleDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artCode, artName, artShortname, artDescription, artThreshold, artLowlimitwholesale, artlowlimitSemiwholesale, artQuantityinstock, artPf, artUnit, artBaseprice, artPos);
+    return Objects.hash(id, artCode, artName, artShortname, artDescription, artThreshold, artLowlimitwholesale, artlowlimitSemiwholesale, artQuantityinstock, artPf, artUnit, artBaseprice, artPos);
   }
 
   @Override
@@ -333,6 +357,7 @@ public class ArticleDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class ArticleDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    artCode: ").append(toIndentedString(artCode)).append("\n");
     sb.append("    artName: ").append(toIndentedString(artName)).append("\n");
     sb.append("    artShortname: ").append(toIndentedString(artShortname)).append("\n");

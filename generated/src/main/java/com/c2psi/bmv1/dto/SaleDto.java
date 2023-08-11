@@ -16,8 +16,11 @@ import javax.validation.constraints.*;
  * A Sale in the system
  */
 @ApiModel(description = "A Sale in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class SaleDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("saleQuantity")
   private Double saleQuantity;
 
@@ -74,6 +77,26 @@ public class SaleDto   {
 
   @JsonProperty("saleArticle")
   private ArticleDto saleArticle;
+
+  public SaleDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public SaleDto saleQuantity(Double saleQuantity) {
     this.saleQuantity = saleQuantity;
@@ -207,7 +230,8 @@ public class SaleDto   {
       return false;
     }
     SaleDto saleDto = (SaleDto) o;
-    return Objects.equals(this.saleQuantity, saleDto.saleQuantity) &&
+    return Objects.equals(this.id, saleDto.id) &&
+        Objects.equals(this.saleQuantity, saleDto.saleQuantity) &&
         Objects.equals(this.saleComment, saleDto.saleComment) &&
         Objects.equals(this.saleFinalprice, saleDto.saleFinalprice) &&
         Objects.equals(this.saleType, saleDto.saleType) &&
@@ -217,7 +241,7 @@ public class SaleDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(saleQuantity, saleComment, saleFinalprice, saleType, saleCommand, saleArticle);
+    return Objects.hash(id, saleQuantity, saleComment, saleFinalprice, saleType, saleCommand, saleArticle);
   }
 
   @Override
@@ -225,6 +249,7 @@ public class SaleDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class SaleDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    saleQuantity: ").append(toIndentedString(saleQuantity)).append("\n");
     sb.append("    saleComment: ").append(toIndentedString(saleComment)).append("\n");
     sb.append("    saleFinalprice: ").append(toIndentedString(saleFinalprice)).append("\n");

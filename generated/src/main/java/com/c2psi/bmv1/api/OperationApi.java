@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 @Validated
 @Api(value = "operation", description = "the operation API")
 public interface OperationApi {
@@ -99,7 +99,7 @@ public interface OperationApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"opObject\" : \"opObject\", \"opType\" : \"Credit\", \"opDate\" : \"opDate\", \"opDescription\" : \"opDescription\" }";
+                    String exampleString = "{ \"opObject\" : \"opObject\", \"opType\" : \"Credit\", \"id\" : 0, \"opDate\" : \"2000-01-23T04:56:07.000+00:00\", \"opDescription\" : \"opDescription\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -134,7 +134,7 @@ public interface OperationApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"opObject\" : \"opObject\", \"opType\" : \"Credit\", \"opDate\" : \"opDate\", \"opDescription\" : \"opDescription\" }";
+                    String exampleString = "{ \"opObject\" : \"opObject\", \"opType\" : \"Credit\", \"id\" : 0, \"opDate\" : \"2000-01-23T04:56:07.000+00:00\", \"opDescription\" : \"opDescription\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -169,7 +169,7 @@ public interface OperationApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"opObject\" : \"opObject\", \"opType\" : \"Credit\", \"opDate\" : \"opDate\", \"opDescription\" : \"opDescription\" }, { \"opObject\" : \"opObject\", \"opType\" : \"Credit\", \"opDate\" : \"opDate\", \"opDescription\" : \"opDescription\" } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"opObject\" : \"opObject\", \"opType\" : \"Credit\", \"id\" : 0, \"opDate\" : \"2000-01-23T04:56:07.000+00:00\", \"opDescription\" : \"opDescription\" }, { \"opObject\" : \"opObject\", \"opType\" : \"Credit\", \"id\" : 0, \"opDate\" : \"2000-01-23T04:56:07.000+00:00\", \"opDescription\" : \"opDescription\" } ], \"totalElements\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -214,7 +214,7 @@ public interface OperationApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"opObject\" : \"opObject\", \"opType\" : \"Credit\", \"opDate\" : \"opDate\", \"opDescription\" : \"opDescription\" }";
+                    String exampleString = "{ \"opObject\" : \"opObject\", \"opType\" : \"Credit\", \"id\" : 0, \"opDate\" : \"2000-01-23T04:56:07.000+00:00\", \"opDescription\" : \"opDescription\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -259,7 +259,7 @@ public interface OperationApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"opObject\" : \"opObject\", \"opType\" : \"Credit\", \"opDate\" : \"opDate\", \"opDescription\" : \"opDescription\" }";
+                    String exampleString = "{ \"opObject\" : \"opObject\", \"opType\" : \"Credit\", \"id\" : 0, \"opDate\" : \"2000-01-23T04:56:07.000+00:00\", \"opDescription\" : \"opDescription\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

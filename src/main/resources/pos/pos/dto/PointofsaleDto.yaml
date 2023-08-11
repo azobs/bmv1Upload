@@ -1,6 +1,10 @@
 type: object
 description: 'A pointofsale object of the system'
 properties:
+  id:
+    type: integer
+    format: int64
+    readOnly: true # Returned by GET, not used in POST/PUT/PATCH
   posName:
     type: string
     example: posName

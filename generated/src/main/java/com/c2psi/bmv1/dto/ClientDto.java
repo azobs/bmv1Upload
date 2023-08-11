@@ -15,8 +15,11 @@ import javax.validation.constraints.*;
  * A client in the system
  */
 @ApiModel(description = "A client in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class ClientDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("clientName")
   private String clientName;
 
@@ -34,6 +37,26 @@ public class ClientDto   {
 
   @JsonProperty("clientPos")
   private PointofsaleDto clientPos;
+
+  public ClientDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public ClientDto clientName(String clientName) {
     this.clientName = clientName;
@@ -168,7 +191,8 @@ public class ClientDto   {
       return false;
     }
     ClientDto clientDto = (ClientDto) o;
-    return Objects.equals(this.clientName, clientDto.clientName) &&
+    return Objects.equals(this.id, clientDto.id) &&
+        Objects.equals(this.clientName, clientDto.clientName) &&
         Objects.equals(this.clientOthername, clientDto.clientOthername) &&
         Objects.equals(this.clientCni, clientDto.clientCni) &&
         Objects.equals(this.clientBalance, clientDto.clientBalance) &&
@@ -178,7 +202,7 @@ public class ClientDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientName, clientOthername, clientCni, clientBalance, clientAddress, clientPos);
+    return Objects.hash(id, clientName, clientOthername, clientCni, clientBalance, clientAddress, clientPos);
   }
 
   @Override
@@ -186,6 +210,7 @@ public class ClientDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClientDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    clientName: ").append(toIndentedString(clientName)).append("\n");
     sb.append("    clientOthername: ").append(toIndentedString(clientOthername)).append("\n");
     sb.append("    clientCni: ").append(toIndentedString(clientCni)).append("\n");

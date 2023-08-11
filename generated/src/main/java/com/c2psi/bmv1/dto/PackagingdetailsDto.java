@@ -15,8 +15,11 @@ import javax.validation.constraints.*;
  * A Packaging details in the system
  */
 @ApiModel(description = "A Packaging details in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class PackagingdetailsDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("packagenumberUsed")
   private Integer packagenumberUsed;
 
@@ -28,6 +31,26 @@ public class PackagingdetailsDto   {
 
   @JsonProperty("pdLoading")
   private LoadingDto pdLoading;
+
+  public PackagingdetailsDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public PackagingdetailsDto packagenumberUsed(Integer packagenumberUsed) {
     this.packagenumberUsed = packagenumberUsed;
@@ -121,7 +144,8 @@ public class PackagingdetailsDto   {
       return false;
     }
     PackagingdetailsDto packagingdetailsDto = (PackagingdetailsDto) o;
-    return Objects.equals(this.packagenumberUsed, packagingdetailsDto.packagenumberUsed) &&
+    return Objects.equals(this.id, packagingdetailsDto.id) &&
+        Objects.equals(this.packagenumberUsed, packagingdetailsDto.packagenumberUsed) &&
         Objects.equals(this.packagenumberReturn, packagingdetailsDto.packagenumberReturn) &&
         Objects.equals(this.pdPackaging, packagingdetailsDto.pdPackaging) &&
         Objects.equals(this.pdLoading, packagingdetailsDto.pdLoading);
@@ -129,7 +153,7 @@ public class PackagingdetailsDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(packagenumberUsed, packagenumberReturn, pdPackaging, pdLoading);
+    return Objects.hash(id, packagenumberUsed, packagenumberReturn, pdPackaging, pdLoading);
   }
 
   @Override
@@ -137,6 +161,7 @@ public class PackagingdetailsDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackagingdetailsDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    packagenumberUsed: ").append(toIndentedString(packagenumberUsed)).append("\n");
     sb.append("    packagenumberReturn: ").append(toIndentedString(packagenumberReturn)).append("\n");
     sb.append("    pdPackaging: ").append(toIndentedString(pdPackaging)).append("\n");

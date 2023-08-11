@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -14,10 +15,14 @@ import javax.validation.constraints.*;
  * An operation in the system
  */
 @ApiModel(description = "An operation in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class OperationDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("opDate")
-  private String opDate;
+  @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime opDate;
 
   @JsonProperty("opObject")
   private String opObject;
@@ -67,7 +72,27 @@ public class OperationDto   {
   @JsonProperty("opType")
   private OpTypeEnum opType;
 
-  public OperationDto opDate(String opDate) {
+  public OperationDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public OperationDto opDate(OffsetDateTime opDate) {
     this.opDate = opDate;
     return this;
   }
@@ -78,12 +103,13 @@ public class OperationDto   {
   */
   @ApiModelProperty(value = "")
 
+  @Valid
 
-  public String getOpDate() {
+  public OffsetDateTime getOpDate() {
     return opDate;
   }
 
-  public void setOpDate(String opDate) {
+  public void setOpDate(OffsetDateTime opDate) {
     this.opDate = opDate;
   }
 
@@ -157,7 +183,8 @@ public class OperationDto   {
       return false;
     }
     OperationDto operationDto = (OperationDto) o;
-    return Objects.equals(this.opDate, operationDto.opDate) &&
+    return Objects.equals(this.id, operationDto.id) &&
+        Objects.equals(this.opDate, operationDto.opDate) &&
         Objects.equals(this.opObject, operationDto.opObject) &&
         Objects.equals(this.opDescription, operationDto.opDescription) &&
         Objects.equals(this.opType, operationDto.opType);
@@ -165,7 +192,7 @@ public class OperationDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(opDate, opObject, opDescription, opType);
+    return Objects.hash(id, opDate, opObject, opDescription, opType);
   }
 
   @Override
@@ -173,6 +200,7 @@ public class OperationDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class OperationDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    opDate: ").append(toIndentedString(opDate)).append("\n");
     sb.append("    opObject: ").append(toIndentedString(opObject)).append("\n");
     sb.append("    opDescription: ").append(toIndentedString(opDescription)).append("\n");

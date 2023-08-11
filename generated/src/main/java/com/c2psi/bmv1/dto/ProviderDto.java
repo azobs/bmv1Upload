@@ -15,8 +15,11 @@ import javax.validation.constraints.*;
  * A provider in the system
  */
 @ApiModel(description = "A provider in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class ProviderDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("providerName")
   private String providerName;
 
@@ -34,6 +37,26 @@ public class ProviderDto   {
 
   @JsonProperty("providerPos")
   private PointofsaleDto providerPos;
+
+  public ProviderDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public ProviderDto providerName(String providerName) {
     this.providerName = providerName;
@@ -167,7 +190,8 @@ public class ProviderDto   {
       return false;
     }
     ProviderDto providerDto = (ProviderDto) o;
-    return Objects.equals(this.providerName, providerDto.providerName) &&
+    return Objects.equals(this.id, providerDto.id) &&
+        Objects.equals(this.providerName, providerDto.providerName) &&
         Objects.equals(this.providerAcronym, providerDto.providerAcronym) &&
         Objects.equals(this.providerDescription, providerDto.providerDescription) &&
         Objects.equals(this.providerBalance, providerDto.providerBalance) &&
@@ -177,7 +201,7 @@ public class ProviderDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerName, providerAcronym, providerDescription, providerBalance, providerAddress, providerPos);
+    return Objects.hash(id, providerName, providerAcronym, providerDescription, providerBalance, providerAddress, providerPos);
   }
 
   @Override
@@ -185,6 +209,7 @@ public class ProviderDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProviderDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    providerName: ").append(toIndentedString(providerName)).append("\n");
     sb.append("    providerAcronym: ").append(toIndentedString(providerAcronym)).append("\n");
     sb.append("    providerDescription: ").append(toIndentedString(providerDescription)).append("\n");

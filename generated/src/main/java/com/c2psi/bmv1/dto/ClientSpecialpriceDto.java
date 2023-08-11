@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -16,10 +17,14 @@ import javax.validation.constraints.*;
  * A client in the system
  */
 @ApiModel(description = "A client in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class ClientSpecialpriceDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("appliedDate")
-  private String appliedDate;
+  @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime appliedDate;
 
   @JsonProperty("client")
   private ClientDto client;
@@ -30,7 +35,27 @@ public class ClientSpecialpriceDto   {
   @JsonProperty("article")
   private ArticleDto article;
 
-  public ClientSpecialpriceDto appliedDate(String appliedDate) {
+  public ClientSpecialpriceDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public ClientSpecialpriceDto appliedDate(OffsetDateTime appliedDate) {
     this.appliedDate = appliedDate;
     return this;
   }
@@ -41,12 +66,13 @@ public class ClientSpecialpriceDto   {
   */
   @ApiModelProperty(value = "")
 
+  @Valid
 
-  public String getAppliedDate() {
+  public OffsetDateTime getAppliedDate() {
     return appliedDate;
   }
 
-  public void setAppliedDate(String appliedDate) {
+  public void setAppliedDate(OffsetDateTime appliedDate) {
     this.appliedDate = appliedDate;
   }
 
@@ -123,7 +149,8 @@ public class ClientSpecialpriceDto   {
       return false;
     }
     ClientSpecialpriceDto clientSpecialpriceDto = (ClientSpecialpriceDto) o;
-    return Objects.equals(this.appliedDate, clientSpecialpriceDto.appliedDate) &&
+    return Objects.equals(this.id, clientSpecialpriceDto.id) &&
+        Objects.equals(this.appliedDate, clientSpecialpriceDto.appliedDate) &&
         Objects.equals(this.client, clientSpecialpriceDto.client) &&
         Objects.equals(this.specialprice, clientSpecialpriceDto.specialprice) &&
         Objects.equals(this.article, clientSpecialpriceDto.article);
@@ -131,7 +158,7 @@ public class ClientSpecialpriceDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appliedDate, client, specialprice, article);
+    return Objects.hash(id, appliedDate, client, specialprice, article);
   }
 
   @Override
@@ -139,6 +166,7 @@ public class ClientSpecialpriceDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClientSpecialpriceDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    appliedDate: ").append(toIndentedString(appliedDate)).append("\n");
     sb.append("    client: ").append(toIndentedString(client)).append("\n");
     sb.append("    specialprice: ").append(toIndentedString(specialprice)).append("\n");

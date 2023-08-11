@@ -15,8 +15,11 @@ import javax.validation.constraints.*;
  * A product formated in the system
  */
 @ApiModel(description = "A product formated in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class ProductformatedDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("pfPicture")
   private String pfPicture;
 
@@ -25,6 +28,26 @@ public class ProductformatedDto   {
 
   @JsonProperty("pfFormat")
   private FormatDto pfFormat;
+
+  public ProductformatedDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public ProductformatedDto pfPicture(String pfPicture) {
     this.pfPicture = pfPicture;
@@ -98,14 +121,15 @@ public class ProductformatedDto   {
       return false;
     }
     ProductformatedDto productformatedDto = (ProductformatedDto) o;
-    return Objects.equals(this.pfPicture, productformatedDto.pfPicture) &&
+    return Objects.equals(this.id, productformatedDto.id) &&
+        Objects.equals(this.pfPicture, productformatedDto.pfPicture) &&
         Objects.equals(this.pfProduct, productformatedDto.pfProduct) &&
         Objects.equals(this.pfFormat, productformatedDto.pfFormat);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pfPicture, pfProduct, pfFormat);
+    return Objects.hash(id, pfPicture, pfProduct, pfFormat);
   }
 
   @Override
@@ -113,6 +137,7 @@ public class ProductformatedDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProductformatedDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    pfPicture: ").append(toIndentedString(pfPicture)).append("\n");
     sb.append("    pfProduct: ").append(toIndentedString(pfProduct)).append("\n");
     sb.append("    pfFormat: ").append(toIndentedString(pfFormat)).append("\n");

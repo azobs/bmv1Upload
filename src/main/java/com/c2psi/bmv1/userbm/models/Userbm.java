@@ -1,8 +1,8 @@
 package com.c2psi.bmv1.userbm.models;
 
-import com.c2psi.bmv1.global.models.AbstractEntity;
+import com.c2psi.bmv1.bmapp.models.AbstractEntity;
 import com.c2psi.bmv1.address.models.Address;
-import com.c2psi.bmv1.userbm.enumerations.UserStateEnum;
+import com.c2psi.bmv1.bmapp.enumerations.UserStateEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -48,7 +48,8 @@ public class Userbm extends AbstractEntity {
     @NotBlank(message = "A user surname can't be blank value")
     @Size(max = 30, message = "A user surname must have at most 30 characters")
     String userSurname;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    //@DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     LocalDate userDob;
     String userPicture;
     @NotNull(message = "A user state can't be null value")

@@ -14,8 +14,11 @@ import javax.validation.constraints.*;
  * A product formated in the system
  */
 @ApiModel(description = "A product formated in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-10T08:08:31.170887700+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T16:08:25.464702700+01:00[Africa/Douala]")
 public class BasepriceDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("bpPurchaseprice")
   private Double bpPurchaseprice;
 
@@ -36,6 +39,26 @@ public class BasepriceDto   {
 
   @JsonProperty("bpCurrency")
   private CurrencyDto bpCurrency;
+
+  public BasepriceDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public BasepriceDto bpPurchaseprice(Double bpPurchaseprice) {
     this.bpPurchaseprice = bpPurchaseprice;
@@ -192,7 +215,8 @@ public class BasepriceDto   {
       return false;
     }
     BasepriceDto basepriceDto = (BasepriceDto) o;
-    return Objects.equals(this.bpPurchaseprice, basepriceDto.bpPurchaseprice) &&
+    return Objects.equals(this.id, basepriceDto.id) &&
+        Objects.equals(this.bpPurchaseprice, basepriceDto.bpPurchaseprice) &&
         Objects.equals(this.bpWholeprice, basepriceDto.bpWholeprice) &&
         Objects.equals(this.bpSemiwholeprice, basepriceDto.bpSemiwholeprice) &&
         Objects.equals(this.bpDetailsprice, basepriceDto.bpDetailsprice) &&
@@ -203,7 +227,7 @@ public class BasepriceDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bpPurchaseprice, bpWholeprice, bpSemiwholeprice, bpDetailsprice, bpPrecompte, bpRistourne, bpCurrency);
+    return Objects.hash(id, bpPurchaseprice, bpWholeprice, bpSemiwholeprice, bpDetailsprice, bpPrecompte, bpRistourne, bpCurrency);
   }
 
   @Override
@@ -211,6 +235,7 @@ public class BasepriceDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class BasepriceDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    bpPurchaseprice: ").append(toIndentedString(bpPurchaseprice)).append("\n");
     sb.append("    bpWholeprice: ").append(toIndentedString(bpWholeprice)).append("\n");
     sb.append("    bpSemiwholeprice: ").append(toIndentedString(bpSemiwholeprice)).append("\n");
