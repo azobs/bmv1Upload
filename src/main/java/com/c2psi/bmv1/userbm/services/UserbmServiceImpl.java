@@ -9,7 +9,6 @@ import com.c2psi.bmv1.userbm.dao.UserbmDao;
 import com.c2psi.bmv1.bmapp.enumerations.UserbmErrorCode;
 import com.c2psi.bmv1.userbm.mappers.UserbmMapper;
 import com.c2psi.bmv1.userbm.models.Userbm;
-import com.c2psi.bmv1.userbm.validators.UserbmValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

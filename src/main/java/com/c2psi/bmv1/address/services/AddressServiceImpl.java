@@ -6,7 +6,6 @@ import com.c2psi.bmv1.address.dao.AddressDao;
 import com.c2psi.bmv1.address.exceptions.AddressErrorCode;
 import com.c2psi.bmv1.address.mappers.AddressMapper;
 import com.c2psi.bmv1.address.models.Address;
-import com.c2psi.bmv1.address.validators.AddressValidator;
 import com.c2psi.bmv1.dto.AddressDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

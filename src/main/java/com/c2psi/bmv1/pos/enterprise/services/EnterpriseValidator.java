@@ -1,4 +1,4 @@
-package com.c2psi.bmv1.pos.enterprise.validators;
+package com.c2psi.bmv1.pos.enterprise.services;
 
 import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.Filter;

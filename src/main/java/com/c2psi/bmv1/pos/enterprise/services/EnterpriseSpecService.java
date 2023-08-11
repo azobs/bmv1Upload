@@ -7,7 +7,6 @@ import com.c2psi.bmv1.dto.Filter;
 import com.c2psi.bmv1.dto.FilterRequest;
 import com.c2psi.bmv1.dto.Orderby;
 import com.c2psi.bmv1.pos.enterprise.models.Enterprise;
-import com.c2psi.bmv1.pos.enterprise.validators.EnterpriseValidator;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Order;
 import jakarta.persistence.criteria.Predicate;

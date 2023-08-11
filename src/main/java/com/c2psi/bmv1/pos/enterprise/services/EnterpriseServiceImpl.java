@@ -8,8 +8,6 @@ import com.c2psi.bmv1.bmapp.enumerations.EntRegimeEnum;
 import com.c2psi.bmv1.bmapp.enumerations.EnterpriseErrorCode;
 import com.c2psi.bmv1.pos.enterprise.mappers.EnterpriseMapper;
 import com.c2psi.bmv1.pos.enterprise.models.Enterprise;
-import com.c2psi.bmv1.pos.enterprise.validators.EnterpriseValidator;
-import com.c2psi.bmv1.userbm.models.Userbm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

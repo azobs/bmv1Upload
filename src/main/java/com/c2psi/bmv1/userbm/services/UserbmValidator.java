@@ -1,6 +1,6 @@
-package com.c2psi.bmv1.userbm.validators;
+package com.c2psi.bmv1.userbm.services;
 
-import com.c2psi.bmv1.address.validators.AddressValidator;
+import com.c2psi.bmv1.address.services.AddressValidator;
 import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.Filter;
 import com.c2psi.bmv1.dto.Orderby;

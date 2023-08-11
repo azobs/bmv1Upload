@@ -1,4 +1,4 @@
-package com.c2psi.bmv1.address.validators;
+package com.c2psi.bmv1.address.services;
 
 import com.c2psi.bmv1.address.models.Address;
 import jakarta.validation.ConstraintViolation;
