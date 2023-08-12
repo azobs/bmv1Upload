@@ -1,16 +1,20 @@
 package com.c2psi.bmv1.pos.enterprise.services;
 
+import com.c2psi.bmv1.bmapp.dto.BmPageDto;
 import com.c2psi.bmv1.bmapp.exceptions.*;
 import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.*;
 import com.c2psi.bmv1.pos.enterprise.dao.EnterpriseDao;
 import com.c2psi.bmv1.bmapp.enumerations.EntRegimeEnum;
-import com.c2psi.bmv1.bmapp.enumerations.EnterpriseErrorCode;
+import com.c2psi.bmv1.pos.enterprise.errorCode.ErrorCode;
 import com.c2psi.bmv1.pos.enterprise.mappers.EnterpriseMapper;
 import com.c2psi.bmv1.pos.enterprise.models.Enterprise;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,7 +46,7 @@ public class EnterpriseServiceImpl implements EnterpriseService{
         if(!errors.isEmpty()){
             log.error("Entity Enterprise not valid because of {}", errors);
             throw new InvalidEntityException("Le Enterprise a enregistrer n'est pas valide ", errors,
-                    EnterpriseErrorCode.ENTERPRISE_NOT_VALID.name());
+                    ErrorCode.ENTERPRISE_NOT_VALID.name());
         }
 
         /***********************************************************************
@@ -52,7 +56,7 @@ public class EnterpriseServiceImpl implements EnterpriseService{
             if(!isEnterpriseNiuUsable(enterpriseDto.getEntNiu())){
                 log.error("The Niu sent is already used in the DB");
                 throw new DuplicateEntityException("L'identifiant unique envoye est deja utilise",
-                        EnterpriseErrorCode.ENTERPRISE_DUPLICATED.name());
+                        ErrorCode.ENTERPRISE_DUPLICATED.name());
             }
         }
 
@@ -60,7 +64,7 @@ public class EnterpriseServiceImpl implements EnterpriseService{
             if(!isEnterpriseNameUsable(enterpriseDto.getEntName(), enterpriseDto.getEntAcronym())){
                 log.error("The couple name and acronym sent is already used in the DB");
                 throw new DuplicateEntityException("Le couple (name, acronym) envoye est deja utilise",
-                        EnterpriseErrorCode.ENTERPRISE_DUPLICATED.name());
+                        ErrorCode.ENTERPRISE_DUPLICATED.name());
             }
         }
 
@@ -91,7 +95,7 @@ public class EnterpriseServiceImpl implements EnterpriseService{
         if(!errors.isEmpty()){
             log.error("Entity Enterprise not valid because of {}", errors);
             throw new InvalidEntityException("Le Enterprise a enregistrer n'est pas valide ", errors,
-                    EnterpriseErrorCode.ENTERPRISE_NOT_VALID.name());
+                    ErrorCode.ENTERPRISE_NOT_VALID.name());
         }
 
         if(enterpriseDto.getId() == null){
@@ -102,7 +106,7 @@ public class EnterpriseServiceImpl implements EnterpriseService{
         if(!optionalEnterprise.isPresent()){
             log.error("There is no enterprise with the precised id");
             throw new ModelNotFoundException("Aucune entreprise n'existe en BD avec l'Id precise",
-                    EnterpriseErrorCode.ENTERPRISE_NOT_FOUND.name());
+                    ErrorCode.ENTERPRISE_NOT_FOUND.name());
         }
         Enterprise enterpriseToUpdate = optionalEnterprise.get();
 
@@ -115,7 +119,7 @@ public class EnterpriseServiceImpl implements EnterpriseService{
                 if(!isEnterpriseNiuUsable(enterpriseDto.getEntNiu())){
                     log.error("Le nouveau Niu envoye est deja utilise");
                     throw new DuplicateEntityException("Le Niu envoye est deja utilise",
-                            EnterpriseErrorCode.ENTERPRISE_DUPLICATED.name());
+                            ErrorCode.ENTERPRISE_DUPLICATED.name());
                 }
             }
         }
@@ -126,7 +130,7 @@ public class EnterpriseServiceImpl implements EnterpriseService{
                 if(!isEnterpriseNameUsable(enterpriseDto.getEntName(), enterpriseDto.getEntAcronym())){
                     log.error("Le nouveau de l'entreprise est deja utilise");
                     throw new DuplicateEntityException("Le nouveau non de l'entreprise est deja utilise",
-                            EnterpriseErrorCode.ENTERPRISE_DUPLICATED.name());
+                            ErrorCode.ENTERPRISE_DUPLICATED.name());
                 }
             }
         }
@@ -180,8 +184,16 @@ public class EnterpriseServiceImpl implements EnterpriseService{
             throw new ModelNotFoundException("Aucune entreprise n'existe avec l'id envoye");
         }
 
+        if(!isEnterpriseDeleatable(optionalEnterprise.get())){
+            throw new EntityNotDeleatableException("D'autres modeles dependent de l'entreprise dont on veut supprimer",
+                    ErrorCode.ENTERPRISE_NOT_DELETEABLE.name());
+        }
         enterpriseDao.deleteById(id);
 
+        return true;
+    }
+
+    Boolean isEnterpriseDeleatable(Enterprise enterprise){
         return true;
     }
 
@@ -206,14 +218,26 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 
     @Override
     public List<EnterpriseDto> getListofEnterprise(FilterRequest filterRequest) {
+        /************************************************************************
+         * On se rassure que le filterRequest n'est pas null et si c'est le cas
+         * on retourne le findAll
+         */
         if(filterRequest == null){
             return enterpriseMapper.entityToDto(enterpriseDao.findAll());
         }
 
+        /************************************************************************
+         * Si dans le filterRequest les filtres et les tris sont null on
+         * retourne aussi le findAll
+         */
         if(filterRequest.getFilters() == null && filterRequest.getOrderby() == null){
             return enterpriseMapper.entityToDto(enterpriseDao.findAll());
         }
 
+        /**********************************************************************************
+         * Si les filtres sont null mais les elements de tris non null
+         * alors on retourne le findAll range dans l'ordre indique par les elements de tri
+         */
         if(filterRequest.getFilters() == null && filterRequest.getOrderby() != null){
             return enterpriseMapper.entityToDto(enterpriseDao.findAll(appService.getSortOrders(filterRequest.getOrderby())));
         }
@@ -235,7 +259,80 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 
     @Override
     public PageofEnterpriseDto getPageofEnterprise(FilterRequest filterRequest) {
-        return null;
+        /*****************************************************************
+         * On prepare un element page de notre bmapp
+         */
+        com.c2psi.bmv1.dto.Page page = new com.c2psi.bmv1.dto.Page();
+        /***********************************************
+         * On declare une page pour notre element
+         */
+        Page<Enterprise> enterprisePage = null;
+        /***************************************************************************************
+         * Si le filterRequest envoye est null alors c'est le findAll qu'on retourne
+         * page par page. On va donc retourner la page 0 avec une taille de 10 pour la page
+         */
+        if(filterRequest == null){
+            page.setPagenum(0);
+            page.setPagesize(10);
+            Pageable pageable = new BmPageDto().getPageable(page);
+            enterprisePage = enterpriseDao.findAll(pageable);
+            return getPageofEnterpriseDto(enterprisePage);
+        }
+        else{
+            /*************************************************************************************
+             * Si le filterRequest envoye n'est pas null mais que l'element pas indiquant le numero
+             * et la taille de page voulu est null alors on assigne des valeurs par defaut soit
+             * page numero 0 et taille de page 10
+             */
+            if(filterRequest.getPage() == null){
+                page.setPagenum(0);
+                page.setPagesize(10);
+                filterRequest.setPage(page);
+            }
+
+            /**************************************************************************************
+             * Si dans le filterRequest envoye les filtres et les elements de tri sont null alors
+             * on retourne le findAll page par page.
+             */
+
+            if(filterRequest.getFilters() == null && filterRequest.getOrderby() == null){
+                Pageable pageable = new BmPageDto().getPageable(filterRequest.getPage());
+                enterprisePage = enterpriseDao.findAll(pageable);
+                return getPageofEnterpriseDto(enterprisePage);
+            }
+
+            /****************************************************************************************************
+             * Si dans le filterRequest envoye les filtres sont nuls et les elements de tri sont non null alors
+             * on retourne le findAll page par page trie selon les elements de tri envoye.
+             */
+
+            if(filterRequest.getFilters() == null && filterRequest.getOrderby() != null){
+                Sort sort = appService.getSortOrders(filterRequest.getOrderby());
+                Pageable pageable = PageRequest.of(filterRequest.getPage().getPagenum(),
+                        filterRequest.getPage().getPagesize(), sort);
+                enterprisePage = enterpriseDao.findAll(pageable);
+                return getPageofEnterpriseDto(enterprisePage);
+            }
+
+            /*********************************************************************************************
+             * Si l'operateur logique permettant de lier les filtres est null et que la liste des filtres
+             * contient plus d'un filtre alors il ya un probleme dans les parametres
+             */
+            if(filterRequest.getLogicOperator() == null && filterRequest.getFilters().size() > 1){
+                throw new NullValueException("L'operateur logique permettant de lier les filtres ne peut etre null");
+            }
+
+            /****************************************************************************************************
+             * On peut ici lancer une recherche selon les filtres envoyes, les classer selon les elements de tri
+             * et ensuite la page demande
+             */
+            Specification<Enterprise> enterpriseSpecification = enterpriseSpecService.getEnterpriseSpecification(filterRequest.getFilters(),
+                    filterRequest.getLogicOperator(), filterRequest.getOrderby());
+            Pageable pageable = new BmPageDto().getPageable(filterRequest.getPage());
+            enterprisePage = enterpriseDao.findAll(enterpriseSpecification, pageable);
+            return getPageofEnterpriseDto(enterprisePage);
+
+        }
     }
 
     PageofEnterpriseDto getPageofEnterpriseDto(Page<Enterprise> enterprisePage){

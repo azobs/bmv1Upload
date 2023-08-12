@@ -12,10 +12,10 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * An account operation in the system
+ * An account operation in the system. It concerns only Cover, Damage and Packaging
  */
-@ApiModel(description = "An account operation in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T17:01:56.543198200+01:00[Africa/Douala]")
+@ApiModel(description = "An account operation in the system. It concerns only Cover, Damage and Packaging")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
 public class AccountOperationDto   {
   @JsonProperty("id")
   private Long id;

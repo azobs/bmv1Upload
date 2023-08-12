@@ -16,7 +16,7 @@ import javax.validation.constraints.*;
  * A Backin in the system which represent articles return back by a client after delivery
  */
 @ApiModel(description = "A Backin in the system which represent articles return back by a client after delivery")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T17:01:56.543198200+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
 public class BackinDto   {
   @JsonProperty("id")
   private Long id;

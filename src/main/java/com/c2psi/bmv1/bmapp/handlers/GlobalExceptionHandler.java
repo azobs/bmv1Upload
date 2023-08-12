@@ -41,7 +41,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(InvalidEntityException.class)
     public ResponseEntity<?> handleException(InvalidEntityException exception,
                                              WebRequest webRequest){
-        log.info("An InvalidEntityException is thrown");
+        log.info("An InvalidEntityException is thrown "+exception.getMessage());
         final HttpStatus badRequest = HttpStatus.BAD_REQUEST;
         final ErrorDto errorDto =  ErrorDto.builder()
                 .httpCode(badRequest.value())
@@ -61,7 +61,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(InvalidColumnNameException.class)
     public ResponseEntity<?> handleException(InvalidColumnNameException exception,
                                              WebRequest webRequest){
-        log.info("An InvalidEntityException is thrown");
+        log.info("An InvalidColumnNameException is thrown "+exception.getMessage());
         final HttpStatus badRequest = HttpStatus.BAD_REQUEST;
         final ErrorDto errorDto =  ErrorDto.builder()
                 .httpCode(badRequest.value())
@@ -82,7 +82,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(InvalidFilterOperatorException.class)
     public ResponseEntity<?> handleException(InvalidFilterOperatorException exception,
                                              WebRequest webRequest){
-        log.info("An InvalidEntityException is thrown");
+        log.info("An InvalidFilterOperatorException is thrown "+exception.getMessage());
         final HttpStatus badRequest = HttpStatus.BAD_REQUEST;
         final ErrorDto errorDto =  ErrorDto.builder()
                 .httpCode(badRequest.value())
@@ -103,7 +103,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(InvalidSortDirectionException.class)
     public ResponseEntity<?> handleException(InvalidSortDirectionException exception,
                                              WebRequest webRequest){
-        log.info("An InvalidEntityException is thrown");
+        log.info("An InvalidSortDirectionException is thrown "+exception.getMessage());
         final HttpStatus badRequest = HttpStatus.BAD_REQUEST;
         final ErrorDto errorDto =  ErrorDto.builder()
                 .httpCode(badRequest.value())
@@ -198,6 +198,26 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         map.put("data", errorDto);
         map.put("cause", "L'entite recherche n'a pas ete trouve");
         return new ResponseEntity(map, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(EntityNotDeleatableException.class)
+    public ResponseEntity<?> handleException(EntityNotDeleatableException exception,
+                                             WebRequest webRequest){
+        log.info("An EntityNotDeleatableException is thrown");
+        final HttpStatus badRequest = HttpStatus.CONFLICT;
+        final ErrorDto errorDto =  ErrorDto.builder()
+                .httpCode(badRequest.value())
+                .exceptionMessage(exception.getMessage())
+                .errorAppMessage(exception.getErrorCode())
+                .errorList(exception.getErrors()!=null?(!exception.getErrors().isEmpty()?exception.getErrors().stream().toList():null):null)
+                .build();
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.clear();
+        map.put("status", HttpStatus.CONFLICT);
+        map.put("message", "Deleting the entity will cause some conflict");
+        map.put("data", errorDto);
+        map.put("cause", "La suppression de l'entite va causer des conflits");
+        return new ResponseEntity(map, HttpStatus.CONFLICT);
     }
 
 }

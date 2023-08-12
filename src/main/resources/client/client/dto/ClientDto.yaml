@@ -11,8 +11,8 @@ properties:
   clientCni:
     type: string
   clientBalance:
-    type: integer
-    format: int32
+    type: number
+    format: double
     minimum: 0
     exclusiveMinimum: false
   clientAddress:

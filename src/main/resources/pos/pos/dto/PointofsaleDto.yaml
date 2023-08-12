@@ -12,12 +12,12 @@ properties:
     type: string
   posDescription:
     type: string
+  posBalance:
+    type: number
+    format: double
   posAddressDto:
     type: object
     $ref: '../../../general/dto/AddressDto.yaml'
-  posAccountDto:
-    type: object
-    $ref: '../../../account/account/dto/AccountDto.yaml'
   posCurrency:
     type: object
     $ref: '../../../currency/currency/dto/CurrencyDto.yaml'

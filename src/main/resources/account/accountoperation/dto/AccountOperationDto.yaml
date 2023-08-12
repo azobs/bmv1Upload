@@ -1,5 +1,5 @@
 type: object
-description: 'An account operation in the system'
+description: 'An account operation in the system. It concerns only Cover, Damage and Packaging'
 properties:
   id:
     type: integer

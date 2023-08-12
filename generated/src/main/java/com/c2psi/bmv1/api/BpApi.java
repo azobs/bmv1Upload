@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T17:01:56.543198200+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
 @Validated
 @Api(value = "bp", description = "the bp API")
 public interface BpApi {
@@ -97,7 +97,7 @@ public interface BpApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"bpSemiwholeprice\" : 0.684685269835264, \"bpPurchaseprice\" : 0.10246457001441578, \"bpDetailsprice\" : 0.7457744773683765, \"id\" : 1, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\", \"id\" : 1 }, \"bpWholeprice\" : 0.14894159098541704, \"bpPrecompte\" : 0 }";
+                    String exampleString = "{ \"bpSemiwholeprice\" : 0.5637376656633328, \"bpPurchaseprice\" : 0.14658129805029452, \"bpDetailsprice\" : 0.23021358869347652, \"id\" : 6, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\", \"id\" : 5 }, \"bpWholeprice\" : 0.5962133916683182, \"bpPrecompte\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -142,7 +142,7 @@ public interface BpApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"bpSemiwholeprice\" : 0.684685269835264, \"bpPurchaseprice\" : 0.10246457001441578, \"bpDetailsprice\" : 0.7457744773683765, \"id\" : 1, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\", \"id\" : 1 }, \"bpWholeprice\" : 0.14894159098541704, \"bpPrecompte\" : 0 }";
+                    String exampleString = "{ \"bpSemiwholeprice\" : 0.5637376656633328, \"bpPurchaseprice\" : 0.14658129805029452, \"bpDetailsprice\" : 0.23021358869347652, \"id\" : 6, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\", \"id\" : 5 }, \"bpWholeprice\" : 0.5962133916683182, \"bpPrecompte\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -187,7 +187,7 @@ public interface BpApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"bpSemiwholeprice\" : 0.684685269835264, \"bpPurchaseprice\" : 0.10246457001441578, \"bpDetailsprice\" : 0.7457744773683765, \"id\" : 1, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\", \"id\" : 1 }, \"bpWholeprice\" : 0.14894159098541704, \"bpPrecompte\" : 0 }";
+                    String exampleString = "{ \"bpSemiwholeprice\" : 0.5637376656633328, \"bpPurchaseprice\" : 0.14658129805029452, \"bpDetailsprice\" : 0.23021358869347652, \"id\" : 6, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\", \"id\" : 5 }, \"bpWholeprice\" : 0.5962133916683182, \"bpPrecompte\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

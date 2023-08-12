@@ -14,8 +14,8 @@ properties:
   providerDescription:
     type: string
   providerBalance:
-    type: integer
-    format: int32
+    type: number
+    format: double
     example: 0
   providerAddress:
     type: object

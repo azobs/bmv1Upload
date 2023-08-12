@@ -113,34 +113,39 @@ public class AppService {
             fieldNameList.add(field.getName());
         }
 
+        //log.info("list of different possible field {}", fieldNameList);
+
         /***************
          * On verifie que chaque nom de champ present dans la liste filterList existe dans fieldNameList
          * Si c'est le cas la liste errors va rester vide
          */
         if(filterList != null) {
+            //log.info("filterList is not null");
             for (Filter filter : filterList) {
                 if (!fieldNameList.contains(filter.getFilterColumn())) {
                     errors.add(filter.getFilterColumn());
                 }
             }
         }
-
+        //log.info("Error list {}", errors);
         /***************
          * On verifie que chaque nom de champ present dans la liste orderList existe dans fieldNameList
          * Si c'est le cas la liste errors va rester vide
          */
         if(orderbyList != null) {
+            //log.info("orderbyList is not null");
             for (Orderby orderby : orderbyList) {
                 if (!fieldNameList.contains(orderby.getSortColumn())) {
                     errors.add(orderby.getSortColumn());
                 }
             }
         }
-
+        //log.info("Error list {}", errors);
         return errors;
     }
 
     public List<Order> getOrderList(Root root, CriteriaBuilder criteriaBuilder, List<Orderby> sortCriterias){
+        //log.info("We are in getOrderList");
         List<Order> orderList = new ArrayList<>();
         for(Orderby orderby : sortCriterias){
             switch (orderby.getSortDirection()){
@@ -161,6 +166,7 @@ public class AppService {
 
     public Predicate getEqualPredicate(Root root, CriteriaBuilder criteriaBuilder, String fieldType,
                                        String fieldColumnName, String fieldColumnValue){
+        //log.info("We are in getEqualPredicate");
         if(fieldType.equals("java.lang.String")){
             var equal = criteriaBuilder.equal(root.get(fieldColumnName), fieldColumnValue);
             return equal;

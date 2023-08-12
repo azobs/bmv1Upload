@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * A provider in the system
  */
 @ApiModel(description = "A provider in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T17:01:56.543198200+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
 public class ProviderDto   {
   @JsonProperty("id")
   private Long id;
@@ -30,7 +30,7 @@ public class ProviderDto   {
   private String providerDescription;
 
   @JsonProperty("providerBalance")
-  private Integer providerBalance;
+  private Double providerBalance;
 
   @JsonProperty("providerAddress")
   private AddressDto providerAddress;
@@ -118,7 +118,7 @@ public class ProviderDto   {
     this.providerDescription = providerDescription;
   }
 
-  public ProviderDto providerBalance(Integer providerBalance) {
+  public ProviderDto providerBalance(Double providerBalance) {
     this.providerBalance = providerBalance;
     return this;
   }
@@ -130,11 +130,11 @@ public class ProviderDto   {
   @ApiModelProperty(example = "0", value = "")
 
 
-  public Integer getProviderBalance() {
+  public Double getProviderBalance() {
     return providerBalance;
   }
 
-  public void setProviderBalance(Integer providerBalance) {
+  public void setProviderBalance(Double providerBalance) {
     this.providerBalance = providerBalance;
   }
 

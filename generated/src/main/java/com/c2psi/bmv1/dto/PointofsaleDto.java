@@ -1,7 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.AccountDto;
 import com.c2psi.bmv1.dto.AddressDto;
 import com.c2psi.bmv1.dto.CurrencyDto;
 import com.c2psi.bmv1.dto.EnterpriseDto;
@@ -17,7 +16,7 @@ import javax.validation.constraints.*;
  * A pointofsale object of the system
  */
 @ApiModel(description = "A pointofsale object of the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T17:01:56.543198200+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
 public class PointofsaleDto   {
   @JsonProperty("id")
   private Long id;
@@ -31,11 +30,11 @@ public class PointofsaleDto   {
   @JsonProperty("posDescription")
   private String posDescription;
 
+  @JsonProperty("posBalance")
+  private Double posBalance;
+
   @JsonProperty("posAddressDto")
   private AddressDto posAddressDto;
-
-  @JsonProperty("posAccountDto")
-  private AccountDto posAccountDto;
 
   @JsonProperty("posCurrency")
   private CurrencyDto posCurrency;
@@ -123,6 +122,26 @@ public class PointofsaleDto   {
     this.posDescription = posDescription;
   }
 
+  public PointofsaleDto posBalance(Double posBalance) {
+    this.posBalance = posBalance;
+    return this;
+  }
+
+  /**
+   * Get posBalance
+   * @return posBalance
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Double getPosBalance() {
+    return posBalance;
+  }
+
+  public void setPosBalance(Double posBalance) {
+    this.posBalance = posBalance;
+  }
+
   public PointofsaleDto posAddressDto(AddressDto posAddressDto) {
     this.posAddressDto = posAddressDto;
     return this;
@@ -142,27 +161,6 @@ public class PointofsaleDto   {
 
   public void setPosAddressDto(AddressDto posAddressDto) {
     this.posAddressDto = posAddressDto;
-  }
-
-  public PointofsaleDto posAccountDto(AccountDto posAccountDto) {
-    this.posAccountDto = posAccountDto;
-    return this;
-  }
-
-  /**
-   * Get posAccountDto
-   * @return posAccountDto
-  */
-  @ApiModelProperty(value = "")
-
-  @Valid
-
-  public AccountDto getPosAccountDto() {
-    return posAccountDto;
-  }
-
-  public void setPosAccountDto(AccountDto posAccountDto) {
-    this.posAccountDto = posAccountDto;
   }
 
   public PointofsaleDto posCurrency(CurrencyDto posCurrency) {
@@ -221,15 +219,15 @@ public class PointofsaleDto   {
         Objects.equals(this.posName, pointofsaleDto.posName) &&
         Objects.equals(this.posAcronym, pointofsaleDto.posAcronym) &&
         Objects.equals(this.posDescription, pointofsaleDto.posDescription) &&
+        Objects.equals(this.posBalance, pointofsaleDto.posBalance) &&
         Objects.equals(this.posAddressDto, pointofsaleDto.posAddressDto) &&
-        Objects.equals(this.posAccountDto, pointofsaleDto.posAccountDto) &&
         Objects.equals(this.posCurrency, pointofsaleDto.posCurrency) &&
         Objects.equals(this.posEnterprise, pointofsaleDto.posEnterprise);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, posName, posAcronym, posDescription, posAddressDto, posAccountDto, posCurrency, posEnterprise);
+    return Objects.hash(id, posName, posAcronym, posDescription, posBalance, posAddressDto, posCurrency, posEnterprise);
   }
 
   @Override
@@ -241,8 +239,8 @@ public class PointofsaleDto   {
     sb.append("    posName: ").append(toIndentedString(posName)).append("\n");
     sb.append("    posAcronym: ").append(toIndentedString(posAcronym)).append("\n");
     sb.append("    posDescription: ").append(toIndentedString(posDescription)).append("\n");
+    sb.append("    posBalance: ").append(toIndentedString(posBalance)).append("\n");
     sb.append("    posAddressDto: ").append(toIndentedString(posAddressDto)).append("\n");
-    sb.append("    posAccountDto: ").append(toIndentedString(posAccountDto)).append("\n");
     sb.append("    posCurrency: ").append(toIndentedString(posCurrency)).append("\n");
     sb.append("    posEnterprise: ").append(toIndentedString(posEnterprise)).append("\n");
     sb.append("}");

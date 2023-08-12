@@ -14,8 +14,11 @@ import javax.validation.constraints.*;
  * A selling unit of product formated in the system
  */
 @ApiModel(description = "A selling unit of product formated in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T17:01:56.543198200+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
 public class UnitDto   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("unitName")
   private String unitName;
 
@@ -24,6 +27,26 @@ public class UnitDto   {
 
   @JsonProperty("unitPos")
   private PointofsaleDto unitPos;
+
+  public UnitDto id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(readOnly = true, value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public UnitDto unitName(String unitName) {
     this.unitName = unitName;
@@ -96,14 +119,15 @@ public class UnitDto   {
       return false;
     }
     UnitDto unitDto = (UnitDto) o;
-    return Objects.equals(this.unitName, unitDto.unitName) &&
+    return Objects.equals(this.id, unitDto.id) &&
+        Objects.equals(this.unitName, unitDto.unitName) &&
         Objects.equals(this.unitAbbreviation, unitDto.unitAbbreviation) &&
         Objects.equals(this.unitPos, unitDto.unitPos);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(unitName, unitAbbreviation, unitPos);
+    return Objects.hash(id, unitName, unitAbbreviation, unitPos);
   }
 
   @Override
@@ -111,6 +135,7 @@ public class UnitDto   {
     StringBuilder sb = new StringBuilder();
     sb.append("class UnitDto {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    unitName: ").append(toIndentedString(unitName)).append("\n");
     sb.append("    unitAbbreviation: ").append(toIndentedString(unitAbbreviation)).append("\n");
     sb.append("    unitPos: ").append(toIndentedString(unitPos)).append("\n");

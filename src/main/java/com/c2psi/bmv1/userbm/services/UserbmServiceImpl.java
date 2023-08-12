@@ -6,7 +6,7 @@ import com.c2psi.bmv1.dto.*;
 import com.c2psi.bmv1.bmapp.dto.BmPageDto;
 import com.c2psi.bmv1.bmapp.exceptions.*;
 import com.c2psi.bmv1.userbm.dao.UserbmDao;
-import com.c2psi.bmv1.bmapp.enumerations.UserbmErrorCode;
+import com.c2psi.bmv1.userbm.errorCode.ErrorCode;
 import com.c2psi.bmv1.userbm.mappers.UserbmMapper;
 import com.c2psi.bmv1.userbm.models.Userbm;
 import lombok.RequiredArgsConstructor;
@@ -47,7 +47,7 @@ public class UserbmServiceImpl implements UserbmService{
         if(!errors.isEmpty()){
             log.error("Entity Userbm not valid because of {}", errors);
             throw new InvalidEntityException("Le userbm a enregistrer n'est pas valide ", errors,
-                    UserbmErrorCode.USERBM_NOT_VALID.name());
+                    ErrorCode.USERBM_NOT_VALID.name());
         }
 
         /***********************************************************************
@@ -59,7 +59,7 @@ public class UserbmServiceImpl implements UserbmService{
             if(!isLoginUsable(userbmDto.getUserLogin())){
                 log.error("The login sent is already used in the DB");
                 throw new DuplicateEntityException("Le login envoye est deja utilise",
-                        UserbmErrorCode.USERBM_DUPLICATED.name());
+                        ErrorCode.USERBM_DUPLICATED.name());
             }
         }
 
@@ -67,7 +67,7 @@ public class UserbmServiceImpl implements UserbmService{
             if(!isCniUsable(userbmDto.getUserCni())){
                 log.error("The cni number sent is already used in the DB");
                 throw new DuplicateEntityException("Le cni number envoye est deja utilise",
-                        UserbmErrorCode.USERBM_DUPLICATED.name());
+                        ErrorCode.USERBM_DUPLICATED.name());
             }
         }
 
@@ -76,7 +76,7 @@ public class UserbmServiceImpl implements UserbmService{
                 if(!isAddressUsable(userbmDto.getUserAddress().getEmail())){
                     log.error("The userbm email sent is already used in the DB");
                     throw new DuplicateEntityException("Le userbm email envoye est deja utilise",
-                            UserbmErrorCode.USERBM_DUPLICATED.name());
+                            ErrorCode.USERBM_DUPLICATED.name());
                 }
             }
         }
@@ -85,7 +85,7 @@ public class UserbmServiceImpl implements UserbmService{
             if(!isFullnameUsable(userbmDto.getUserName(), userbmDto.getUserSurname(), userbmDto.getUserDob())){
                 log.error("The userbm fullname sent is already used in the DB");
                 throw new DuplicateEntityException("Le userbm fullname envoye est deja utilise",
-                        UserbmErrorCode.USERBM_DUPLICATED.name());
+                        ErrorCode.USERBM_DUPLICATED.name());
             }
         }
 

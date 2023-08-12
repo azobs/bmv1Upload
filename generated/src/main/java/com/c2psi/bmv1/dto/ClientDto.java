@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * A client in the system
  */
 @ApiModel(description = "A client in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-11T17:01:56.543198200+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
 public class ClientDto   {
   @JsonProperty("id")
   private Long id;
@@ -30,7 +30,7 @@ public class ClientDto   {
   private String clientCni;
 
   @JsonProperty("clientBalance")
-  private Integer clientBalance;
+  private Double clientBalance;
 
   @JsonProperty("clientAddress")
   private AddressDto clientAddress;
@@ -118,7 +118,7 @@ public class ClientDto   {
     this.clientCni = clientCni;
   }
 
-  public ClientDto clientBalance(Integer clientBalance) {
+  public ClientDto clientBalance(Double clientBalance) {
     this.clientBalance = clientBalance;
     return this;
   }
@@ -130,12 +130,12 @@ public class ClientDto   {
   */
   @ApiModelProperty(value = "")
 
-@Min(0) 
-  public Integer getClientBalance() {
+@DecimalMin("0") 
+  public Double getClientBalance() {
     return clientBalance;
   }
 
-  public void setClientBalance(Integer clientBalance) {
+  public void setClientBalance(Double clientBalance) {
     this.clientBalance = clientBalance;
   }
 
