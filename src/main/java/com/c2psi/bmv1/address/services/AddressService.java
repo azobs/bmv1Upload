@@ -9,4 +9,5 @@ public interface AddressService {
     Boolean deleteAddressById(Long id);
     AddressDto getAddressById(Long id);
     Boolean isEmailAddressUnique(String email);
+
 }

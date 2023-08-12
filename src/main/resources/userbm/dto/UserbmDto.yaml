@@ -3,7 +3,6 @@ properties:
   id:
     type: integer
     format: int64
-    readOnly: true
   userLogin:
     type: string
     minLength: 3

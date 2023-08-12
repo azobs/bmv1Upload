@@ -11,4 +11,6 @@ public interface CurrencyService {
     CurrencyDto getCurrencyById(Long id);
     List<CurrencyDto> getListofCurrency(FilterRequest filterRequest);
     PageofCurrencyDto getPageofCurrency(FilterRequest filterRequest);
+
+    Boolean isCurrencyExistWith(Long id);
 }

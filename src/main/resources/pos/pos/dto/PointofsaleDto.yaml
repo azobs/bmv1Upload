@@ -4,7 +4,6 @@ properties:
   id:
     type: integer
     format: int64
-    readOnly: true # Returned by GET, not used in POST/PUT/PATCH
   posName:
     type: string
     example: posName
@@ -15,7 +14,7 @@ properties:
   posBalance:
     type: number
     format: double
-  posAddressDto:
+  posAddress:
     type: object
     $ref: '../../../general/dto/AddressDto.yaml'
   posCurrency:

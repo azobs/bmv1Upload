@@ -29,19 +29,19 @@ properties:
       - Pos
       - Provider
     example: Pos
-  accountClientDto:
+  accountClient:
     type: object
     $ref: '../../../client/client/dto/ClientDto.yaml'
-  accountPosDto:
+  accountPos:
     type: object
     $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
-  accountProviderDto:
+  accountProvider:
     type: object
     $ref: '../../../provider/provider/dto/ProviderDto.yaml'
-  accountArticleDto:
+  accountArticle:
     type: object
     $ref: '../../../product/article/dto/ArticleDto.yaml'
-  accountPackagingDto:
+  accountPackaging:
     type: object
     $ref: '../../../packaging/packaging/dto/PackagingDto.yaml'
   

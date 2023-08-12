@@ -15,6 +15,6 @@ public interface EnterpriseService {
     List<EnterpriseDto> getListofEnterprise(FilterRequest filterRequest);
     PageofEnterpriseDto getPageofEnterprise(FilterRequest filterRequest);
 
-
+    Boolean isEnterpriseExistWith(Long id);
 
 }

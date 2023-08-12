@@ -33,7 +33,7 @@ public class EnterpriseSpecService {
         try {
             return Enterprise.class.getDeclaredField(fieldName);
         } catch (NoSuchFieldException e) {
-            throw new InvalidColumnNameException("Userbm Class don't have an attributes with the name "+fieldName);
+            throw new InvalidColumnNameException("Enterprise Class don't have an attributes with the name "+fieldName);
         }
     }
 

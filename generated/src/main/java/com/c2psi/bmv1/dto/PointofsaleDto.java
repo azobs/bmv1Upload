@@ -16,7 +16,7 @@ import javax.validation.constraints.*;
  * A pointofsale object of the system
  */
 @ApiModel(description = "A pointofsale object of the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T10:38:54.913224900+01:00[Africa/Douala]")
 public class PointofsaleDto   {
   @JsonProperty("id")
   private Long id;
@@ -33,8 +33,8 @@ public class PointofsaleDto   {
   @JsonProperty("posBalance")
   private Double posBalance;
 
-  @JsonProperty("posAddressDto")
-  private AddressDto posAddressDto;
+  @JsonProperty("posAddress")
+  private AddressDto posAddress;
 
   @JsonProperty("posCurrency")
   private CurrencyDto posCurrency;
@@ -51,7 +51,7 @@ public class PointofsaleDto   {
    * Get id
    * @return id
   */
-  @ApiModelProperty(readOnly = true, value = "")
+  @ApiModelProperty(value = "")
 
 
   public Long getId() {
@@ -142,25 +142,25 @@ public class PointofsaleDto   {
     this.posBalance = posBalance;
   }
 
-  public PointofsaleDto posAddressDto(AddressDto posAddressDto) {
-    this.posAddressDto = posAddressDto;
+  public PointofsaleDto posAddress(AddressDto posAddress) {
+    this.posAddress = posAddress;
     return this;
   }
 
   /**
-   * Get posAddressDto
-   * @return posAddressDto
+   * Get posAddress
+   * @return posAddress
   */
   @ApiModelProperty(value = "")
 
   @Valid
 
-  public AddressDto getPosAddressDto() {
-    return posAddressDto;
+  public AddressDto getPosAddress() {
+    return posAddress;
   }
 
-  public void setPosAddressDto(AddressDto posAddressDto) {
-    this.posAddressDto = posAddressDto;
+  public void setPosAddress(AddressDto posAddress) {
+    this.posAddress = posAddress;
   }
 
   public PointofsaleDto posCurrency(CurrencyDto posCurrency) {
@@ -220,14 +220,14 @@ public class PointofsaleDto   {
         Objects.equals(this.posAcronym, pointofsaleDto.posAcronym) &&
         Objects.equals(this.posDescription, pointofsaleDto.posDescription) &&
         Objects.equals(this.posBalance, pointofsaleDto.posBalance) &&
-        Objects.equals(this.posAddressDto, pointofsaleDto.posAddressDto) &&
+        Objects.equals(this.posAddress, pointofsaleDto.posAddress) &&
         Objects.equals(this.posCurrency, pointofsaleDto.posCurrency) &&
         Objects.equals(this.posEnterprise, pointofsaleDto.posEnterprise);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, posName, posAcronym, posDescription, posBalance, posAddressDto, posCurrency, posEnterprise);
+    return Objects.hash(id, posName, posAcronym, posDescription, posBalance, posAddress, posCurrency, posEnterprise);
   }
 
   @Override
@@ -240,7 +240,7 @@ public class PointofsaleDto   {
     sb.append("    posAcronym: ").append(toIndentedString(posAcronym)).append("\n");
     sb.append("    posDescription: ").append(toIndentedString(posDescription)).append("\n");
     sb.append("    posBalance: ").append(toIndentedString(posBalance)).append("\n");
-    sb.append("    posAddressDto: ").append(toIndentedString(posAddressDto)).append("\n");
+    sb.append("    posAddress: ").append(toIndentedString(posAddress)).append("\n");
     sb.append("    posCurrency: ").append(toIndentedString(posCurrency)).append("\n");
     sb.append("    posEnterprise: ").append(toIndentedString(posEnterprise)).append("\n");
     sb.append("}");

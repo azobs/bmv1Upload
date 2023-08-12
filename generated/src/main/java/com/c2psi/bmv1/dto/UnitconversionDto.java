@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * A conversion rule used to convert one unit in another
  */
 @ApiModel(description = "A conversion rule used to convert one unit in another")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T10:38:54.913224900+01:00[Africa/Douala]")
 public class UnitconversionDto   {
   @JsonProperty("id")
   private Long id;
@@ -22,11 +22,11 @@ public class UnitconversionDto   {
   @JsonProperty("conversionFactor")
   private Double conversionFactor;
 
-  @JsonProperty("unitSourceDto")
-  private UnitDto unitSourceDto;
+  @JsonProperty("unitSource")
+  private UnitDto unitSource;
 
-  @JsonProperty("unitDestinationDto")
-  private UnitDto unitDestinationDto;
+  @JsonProperty("unitDestination")
+  private UnitDto unitDestination;
 
   public UnitconversionDto id(Long id) {
     this.id = id;
@@ -37,7 +37,7 @@ public class UnitconversionDto   {
    * Get id
    * @return id
   */
-  @ApiModelProperty(readOnly = true, value = "")
+  @ApiModelProperty(value = "")
 
 
   public Long getId() {
@@ -68,46 +68,46 @@ public class UnitconversionDto   {
     this.conversionFactor = conversionFactor;
   }
 
-  public UnitconversionDto unitSourceDto(UnitDto unitSourceDto) {
-    this.unitSourceDto = unitSourceDto;
+  public UnitconversionDto unitSource(UnitDto unitSource) {
+    this.unitSource = unitSource;
     return this;
   }
 
   /**
-   * Get unitSourceDto
-   * @return unitSourceDto
+   * Get unitSource
+   * @return unitSource
   */
   @ApiModelProperty(value = "")
 
   @Valid
 
-  public UnitDto getUnitSourceDto() {
-    return unitSourceDto;
+  public UnitDto getUnitSource() {
+    return unitSource;
   }
 
-  public void setUnitSourceDto(UnitDto unitSourceDto) {
-    this.unitSourceDto = unitSourceDto;
+  public void setUnitSource(UnitDto unitSource) {
+    this.unitSource = unitSource;
   }
 
-  public UnitconversionDto unitDestinationDto(UnitDto unitDestinationDto) {
-    this.unitDestinationDto = unitDestinationDto;
+  public UnitconversionDto unitDestination(UnitDto unitDestination) {
+    this.unitDestination = unitDestination;
     return this;
   }
 
   /**
-   * Get unitDestinationDto
-   * @return unitDestinationDto
+   * Get unitDestination
+   * @return unitDestination
   */
   @ApiModelProperty(value = "")
 
   @Valid
 
-  public UnitDto getUnitDestinationDto() {
-    return unitDestinationDto;
+  public UnitDto getUnitDestination() {
+    return unitDestination;
   }
 
-  public void setUnitDestinationDto(UnitDto unitDestinationDto) {
-    this.unitDestinationDto = unitDestinationDto;
+  public void setUnitDestination(UnitDto unitDestination) {
+    this.unitDestination = unitDestination;
   }
 
 
@@ -122,13 +122,13 @@ public class UnitconversionDto   {
     UnitconversionDto unitconversionDto = (UnitconversionDto) o;
     return Objects.equals(this.id, unitconversionDto.id) &&
         Objects.equals(this.conversionFactor, unitconversionDto.conversionFactor) &&
-        Objects.equals(this.unitSourceDto, unitconversionDto.unitSourceDto) &&
-        Objects.equals(this.unitDestinationDto, unitconversionDto.unitDestinationDto);
+        Objects.equals(this.unitSource, unitconversionDto.unitSource) &&
+        Objects.equals(this.unitDestination, unitconversionDto.unitDestination);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, conversionFactor, unitSourceDto, unitDestinationDto);
+    return Objects.hash(id, conversionFactor, unitSource, unitDestination);
   }
 
   @Override
@@ -138,8 +138,8 @@ public class UnitconversionDto   {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    conversionFactor: ").append(toIndentedString(conversionFactor)).append("\n");
-    sb.append("    unitSourceDto: ").append(toIndentedString(unitSourceDto)).append("\n");
-    sb.append("    unitDestinationDto: ").append(toIndentedString(unitDestinationDto)).append("\n");
+    sb.append("    unitSource: ").append(toIndentedString(unitSource)).append("\n");
+    sb.append("    unitDestination: ").append(toIndentedString(unitDestination)).append("\n");
     sb.append("}");
     return sb.toString();
   }

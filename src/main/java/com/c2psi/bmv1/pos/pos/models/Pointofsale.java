@@ -5,7 +5,10 @@ import com.c2psi.bmv1.bmapp.models.AbstractEntity;
 import com.c2psi.bmv1.currency.models.Currency;
 import com.c2psi.bmv1.pos.enterprise.models.Enterprise;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @Data
@@ -18,9 +21,24 @@ import lombok.*;
         uniqueConstraints = {@UniqueConstraint(
                 columnNames = {"posName", "posAcronym"})})
 public class Pointofsale extends AbstractEntity {
+    @NotNull(message = "A pos name can't be null value")
+    @NotEmpty(message = "A pos name can't be empty value")
+    @NotBlank(message = "A pos name can't be blank value")
+    @Size(min = 3, max = 30, message = "A pos name must have at least 3 and at most 30 characters")
+    @Column(nullable = false)
     String posName;
+    @NotNull(message = "A pos acronym can't be null value")
+    @NotEmpty(message = "A pos acronym can't be empty value")
+    @NotBlank(message = "A pos acronym can't be blank value")
+    @Size(min = 1, max = 15, message = "A pos acronym must have at least 1 and at most 15 characters")
+    @Column(nullable = false)
     String posAcronym;
+    @NotEmpty(message = "A pos description can't be empty value")
+    @NotBlank(message = "A pos description can't be blank value")
+    @Size(max = 256, message = "A pos description must have at most 256 characters")
     String posDescription;
+    @NotNull(message = "A pos balance can't be null value")
+    Double posBalance;
 
     /*********************************
      * Relation with other entities
@@ -34,9 +52,11 @@ public class Pointofsale extends AbstractEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "currency_id", nullable = false, referencedColumnName = "id")
+    @NotNull(message = "A default currency of pos can't be null value")
     Currency posCurrency;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ent_id", nullable = false, referencedColumnName = "id")
+    @NotNull(message = "An enterprise of pos can't be null value")
     Enterprise posEnterprise;
 }

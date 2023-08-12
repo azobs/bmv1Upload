@@ -3,7 +3,6 @@ properties:
   id:
     type: integer
     format: int64
-    readOnly: true
   userbm:
     type: object
     $ref: "../../userbm/dto/UserbmDto.yaml"

@@ -1,11 +1,14 @@
 type: object
 properties:
-  userbmroleId:
+  id:
     type: integer
     format: int64
-  permissionId:
-    type: integer
-    format: int64
+  userbmrole:
+    type: object
+    $ref: './UserbmRoleDto.yaml'
+  permission:
+    type: object
+    $ref: '../../auth/permission/dto/PermissionDto.yaml'
   operation:
     type: string
     enum:

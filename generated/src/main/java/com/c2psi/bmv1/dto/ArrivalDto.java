@@ -17,7 +17,7 @@ import javax.validation.constraints.*;
  * An arrival in the system
  */
 @ApiModel(description = "An arrival in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T10:38:54.913224900+01:00[Africa/Douala]")
 public class ArrivalDto   {
   @JsonProperty("id")
   private Long id;

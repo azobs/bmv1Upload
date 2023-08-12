@@ -1,6 +1,8 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
+import com.c2psi.bmv1.dto.PermissionDto;
+import com.c2psi.bmv1.dto.UserbmRoleDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -13,13 +15,16 @@ import javax.validation.constraints.*;
 /**
  * UserbmRolePermission
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T10:38:54.913224900+01:00[Africa/Douala]")
 public class UserbmRolePermission   {
-  @JsonProperty("userbmroleId")
-  private Long userbmroleId;
+  @JsonProperty("id")
+  private Long id;
 
-  @JsonProperty("permissionId")
-  private Long permissionId;
+  @JsonProperty("userbmrole")
+  private UserbmRoleDto userbmrole;
+
+  @JsonProperty("permission")
+  private PermissionDto permission;
 
   /**
    * Gets or Sets operation
@@ -59,44 +64,66 @@ public class UserbmRolePermission   {
   @JsonProperty("operation")
   private OperationEnum operation;
 
-  public UserbmRolePermission userbmroleId(Long userbmroleId) {
-    this.userbmroleId = userbmroleId;
+  public UserbmRolePermission id(Long id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Get userbmroleId
-   * @return userbmroleId
+   * Get id
+   * @return id
   */
   @ApiModelProperty(value = "")
 
 
-  public Long getUserbmroleId() {
-    return userbmroleId;
+  public Long getId() {
+    return id;
   }
 
-  public void setUserbmroleId(Long userbmroleId) {
-    this.userbmroleId = userbmroleId;
+  public void setId(Long id) {
+    this.id = id;
   }
 
-  public UserbmRolePermission permissionId(Long permissionId) {
-    this.permissionId = permissionId;
+  public UserbmRolePermission userbmrole(UserbmRoleDto userbmrole) {
+    this.userbmrole = userbmrole;
     return this;
   }
 
   /**
-   * Get permissionId
-   * @return permissionId
+   * Get userbmrole
+   * @return userbmrole
   */
   @ApiModelProperty(value = "")
 
+  @Valid
 
-  public Long getPermissionId() {
-    return permissionId;
+  public UserbmRoleDto getUserbmrole() {
+    return userbmrole;
   }
 
-  public void setPermissionId(Long permissionId) {
-    this.permissionId = permissionId;
+  public void setUserbmrole(UserbmRoleDto userbmrole) {
+    this.userbmrole = userbmrole;
+  }
+
+  public UserbmRolePermission permission(PermissionDto permission) {
+    this.permission = permission;
+    return this;
+  }
+
+  /**
+   * Get permission
+   * @return permission
+  */
+  @ApiModelProperty(value = "")
+
+  @Valid
+
+  public PermissionDto getPermission() {
+    return permission;
+  }
+
+  public void setPermission(PermissionDto permission) {
+    this.permission = permission;
   }
 
   public UserbmRolePermission operation(OperationEnum operation) {
@@ -129,14 +156,15 @@ public class UserbmRolePermission   {
       return false;
     }
     UserbmRolePermission userbmRolePermission = (UserbmRolePermission) o;
-    return Objects.equals(this.userbmroleId, userbmRolePermission.userbmroleId) &&
-        Objects.equals(this.permissionId, userbmRolePermission.permissionId) &&
+    return Objects.equals(this.id, userbmRolePermission.id) &&
+        Objects.equals(this.userbmrole, userbmRolePermission.userbmrole) &&
+        Objects.equals(this.permission, userbmRolePermission.permission) &&
         Objects.equals(this.operation, userbmRolePermission.operation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userbmroleId, permissionId, operation);
+    return Objects.hash(id, userbmrole, permission, operation);
   }
 
   @Override
@@ -144,8 +172,9 @@ public class UserbmRolePermission   {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserbmRolePermission {\n");
     
-    sb.append("    userbmroleId: ").append(toIndentedString(userbmroleId)).append("\n");
-    sb.append("    permissionId: ").append(toIndentedString(permissionId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    userbmrole: ").append(toIndentedString(userbmrole)).append("\n");
+    sb.append("    permission: ").append(toIndentedString(permission)).append("\n");
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
     sb.append("}");
     return sb.toString();

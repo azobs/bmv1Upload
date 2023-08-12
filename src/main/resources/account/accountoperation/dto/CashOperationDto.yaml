@@ -10,6 +10,20 @@ properties:
     minimum: 0
     exclusiveMinimum: true
     example: 1
+  amountSource:
+    type: string
+    enum:
+      - CASH_DESK
+      - OM_ACCOUNT
+      - MOMO_ACCOUNT
+    example: CASH_DESK
+  amountDestination:
+    type: string
+    enum:
+      - CASH_DESK
+      - OM_ACCOUNT
+      - MOMO_ACCOUNT
+    example: MOMO_ACCOUNT
   operation:
     type: object
     $ref: '../../operation/dto/OperationDto.yaml'

@@ -16,7 +16,7 @@ import javax.validation.constraints.*;
  * A Loading in the system
  */
 @ApiModel(description = "A Loading in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T10:38:54.913224900+01:00[Africa/Douala]")
 public class LoadingDto   {
   @JsonProperty("id")
   private Long id;
@@ -58,7 +58,7 @@ public class LoadingDto   {
    * Get id
    * @return id
   */
-  @ApiModelProperty(readOnly = true, value = "")
+  @ApiModelProperty(value = "")
 
 
   public Long getId() {

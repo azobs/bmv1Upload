@@ -1,0 +1,17 @@
+package com.c2psi.bmv1.pos.pos.dao;
+
+import com.c2psi.bmv1.pos.pos.models.Pointofsale;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.Optional;
+
+public interface PointofsaleDao extends JpaRepository<Pointofsale, Long>, JpaSpecificationExecutor<Pointofsale> {
+    Optional<Pointofsale> findPointofsaleById(Long id);
+    @Query("""
+SELECT pos FROM Pointofsale pos WHERE (pos.posName = :posName AND pos.posAcronym = :posAcronym)
+""")
+    Optional<Pointofsale> findPointofsaleByFullname(@Param("posName") String posName, @Param("posAcronym") String posAcronym);
+}

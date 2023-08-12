@@ -4,7 +4,6 @@ properties:
   id:
     type: integer
     format: int64
-    readOnly: true # Returned by GET, not used in POST/PUT/PATCH
   catName:
     type: string
     minLength: 2
@@ -23,10 +22,10 @@ properties:
   catDescription:
     type: string
     maxLength: 256
-  catParentDto:
+  catParent:
     type: object
     $ref: './CategoryDto.yaml'
-  catPosDto:
+  catPos:
     type: object
     $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
 required:

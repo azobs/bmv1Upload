@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * A Packaging in the system
  */
 @ApiModel(description = "A Packaging in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T10:38:54.913224900+01:00[Africa/Douala]")
 public class PackagingDto   {
   @JsonProperty("id")
   private Long id;
@@ -47,7 +47,7 @@ public class PackagingDto   {
    * Get id
    * @return id
   */
-  @ApiModelProperty(readOnly = true, value = "")
+  @ApiModelProperty(value = "")
 
 
   public Long getId() {

@@ -335,6 +335,12 @@ public class EnterpriseServiceImpl implements EnterpriseService{
         }
     }
 
+    @Override
+    public Boolean isEnterpriseExistWith(Long id) {
+        Optional<Enterprise> optionalEnterprise = enterpriseDao.findEnterpriseById(id);
+        return optionalEnterprise.isPresent();
+    }
+
     PageofEnterpriseDto getPageofEnterpriseDto(Page<Enterprise> enterprisePage){
         PageofEnterpriseDto pageofEnterpriseDto = new PageofEnterpriseDto();
         pageofEnterpriseDto.setContent(enterpriseMapper.entityToDto(enterprisePage.getContent()));

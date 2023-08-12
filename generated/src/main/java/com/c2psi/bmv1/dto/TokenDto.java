@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * A token to open a session on the system
  */
 @ApiModel(description = "A token to open a session on the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T10:38:54.913224900+01:00[Africa/Douala]")
 public class TokenDto   {
   @JsonProperty("id")
   private Long id;
@@ -67,8 +67,8 @@ public class TokenDto   {
   @JsonProperty("revoked")
   private Boolean revoked;
 
-  @JsonProperty("userbmDto")
-  private UserbmDto userbmDto;
+  @JsonProperty("tokenUserbm")
+  private UserbmDto tokenUserbm;
 
   public TokenDto id(Long id) {
     this.id = id;
@@ -172,26 +172,25 @@ public class TokenDto   {
     this.revoked = revoked;
   }
 
-  public TokenDto userbmDto(UserbmDto userbmDto) {
-    this.userbmDto = userbmDto;
+  public TokenDto tokenUserbm(UserbmDto tokenUserbm) {
+    this.tokenUserbm = tokenUserbm;
     return this;
   }
 
   /**
-   * Get userbmDto
-   * @return userbmDto
+   * Get tokenUserbm
+   * @return tokenUserbm
   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
   @Valid
 
-  public UserbmDto getUserbmDto() {
-    return userbmDto;
+  public UserbmDto getTokenUserbm() {
+    return tokenUserbm;
   }
 
-  public void setUserbmDto(UserbmDto userbmDto) {
-    this.userbmDto = userbmDto;
+  public void setTokenUserbm(UserbmDto tokenUserbm) {
+    this.tokenUserbm = tokenUserbm;
   }
 
 
@@ -209,12 +208,12 @@ public class TokenDto   {
         Objects.equals(this.tokenType, tokenDto.tokenType) &&
         Objects.equals(this.expired, tokenDto.expired) &&
         Objects.equals(this.revoked, tokenDto.revoked) &&
-        Objects.equals(this.userbmDto, tokenDto.userbmDto);
+        Objects.equals(this.tokenUserbm, tokenDto.tokenUserbm);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tokenValue, tokenType, expired, revoked, userbmDto);
+    return Objects.hash(id, tokenValue, tokenType, expired, revoked, tokenUserbm);
   }
 
   @Override
@@ -227,7 +226,7 @@ public class TokenDto   {
     sb.append("    tokenType: ").append(toIndentedString(tokenType)).append("\n");
     sb.append("    expired: ").append(toIndentedString(expired)).append("\n");
     sb.append("    revoked: ").append(toIndentedString(revoked)).append("\n");
-    sb.append("    userbmDto: ").append(toIndentedString(userbmDto)).append("\n");
+    sb.append("    tokenUserbm: ").append(toIndentedString(tokenUserbm)).append("\n");
     sb.append("}");
     return sb.toString();
   }

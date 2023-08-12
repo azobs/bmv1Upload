@@ -19,7 +19,7 @@ import javax.validation.constraints.*;
  * An account for pointofsale, provider or a client in the system
  */
 @ApiModel(description = "An account for pointofsale, provider or a client in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T10:38:54.913224900+01:00[Africa/Douala]")
 public class AccountDto   {
   @JsonProperty("id")
   private Long id;
@@ -73,20 +73,20 @@ public class AccountDto   {
   @JsonProperty("accountType")
   private AccountTypeEnum accountType;
 
-  @JsonProperty("accountClientDto")
-  private ClientDto accountClientDto;
+  @JsonProperty("accountClient")
+  private ClientDto accountClient;
 
-  @JsonProperty("accountPosDto")
-  private PointofsaleDto accountPosDto;
+  @JsonProperty("accountPos")
+  private PointofsaleDto accountPos;
 
-  @JsonProperty("accountProviderDto")
-  private ProviderDto accountProviderDto;
+  @JsonProperty("accountProvider")
+  private ProviderDto accountProvider;
 
-  @JsonProperty("accountArticleDto")
-  private ArticleDto accountArticleDto;
+  @JsonProperty("accountArticle")
+  private ArticleDto accountArticle;
 
-  @JsonProperty("accountPackagingDto")
-  private PackagingDto accountPackagingDto;
+  @JsonProperty("accountPackaging")
+  private PackagingDto accountPackaging;
 
   public AccountDto id(Long id) {
     this.id = id;
@@ -191,109 +191,109 @@ public class AccountDto   {
     this.accountType = accountType;
   }
 
-  public AccountDto accountClientDto(ClientDto accountClientDto) {
-    this.accountClientDto = accountClientDto;
+  public AccountDto accountClient(ClientDto accountClient) {
+    this.accountClient = accountClient;
     return this;
   }
 
   /**
-   * Get accountClientDto
-   * @return accountClientDto
+   * Get accountClient
+   * @return accountClient
   */
   @ApiModelProperty(value = "")
 
   @Valid
 
-  public ClientDto getAccountClientDto() {
-    return accountClientDto;
+  public ClientDto getAccountClient() {
+    return accountClient;
   }
 
-  public void setAccountClientDto(ClientDto accountClientDto) {
-    this.accountClientDto = accountClientDto;
+  public void setAccountClient(ClientDto accountClient) {
+    this.accountClient = accountClient;
   }
 
-  public AccountDto accountPosDto(PointofsaleDto accountPosDto) {
-    this.accountPosDto = accountPosDto;
+  public AccountDto accountPos(PointofsaleDto accountPos) {
+    this.accountPos = accountPos;
     return this;
   }
 
   /**
-   * Get accountPosDto
-   * @return accountPosDto
+   * Get accountPos
+   * @return accountPos
   */
   @ApiModelProperty(value = "")
 
   @Valid
 
-  public PointofsaleDto getAccountPosDto() {
-    return accountPosDto;
+  public PointofsaleDto getAccountPos() {
+    return accountPos;
   }
 
-  public void setAccountPosDto(PointofsaleDto accountPosDto) {
-    this.accountPosDto = accountPosDto;
+  public void setAccountPos(PointofsaleDto accountPos) {
+    this.accountPos = accountPos;
   }
 
-  public AccountDto accountProviderDto(ProviderDto accountProviderDto) {
-    this.accountProviderDto = accountProviderDto;
+  public AccountDto accountProvider(ProviderDto accountProvider) {
+    this.accountProvider = accountProvider;
     return this;
   }
 
   /**
-   * Get accountProviderDto
-   * @return accountProviderDto
+   * Get accountProvider
+   * @return accountProvider
   */
   @ApiModelProperty(value = "")
 
   @Valid
 
-  public ProviderDto getAccountProviderDto() {
-    return accountProviderDto;
+  public ProviderDto getAccountProvider() {
+    return accountProvider;
   }
 
-  public void setAccountProviderDto(ProviderDto accountProviderDto) {
-    this.accountProviderDto = accountProviderDto;
+  public void setAccountProvider(ProviderDto accountProvider) {
+    this.accountProvider = accountProvider;
   }
 
-  public AccountDto accountArticleDto(ArticleDto accountArticleDto) {
-    this.accountArticleDto = accountArticleDto;
+  public AccountDto accountArticle(ArticleDto accountArticle) {
+    this.accountArticle = accountArticle;
     return this;
   }
 
   /**
-   * Get accountArticleDto
-   * @return accountArticleDto
+   * Get accountArticle
+   * @return accountArticle
   */
   @ApiModelProperty(value = "")
 
   @Valid
 
-  public ArticleDto getAccountArticleDto() {
-    return accountArticleDto;
+  public ArticleDto getAccountArticle() {
+    return accountArticle;
   }
 
-  public void setAccountArticleDto(ArticleDto accountArticleDto) {
-    this.accountArticleDto = accountArticleDto;
+  public void setAccountArticle(ArticleDto accountArticle) {
+    this.accountArticle = accountArticle;
   }
 
-  public AccountDto accountPackagingDto(PackagingDto accountPackagingDto) {
-    this.accountPackagingDto = accountPackagingDto;
+  public AccountDto accountPackaging(PackagingDto accountPackaging) {
+    this.accountPackaging = accountPackaging;
     return this;
   }
 
   /**
-   * Get accountPackagingDto
-   * @return accountPackagingDto
+   * Get accountPackaging
+   * @return accountPackaging
   */
   @ApiModelProperty(value = "")
 
   @Valid
 
-  public PackagingDto getAccountPackagingDto() {
-    return accountPackagingDto;
+  public PackagingDto getAccountPackaging() {
+    return accountPackaging;
   }
 
-  public void setAccountPackagingDto(PackagingDto accountPackagingDto) {
-    this.accountPackagingDto = accountPackagingDto;
+  public void setAccountPackaging(PackagingDto accountPackaging) {
+    this.accountPackaging = accountPackaging;
   }
 
 
@@ -311,16 +311,16 @@ public class AccountDto   {
         Objects.equals(this.damageNumber, accountDto.damageNumber) &&
         Objects.equals(this.packageNumber, accountDto.packageNumber) &&
         Objects.equals(this.accountType, accountDto.accountType) &&
-        Objects.equals(this.accountClientDto, accountDto.accountClientDto) &&
-        Objects.equals(this.accountPosDto, accountDto.accountPosDto) &&
-        Objects.equals(this.accountProviderDto, accountDto.accountProviderDto) &&
-        Objects.equals(this.accountArticleDto, accountDto.accountArticleDto) &&
-        Objects.equals(this.accountPackagingDto, accountDto.accountPackagingDto);
+        Objects.equals(this.accountClient, accountDto.accountClient) &&
+        Objects.equals(this.accountPos, accountDto.accountPos) &&
+        Objects.equals(this.accountProvider, accountDto.accountProvider) &&
+        Objects.equals(this.accountArticle, accountDto.accountArticle) &&
+        Objects.equals(this.accountPackaging, accountDto.accountPackaging);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, coverNumber, damageNumber, packageNumber, accountType, accountClientDto, accountPosDto, accountProviderDto, accountArticleDto, accountPackagingDto);
+    return Objects.hash(id, coverNumber, damageNumber, packageNumber, accountType, accountClient, accountPos, accountProvider, accountArticle, accountPackaging);
   }
 
   @Override
@@ -333,11 +333,11 @@ public class AccountDto   {
     sb.append("    damageNumber: ").append(toIndentedString(damageNumber)).append("\n");
     sb.append("    packageNumber: ").append(toIndentedString(packageNumber)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
-    sb.append("    accountClientDto: ").append(toIndentedString(accountClientDto)).append("\n");
-    sb.append("    accountPosDto: ").append(toIndentedString(accountPosDto)).append("\n");
-    sb.append("    accountProviderDto: ").append(toIndentedString(accountProviderDto)).append("\n");
-    sb.append("    accountArticleDto: ").append(toIndentedString(accountArticleDto)).append("\n");
-    sb.append("    accountPackagingDto: ").append(toIndentedString(accountPackagingDto)).append("\n");
+    sb.append("    accountClient: ").append(toIndentedString(accountClient)).append("\n");
+    sb.append("    accountPos: ").append(toIndentedString(accountPos)).append("\n");
+    sb.append("    accountProvider: ").append(toIndentedString(accountProvider)).append("\n");
+    sb.append("    accountArticle: ").append(toIndentedString(accountArticle)).append("\n");
+    sb.append("    accountPackaging: ").append(toIndentedString(accountPackaging)).append("\n");
     sb.append("}");
     return sb.toString();
   }

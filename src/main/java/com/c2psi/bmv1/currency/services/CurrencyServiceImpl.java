@@ -314,6 +314,12 @@ public class CurrencyServiceImpl implements CurrencyService{
         }
     }
 
+    @Override
+    public Boolean isCurrencyExistWith(Long id) {
+        Optional<Currency> optionalCurrency = currencyDao.findCurrencyById(id);
+        return optionalCurrency.isPresent();
+    }
+
     PageofCurrencyDto getPageofCurrencyDto(Page<Currency> currencyPage){
         PageofCurrencyDto pageofCurrencyDto = new PageofCurrencyDto();
         pageofCurrencyDto.setContent(currencyMapper.entityToDto(currencyPage.getContent()));

@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * A permission that really give right to act on an object of the system
  */
 @ApiModel(description = "A permission that really give right to act on an object of the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T06:34:45.513039400+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T10:38:54.913224900+01:00[Africa/Douala]")
 public class CategoryDto   {
   @JsonProperty("id")
   private Long id;
@@ -31,11 +31,11 @@ public class CategoryDto   {
   @JsonProperty("catDescription")
   private String catDescription;
 
-  @JsonProperty("catParentDto")
-  private CategoryDto catParentDto;
+  @JsonProperty("catParent")
+  private CategoryDto catParent;
 
-  @JsonProperty("catPosDto")
-  private PointofsaleDto catPosDto;
+  @JsonProperty("catPos")
+  private PointofsaleDto catPos;
 
   public CategoryDto id(Long id) {
     this.id = id;
@@ -46,7 +46,7 @@ public class CategoryDto   {
    * Get id
    * @return id
   */
-  @ApiModelProperty(readOnly = true, value = "")
+  @ApiModelProperty(value = "")
 
 
   public Long getId() {
@@ -138,46 +138,46 @@ public class CategoryDto   {
     this.catDescription = catDescription;
   }
 
-  public CategoryDto catParentDto(CategoryDto catParentDto) {
-    this.catParentDto = catParentDto;
+  public CategoryDto catParent(CategoryDto catParent) {
+    this.catParent = catParent;
     return this;
   }
 
   /**
-   * Get catParentDto
-   * @return catParentDto
+   * Get catParent
+   * @return catParent
   */
   @ApiModelProperty(value = "")
 
   @Valid
 
-  public CategoryDto getCatParentDto() {
-    return catParentDto;
+  public CategoryDto getCatParent() {
+    return catParent;
   }
 
-  public void setCatParentDto(CategoryDto catParentDto) {
-    this.catParentDto = catParentDto;
+  public void setCatParent(CategoryDto catParent) {
+    this.catParent = catParent;
   }
 
-  public CategoryDto catPosDto(PointofsaleDto catPosDto) {
-    this.catPosDto = catPosDto;
+  public CategoryDto catPos(PointofsaleDto catPos) {
+    this.catPos = catPos;
     return this;
   }
 
   /**
-   * Get catPosDto
-   * @return catPosDto
+   * Get catPos
+   * @return catPos
   */
   @ApiModelProperty(value = "")
 
   @Valid
 
-  public PointofsaleDto getCatPosDto() {
-    return catPosDto;
+  public PointofsaleDto getCatPos() {
+    return catPos;
   }
 
-  public void setCatPosDto(PointofsaleDto catPosDto) {
-    this.catPosDto = catPosDto;
+  public void setCatPos(PointofsaleDto catPos) {
+    this.catPos = catPos;
   }
 
 
@@ -195,13 +195,13 @@ public class CategoryDto   {
         Objects.equals(this.catShortname, categoryDto.catShortname) &&
         Objects.equals(this.catCode, categoryDto.catCode) &&
         Objects.equals(this.catDescription, categoryDto.catDescription) &&
-        Objects.equals(this.catParentDto, categoryDto.catParentDto) &&
-        Objects.equals(this.catPosDto, categoryDto.catPosDto);
+        Objects.equals(this.catParent, categoryDto.catParent) &&
+        Objects.equals(this.catPos, categoryDto.catPos);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, catName, catShortname, catCode, catDescription, catParentDto, catPosDto);
+    return Objects.hash(id, catName, catShortname, catCode, catDescription, catParent, catPos);
   }
 
   @Override
@@ -214,8 +214,8 @@ public class CategoryDto   {
     sb.append("    catShortname: ").append(toIndentedString(catShortname)).append("\n");
     sb.append("    catCode: ").append(toIndentedString(catCode)).append("\n");
     sb.append("    catDescription: ").append(toIndentedString(catDescription)).append("\n");
-    sb.append("    catParentDto: ").append(toIndentedString(catParentDto)).append("\n");
-    sb.append("    catPosDto: ").append(toIndentedString(catPosDto)).append("\n");
+    sb.append("    catParent: ").append(toIndentedString(catParent)).append("\n");
+    sb.append("    catPos: ").append(toIndentedString(catPos)).append("\n");
     sb.append("}");
     return sb.toString();
   }
