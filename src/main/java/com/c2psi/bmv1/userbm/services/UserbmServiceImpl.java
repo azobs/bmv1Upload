@@ -127,8 +127,23 @@ public class UserbmServiceImpl implements UserbmService{
     }
 
     public boolean isFullnameUsable(String userName, String userSurname, LocalDate userDob){
-        Optional<Userbm> optionalUserbm = userbmDao.findUserbmByFullname(userName, userSurname, userDob);
-        return optionalUserbm.isEmpty();
+        if(userName != null){
+            if(userSurname != null && userDob != null){
+                Optional<Userbm>  optionalUserbm = userbmDao.findUserbmByFullname(userName, userSurname, userDob);
+                return optionalUserbm.isEmpty();
+            } else if (userSurname != null) {
+                Optional<List<Userbm>> optionalUserbmList = userbmDao.findUserbmByFullname(userName, userSurname);
+                if(optionalUserbmList.isPresent()){
+                    return optionalUserbmList.get().size() < 1;
+                }
+            } else {
+                Optional<List<Userbm>> optionalUserbmList = userbmDao.findUserbmByFullname(userName, userDob);
+                if(optionalUserbmList.isPresent()){
+                    return optionalUserbmList.get().size() < 1;
+                }
+            }
+        }
+       return true;
     }
 
     public boolean isAddressUsable(String email){
@@ -138,6 +153,80 @@ public class UserbmServiceImpl implements UserbmService{
 
     @Override
     public UserbmDto updateUserbm(UserbmDto userbmDto) {
+        /***********************************************
+         * On se rassure que le parametre n'est pas null
+         */
+        if(userbmDto == null){
+            throw new NullValueException("Le User envoye est null");
+        }
+
+        /*****************************************************
+         * On se rassure que l'id du parametre n'est pas null
+         */
+        if(userbmDto.getId() == null){
+            throw new NullValueException("L'id du Userbm a modifier ne peut etre null");
+        }
+
+        /*******************************************************
+         * On valide le parametre grace au validateur
+         */
+        List<String> errors = userbmValidator.validate(userbmMapper.dtoToEntity(userbmDto));
+        if(!errors.isEmpty()){
+            log.error("Entity Userbm not valid because of {}", errors);
+            throw new InvalidEntityException("Le userbm a enregistrer n'est pas valide ", errors,
+                    ErrorCode.USERBM_NOT_VALID.name());
+        }
+
+        /****************************************************
+         * On recupere le Userbm a update grace au id
+         */
+        Optional<Userbm> optionalUserbm = userbmDao.findUserbmById(userbmDto.getId());
+        if(!optionalUserbm.isPresent()) {
+            throw new ModelNotFoundException("L'id envoye n'identifie aucun userbm dans la BD",
+                    ErrorCode.USERBM_NOT_FOUND.name());
+        }
+        Userbm userbmToUpdate = optionalUserbm.get();
+
+        /*********************************************************
+         * Si c'est le cni qu'on veut modifier alors on se rassure
+         * que l'unicite ne sera pas viole
+         */
+        if(userbmToUpdate.getUserCni() != null && userbmDto.getUserCni() != null){
+            if(!userbmToUpdate.getUserCni().equalsIgnoreCase(userbmDto.getUserCni())){
+                if(!isCniUsable(userbmDto.getUserCni())){
+                    throw new DuplicateEntityException("Le nouveau cni number envoye existe deja en BD",
+                            ErrorCode.USERBM_DUPLICATED.name());
+                }
+            }
+        }
+
+        /****************************************************************************
+         * Si c'est le nom ou le prenom ou alors la date de naissance
+         * qu'on veut modifier alors on se rassure que l'unicite ne sera pas viole
+         */
+        if(userbmToUpdate.getUserName() != null && userbmDto.getUserName() != null){
+            if(!userbmToUpdate.getUserName().equalsIgnoreCase(userbmDto.getUserName())){
+                if(!isFullnameUsable(userbmDto.getUserName(), userbmDto.getUserSurname(), userbmDto.getUserDob())){
+                    throw new DuplicateEntityException("Un userbm existe deja avec le meme nom, le meme prenom et la " +
+                            "meme date de naissance ", ErrorCode.USERBM_DUPLICATED.name());
+                }
+            }
+        }
+
+        /*******************************************************************
+         * Si c'est le login qu'on veut modifier alors on se rassure que
+         * l'unicite ne sera pas viole
+         */
+
+        /******************************************************************
+         * Si c'est l'email qu'on veut modifier alors on se rassure que
+         * l'unicite ne sera pas viole
+         */
+
+        /**********************************************************
+         * Si tout est bon on effectue le reste des modifications
+         */
+        log.info("After all verification The userbm can be updated");
         return null;
     }
 

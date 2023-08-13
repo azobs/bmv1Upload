@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * A conversion rule used to convert one unit in another
  */
 @ApiModel(description = "A conversion rule used to convert one unit in another")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T10:38:54.913224900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-13T03:59:42.033168+01:00[Africa/Douala]")
 public class UnitconversionDto   {
   @JsonProperty("id")
   private Long id;

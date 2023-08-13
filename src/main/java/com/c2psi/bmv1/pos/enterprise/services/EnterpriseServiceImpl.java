@@ -113,6 +113,7 @@ public class EnterpriseServiceImpl implements EnterpriseService{
         /**********************************************************************************
          * On va se rassurer que les contraintes ne seront pas viole en cas de mis a jour
          */
+
         if(enterpriseDto.getEntNiu() != null){
             if(!enterpriseToUpdate.getEntNiu().equalsIgnoreCase(enterpriseDto.getEntNiu())){
                 //Alors on veut modifier le Niu
@@ -337,6 +338,9 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 
     @Override
     public Boolean isEnterpriseExistWith(Long id) {
+        if(id == null){
+            return false;
+        }
         Optional<Enterprise> optionalEnterprise = enterpriseDao.findEnterpriseById(id);
         return optionalEnterprise.isPresent();
     }

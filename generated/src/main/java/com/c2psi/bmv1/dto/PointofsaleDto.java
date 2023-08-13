@@ -16,7 +16,7 @@ import javax.validation.constraints.*;
  * A pointofsale object of the system
  */
 @ApiModel(description = "A pointofsale object of the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-12T10:38:54.913224900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-13T03:59:42.033168+01:00[Africa/Douala]")
 public class PointofsaleDto   {
   @JsonProperty("id")
   private Long id;

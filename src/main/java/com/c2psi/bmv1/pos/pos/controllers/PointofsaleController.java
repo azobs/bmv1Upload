@@ -1,9 +1,7 @@
 package com.c2psi.bmv1.pos.pos.controllers;
 
 import com.c2psi.bmv1.api.PosApi;
-import com.c2psi.bmv1.dto.FilterRequest;
-import com.c2psi.bmv1.dto.PageofPointofsaleDto;
-import com.c2psi.bmv1.dto.PointofsaleDto;
+import com.c2psi.bmv1.dto.*;
 import com.c2psi.bmv1.pos.pos.service.PointofsaleService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,22 +22,60 @@ public class PointofsaleController implements PosApi {
 
     @Override
     public ResponseEntity<Boolean> deletePosById(Long id) {
-        return PosApi.super.deletePosById(id);
+
+        Map<String, Object> map = new LinkedHashMap<>();
+        Boolean deleted = posService.deletePointofsaleById(id);
+        log.info("Pointofsale deleted successfully");
+
+        map.clear();
+        map.put("status", HttpStatus.OK);
+        map.put("message", "Pointofsale deleted successfully");
+        map.put("data", deleted);
+        map.put("cause", "RAS");
+        return new ResponseEntity(map, HttpStatus.OK);
     }
 
     @Override
     public ResponseEntity<PointofsaleDto> getPosById(Long id) {
-        return PosApi.super.getPosById(id);
+
+        Map<String, Object> map = new LinkedHashMap<>();
+        PointofsaleDto posDto = posService.getPointofsaleById(id);
+        log.info("Pointofsale found successfully");
+
+        map.clear();
+        map.put("status", HttpStatus.OK);
+        map.put("message", "Pointofsale found successfully");
+        map.put("data", posDto);
+        map.put("cause", "RAS");
+        return new ResponseEntity(map, HttpStatus.OK);
     }
 
     @Override
     public ResponseEntity<List<PointofsaleDto>> getPosList(FilterRequest filterRequest) {
-        return PosApi.super.getPosList(filterRequest);
+        Map<String, Object> map = new LinkedHashMap<>();
+        List<PointofsaleDto> posDtoList = posService.getListofPointofsale(filterRequest);
+        log.info("Pointofsale list found successfully");
+
+        map.clear();
+        map.put("status", HttpStatus.OK);
+        map.put("message", "Pointofsale list found successfully");
+        map.put("data", posDtoList);
+        map.put("cause", "RAS");
+        return new ResponseEntity(map, HttpStatus.OK);
     }
 
     @Override
     public ResponseEntity<PageofPointofsaleDto> getPosPage(FilterRequest filterRequest) {
-        return PosApi.super.getPosPage(filterRequest);
+        Map<String, Object> map = new LinkedHashMap<>();
+        PageofPointofsaleDto pageofPointofsaleDto = posService.getPageofPointofsale(filterRequest);
+        log.info("Pointofsale page found successfully");
+
+        map.clear();
+        map.put("status", HttpStatus.OK);
+        map.put("message", "Pointofsale page found successfully");
+        map.put("data", pageofPointofsaleDto);
+        map.put("cause", "RAS");
+        return new ResponseEntity(map, HttpStatus.OK);
     }
 
     @Override
@@ -58,6 +94,15 @@ public class PointofsaleController implements PosApi {
 
     @Override
     public ResponseEntity<PointofsaleDto> updatePos(PointofsaleDto pointofsaleDto) {
-        return PosApi.super.updatePos(pointofsaleDto);
+        Map<String, Object> map = new LinkedHashMap<>();
+        PointofsaleDto posDtoUpdated = posService.updatePointofsale(pointofsaleDto);
+        log.info("Entity Pointofsale updated successfully {}", posDtoUpdated);
+
+        map.clear();
+        map.put("status", HttpStatus.OK);
+        map.put("message", "Pointofsale updated successfully");
+        map.put("data", posDtoUpdated);
+        map.put("cause", "RAS");
+        return new ResponseEntity(map, HttpStatus.OK);
     }
 }

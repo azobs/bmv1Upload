@@ -13,4 +13,6 @@ public interface PointofsaleService {
     PointofsaleDto getPointofsaleById(Long id);
     List<PointofsaleDto> getListofPointofsale(FilterRequest filterRequest);
     PageofPointofsaleDto getPageofPointofsale(FilterRequest filterRequest);
+
+    Boolean isEnterpriseExistWith(Long id);
 }

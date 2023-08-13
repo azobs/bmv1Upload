@@ -44,6 +44,17 @@ public class AddressValidator {
             log.info("adress email {} valid? {}", address.getEmail(), b);
             if (!b) errors.add(address.getEmail() + " is not valid as an email address. Please check its syntax ");
         }
+
+        /******************************************************************************************
+         * En plus de tout ca on doit se rassurer qu'au moins l'email et un des numtel est precise
+         * Si ils sont non null alors ils sont valide sinon on doit se rassurer qu'au moins 1
+         * de tous est non null
+         */
+        if(address.getEmail() == null && address.getNumtel1() == null && address.getNumtel2() == null
+                && address.getNumtel3() == null){
+            errors.add("At least one of those data email, numtel1, numtel2 and numtel3 must be precised in an address");
+        }
+
         return errors;
     }
 }

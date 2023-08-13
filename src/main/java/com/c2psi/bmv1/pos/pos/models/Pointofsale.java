@@ -10,17 +10,24 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
+//@EqualsAndHashCode(callSuper = true)
+@EntityListeners(AuditingEntityListener.class)
 @Builder
 @Entity
 @Table(name="pointofsale",
         uniqueConstraints = {@UniqueConstraint(
                 columnNames = {"posName", "posAcronym"})})
-public class Pointofsale extends AbstractEntity {
+public class Pointofsale /*extends AbstractEntity*/ {
     @NotNull(message = "A pos name can't be null value")
     @NotEmpty(message = "A pos name can't be empty value")
     @NotBlank(message = "A pos name can't be blank value")
@@ -33,7 +40,6 @@ public class Pointofsale extends AbstractEntity {
     @Size(min = 1, max = 15, message = "A pos acronym must have at least 1 and at most 15 characters")
     @Column(nullable = false)
     String posAcronym;
-    @NotEmpty(message = "A pos description can't be empty value")
     @NotBlank(message = "A pos description can't be blank value")
     @Size(max = 256, message = "A pos description must have at most 256 characters")
     String posDescription;
@@ -59,4 +65,22 @@ public class Pointofsale extends AbstractEntity {
     @JoinColumn(name = "ent_id", nullable = false, referencedColumnName = "id")
     @NotNull(message = "An enterprise of pos can't be null value")
     Enterprise posEnterprise;
+
+
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(updatable = false)
+    private Long id;
+    @CreatedDate
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @Column(name = "creationDate", nullable = false, updatable = false)
+    private LocalDateTime creationDate;
+    @LastModifiedDate
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @Column(name = "lastModifiedDate")
+    private LocalDateTime lastModifiedDate;
 }

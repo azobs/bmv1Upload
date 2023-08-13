@@ -2,37 +2,38 @@ package com.c2psi.bmv1.pos.enterprise.models;
 
 import com.c2psi.bmv1.bmapp.models.AbstractEntity;
 import com.c2psi.bmv1.bmapp.enumerations.EntRegimeEnum;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
+@EntityListeners(AuditingEntityListener.class)
+//@EqualsAndHashCode(callSuper = true)
 @Builder
 @Entity
 @Table(name="enterprise",
         uniqueConstraints = {@UniqueConstraint(
                 columnNames = {"entName", "entAcronym"})})
-public class Enterprise extends AbstractEntity {
+public class Enterprise /*extends AbstractEntity*/ {
     @NotNull(message = "An enterprise regime can't be null value")
     EntRegimeEnum entRegime;
-    @NotEmpty(message = "A Niu can't be empty value")
     @NotBlank(message = "A Niu can't be blank value")
     @Size(max = 30, message = "An enterprise social reason must have at most 30 characters")
     String entSocialreason;
-    @NotEmpty(message = "A Niu can't be empty value")
     @NotBlank(message = "A Niu can't be blank value")
     @Size(max = 256, message = "An enterprise description must have at most 256 characters")
     String entDescription;
-    @NotEmpty(message = "A Niu can't be empty value")
     @NotBlank(message = "A Niu can't be blank value")
     @Size(min = 3, max = 15, message = "A Niu must have at least 3 and at most 15 characters")
     @Column(unique = true)
@@ -47,7 +48,28 @@ public class Enterprise extends AbstractEntity {
     @NotBlank(message = "An enterprise acronym can't be blank value")
     @Size(min = 1, max = 15, message = "An enterprise acronym must have at least 3 and at most 15 characters")
     String entAcronym;
-    @NotEmpty(message = "Logo name can't be empty value")
     @NotBlank(message = "Logo name can't be blank value")
     String entLogo;
+
+
+
+
+
+
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(updatable = false)
+    private Long id;
+    @CreatedDate
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @Column(name = "creationDate", nullable = false, updatable = false)
+    private LocalDateTime creationDate;
+    @LastModifiedDate
+//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @Column(name = "lastModifiedDate")
+    private LocalDateTime lastModifiedDate;
 }

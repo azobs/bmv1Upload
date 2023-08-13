@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -21,6 +22,21 @@ SELECT user FROM Userbm user WHERE user.userName = :userName AND user.userSurnam
     """)
     Optional<Userbm> findUserbmByFullname(@Param("userName") String userName, @Param("userSurname") String userSurname,
                                       @Param("userDob") LocalDate userDob);
+
+    @Query("""
+SELECT user FROM Userbm user WHERE user.userName = :userName AND user.userSurname = :userSurname
+    """)
+    Optional<List<Userbm>> findUserbmByFullname(@Param("userName") String userName, @Param("userSurname") String userSurname);
+
+    @Query("""
+SELECT user FROM Userbm user WHERE user.userName = :userName
+    """)
+    Optional<List<Userbm>> findUserbmByFullname(@Param("userName") String userName);
+
+    @Query("""
+SELECT user FROM Userbm user WHERE user.userName = :userName  AND (user.userDob BETWEEN :userDob AND :userDob)
+    """)
+    Optional<List<Userbm>> findUserbmByFullname(@Param("userName") String userName, @Param("userDob") LocalDate userDob);
 
     @Query("""
 SELECT user FROM Userbm user WHERE user.userAddress.email = :email
