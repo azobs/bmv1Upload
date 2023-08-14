@@ -1,14 +1,15 @@
 package com.c2psi.bmv1.userbm.services;
 
 import com.c2psi.bmv1.address.services.AddressService;
+import com.c2psi.bmv1.bmapp.enumerations.UserStateEnum;
 import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.*;
 import com.c2psi.bmv1.bmapp.dto.BmPageDto;
 import com.c2psi.bmv1.bmapp.exceptions.*;
-import com.c2psi.bmv1.userbm.dao.UserbmDao;
-import com.c2psi.bmv1.userbm.errorCode.ErrorCode;
-import com.c2psi.bmv1.userbm.mappers.UserbmMapper;
-import com.c2psi.bmv1.userbm.models.Userbm;
+import com.c2psi.bmv1.pos.pos.controllers.userbm.dao.UserbmDao;
+import com.c2psi.bmv1.pos.pos.controllers.userbm.errorCode.ErrorCode;
+import com.c2psi.bmv1.pos.pos.controllers.userbm.mappers.UserbmMapper;
+import com.c2psi.bmv1.pos.pos.controllers.userbm.models.Userbm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -191,13 +192,15 @@ public class UserbmServiceImpl implements UserbmService{
          * Si c'est le cni qu'on veut modifier alors on se rassure
          * que l'unicite ne sera pas viole
          */
-        if(userbmToUpdate.getUserCni() != null && userbmDto.getUserCni() != null){
-            if(!userbmToUpdate.getUserCni().equalsIgnoreCase(userbmDto.getUserCni())){
+        if(userbmDto.getUserCni() != null){
+            if(userbmToUpdate.getUserCni() != null){
                 if(!isCniUsable(userbmDto.getUserCni())){
                     throw new DuplicateEntityException("Le nouveau cni number envoye existe deja en BD",
                             ErrorCode.USERBM_DUPLICATED.name());
                 }
+                //userbmToUpdate.setUserCni(userbmDto.getUserCni());
             }
+            userbmToUpdate.setUserCni(userbmDto.getUserCni());
         }
 
         /****************************************************************************
@@ -211,48 +214,162 @@ public class UserbmServiceImpl implements UserbmService{
                             "meme date de naissance ", ErrorCode.USERBM_DUPLICATED.name());
                 }
             }
+            userbmToUpdate.setUserName(userbmDto.getUserName());
+            if(userbmDto.getUserSurname() != null) {
+                userbmToUpdate.setUserSurname(userbmDto.getUserSurname());
+            }
+            if(userbmDto.getUserDob() != null) {
+                userbmToUpdate.setUserDob(userbmDto.getUserDob());
+            }
         }
 
         /*******************************************************************
          * Si c'est le login qu'on veut modifier alors on se rassure que
          * l'unicite ne sera pas viole
          */
+        if(userbmDto.getUserLogin() != null && userbmToUpdate.getUserLogin() != null){
+            if(!userbmDto.getUserLogin().equalsIgnoreCase(userbmToUpdate.getUserLogin())){
+                if(!isLoginUsable(userbmDto.getUserLogin())){
+                    throw new DuplicateEntityException("Un userbm existe deja avec le meme login ",
+                            ErrorCode.USERBM_DUPLICATED.name());
+                }
+            }
+            userbmToUpdate.setUserLogin(userbmDto.getUserLogin());
+        }
 
         /******************************************************************
-         * Si c'est l'email qu'on veut modifier alors on se rassure que
-         * l'unicite ne sera pas viole
+         * On met a jour l'adresse qui va lancer une exception au cas ou
          */
+        /*if(userbmDto.getUserAddress().getEmail() != null){
+            if(userbmToUpdate.getUserAddress().getEmail() != null){
+                if(!isAddressUsable(userbmDto.getUserAddress().getEmail())){
+                    throw new DuplicateEntityException("Le userbm email envoye est deja utilise",
+                            ErrorCode.USERBM_DUPLICATED.name());
+                }
+            }
+            userbmToUpdate.getUserAddress().setEmail(userbmDto.getUserAddress().getEmail());
+        }*/
+        addressService.updateAddress(userbmDto.getUserAddress());
 
         /**********************************************************
          * Si tout est bon on effectue le reste des modifications
          */
+        userbmToUpdate.setUserState(convert(userbmDto.getUserState()));
+
+        Userbm userbmUpdated = userbmDao.save(userbmToUpdate);
+
         log.info("After all verification The userbm can be updated");
+        return userbmMapper.entityToDto(userbmUpdated);
+    }
+
+    UserStateEnum convert(UserbmDto.UserStateEnum userStateEnum){
+        switch (userStateEnum){
+            case ACTIVATED -> {
+                return UserStateEnum.Activated;
+            }
+            case CONNECTED -> {
+                return UserStateEnum.Connected;
+            }
+            case DEACTIVATED -> {
+                return UserStateEnum.Deactivated;
+            }
+            case DISCONNECTED -> {
+                return UserStateEnum.Disconnected;
+            }
+        }
+        return null;
+    }
+
+    UserbmDto.UserStateEnum convert(UserStateEnum userStateEnum){
+        switch (userStateEnum){
+            case Activated -> {
+                return UserbmDto.UserStateEnum.ACTIVATED;
+            }
+            case Connected -> {
+                return UserbmDto.UserStateEnum.CONNECTED;
+            }
+            case Deactivated -> {
+                return UserbmDto.UserStateEnum.DEACTIVATED;
+            }
+            case Disconnected -> {
+                return UserbmDto.UserStateEnum.DISCONNECTED;
+            }
+        }
         return null;
     }
 
     @Override
     public Boolean deleteUserbmById(Long id) {
-        return null;
+        if(id == null){
+            throw new NullValueException("L'identifiant de l'utilisateur a supprimer ne peut etre null");
+        }
+        Optional<Userbm> optionalUserbm = userbmDao.findUserbmById(id);
+        if(!optionalUserbm.isPresent()){
+            throw new ModelNotFoundException("Aucun Userbm n'existe en BD avec l'id envoye ",
+                    ErrorCode.USERBM_NOT_FOUND.name());
+        }
+        if(!isUserbmDeleteable(optionalUserbm.get())){
+            throw new EntityNotDeleatableException("La suppression du Userbm va causer beaucoup de conflit ",
+                    ErrorCode.USERBM_NOT_DELETEABLE.name());
+        }
+        userbmDao.delete(optionalUserbm.get());
+        return true;
+    }
+
+    private Boolean isUserbmDeleteable(Userbm userbm){
+        return true;
     }
 
     @Override
     public UserbmDto getUserbmById(Long id) {
-        return null;
+        if(id == null){
+            throw new NullValueException("L'id envoye ne peut etre null");
+        }
+        Optional<Userbm> optionalUserbm = userbmDao.findUserbmById(id);
+        if(!optionalUserbm.isPresent()){
+            throw new ModelNotFoundException("Il n'existe pas de Userbm en BD avec l'id envoye",
+                    ErrorCode.USERBM_NOT_FOUND.name());
+        }
+        return userbmMapper.entityToDto(optionalUserbm.get());
     }
 
     @Override
     public UserbmDto getUserbmByCni(String userCni) {
-        return null;
+        if(userCni == null){
+            throw new NullValueException("Le usercni envoye ne peut etre null");
+        }
+        Optional<Userbm> optionalUserbm = userbmDao.findUserbmByUserCni(userCni);
+        if(!optionalUserbm.isPresent()){
+            throw new ModelNotFoundException("Il n'existe pas de Userbm en BD avec le cni number envoye",
+                    ErrorCode.USERBM_NOT_FOUND.name());
+        }
+        return userbmMapper.entityToDto(optionalUserbm.get());
     }
 
     @Override
     public UserbmDto getUserbmByLogin(String userLogin) {
-        return null;
+        if(userLogin == null){
+            throw new NullValueException("Le userLogin envoye ne peut etre null");
+        }
+        Optional<Userbm> optionalUserbm = userbmDao.findUserbmByUserLogin(userLogin);
+        if(!optionalUserbm.isPresent()){
+            throw new ModelNotFoundException("Il n'existe pas de Userbm en BD avec le login number envoye",
+                    ErrorCode.USERBM_NOT_FOUND.name());
+        }
+        return userbmMapper.entityToDto(optionalUserbm.get());
     }
 
     @Override
     public UserbmDto getUserbmByEmail(String userEmail) {
-        return null;
+        if(userEmail == null){
+            throw new NullValueException("Le userEmail envoye ne peut etre null");
+        }
+        Optional<Userbm> optionalUserbm = userbmDao.findUserbmByEmail(userEmail);
+        if(!optionalUserbm.isPresent()){
+            throw new ModelNotFoundException("Il n'existe pas de Userbm en BD avec l'email envoye",
+                    ErrorCode.USERBM_NOT_FOUND.name());
+        }
+        return userbmMapper.entityToDto(optionalUserbm.get());
     }
 
     @Override

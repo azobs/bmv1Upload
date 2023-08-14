@@ -4,11 +4,9 @@ import com.c2psi.bmv1.api.UserbmApi;
 import com.c2psi.bmv1.dto.FilterRequest;
 import com.c2psi.bmv1.dto.PageofUserbmDto;
 import com.c2psi.bmv1.dto.UserbmDto;
-import com.c2psi.bmv1.userbm.models.Userbm;
 import com.c2psi.bmv1.userbm.services.UserbmService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -61,6 +59,90 @@ public class UserbmController implements UserbmApi {
         map.put("status", HttpStatus.OK);
         map.put("message", "Userbm page found successfully");
         map.put("data", userbmDtoPage);
+        map.put("cause", "RAS");
+        return new ResponseEntity(map, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<Boolean> deleteUserbmById(Long id) {
+        Map<String, Object> map = new LinkedHashMap<>();
+        Boolean deleteUserbm = userbmService.deleteUserbmById(id);
+        log.info("Entity Userbm deleted successfully {} ", deleteUserbm);
+
+        map.clear();
+        map.put("status", HttpStatus.OK);
+        map.put("message", "Userbm deleted successfully");
+        map.put("data", deleteUserbm);
+        map.put("cause", "RAS");
+        return new ResponseEntity(map, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<UserbmDto> getUserbmByCni(String cni) {
+        Map<String, Object> map = new LinkedHashMap<>();
+        UserbmDto userbmDtoFound = userbmService.getUserbmByCni(cni);
+        log.info("Entity Userbm found successfully {} ", userbmDtoFound);
+
+        map.clear();
+        map.put("status", HttpStatus.OK);
+        map.put("message", "Userbm found successfully");
+        map.put("data", userbmDtoFound);
+        map.put("cause", "RAS");
+        return new ResponseEntity(map, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<UserbmDto> getUserbmByEmail(String email) {
+        Map<String, Object> map = new LinkedHashMap<>();
+        UserbmDto userbmDtoFound = userbmService.getUserbmByEmail(email);
+        log.info("Entity Userbm found successfully {} ", userbmDtoFound);
+
+        map.clear();
+        map.put("status", HttpStatus.OK);
+        map.put("message", "Userbm found successfully");
+        map.put("data", userbmDtoFound);
+        map.put("cause", "RAS");
+        return new ResponseEntity(map, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<UserbmDto> getUserbmById(Long id) {
+        Map<String, Object> map = new LinkedHashMap<>();
+        UserbmDto userbmDtoFound = userbmService.getUserbmById(id);
+        log.info("Entity Userbm found successfully {} ", userbmDtoFound);
+
+        map.clear();
+        map.put("status", HttpStatus.OK);
+        map.put("message", "Userbm found successfully");
+        map.put("data", userbmDtoFound);
+        map.put("cause", "RAS");
+        return new ResponseEntity(map, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<UserbmDto> getUserbmByLogin(String login) {
+        Map<String, Object> map = new LinkedHashMap<>();
+        UserbmDto userbmDtoFound = userbmService.getUserbmByLogin(login);
+        log.info("Entity Userbm found successfully {} ", userbmDtoFound);
+
+        map.clear();
+        map.put("status", HttpStatus.OK);
+        map.put("message", "Userbm found successfully");
+        map.put("data", userbmDtoFound);
+        map.put("cause", "RAS");
+        return new ResponseEntity(map, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<UserbmDto> updateUserbm(UserbmDto userbmDto) {
+        Map<String, Object> map = new LinkedHashMap<>();
+        UserbmDto userbmDtoUpdated = userbmService.updateUserbm(userbmDto);
+        log.info("Entity Userbm updated successfully {} ", userbmDtoUpdated);
+
+        map.clear();
+        map.put("status", HttpStatus.OK);
+        map.put("message", "Userbm updated successfully");
+        map.put("data", userbmDtoUpdated);
         map.put("cause", "RAS");
         return new ResponseEntity(map, HttpStatus.OK);
     }

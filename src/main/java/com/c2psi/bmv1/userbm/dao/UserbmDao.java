@@ -1,6 +1,6 @@
-package com.c2psi.bmv1.userbm.dao;
+package com.c2psi.bmv1.pos.pos.controllers.userbm.dao;
 
-import com.c2psi.bmv1.userbm.models.Userbm;
+import com.c2psi.bmv1.pos.pos.controllers.userbm.models.Userbm;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;

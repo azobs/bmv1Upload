@@ -1,7 +1,7 @@
-package com.c2psi.bmv1.userbm.mappers;
+package com.c2psi.bmv1.pos.pos.controllers.userbm.mappers;
 
 import com.c2psi.bmv1.dto.UserbmDto;
-import com.c2psi.bmv1.userbm.models.Userbm;
+import com.c2psi.bmv1.pos.pos.controllers.userbm.models.Userbm;
 import org.mapstruct.*;
 
 import java.util.List;

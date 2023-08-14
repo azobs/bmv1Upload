@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Field;
 import java.time.DateTimeException;
@@ -30,6 +31,19 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class AppService {
+
+    public Boolean isBlankValueIfNotNull(String value){
+        if(value != null){
+            if (!StringUtils.hasLength(value)) {
+                //log.warn("String {} is empty", value);
+                return true;
+            } else if (!StringUtils.hasLength(value.trim())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Integer convertToInteger(String filterValue){
         try{
             return Integer.valueOf(filterValue);

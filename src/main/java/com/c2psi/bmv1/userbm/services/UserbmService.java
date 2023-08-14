@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.userbm.services;
 
 import com.c2psi.bmv1.dto.*;
-import com.c2psi.bmv1.userbm.models.Userbm;
-import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
 

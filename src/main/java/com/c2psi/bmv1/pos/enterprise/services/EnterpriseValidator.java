@@ -1,10 +1,10 @@
 package com.c2psi.bmv1.pos.enterprise.services;
 
+import com.c2psi.bmv1.bmapp.annotations.BmNotBlank;
 import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.Filter;
 import com.c2psi.bmv1.dto.Orderby;
 import com.c2psi.bmv1.pos.enterprise.models.Enterprise;
-import com.c2psi.bmv1.userbm.models.Userbm;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
@@ -14,6 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -39,6 +41,9 @@ public class EnterpriseValidator {
                 errors.add(contraintes.getMessage());
             }
         }
+
+        errors.addAll(this.validateStringofBm(enterprise));
+
         return errors;
     }
 
@@ -46,6 +51,35 @@ public class EnterpriseValidator {
         List<Field> enterpriseFields = Arrays.stream(Enterprise.class.getDeclaredFields()).toList();
         List<Field> enterpriseInheritFields = Arrays.stream(Enterprise.class.getSuperclass().getDeclaredFields()).toList();
         return appService.checkColumnList(filterList, sortCriterias, enterpriseFields, enterpriseInheritFields);
+    }
+
+
+    private List<String> validateStringofBm(Enterprise enterprise) {
+        List<String> errors = new ArrayList<>();
+
+        for(Method method : enterprise.getClass().getDeclaredMethods()){
+            if(method.isAnnotationPresent(BmNotBlank.class)){
+                BmNotBlank bmNotBlank = method.getAnnotation(BmNotBlank.class);
+                String message = bmNotBlank.message();
+                try {
+                    Object objectValueSent = method.invoke(enterprise);
+                    if(objectValueSent instanceof String stringValueSent){
+                        /***
+                         * On se rassure que la chaine saisi une fois non null n'est ni empty ni blank
+                         * et ensuite que sa taille est comprise entre le min et le max defini
+                         * */
+                        if(appService.isBlankValueIfNotNull(stringValueSent)) {
+                            errors.add(message);
+                        }
+                    }
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException("Access denied to this method due to encapsulation");
+                } catch (InvocationTargetException e) {
+                    throw new RuntimeException("InvocationTargetException");
+                }
+            }
+        }
+        return errors;
     }
 
 }

@@ -1,14 +1,5 @@
-package com.c2psi.bmv1.userbm.Draft;
+package com.c2psi.bmv1.pos.pos.controllers.userbm.Draft;
 
-
-import com.c2psi.bmv1.bmapp.exceptions.InvalidFilterOperatorException;
-import com.c2psi.bmv1.dto.Filter;
-import com.c2psi.bmv1.userbm.models.Userbm;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.Predicate;
-import jakarta.persistence.criteria.Root;
-
-import java.lang.reflect.Field;
 
 public class Draft {
     /**********************************************

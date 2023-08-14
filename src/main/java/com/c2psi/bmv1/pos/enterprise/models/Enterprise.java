@@ -1,5 +1,6 @@
 package com.c2psi.bmv1.pos.enterprise.models;
 
+import com.c2psi.bmv1.bmapp.annotations.BmNotBlank;
 import com.c2psi.bmv1.bmapp.models.AbstractEntity;
 import com.c2psi.bmv1.bmapp.enumerations.EntRegimeEnum;
 import jakarta.persistence.*;
@@ -28,13 +29,13 @@ import java.time.LocalDateTime;
 public class Enterprise /*extends AbstractEntity*/ {
     @NotNull(message = "An enterprise regime can't be null value")
     EntRegimeEnum entRegime;
-    @NotBlank(message = "A Niu can't be blank value")
+//    @NotBlank(message = "A Niu can't be blank value")
     @Size(max = 30, message = "An enterprise social reason must have at most 30 characters")
     String entSocialreason;
-    @NotBlank(message = "A Niu can't be blank value")
+//    @NotBlank(message = "A Niu can't be blank value")
     @Size(max = 256, message = "An enterprise description must have at most 256 characters")
     String entDescription;
-    @NotBlank(message = "A Niu can't be blank value")
+//    @NotBlank(message = "A Niu can't be blank value")
     @Size(min = 3, max = 15, message = "A Niu must have at least 3 and at most 15 characters")
     @Column(unique = true)
     String entNiu;
@@ -48,7 +49,7 @@ public class Enterprise /*extends AbstractEntity*/ {
     @NotBlank(message = "An enterprise acronym can't be blank value")
     @Size(min = 1, max = 15, message = "An enterprise acronym must have at least 3 and at most 15 characters")
     String entAcronym;
-    @NotBlank(message = "Logo name can't be blank value")
+//    @NotBlank(message = "Logo name can't be blank value")
     String entLogo;
 
 
@@ -72,4 +73,21 @@ public class Enterprise /*extends AbstractEntity*/ {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(name = "lastModifiedDate")
     private LocalDateTime lastModifiedDate;
+
+    @BmNotBlank
+    public String getEntSocialreason() {
+        return entSocialreason;
+    }
+    @BmNotBlank
+    public String getEntDescription() {
+        return entDescription;
+    }
+    @BmNotBlank
+    public String getEntNiu() {
+        return entNiu;
+    }
+    @BmNotBlank
+    public String getEntLogo() {
+        return entLogo;
+    }
 }

@@ -1,6 +1,5 @@
 package com.c2psi.bmv1.pos.pos.service;
 
-import com.c2psi.bmv1.address.mappers.AddressMapper;
 import com.c2psi.bmv1.address.services.AddressService;
 import com.c2psi.bmv1.bmapp.dto.BmPageDto;
 import com.c2psi.bmv1.bmapp.exceptions.*;
@@ -46,7 +45,7 @@ public class PointofsaleServiceImpl implements PointofsaleService{
     final EnterpriseService enterpriseService;
     final CurrencyMapper currencyMapper;
     final EnterpriseMapper enterpriseMapper;
-    final AddressMapper addressMapper;
+
 
 
 
@@ -166,19 +165,21 @@ public class PointofsaleServiceImpl implements PointofsaleService{
          * Si c'est l'email quon veut modifier on se rassurer
          * que lq contrainte d'unicite ne sera pas viole
          */
-        if (posToUpdate.getPosAddress().getEmail() != null && posDto.getPosAddress().getEmail() != null) {
-            if (!posToUpdate.getPosAddress().getEmail().equals(posDto.getPosAddress().getEmail())) {
-                if (!isPosEmailUsable(posDto.getPosAddress().getEmail())) {
-                    log.error("The email {} is already used", posDto.getPosAddress().getEmail());
-                    throw new DuplicateEntityException("L'adresse email envoye pour la mise a jour du  Pointofsale est deja utilise ",
-                            ErrorCode.POINTOFSALE_DUPLICATED.name());
-                }
-                //posToUpdate.getPosAddress().setEmail(posDto.getPosAddress().getEmail());
-                //On a un service qui va effectue la mise a jour d'une adresse
-                //Address addressUpdated = addressMapper.dtoToEntity(addressService.updateAddress(posDto.getPosAddress()));
-                addressService.updateAddress(posDto.getPosAddress());
-            }
-        }
+//        if (posToUpdate.getPosAddress().getEmail() != null && posDto.getPosAddress().getEmail() != null) {
+//            if (!posToUpdate.getPosAddress().getEmail().equals(posDto.getPosAddress().getEmail())) {
+//                if (!isPosEmailUsable(posDto.getPosAddress().getEmail())) {
+//                    log.error("The email {} is already used", posDto.getPosAddress().getEmail());
+//                    throw new DuplicateEntityException("L'adresse email envoye pour la mise a jour du  Pointofsale est deja utilise ",
+//                            ErrorCode.POINTOFSALE_DUPLICATED.name());
+//                }
+//                //posToUpdate.getPosAddress().setEmail(posDto.getPosAddress().getEmail());
+//                //On a un service qui va effectue la mise a jour d'une adresse
+//                //Address addressUpdated = addressMapper.dtoToEntity(addressService.updateAddress(posDto.getPosAddress()));
+//                addressService.updateAddress(posDto.getPosAddress());
+//            }
+//        }
+
+        addressService.updateAddress(posDto.getPosAddress());
 
         /**********************************************************
          * Si c'est le name ou l'acronym qu'on veut modifier

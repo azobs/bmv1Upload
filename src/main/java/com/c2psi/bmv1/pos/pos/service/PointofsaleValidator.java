@@ -1,6 +1,7 @@
 package com.c2psi.bmv1.pos.pos.service;
 
 import com.c2psi.bmv1.address.services.AddressValidator;
+import com.c2psi.bmv1.bmapp.annotations.BmNotBlank;
 import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.Filter;
 import com.c2psi.bmv1.dto.Orderby;
@@ -14,6 +15,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -44,8 +47,8 @@ public class PointofsaleValidator {
         /*************************************************
          * L'adresse du Pointofsale doit aussi etre valide
          */
-        log.info("Pos is  {}", pos);
-        log.info("Address of pos {}", pos.getPosAddress());
+//        log.info("Pos is  {}", pos);
+//        log.info("Address of pos {}", pos.getPosAddress());
         errors.addAll(addressValidator.validate(pos.getPosAddress()));
 
         /***************************************************************
@@ -67,6 +70,8 @@ public class PointofsaleValidator {
             errors.add("The id of the enterprise owner of the pointofsale can't be null");
         }
 
+        errors.addAll(this.validateStringofBm(pos));
+
         return errors;
     }
 
@@ -74,6 +79,34 @@ public class PointofsaleValidator {
         List<Field> posFields = Arrays.stream(Pointofsale.class.getDeclaredFields()).toList();
         List<Field> posInheritFields = Arrays.stream(Pointofsale.class.getSuperclass().getDeclaredFields()).toList();
         return appService.checkColumnList(filterList, sortCriterias, posFields, posInheritFields);
+    }
+
+    private List<String> validateStringofBm(Pointofsale pos) {
+        List<String> errors = new ArrayList<>();
+
+        for(Method method : pos.getClass().getDeclaredMethods()){
+            if(method.isAnnotationPresent(BmNotBlank.class)){
+                BmNotBlank bmNotBlank = method.getAnnotation(BmNotBlank.class);
+                String message = bmNotBlank.message();
+                try {
+                    Object objectValueSent = method.invoke(pos);
+                    if(objectValueSent instanceof String stringValueSent){
+                        /***
+                         * On se rassure que la chaine saisi une fois non null n'est ni empty ni blank
+                         * et ensuite que sa taille est comprise entre le min et le max defini
+                         * */
+                        if(appService.isBlankValueIfNotNull(stringValueSent)) {
+                            errors.add(message);
+                        }
+                    }
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException("Access denied to this method due to encapsulation");
+                } catch (InvocationTargetException e) {
+                    throw new RuntimeException("InvocationTargetException");
+                }
+            }
+        }
+        return errors;
     }
 
 }

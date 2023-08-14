@@ -1,6 +1,7 @@
 package com.c2psi.bmv1.pos.pos.models;
 
 import com.c2psi.bmv1.address.models.Address;
+import com.c2psi.bmv1.bmapp.annotations.BmNotBlank;
 import com.c2psi.bmv1.bmapp.models.AbstractEntity;
 import com.c2psi.bmv1.currency.models.Currency;
 import com.c2psi.bmv1.pos.enterprise.models.Enterprise;
@@ -40,7 +41,7 @@ public class Pointofsale /*extends AbstractEntity*/ {
     @Size(min = 1, max = 15, message = "A pos acronym must have at least 1 and at most 15 characters")
     @Column(nullable = false)
     String posAcronym;
-    @NotBlank(message = "A pos description can't be blank value")
+//    @NotBlank(message = "A pos description can't be blank value")
     @Size(max = 256, message = "A pos description must have at most 256 characters")
     String posDescription;
     @NotNull(message = "A pos balance can't be null value")
@@ -83,4 +84,10 @@ public class Pointofsale /*extends AbstractEntity*/ {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(name = "lastModifiedDate")
     private LocalDateTime lastModifiedDate;
+
+
+    @BmNotBlank
+    public String getPosDescription() {
+        return posDescription;
+    }
 }
