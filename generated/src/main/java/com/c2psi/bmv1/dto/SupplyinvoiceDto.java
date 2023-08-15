@@ -2,6 +2,7 @@ package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
 import com.c2psi.bmv1.dto.PointofsaleDto;
+import com.c2psi.bmv1.dto.ProviderDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -16,7 +17,7 @@ import javax.validation.constraints.*;
  * A Supply invoice in the system
  */
 @ApiModel(description = "A Supply invoice in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-13T03:59:42.033168+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
 public class SupplyinvoiceDto   {
   @JsonProperty("id")
   private Long id;
@@ -89,6 +90,9 @@ public class SupplyinvoiceDto   {
 
   @JsonProperty("siPos")
   private PointofsaleDto siPos;
+
+  @JsonProperty("siProvider")
+  private ProviderDto siProvider;
 
   public SupplyinvoiceDto id(Long id) {
     this.id = id;
@@ -316,6 +320,27 @@ public class SupplyinvoiceDto   {
     this.siPos = siPos;
   }
 
+  public SupplyinvoiceDto siProvider(ProviderDto siProvider) {
+    this.siProvider = siProvider;
+    return this;
+  }
+
+  /**
+   * Get siProvider
+   * @return siProvider
+  */
+  @ApiModelProperty(value = "")
+
+  @Valid
+
+  public ProviderDto getSiProvider() {
+    return siProvider;
+  }
+
+  public void setSiProvider(ProviderDto siProvider) {
+    this.siProvider = siProvider;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -336,12 +361,13 @@ public class SupplyinvoiceDto   {
         Objects.equals(this.siExpectedamount, supplyinvoiceDto.siExpectedamount) &&
         Objects.equals(this.siPaidamount, supplyinvoiceDto.siPaidamount) &&
         Objects.equals(this.siPaymentmethod, supplyinvoiceDto.siPaymentmethod) &&
-        Objects.equals(this.siPos, supplyinvoiceDto.siPos);
+        Objects.equals(this.siPos, supplyinvoiceDto.siPos) &&
+        Objects.equals(this.siProvider, supplyinvoiceDto.siProvider);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, siCode, siComment, siPicture, siDeliverydate, siInvoicingdate, siTotalcolis, siExpectedamount, siPaidamount, siPaymentmethod, siPos);
+    return Objects.hash(id, siCode, siComment, siPicture, siDeliverydate, siInvoicingdate, siTotalcolis, siExpectedamount, siPaidamount, siPaymentmethod, siPos, siProvider);
   }
 
   @Override
@@ -360,6 +386,7 @@ public class SupplyinvoiceDto   {
     sb.append("    siPaidamount: ").append(toIndentedString(siPaidamount)).append("\n");
     sb.append("    siPaymentmethod: ").append(toIndentedString(siPaymentmethod)).append("\n");
     sb.append("    siPos: ").append(toIndentedString(siPos)).append("\n");
+    sb.append("    siProvider: ").append(toIndentedString(siProvider)).append("\n");
     sb.append("}");
     return sb.toString();
   }

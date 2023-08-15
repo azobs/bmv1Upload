@@ -1,4 +1,4 @@
-package com.c2psi.bmv1.pos.pos.controllers.userbm.models;
+package com.c2psi.bmv1.userbm.models;
 
 import com.c2psi.bmv1.bmapp.annotations.BmNotBlank;
 import com.c2psi.bmv1.bmapp.models.AbstractEntity;

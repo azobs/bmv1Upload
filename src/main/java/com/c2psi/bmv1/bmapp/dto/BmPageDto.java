@@ -1,6 +1,6 @@
 package com.c2psi.bmv1.bmapp.dto;
 
-import com.c2psi.bmv1.dto.Page;
+import com.c2psi.bmv1.dto.Pagebm;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +17,7 @@ import java.util.Objects;
 public class BmPageDto {
     Integer pageNo = 0;
     Integer pageSize = 10;
-    public Pageable getPageable(Page dto) {
+    public Pageable getPageable(Pagebm dto) {
         Integer page = Objects.nonNull(dto.getPagenum()) ? dto.getPagenum() : this.pageNo;
         Integer size = Objects.nonNull(dto.getPagesize()) ? dto.getPagesize() : this.pageSize;
         PageRequest pageRequest = PageRequest.of(page, size);

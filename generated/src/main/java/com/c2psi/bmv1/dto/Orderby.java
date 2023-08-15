@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * Different sort criteria
  */
 @ApiModel(description = "Different sort criteria")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-13T03:59:42.033168+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
 public class Orderby   {
   @JsonProperty("sortColumn")
   private String sortColumn;

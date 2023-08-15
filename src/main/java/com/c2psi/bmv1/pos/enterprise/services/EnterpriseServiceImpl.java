@@ -263,7 +263,7 @@ public class EnterpriseServiceImpl implements EnterpriseService{
         /*****************************************************************
          * On prepare un element page de notre bmapp
          */
-        com.c2psi.bmv1.dto.Page page = new com.c2psi.bmv1.dto.Page();
+        Pagebm pagebm = new Pagebm();
         /***********************************************
          * On declare une page pour notre element
          */
@@ -273,9 +273,9 @@ public class EnterpriseServiceImpl implements EnterpriseService{
          * page par page. On va donc retourner la page 0 avec une taille de 10 pour la page
          */
         if(filterRequest == null){
-            page.setPagenum(0);
-            page.setPagesize(10);
-            Pageable pageable = new BmPageDto().getPageable(page);
+            pagebm.setPagenum(0);
+            pagebm.setPagesize(10);
+            Pageable pageable = new BmPageDto().getPageable(pagebm);
             enterprisePage = enterpriseDao.findAll(pageable);
             return getPageofEnterpriseDto(enterprisePage);
         }
@@ -286,9 +286,9 @@ public class EnterpriseServiceImpl implements EnterpriseService{
              * page numero 0 et taille de page 10
              */
             if(filterRequest.getPage() == null){
-                page.setPagenum(0);
-                page.setPagesize(10);
-                filterRequest.setPage(page);
+                pagebm.setPagenum(0);
+                pagebm.setPagesize(10);
+                filterRequest.setPage(pagebm);
             }
 
             /**************************************************************************************
@@ -354,6 +354,7 @@ public class EnterpriseServiceImpl implements EnterpriseService{
         pageofEnterpriseDto.setTotalPages(enterprisePage.getTotalPages());
 
         return pageofEnterpriseDto;
+
     }
 
 }

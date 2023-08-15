@@ -1,4 +1,4 @@
-package com.c2psi.bmv1.pos.pos.controllers.userbm.errorCode;
+package com.c2psi.bmv1.userbm.errorCode;
 
 public enum ErrorCode {
     USERBM_NOT_VALID(401),

@@ -6,10 +6,10 @@ import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.*;
 import com.c2psi.bmv1.bmapp.dto.BmPageDto;
 import com.c2psi.bmv1.bmapp.exceptions.*;
-import com.c2psi.bmv1.pos.pos.controllers.userbm.dao.UserbmDao;
-import com.c2psi.bmv1.pos.pos.controllers.userbm.errorCode.ErrorCode;
-import com.c2psi.bmv1.pos.pos.controllers.userbm.mappers.UserbmMapper;
-import com.c2psi.bmv1.pos.pos.controllers.userbm.models.Userbm;
+import com.c2psi.bmv1.userbm.errorCode.ErrorCode;
+import com.c2psi.bmv1.userbm.mappers.UserbmMapper;
+import com.c2psi.bmv1.userbm.dao.UserbmDao;
+import com.c2psi.bmv1.userbm.models.Userbm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -132,13 +132,14 @@ public class UserbmServiceImpl implements UserbmService{
             if(userSurname != null && userDob != null){
                 Optional<Userbm>  optionalUserbm = userbmDao.findUserbmByFullname(userName, userSurname, userDob);
                 return optionalUserbm.isEmpty();
-            } else if (userSurname != null) {
-                Optional<List<Userbm>> optionalUserbmList = userbmDao.findUserbmByFullname(userName, userSurname);
+            } else if (userDob != null) {
+                Optional<List<Userbm>> optionalUserbmList = userbmDao.findUserbmByFullname(userName, userDob);
                 if(optionalUserbmList.isPresent()){
                     return optionalUserbmList.get().size() < 1;
                 }
-            } else {
-                Optional<List<Userbm>> optionalUserbmList = userbmDao.findUserbmByFullname(userName, userDob);
+            }
+            else {
+                Optional<List<Userbm>> optionalUserbmList = userbmDao.findUserbmByFullname(userName);
                 if(optionalUserbmList.isPresent()){
                     return optionalUserbmList.get().size() < 1;
                 }
@@ -194,61 +195,94 @@ public class UserbmServiceImpl implements UserbmService{
          */
         if(userbmDto.getUserCni() != null){
             if(userbmToUpdate.getUserCni() != null){
-                if(!isCniUsable(userbmDto.getUserCni())){
-                    throw new DuplicateEntityException("Le nouveau cni number envoye existe deja en BD",
-                            ErrorCode.USERBM_DUPLICATED.name());
-                }
-                //userbmToUpdate.setUserCni(userbmDto.getUserCni());
-            }
-            userbmToUpdate.setUserCni(userbmDto.getUserCni());
-        }
-
-        /****************************************************************************
-         * Si c'est le nom ou le prenom ou alors la date de naissance
-         * qu'on veut modifier alors on se rassure que l'unicite ne sera pas viole
-         */
-        if(userbmToUpdate.getUserName() != null && userbmDto.getUserName() != null){
-            if(!userbmToUpdate.getUserName().equalsIgnoreCase(userbmDto.getUserName())){
-                if(!isFullnameUsable(userbmDto.getUserName(), userbmDto.getUserSurname(), userbmDto.getUserDob())){
-                    throw new DuplicateEntityException("Un userbm existe deja avec le meme nom, le meme prenom et la " +
-                            "meme date de naissance ", ErrorCode.USERBM_DUPLICATED.name());
+                if(!userbmDto.getUserCni().equalsIgnoreCase(userbmToUpdate.getUserCni())) {
+                    if (!isCniUsable(userbmDto.getUserCni())) {
+                        throw new DuplicateEntityException("Le nouveau cni number envoye existe deja en BD",
+                                ErrorCode.USERBM_DUPLICATED.name());
+                    }
+                    userbmToUpdate.setUserCni(userbmDto.getUserCni());
                 }
             }
-            userbmToUpdate.setUserName(userbmDto.getUserName());
-            if(userbmDto.getUserSurname() != null) {
-                userbmToUpdate.setUserSurname(userbmDto.getUserSurname());
-            }
-            if(userbmDto.getUserDob() != null) {
-                userbmToUpdate.setUserDob(userbmDto.getUserDob());
-            }
+            //userbmToUpdate.setUserCni(userbmDto.getUserCni());
         }
 
         /*******************************************************************
          * Si c'est le login qu'on veut modifier alors on se rassure que
          * l'unicite ne sera pas viole
          */
-        if(userbmDto.getUserLogin() != null && userbmToUpdate.getUserLogin() != null){
-            if(!userbmDto.getUserLogin().equalsIgnoreCase(userbmToUpdate.getUserLogin())){
-                if(!isLoginUsable(userbmDto.getUserLogin())){
-                    throw new DuplicateEntityException("Un userbm existe deja avec le meme login ",
-                            ErrorCode.USERBM_DUPLICATED.name());
+
+        if(userbmDto.getUserLogin() != null){
+            if(userbmToUpdate.getUserLogin() != null){
+                if(!userbmDto.getUserLogin().equalsIgnoreCase(userbmToUpdate.getUserLogin())){
+                    if(!isLoginUsable(userbmDto.getUserLogin())){
+                        throw new DuplicateEntityException("Un userbm existe deja avec le meme login ",
+                                ErrorCode.USERBM_DUPLICATED.name());
+                    }
+                    userbmToUpdate.setUserLogin(userbmDto.getUserLogin());
                 }
             }
-            userbmToUpdate.setUserLogin(userbmDto.getUserLogin());
         }
+
+        /****************************************************************************
+         * Si c'est le nom ou le prenom ou alors la date de naissance
+         * qu'on veut modifier alors on se rassure que l'unicite ne sera pas viole
+         */
+
+        if(userbmDto.getUserName() != null){
+            if(userbmToUpdate.getUserName() != null){
+                if(!userbmDto.getUserName().equalsIgnoreCase(userbmToUpdate.getUserName())){
+                    if(!isFullnameUsable(userbmDto.getUserName(), userbmDto.getUserSurname(), userbmDto.getUserDob())){
+                        throw new DuplicateEntityException("Un userbm existe deja avec le meme nom, le meme prenom et la " +
+                                "meme date de naissance ", ErrorCode.USERBM_DUPLICATED.name());
+                    }
+                    userbmToUpdate.setUserName(userbmDto.getUserName());
+                }
+            }
+        }
+
+        if(userbmDto.getUserSurname() != null){
+            if(userbmToUpdate.getUserSurname() != null){
+                if(!userbmDto.getUserSurname().equalsIgnoreCase(userbmToUpdate.getUserSurname())){
+                    if(!isFullnameUsable(userbmDto.getUserName(), userbmDto.getUserSurname(), userbmDto.getUserDob())){
+                        throw new DuplicateEntityException("Un userbm existe deja avec le meme nom, le meme prenom et la " +
+                                "meme date de naissance ", ErrorCode.USERBM_DUPLICATED.name());
+                    }
+                    userbmToUpdate.setUserSurname(userbmDto.getUserSurname());
+                }
+            }
+            else{
+                if(!isFullnameUsable(userbmDto.getUserName(), userbmDto.getUserSurname(), userbmDto.getUserDob())){
+                    throw new DuplicateEntityException("Un userbm existe deja avec le meme nom, le meme prenom et la " +
+                            "meme date de naissance ", ErrorCode.USERBM_DUPLICATED.name());
+                }
+                userbmToUpdate.setUserSurname(userbmDto.getUserSurname());
+            }
+        }
+
+        if(userbmDto.getUserDob() != null){
+            if(userbmToUpdate.getUserDob() != null){
+                if(!userbmDto.getUserDob().isEqual(userbmToUpdate.getUserDob())){
+                    if(!isFullnameUsable(userbmDto.getUserName(), userbmDto.getUserSurname(), userbmDto.getUserDob())){
+                        throw new DuplicateEntityException("Un userbm existe deja avec le meme nom, le meme prenom et la " +
+                                "meme date de naissance ", ErrorCode.USERBM_DUPLICATED.name());
+                    }
+                    userbmToUpdate.setUserDob(userbmDto.getUserDob());
+                }
+            }
+            else{
+                if(!isFullnameUsable(userbmDto.getUserName(), userbmDto.getUserSurname(), userbmDto.getUserDob())){
+                    throw new DuplicateEntityException("Un userbm existe deja avec le meme nom, le meme prenom et la " +
+                            "meme date de naissance ", ErrorCode.USERBM_DUPLICATED.name());
+                }
+                userbmToUpdate.setUserDob(userbmDto.getUserDob());
+            }
+        }
+
 
         /******************************************************************
          * On met a jour l'adresse qui va lancer une exception au cas ou
          */
-        /*if(userbmDto.getUserAddress().getEmail() != null){
-            if(userbmToUpdate.getUserAddress().getEmail() != null){
-                if(!isAddressUsable(userbmDto.getUserAddress().getEmail())){
-                    throw new DuplicateEntityException("Le userbm email envoye est deja utilise",
-                            ErrorCode.USERBM_DUPLICATED.name());
-                }
-            }
-            userbmToUpdate.getUserAddress().setEmail(userbmDto.getUserAddress().getEmail());
-        }*/
+
         addressService.updateAddress(userbmDto.getUserAddress());
 
         /**********************************************************
@@ -277,7 +311,7 @@ public class UserbmServiceImpl implements UserbmService{
                 return UserStateEnum.Disconnected;
             }
         }
-        return null;
+        throw new EnumNonConvertibleException("La valeur envoye ne peut etre convertit en UserStateEnum");
     }
 
     UserbmDto.UserStateEnum convert(UserStateEnum userStateEnum){
@@ -295,7 +329,7 @@ public class UserbmServiceImpl implements UserbmService{
                 return UserbmDto.UserStateEnum.DISCONNECTED;
             }
         }
-        return null;
+        throw new EnumNonConvertibleException("La valeur envoye ne peut etre convertit en UserbmDto.UserStateEnum");
     }
 
     @Override
@@ -404,21 +438,21 @@ public class UserbmServiceImpl implements UserbmService{
     @Override
     public PageofUserbmDto getPageofUserbm(FilterRequest filterRequest) {
 
-        com.c2psi.bmv1.dto.Page page = new com.c2psi.bmv1.dto.Page();
+        Pagebm pagebm = new Pagebm();
         Page<Userbm> userbmPage = null;
         if(filterRequest == null){
-            page.setPagenum(0);
-            page.setPagesize(1);
-            Pageable pageable = new BmPageDto().getPageable(page);
+            pagebm.setPagenum(0);
+            pagebm.setPagesize(1);
+            Pageable pageable = new BmPageDto().getPageable(pagebm);
             userbmPage = userbmDao.findAll(pageable);
             //log.error("dsdsds {}", userbmPage.getTotalElements());
             return getPageofUserbmDto(userbmPage);
         }
         else{
             if(filterRequest.getPage() == null){
-                page.setPagenum(0);
-                page.setPagesize(1);
-                filterRequest.setPage(page);
+                pagebm.setPagenum(0);
+                pagebm.setPagesize(1);
+                filterRequest.setPage(pagebm);
             }
 
             if(filterRequest.getFilters() == null && filterRequest.getOrderby() == null){

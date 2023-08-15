@@ -8,6 +8,7 @@ import com.c2psi.bmv1.currency.mappers.CurrencyMapper;
 import com.c2psi.bmv1.currency.models.Currency;
 import com.c2psi.bmv1.dto.CurrencyDto;
 import com.c2psi.bmv1.dto.FilterRequest;
+import com.c2psi.bmv1.dto.Pagebm;
 import com.c2psi.bmv1.dto.PageofCurrencyDto;
 import com.c2psi.bmv1.currency.errorCode.ErrorCode;
 import lombok.RequiredArgsConstructor;
@@ -237,43 +238,42 @@ public class CurrencyServiceImpl implements CurrencyService{
 
     @Override
     public PageofCurrencyDto getPageofCurrency(FilterRequest filterRequest) {
-        /*****************************************************************
-         * On prepare un element page de notre bmapp
+        /*********************************************************************
+         * On prepare un element pagebm de notre bmapp
          */
-        com.c2psi.bmv1.dto.Page page = new com.c2psi.bmv1.dto.Page();
-        /***********************************************
-         * On declare une page pour notre element
+        Pagebm pagebm = new Pagebm();
+        /*********************************************************************
+         * On declare un objet Page de spring
          */
         Page<Currency> currencyPage = null;
-
-        /***************************************************************************************
-         * Si le filterRequest envoye est null alors c'est le findAll qu'on retourne
-         * page par page. On va donc retourner la page 0 avec une taille de 10 pour la page
+        /*************************************************************************
+         * Si le filterRequest envoye est null alors c'est le findAll qu'on
+         * retourne page par page. On va donc retourner la page 0 avec une taille
+         * de 10 pour la page
          */
         if(filterRequest == null){
-            page.setPagenum(0);
-            page.setPagesize(10);
-            Pageable pageable = new BmPageDto().getPageable(page);
+            pagebm.setPagenum(0);
+            pagebm.setPagesize(10);
+            Pageable pageable = new BmPageDto().getPageable(pagebm);
             currencyPage = currencyDao.findAll(pageable);
             return getPageofCurrencyDto(currencyPage);
         }
         else{
-            /*************************************************************************************
+            /*******************************************************************************************************
              * Si le filterRequest envoye n'est pas null mais que l'element pas indiquant le numero
              * et la taille de page voulu est null alors on assigne des valeurs par defaut soit
              * page numero 0 et taille de page 10
              */
             if(filterRequest.getPage() == null){
-                page.setPagenum(0);
-                page.setPagesize(10);
-                filterRequest.setPage(page);
+               pagebm.setPagenum(0);
+               pagebm.setPagesize(10);
+               filterRequest.setPage(pagebm);
             }
 
-            /**************************************************************************************
+            /***********************************************************************************************
              * Si dans le filterRequest envoye les filtres et les elements de tri sont null alors
              * on retourne le findAll page par page.
              */
-
             if(filterRequest.getFilters() == null && filterRequest.getOrderby() == null){
                 Pageable pageable = new BmPageDto().getPageable(filterRequest.getPage());
                 currencyPage = currencyDao.findAll(pageable);
@@ -284,7 +284,6 @@ public class CurrencyServiceImpl implements CurrencyService{
              * Si dans le filterRequest envoye les filtres sont nuls et les elements de tri sont non null alors
              * on retourne le findAll page par page trie selon les elements de tri envoye.
              */
-
             if(filterRequest.getFilters() == null && filterRequest.getOrderby() != null){
                 Sort sort = appService.getSortOrders(filterRequest.getOrderby());
                 Pageable pageable = PageRequest.of(filterRequest.getPage().getPagenum(),
@@ -292,7 +291,6 @@ public class CurrencyServiceImpl implements CurrencyService{
                 currencyPage = currencyDao.findAll(pageable);
                 return getPageofCurrencyDto(currencyPage);
             }
-
             /*********************************************************************************************
              * Si l'operateur logique permettant de lier les filtres est null et que la liste des filtres
              * contient plus d'un filtre alors il ya un probleme dans les parametres
@@ -305,12 +303,12 @@ public class CurrencyServiceImpl implements CurrencyService{
              * On peut ici lancer une recherche selon les filtres envoyes, les classer selon les elements de tri
              * et ensuite la page demande
              */
-            Specification<Currency> currencySpecification = currencySpecService.getCurrencySpecification(filterRequest.getFilters(),
-                    filterRequest.getLogicOperator(), filterRequest.getOrderby());
+            Specification<Currency> currencySpecification = currencySpecService.
+                    getCurrencySpecification(filterRequest.getFilters(), filterRequest.getLogicOperator(),
+                            filterRequest.getOrderby());
             Pageable pageable = new BmPageDto().getPageable(filterRequest.getPage());
             currencyPage = currencyDao.findAll(currencySpecification, pageable);
             return getPageofCurrencyDto(currencyPage);
-
         }
     }
 

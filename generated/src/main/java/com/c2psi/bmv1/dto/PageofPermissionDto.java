@@ -15,10 +15,10 @@ import javax.validation.constraints.*;
 /**
  * PageofPermissionDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-13T03:59:42.033168+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
 public class PageofPermissionDto   {
   @JsonProperty("totalElements")
-  private Integer totalElements;
+  private Long totalElements;
 
   @JsonProperty("totalPages")
   private Integer totalPages;
@@ -33,7 +33,7 @@ public class PageofPermissionDto   {
   @Valid
   private List<PermissionDto> content = null;
 
-  public PageofPermissionDto totalElements(Integer totalElements) {
+  public PageofPermissionDto totalElements(Long totalElements) {
     this.totalElements = totalElements;
     return this;
   }
@@ -45,11 +45,11 @@ public class PageofPermissionDto   {
   @ApiModelProperty(value = "")
 
 
-  public Integer getTotalElements() {
+  public Long getTotalElements() {
     return totalElements;
   }
 
-  public void setTotalElements(Integer totalElements) {
+  public void setTotalElements(Long totalElements) {
     this.totalElements = totalElements;
   }
 

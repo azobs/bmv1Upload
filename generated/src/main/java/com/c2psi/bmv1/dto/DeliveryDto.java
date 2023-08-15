@@ -17,7 +17,7 @@ import javax.validation.constraints.*;
  * A Delivery in the system which can contain multiple command
  */
 @ApiModel(description = "A Delivery in the system which can contain multiple command")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-13T03:59:42.033168+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
 public class DeliveryDto   {
   @JsonProperty("id")
   private Long id;

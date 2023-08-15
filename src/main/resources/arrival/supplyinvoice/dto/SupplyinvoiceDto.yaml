@@ -43,4 +43,7 @@ properties:
   siPos:
     type: object
     $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  siProvider:
+    type: object
+    $ref: '../../../provider/provider/dto/ProviderDto.yaml'
   

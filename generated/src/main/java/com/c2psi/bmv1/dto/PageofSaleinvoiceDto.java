@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 /**
  * PageofSaleinvoiceDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-13T03:59:42.033168+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
 public class PageofSaleinvoiceDto   {
   @JsonProperty("totalElements")
   private Long totalElements;

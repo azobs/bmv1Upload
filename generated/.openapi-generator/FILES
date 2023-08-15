@@ -68,7 +68,7 @@ src/main/java/com/c2psi/bmv1/dto/OperationDto.java
 src/main/java/com/c2psi/bmv1/dto/Orderby.java
 src/main/java/com/c2psi/bmv1/dto/PackagingDto.java
 src/main/java/com/c2psi/bmv1/dto/PackagingdetailsDto.java
-src/main/java/com/c2psi/bmv1/dto/Page.java
+src/main/java/com/c2psi/bmv1/dto/Pagebm.java
 src/main/java/com/c2psi/bmv1/dto/PageofAccountDto.java
 src/main/java/com/c2psi/bmv1/dto/PageofAccountOperationDto.java
 src/main/java/com/c2psi/bmv1/dto/PageofArrivalDto.java

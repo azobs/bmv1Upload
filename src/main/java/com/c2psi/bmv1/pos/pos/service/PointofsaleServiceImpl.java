@@ -8,6 +8,7 @@ import com.c2psi.bmv1.currency.mappers.CurrencyMapper;
 import com.c2psi.bmv1.currency.models.Currency;
 import com.c2psi.bmv1.currency.services.CurrencyService;
 import com.c2psi.bmv1.dto.FilterRequest;
+import com.c2psi.bmv1.dto.Pagebm;
 import com.c2psi.bmv1.dto.PageofPointofsaleDto;
 import com.c2psi.bmv1.dto.PointofsaleDto;
 import com.c2psi.bmv1.pos.enterprise.mappers.EnterpriseMapper;
@@ -91,6 +92,9 @@ public class PointofsaleServiceImpl implements PointofsaleService{
          * The method isCurrencyExistWith return true if the currency exist. then the negation
          * of true is false and then the execption can't be throw
          */
+        if(posDto.getPosCurrency().getId() == null){
+            throw new NullValueException("L'id du currency associe au Pointofsale ne peut etre null");
+        }
         if(!currencyService.isCurrencyExistWith(posDto.getPosCurrency().getId())){
             throw new ModelNotFoundException("Le currency indique pour le pointofsale n'existe pas en BD: Verifier " +
                     "l'id indique. Le pointofsale n'est donc pas valide ", ErrorCode.POINTOFSALE_NOT_VALID.name());
@@ -101,6 +105,9 @@ public class PointofsaleServiceImpl implements PointofsaleService{
          *On se rassure que l'id precise pour l'entreprise  identifie bel et bien
          * une entreprise en BD
          */
+        if(posDto.getPosEnterprise().getId() == null){
+            throw new NullValueException("L'id de l'entreprise associe au Pointofsale ne peut etre null");
+        }
         if(!enterpriseService.isEnterpriseExistWith(posDto.getPosEnterprise().getId())){
             throw new ModelNotFoundException("L'entreprise indique pour le pointofsale n'existe pas en BD: Verifier " +
                     "l'id indique. Le pointofsale n'est donc pas valide ", ErrorCode.POINTOFSALE_NOT_VALID.name());
@@ -165,19 +172,6 @@ public class PointofsaleServiceImpl implements PointofsaleService{
          * Si c'est l'email quon veut modifier on se rassurer
          * que lq contrainte d'unicite ne sera pas viole
          */
-//        if (posToUpdate.getPosAddress().getEmail() != null && posDto.getPosAddress().getEmail() != null) {
-//            if (!posToUpdate.getPosAddress().getEmail().equals(posDto.getPosAddress().getEmail())) {
-//                if (!isPosEmailUsable(posDto.getPosAddress().getEmail())) {
-//                    log.error("The email {} is already used", posDto.getPosAddress().getEmail());
-//                    throw new DuplicateEntityException("L'adresse email envoye pour la mise a jour du  Pointofsale est deja utilise ",
-//                            ErrorCode.POINTOFSALE_DUPLICATED.name());
-//                }
-//                //posToUpdate.getPosAddress().setEmail(posDto.getPosAddress().getEmail());
-//                //On a un service qui va effectue la mise a jour d'une adresse
-//                //Address addressUpdated = addressMapper.dtoToEntity(addressService.updateAddress(posDto.getPosAddress()));
-//                addressService.updateAddress(posDto.getPosAddress());
-//            }
-//        }
 
         addressService.updateAddress(posDto.getPosAddress());
 
@@ -329,7 +323,7 @@ public class PointofsaleServiceImpl implements PointofsaleService{
         /*****************************************************************
          * On prepare un element page de notre bmapp
          */
-        com.c2psi.bmv1.dto.Page page = new com.c2psi.bmv1.dto.Page();
+        Pagebm pagebm = new Pagebm();
         /***********************************************
          * On declare une page pour notre element
          */
@@ -339,9 +333,9 @@ public class PointofsaleServiceImpl implements PointofsaleService{
          * page par page. On va donc retourner la page 0 avec une taille de 10 pour la page
          */
         if(filterRequest == null){
-            page.setPagenum(0);
-            page.setPagesize(10);
-            Pageable pageable = new BmPageDto().getPageable(page);
+            pagebm.setPagenum(0);
+            pagebm.setPagesize(10);
+            Pageable pageable = new BmPageDto().getPageable(pagebm);
             posPage = posDao.findAll(pageable);
             return getPageofPosDto(posPage);
         }
@@ -352,9 +346,9 @@ public class PointofsaleServiceImpl implements PointofsaleService{
              * page numero 0 et taille de page 10
              */
             if(filterRequest.getPage() == null){
-                page.setPagenum(0);
-                page.setPagesize(10);
-                filterRequest.setPage(page);
+                pagebm.setPagenum(0);
+                pagebm.setPagesize(10);
+                filterRequest.setPage(pagebm);
             }
 
             /**************************************************************************************
@@ -403,12 +397,26 @@ public class PointofsaleServiceImpl implements PointofsaleService{
     }
 
     @Override
-    public Boolean isEnterpriseExistWith(Long id) {
+    public Boolean isPointofsaleExistWith(Long id) {
         if(id == null){
             return false;
         }
         Optional<Pointofsale> optionalPointofsale = posDao.findPointofsaleById(id);
         return optionalPointofsale.isPresent();
+    }
+
+    @Override
+    public List<PointofsaleDto> getPointofsaleList(Long entId) {
+        if(entId == null){
+            throw new NullValueException("The enterprise id sent is null");
+        }
+
+        Optional<List<Pointofsale>> optionalPointofsaleList = posDao.findPosListofEnterprise(entId);
+        if(!optionalPointofsaleList.isPresent()){
+            throw new ModelNotFoundException("La liste des pointofsale ne peut etre retrouve en BD",
+                    ErrorCode.POINTOFSALE_NOT_FOUND.name());
+        }
+        return posMapper.entityToDto(optionalPointofsaleList.get());
     }
 
 

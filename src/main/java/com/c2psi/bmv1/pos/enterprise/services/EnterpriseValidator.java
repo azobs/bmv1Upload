@@ -29,6 +29,10 @@ public class EnterpriseValidator {
     public List<String> validate(Enterprise enterprise){
         List<String> errors = new ArrayList<>();
 
+        if(enterprise == null){
+            errors.add("The enterprise to validate can't be null");
+        }
+
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
 

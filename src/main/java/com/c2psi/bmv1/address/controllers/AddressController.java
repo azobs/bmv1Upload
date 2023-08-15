@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@RestController
+//@RestController
 @Slf4j
 @RequiredArgsConstructor
 public class AddressController implements AddressApi {

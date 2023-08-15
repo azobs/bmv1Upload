@@ -10,17 +10,17 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * Page
+ * Pagebm
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-13T03:59:42.033168+01:00[Africa/Douala]")
-public class Page   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+public class Pagebm   {
   @JsonProperty("pagenum")
   private Integer pagenum;
 
   @JsonProperty("pagesize")
   private Integer pagesize;
 
-  public Page pagenum(Integer pagenum) {
+  public Pagebm pagenum(Integer pagenum) {
     this.pagenum = pagenum;
     return this;
   }
@@ -41,7 +41,7 @@ public class Page   {
     this.pagenum = pagenum;
   }
 
-  public Page pagesize(Integer pagesize) {
+  public Pagebm pagesize(Integer pagesize) {
     this.pagesize = pagesize;
     return this;
   }
@@ -71,9 +71,9 @@ public class Page   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Page page = (Page) o;
-    return Objects.equals(this.pagenum, page.pagenum) &&
-        Objects.equals(this.pagesize, page.pagesize);
+    Pagebm pagebm = (Pagebm) o;
+    return Objects.equals(this.pagenum, pagebm.pagenum) &&
+        Objects.equals(this.pagesize, pagebm.pagesize);
   }
 
   @Override
@@ -84,7 +84,7 @@ public class Page   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Page {\n");
+    sb.append("class Pagebm {\n");
     
     sb.append("    pagenum: ").append(toIndentedString(pagenum)).append("\n");
     sb.append("    pagesize: ").append(toIndentedString(pagesize)).append("\n");

@@ -31,6 +31,10 @@ public class PointofsaleValidator {
     public List<String> validate(Pointofsale pos){
         List<String> errors = new ArrayList<>();
 
+        if(pos == null){
+            errors.add("The pos to validate can't be null");
+        }
+
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
 
@@ -47,9 +51,11 @@ public class PointofsaleValidator {
         /*************************************************
          * L'adresse du Pointofsale doit aussi etre valide
          */
-//        log.info("Pos is  {}", pos);
-//        log.info("Address of pos {}", pos.getPosAddress());
+        if(pos.getPosAddress() == null){
+            errors.add("The address of pos to validate can't be null");
+        }
         errors.addAll(addressValidator.validate(pos.getPosAddress()));
+
 
         /***************************************************************
          * Le currency par defaut ne doit pas etre null et

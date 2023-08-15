@@ -5,7 +5,7 @@ import com.c2psi.bmv1.bmapp.annotations.BmNotBlank;
 import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.Filter;
 import com.c2psi.bmv1.dto.Orderby;
-import com.c2psi.bmv1.pos.pos.controllers.userbm.models.Userbm;
+import com.c2psi.bmv1.userbm.models.Userbm;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
@@ -30,6 +30,10 @@ public class UserbmValidator {
     final AddressValidator addressValidator;
     public List<String> validate(Userbm userbm){
         List<String> errors = new ArrayList<>();
+
+        if(userbm == null){
+            errors.add("The userbm to validate can't be null");
+        }
 
         if(userbm.getUserAddress() == null){
             errors.add("Address of User can't be null");

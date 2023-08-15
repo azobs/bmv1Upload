@@ -25,6 +25,11 @@ public class CurrencyValidator {
     final AppService appService;
     public List<String> validate(Currency currency) {
         List<String> errors = new ArrayList<>();
+
+        if(currency == null){
+            errors.add("The currency to validate can't be null");
+        }
+
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
 

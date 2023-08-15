@@ -3,7 +3,7 @@ package com.c2psi.bmv1.dto;
 import java.util.Objects;
 import com.c2psi.bmv1.dto.Filter;
 import com.c2psi.bmv1.dto.Orderby;
-import com.c2psi.bmv1.dto.Page;
+import com.c2psi.bmv1.dto.Pagebm;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -19,7 +19,7 @@ import javax.validation.constraints.*;
  * Model used to precise search criteria and sort criteria
  */
 @ApiModel(description = "Model used to precise search criteria and sort criteria")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-13T03:59:42.033168+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
 public class FilterRequest   {
   @JsonProperty("filters")
   @Valid
@@ -68,7 +68,7 @@ public class FilterRequest   {
   private List<Orderby> orderby = null;
 
   @JsonProperty("page")
-  private Page page;
+  private Pagebm page;
 
   public FilterRequest filters(List<Filter> filters) {
     this.filters = filters;
@@ -148,7 +148,7 @@ public class FilterRequest   {
     this.orderby = orderby;
   }
 
-  public FilterRequest page(Page page) {
+  public FilterRequest page(Pagebm page) {
     this.page = page;
     return this;
   }
@@ -161,11 +161,11 @@ public class FilterRequest   {
 
   @Valid
 
-  public Page getPage() {
+  public Pagebm getPage() {
     return page;
   }
 
-  public void setPage(Page page) {
+  public void setPage(Pagebm page) {
     this.page = page;
   }
 
