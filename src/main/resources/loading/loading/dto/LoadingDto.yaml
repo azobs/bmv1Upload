@@ -27,13 +27,22 @@ properties:
     exclusiveMinimum: false
   loadReport:
     type: string
-  loadManager:
-    type: object
-    $ref: '../../../userbm/dto/UserbmDto.yaml'
-  loadSaler:
-    type: object
-    $ref: '../../../userbm/dto/UserbmDto.yaml'
-  loadPos:
-    type: object
-    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  loadManagerId:
+    type: integer
+    format: int64
+  loadSalerId:
+    type: integer
+    format: int64
+  loadPosId:
+    type: integer
+    format: int64
+#  loadManager:
+#    type: object
+#    $ref: '../../../userbm/dto/UserbmDto.yaml'
+#  loadSaler:
+#    type: object
+#    $ref: '../../../userbm/dto/UserbmDto.yaml'
+#  loadPos:
+#    type: object
+#    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
   

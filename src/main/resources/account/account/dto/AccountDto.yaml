@@ -29,19 +29,36 @@ properties:
       - Pos
       - Provider
     example: Pos
-  accountClient:
-    type: object
-    $ref: '../../../client/client/dto/ClientDto.yaml'
-  accountPos:
-    type: object
-    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
-  accountProvider:
-    type: object
-    $ref: '../../../provider/provider/dto/ProviderDto.yaml'
-  accountArticle:
-    type: object
-    $ref: '../../../product/article/dto/ArticleDto.yaml'
-  accountPackaging:
-    type: object
-    $ref: '../../../packaging/packaging/dto/PackagingDto.yaml'
+  accountClientId:
+    type: integer
+    format: int64
+  accountPosId:
+    type: integer
+    format: int64
+  accountProviderId:
+    type: integer
+    format: int64
+  accountArticleId:
+    type: integer
+    format: int64
+  accountPackagingId:
+    type: integer
+    format: int64
+
+
+#  accountClient:
+#    type: object
+#    $ref: '../../../client/client/dto/ClientDto.yaml'
+#  accountPos:
+#    type: object
+#    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+#  accountProvider:
+#    type: object
+#    $ref: '../../../provider/provider/dto/ProviderDto.yaml'
+#  accountArticle:
+#    type: object
+#    $ref: '../../../product/article/dto/ArticleDto.yaml'
+#  accountPackaging:
+#    type: object
+#    $ref: '../../../packaging/packaging/dto/PackagingDto.yaml'
   

@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.PointofsaleDto;
-import com.c2psi.bmv1.dto.UserbmDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -17,7 +15,7 @@ import javax.validation.constraints.*;
  * A Delivery in the system which can contain multiple command
  */
 @ApiModel(description = "A Delivery in the system which can contain multiple command")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class DeliveryDto   {
   @JsonProperty("id")
   private Long id;
@@ -72,11 +70,11 @@ public class DeliveryDto   {
   @JsonProperty("deliveryState")
   private DeliveryStateEnum deliveryState;
 
-  @JsonProperty("deliveryDeliver")
-  private UserbmDto deliveryDeliver;
+  @JsonProperty("deliveryDeliverId")
+  private Long deliveryDeliverId;
 
-  @JsonProperty("deliveryPos")
-  private PointofsaleDto deliveryPos;
+  @JsonProperty("deliveryPosId")
+  private Long deliveryPosId;
 
   public DeliveryDto id(Long id) {
     this.id = id;
@@ -179,46 +177,44 @@ public class DeliveryDto   {
     this.deliveryState = deliveryState;
   }
 
-  public DeliveryDto deliveryDeliver(UserbmDto deliveryDeliver) {
-    this.deliveryDeliver = deliveryDeliver;
+  public DeliveryDto deliveryDeliverId(Long deliveryDeliverId) {
+    this.deliveryDeliverId = deliveryDeliverId;
     return this;
   }
 
   /**
-   * Get deliveryDeliver
-   * @return deliveryDeliver
+   * Get deliveryDeliverId
+   * @return deliveryDeliverId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public UserbmDto getDeliveryDeliver() {
-    return deliveryDeliver;
+  public Long getDeliveryDeliverId() {
+    return deliveryDeliverId;
   }
 
-  public void setDeliveryDeliver(UserbmDto deliveryDeliver) {
-    this.deliveryDeliver = deliveryDeliver;
+  public void setDeliveryDeliverId(Long deliveryDeliverId) {
+    this.deliveryDeliverId = deliveryDeliverId;
   }
 
-  public DeliveryDto deliveryPos(PointofsaleDto deliveryPos) {
-    this.deliveryPos = deliveryPos;
+  public DeliveryDto deliveryPosId(Long deliveryPosId) {
+    this.deliveryPosId = deliveryPosId;
     return this;
   }
 
   /**
-   * Get deliveryPos
-   * @return deliveryPos
+   * Get deliveryPosId
+   * @return deliveryPosId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public PointofsaleDto getDeliveryPos() {
-    return deliveryPos;
+  public Long getDeliveryPosId() {
+    return deliveryPosId;
   }
 
-  public void setDeliveryPos(PointofsaleDto deliveryPos) {
-    this.deliveryPos = deliveryPos;
+  public void setDeliveryPosId(Long deliveryPosId) {
+    this.deliveryPosId = deliveryPosId;
   }
 
 
@@ -236,13 +232,13 @@ public class DeliveryDto   {
         Objects.equals(this.deliveryDate, deliveryDto.deliveryDate) &&
         Objects.equals(this.deliveryComment, deliveryDto.deliveryComment) &&
         Objects.equals(this.deliveryState, deliveryDto.deliveryState) &&
-        Objects.equals(this.deliveryDeliver, deliveryDto.deliveryDeliver) &&
-        Objects.equals(this.deliveryPos, deliveryDto.deliveryPos);
+        Objects.equals(this.deliveryDeliverId, deliveryDto.deliveryDeliverId) &&
+        Objects.equals(this.deliveryPosId, deliveryDto.deliveryPosId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, deliveryCode, deliveryDate, deliveryComment, deliveryState, deliveryDeliver, deliveryPos);
+    return Objects.hash(id, deliveryCode, deliveryDate, deliveryComment, deliveryState, deliveryDeliverId, deliveryPosId);
   }
 
   @Override
@@ -255,8 +251,8 @@ public class DeliveryDto   {
     sb.append("    deliveryDate: ").append(toIndentedString(deliveryDate)).append("\n");
     sb.append("    deliveryComment: ").append(toIndentedString(deliveryComment)).append("\n");
     sb.append("    deliveryState: ").append(toIndentedString(deliveryState)).append("\n");
-    sb.append("    deliveryDeliver: ").append(toIndentedString(deliveryDeliver)).append("\n");
-    sb.append("    deliveryPos: ").append(toIndentedString(deliveryPos)).append("\n");
+    sb.append("    deliveryDeliverId: ").append(toIndentedString(deliveryDeliverId)).append("\n");
+    sb.append("    deliveryPosId: ").append(toIndentedString(deliveryPosId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,10 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.BasepriceDto;
-import com.c2psi.bmv1.dto.PointofsaleDto;
-import com.c2psi.bmv1.dto.ProductformatedDto;
-import com.c2psi.bmv1.dto.UnitDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -17,7 +13,7 @@ import javax.validation.constraints.*;
  * A article in the system
  */
 @ApiModel(description = "A article in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class ArticleDto   {
   @JsonProperty("id")
   private Long id;
@@ -46,17 +42,17 @@ public class ArticleDto   {
   @JsonProperty("artQuantityinstock")
   private Integer artQuantityinstock;
 
-  @JsonProperty("artPf")
-  private ProductformatedDto artPf;
+  @JsonProperty("artPfId")
+  private Long artPfId;
 
-  @JsonProperty("artUnit")
-  private UnitDto artUnit;
+  @JsonProperty("artUnitId")
+  private Long artUnitId;
 
-  @JsonProperty("artBaseprice")
-  private BasepriceDto artBaseprice;
+  @JsonProperty("artBasepriceId")
+  private Long artBasepriceId;
 
-  @JsonProperty("artPos")
-  private PointofsaleDto artPos;
+  @JsonProperty("artPosId")
+  private Long artPosId;
 
   public ArticleDto id(Long id) {
     this.id = id;
@@ -238,88 +234,84 @@ public class ArticleDto   {
     this.artQuantityinstock = artQuantityinstock;
   }
 
-  public ArticleDto artPf(ProductformatedDto artPf) {
-    this.artPf = artPf;
+  public ArticleDto artPfId(Long artPfId) {
+    this.artPfId = artPfId;
     return this;
   }
 
   /**
-   * Get artPf
-   * @return artPf
+   * Get artPfId
+   * @return artPfId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public ProductformatedDto getArtPf() {
-    return artPf;
+  public Long getArtPfId() {
+    return artPfId;
   }
 
-  public void setArtPf(ProductformatedDto artPf) {
-    this.artPf = artPf;
+  public void setArtPfId(Long artPfId) {
+    this.artPfId = artPfId;
   }
 
-  public ArticleDto artUnit(UnitDto artUnit) {
-    this.artUnit = artUnit;
+  public ArticleDto artUnitId(Long artUnitId) {
+    this.artUnitId = artUnitId;
     return this;
   }
 
   /**
-   * Get artUnit
-   * @return artUnit
+   * Get artUnitId
+   * @return artUnitId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public UnitDto getArtUnit() {
-    return artUnit;
+  public Long getArtUnitId() {
+    return artUnitId;
   }
 
-  public void setArtUnit(UnitDto artUnit) {
-    this.artUnit = artUnit;
+  public void setArtUnitId(Long artUnitId) {
+    this.artUnitId = artUnitId;
   }
 
-  public ArticleDto artBaseprice(BasepriceDto artBaseprice) {
-    this.artBaseprice = artBaseprice;
+  public ArticleDto artBasepriceId(Long artBasepriceId) {
+    this.artBasepriceId = artBasepriceId;
     return this;
   }
 
   /**
-   * Get artBaseprice
-   * @return artBaseprice
+   * Get artBasepriceId
+   * @return artBasepriceId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public BasepriceDto getArtBaseprice() {
-    return artBaseprice;
+  public Long getArtBasepriceId() {
+    return artBasepriceId;
   }
 
-  public void setArtBaseprice(BasepriceDto artBaseprice) {
-    this.artBaseprice = artBaseprice;
+  public void setArtBasepriceId(Long artBasepriceId) {
+    this.artBasepriceId = artBasepriceId;
   }
 
-  public ArticleDto artPos(PointofsaleDto artPos) {
-    this.artPos = artPos;
+  public ArticleDto artPosId(Long artPosId) {
+    this.artPosId = artPosId;
     return this;
   }
 
   /**
-   * Get artPos
-   * @return artPos
+   * Get artPosId
+   * @return artPosId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public PointofsaleDto getArtPos() {
-    return artPos;
+  public Long getArtPosId() {
+    return artPosId;
   }
 
-  public void setArtPos(PointofsaleDto artPos) {
-    this.artPos = artPos;
+  public void setArtPosId(Long artPosId) {
+    this.artPosId = artPosId;
   }
 
 
@@ -341,15 +333,15 @@ public class ArticleDto   {
         Objects.equals(this.artLowlimitwholesale, articleDto.artLowlimitwholesale) &&
         Objects.equals(this.artlowlimitSemiwholesale, articleDto.artlowlimitSemiwholesale) &&
         Objects.equals(this.artQuantityinstock, articleDto.artQuantityinstock) &&
-        Objects.equals(this.artPf, articleDto.artPf) &&
-        Objects.equals(this.artUnit, articleDto.artUnit) &&
-        Objects.equals(this.artBaseprice, articleDto.artBaseprice) &&
-        Objects.equals(this.artPos, articleDto.artPos);
+        Objects.equals(this.artPfId, articleDto.artPfId) &&
+        Objects.equals(this.artUnitId, articleDto.artUnitId) &&
+        Objects.equals(this.artBasepriceId, articleDto.artBasepriceId) &&
+        Objects.equals(this.artPosId, articleDto.artPosId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, artCode, artName, artShortname, artDescription, artThreshold, artLowlimitwholesale, artlowlimitSemiwholesale, artQuantityinstock, artPf, artUnit, artBaseprice, artPos);
+    return Objects.hash(id, artCode, artName, artShortname, artDescription, artThreshold, artLowlimitwholesale, artlowlimitSemiwholesale, artQuantityinstock, artPfId, artUnitId, artBasepriceId, artPosId);
   }
 
   @Override
@@ -366,10 +358,10 @@ public class ArticleDto   {
     sb.append("    artLowlimitwholesale: ").append(toIndentedString(artLowlimitwholesale)).append("\n");
     sb.append("    artlowlimitSemiwholesale: ").append(toIndentedString(artlowlimitSemiwholesale)).append("\n");
     sb.append("    artQuantityinstock: ").append(toIndentedString(artQuantityinstock)).append("\n");
-    sb.append("    artPf: ").append(toIndentedString(artPf)).append("\n");
-    sb.append("    artUnit: ").append(toIndentedString(artUnit)).append("\n");
-    sb.append("    artBaseprice: ").append(toIndentedString(artBaseprice)).append("\n");
-    sb.append("    artPos: ").append(toIndentedString(artPos)).append("\n");
+    sb.append("    artPfId: ").append(toIndentedString(artPfId)).append("\n");
+    sb.append("    artUnitId: ").append(toIndentedString(artUnitId)).append("\n");
+    sb.append("    artBasepriceId: ").append(toIndentedString(artBasepriceId)).append("\n");
+    sb.append("    artPosId: ").append(toIndentedString(artPosId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

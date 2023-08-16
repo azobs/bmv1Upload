@@ -15,4 +15,6 @@ public interface UserbmService {
      List<UserbmDto> getListofUserbm(FilterRequest filterRequest);
      PageofUserbmDto getPageofUserbm(FilterRequest filterRequest);
 
+     Boolean isUserbmExistWithId(Long userbmId);
+
 }

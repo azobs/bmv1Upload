@@ -3,7 +3,6 @@ package com.c2psi.bmv1.dto;
 import java.util.Objects;
 import com.c2psi.bmv1.dto.AddressDto;
 import com.c2psi.bmv1.dto.CurrencyDto;
-import com.c2psi.bmv1.dto.EnterpriseDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -16,7 +15,7 @@ import javax.validation.constraints.*;
  * A pointofsale object of the system
  */
 @ApiModel(description = "A pointofsale object of the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class PointofsaleDto   {
   @JsonProperty("id")
   private Long id;
@@ -33,14 +32,14 @@ public class PointofsaleDto   {
   @JsonProperty("posBalance")
   private Double posBalance;
 
+  @JsonProperty("posEnterpriseId")
+  private Long posEnterpriseId;
+
   @JsonProperty("posAddress")
   private AddressDto posAddress;
 
   @JsonProperty("posCurrency")
   private CurrencyDto posCurrency;
-
-  @JsonProperty("posEnterprise")
-  private EnterpriseDto posEnterprise;
 
   public PointofsaleDto id(Long id) {
     this.id = id;
@@ -142,6 +141,26 @@ public class PointofsaleDto   {
     this.posBalance = posBalance;
   }
 
+  public PointofsaleDto posEnterpriseId(Long posEnterpriseId) {
+    this.posEnterpriseId = posEnterpriseId;
+    return this;
+  }
+
+  /**
+   * Get posEnterpriseId
+   * @return posEnterpriseId
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Long getPosEnterpriseId() {
+    return posEnterpriseId;
+  }
+
+  public void setPosEnterpriseId(Long posEnterpriseId) {
+    this.posEnterpriseId = posEnterpriseId;
+  }
+
   public PointofsaleDto posAddress(AddressDto posAddress) {
     this.posAddress = posAddress;
     return this;
@@ -184,27 +203,6 @@ public class PointofsaleDto   {
     this.posCurrency = posCurrency;
   }
 
-  public PointofsaleDto posEnterprise(EnterpriseDto posEnterprise) {
-    this.posEnterprise = posEnterprise;
-    return this;
-  }
-
-  /**
-   * Get posEnterprise
-   * @return posEnterprise
-  */
-  @ApiModelProperty(value = "")
-
-  @Valid
-
-  public EnterpriseDto getPosEnterprise() {
-    return posEnterprise;
-  }
-
-  public void setPosEnterprise(EnterpriseDto posEnterprise) {
-    this.posEnterprise = posEnterprise;
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -220,14 +218,14 @@ public class PointofsaleDto   {
         Objects.equals(this.posAcronym, pointofsaleDto.posAcronym) &&
         Objects.equals(this.posDescription, pointofsaleDto.posDescription) &&
         Objects.equals(this.posBalance, pointofsaleDto.posBalance) &&
+        Objects.equals(this.posEnterpriseId, pointofsaleDto.posEnterpriseId) &&
         Objects.equals(this.posAddress, pointofsaleDto.posAddress) &&
-        Objects.equals(this.posCurrency, pointofsaleDto.posCurrency) &&
-        Objects.equals(this.posEnterprise, pointofsaleDto.posEnterprise);
+        Objects.equals(this.posCurrency, pointofsaleDto.posCurrency);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, posName, posAcronym, posDescription, posBalance, posAddress, posCurrency, posEnterprise);
+    return Objects.hash(id, posName, posAcronym, posDescription, posBalance, posEnterpriseId, posAddress, posCurrency);
   }
 
   @Override
@@ -240,9 +238,9 @@ public class PointofsaleDto   {
     sb.append("    posAcronym: ").append(toIndentedString(posAcronym)).append("\n");
     sb.append("    posDescription: ").append(toIndentedString(posDescription)).append("\n");
     sb.append("    posBalance: ").append(toIndentedString(posBalance)).append("\n");
+    sb.append("    posEnterpriseId: ").append(toIndentedString(posEnterpriseId)).append("\n");
     sb.append("    posAddress: ").append(toIndentedString(posAddress)).append("\n");
     sb.append("    posCurrency: ").append(toIndentedString(posCurrency)).append("\n");
-    sb.append("    posEnterprise: ").append(toIndentedString(posEnterprise)).append("\n");
     sb.append("}");
     return sb.toString();
   }

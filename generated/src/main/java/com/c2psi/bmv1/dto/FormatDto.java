@@ -1,7 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.PointofsaleDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -14,7 +13,7 @@ import javax.validation.constraints.*;
  * A format used to format product in the system
  */
 @ApiModel(description = "A format used to format product in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class FormatDto   {
   @JsonProperty("id")
   private Long id;
@@ -25,8 +24,8 @@ public class FormatDto   {
   @JsonProperty("formatCapacity")
   private Double formatCapacity;
 
-  @JsonProperty("formatPos")
-  private PointofsaleDto formatPos;
+  @JsonProperty("formatPosId")
+  private Long formatPosId;
 
   public FormatDto id(Long id) {
     this.id = id;
@@ -88,25 +87,24 @@ public class FormatDto   {
     this.formatCapacity = formatCapacity;
   }
 
-  public FormatDto formatPos(PointofsaleDto formatPos) {
-    this.formatPos = formatPos;
+  public FormatDto formatPosId(Long formatPosId) {
+    this.formatPosId = formatPosId;
     return this;
   }
 
   /**
-   * Get formatPos
-   * @return formatPos
+   * Get formatPosId
+   * @return formatPosId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public PointofsaleDto getFormatPos() {
-    return formatPos;
+  public Long getFormatPosId() {
+    return formatPosId;
   }
 
-  public void setFormatPos(PointofsaleDto formatPos) {
-    this.formatPos = formatPos;
+  public void setFormatPosId(Long formatPosId) {
+    this.formatPosId = formatPosId;
   }
 
 
@@ -122,12 +120,12 @@ public class FormatDto   {
     return Objects.equals(this.id, formatDto.id) &&
         Objects.equals(this.formatName, formatDto.formatName) &&
         Objects.equals(this.formatCapacity, formatDto.formatCapacity) &&
-        Objects.equals(this.formatPos, formatDto.formatPos);
+        Objects.equals(this.formatPosId, formatDto.formatPosId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, formatName, formatCapacity, formatPos);
+    return Objects.hash(id, formatName, formatCapacity, formatPosId);
   }
 
   @Override
@@ -138,7 +136,7 @@ public class FormatDto   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    formatName: ").append(toIndentedString(formatName)).append("\n");
     sb.append("    formatCapacity: ").append(toIndentedString(formatCapacity)).append("\n");
-    sb.append("    formatPos: ").append(toIndentedString(formatPos)).append("\n");
+    sb.append("    formatPosId: ").append(toIndentedString(formatPosId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

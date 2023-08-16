@@ -23,10 +23,16 @@ properties:
   #If the role is EMPLOYE the pointofsale must not be null
   #The two are null if the role concerned the system itself
   #Each role has now his own list of permission
-  rolePos:
-    type: object
-    $ref: '../../pos/pos/dto/PointofsaleDto.yaml'
-  roleEnt:
-    type: object
-    $ref: '../../pos/enterprise/dto/EnterpriseDto.yaml'
+  rolePosId:
+    type: integer
+    format: int64
+  roleEntId:
+    type: integer
+    format: int64
+#  rolePos:
+#    type: object
+#    $ref: '../../pos/pos/dto/PointofsaleDto.yaml'
+#  roleEnt:
+#    type: object
+#    $ref: '../../pos/enterprise/dto/EnterpriseDto.yaml'
   

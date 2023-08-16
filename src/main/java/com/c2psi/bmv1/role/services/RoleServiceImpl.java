@@ -5,8 +5,10 @@ import com.c2psi.bmv1.bmapp.enumerations.RoleTypeEnum;
 import com.c2psi.bmv1.bmapp.exceptions.*;
 import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.*;
+import com.c2psi.bmv1.pos.enterprise.dao.EnterpriseDao;
 import com.c2psi.bmv1.pos.enterprise.mappers.EnterpriseMapper;
 import com.c2psi.bmv1.pos.enterprise.services.EnterpriseService;
+import com.c2psi.bmv1.pos.pos.dao.PointofsaleDao;
 import com.c2psi.bmv1.pos.pos.mapper.PointofsaleMapper;
 import com.c2psi.bmv1.pos.pos.models.Pointofsale;
 import com.c2psi.bmv1.pos.pos.service.PointofsaleService;
@@ -37,10 +39,12 @@ public class RoleServiceImpl implements RoleService {
     final RoleValidator roleValidator;
     final AppService appService;
     final RoleSpecService roleSpecService;
-    final PointofsaleService posService;
-    final PointofsaleMapper posMapper;
-    final EnterpriseService enterpriseService;
-    final EnterpriseMapper enterpriseMapper;
+//    final PointofsaleService posService;
+//    final PointofsaleMapper posMapper;
+//    final EnterpriseService enterpriseService;
+//    final EnterpriseMapper enterpriseMapper;
+    final EnterpriseDao enterpriseDao;
+    final PointofsaleDao posDao;
 
 
     @Override
@@ -51,12 +55,20 @@ public class RoleServiceImpl implements RoleService {
         /********************************************************
          * On valide les parametres saisis grace au validateur
          */
+        List<String> errorsDto = roleValidator.validate(roleDto);
+        if(!errorsDto.isEmpty()){
+            log.error("Entity Role not valid because of {}", errorsDto);
+            throw new InvalidEntityException("Les entites lies sont inexistantes en BD ", errorsDto,
+                    ErrorCode.ROLE_NOT_VALID.name());
+        }
+
         List<String> errors = roleValidator.validate(roleMapper.dtoToEntity(roleDto));
         if(!errors.isEmpty()){
             log.error("Entity Role not valid because of {}", errors);
             throw new InvalidEntityException("Le role a enregistrer n'est pas valide ", errors,
                     ErrorCode.ROLE_NOT_VALID.name());
         }
+
         /**********************************************************
          * On se rassure que les contraintes d'unicite ne seront
          * pas violees
@@ -66,64 +78,19 @@ public class RoleServiceImpl implements RoleService {
                     ErrorCode.ROLE_DUPLICATED.name());
         }
 
-        /***********************************************************************
-         * On se rassure que l'id du pointofsale du role existe et que cet id
-         * identifie vraiment un Pointofsale en BD
-         */
-        boolean posPrecise = false;
-        if(roleDto.getRolePos() != null){
-            if(roleDto.getRolePos().getId() == null){
-                throw new NullValueException("L'id du pos du role ne peut etre null");
-            }
-            if(!posService.isPointofsaleExistWith(roleDto.getRolePos().getId())){
-                throw new ModelNotFoundException("Aucun Pointofsale n'existe avec l'id envoye. Le role n'est donc pas " +
-                        "valide ", ErrorCode.ROLE_NOT_VALID.name());
-            }
-            posPrecise = true;
-        }
-
-        /***********************************************************************
-         * On se rassure que l'id de l'entreprise du role existe et que cet id
-         * identifie vraiment une entreprise en BD
-         */
-
-        if(roleDto.getRoleEnt() != null){
-            if(roleDto.getRoleEnt().getId() == null) {
-                throw new NullValueException("L'id de l'entreprise precise ne peut etre null");
-            }
-            if (posPrecise) {
-                boolean posValid = false;
-                /**********************************************************************************************
-                * Alors il faut se rassurer que le pos precise est bel et bien un pos de l'entreprise indique
-                */
-                List<PointofsaleDto> posListofEnterprise = posService.getPointofsaleList(roleDto.getRoleEnt().getId());
-                for(PointofsaleDto posDto : posListofEnterprise){
-                    if(posDto.getId().longValue() == roleDto.getRolePos().getId().longValue()){
-                        posValid = true;
-                    }
-                }
-
-                if(!posValid){
-                    throw new InvalidEntityException("Le pointofsale indique dans le role n'est pas un pointofsale de " +
-                            "l'entreprise indique.", ErrorCode.ROLE_NOT_VALID.name());
-                }
-            } else {
-                /**********************************************************************
-                 * Alors on se rassure juste que l'entreprise indique existe en BD
-                 */
-                if(!enterpriseService.isEnterpriseExistWith(roleDto.getRoleEnt().getId())){
-                    throw new ModelNotFoundException("Aucune entreprise n'existe avec l'id envoye. Le role n'est donc pas " +
-                            "valide ", ErrorCode.ROLE_NOT_VALID.name());
-                }
-            }
-        }
-
 
         /**********************************************************
          * Si tout est bon on effectue l'enregistrement
          */
         log.info("After all verification, the role can be saved safely");
-        Role roleSaved = roleDao.save(roleMapper.dtoToEntity(roleDto));
+        Role roleToSaved = Role.builder()
+                .roleDescription(roleDto.getRoleDescription())
+                .roleName(roleDto.getRoleName())
+                .roleType(convert(roleDto.getRoleType()))
+                .roleEnt(roleDto.getRoleEntId() != null ? enterpriseDao.findEnterpriseById(roleDto.getRoleEntId()).get() : null)
+                .rolePos(roleDto.getRolePosId() != null ? posDao.findPointofsaleById(roleDto.getRolePosId()).get() : null)
+                .build();
+        Role roleSaved = roleDao.save(roleToSaved);
         return roleMapper.entityToDto(roleSaved);
     }
 
@@ -178,6 +145,13 @@ public class RoleServiceImpl implements RoleService {
         /**************************************************
          * On fait la validation du roleDto envoye
          */
+        List<String> errorsDto = roleValidator.validate(roleDto);
+        if(!errorsDto.isEmpty()){
+            log.error("Object RoleDto not valid because of {}", errorsDto);
+            throw new InvalidEntityException("Le roleDto envoye n'est pas valide ", errorsDto,
+                    ErrorCode.ROLE_NOT_VALID.name());
+        }
+
         List<String> errors = roleValidator.validate(roleMapper.dtoToEntity(roleDto));
         if(!errors.isEmpty()){
             log.error("Entity Role not valid because of {}", errors);
@@ -218,20 +192,6 @@ public class RoleServiceImpl implements RoleService {
         /*********************************************************************
          * Si c'est le Pointofsale du role qu'on veut modifier
          */
-        if(roleToUpdate.getRolePos() != null && roleDto.getRolePos() != null){
-            if(roleToUpdate.getRolePos().getId() != null && roleDto.getRolePos().getId() != null){
-                if(roleToUpdate.getRolePos().getId().longValue() != roleDto.getRolePos().getId().longValue()){
-                    if(!posService.isPointofsaleExistWith(roleDto.getRolePos().getId())){
-                        throw new ModelNotFoundException("Aucun pos n'existe en BD avec l'id envoye. Le role n'est " +
-                                "donc pas valide ", ErrorCode.ROLE_NOT_VALID.name());
-                    }
-                    Pointofsale newPos = posMapper.dtoToEntity(posService.getPointofsaleById(roleDto.getRolePos().getId()));
-                    roleToUpdate.setRolePos(newPos);
-                }
-            }
-        }
-
-
 
         if(roleDto.getRoleDescription() != null){
             roleToUpdate.setRoleDescription(roleDto.getRoleDescription());
@@ -352,6 +312,15 @@ public class RoleServiceImpl implements RoleService {
             rolePage = roleDao.findAll(roleSpecification, pageable);
             return getPageofRoleDto(rolePage);
         }
+    }
+
+    @Override
+    public Boolean isRoleExistWithId(Long roleId) {
+        if(roleId == null){
+            throw new NullValueException("Le roleId envoye est null");
+        }
+        Optional<Role> optionalRole = roleDao.findRoleById(roleId);
+        return optionalRole.isPresent();
     }
 
     PageofRoleDto getPageofRoleDto(Page<Role> rolePage){

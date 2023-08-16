@@ -14,10 +14,16 @@ properties:
   packPrice:
     type: number
     format: double
-  packagingPos:
-    type: object
-    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
-  packagingProvider:
-    type: object
-    $ref: '../../../provider/provider/dto/ProviderDto.yaml'
+  packagingPosId:
+    type: integer
+    format: int64
+  packagingProviderId:
+    type: integer
+    format: int64
+#  packagingPos:
+#    type: object
+#    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+#  packagingProvider:
+#    type: object
+#    $ref: '../../../provider/provider/dto/ProviderDto.yaml'
   

@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.PointofsaleDto;
-import com.c2psi.bmv1.dto.ProviderDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -17,7 +15,7 @@ import javax.validation.constraints.*;
  * A Supply invoice in the system
  */
 @ApiModel(description = "A Supply invoice in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class SupplyinvoiceDto   {
   @JsonProperty("id")
   private Long id;
@@ -88,11 +86,11 @@ public class SupplyinvoiceDto   {
   @JsonProperty("siPaymentmethod")
   private SiPaymentmethodEnum siPaymentmethod;
 
-  @JsonProperty("siPos")
-  private PointofsaleDto siPos;
+  @JsonProperty("siPosId")
+  private Long siPosId;
 
-  @JsonProperty("siProvider")
-  private ProviderDto siProvider;
+  @JsonProperty("siProviderId")
+  private Long siProviderId;
 
   public SupplyinvoiceDto id(Long id) {
     this.id = id;
@@ -299,46 +297,44 @@ public class SupplyinvoiceDto   {
     this.siPaymentmethod = siPaymentmethod;
   }
 
-  public SupplyinvoiceDto siPos(PointofsaleDto siPos) {
-    this.siPos = siPos;
+  public SupplyinvoiceDto siPosId(Long siPosId) {
+    this.siPosId = siPosId;
     return this;
   }
 
   /**
-   * Get siPos
-   * @return siPos
+   * Get siPosId
+   * @return siPosId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public PointofsaleDto getSiPos() {
-    return siPos;
+  public Long getSiPosId() {
+    return siPosId;
   }
 
-  public void setSiPos(PointofsaleDto siPos) {
-    this.siPos = siPos;
+  public void setSiPosId(Long siPosId) {
+    this.siPosId = siPosId;
   }
 
-  public SupplyinvoiceDto siProvider(ProviderDto siProvider) {
-    this.siProvider = siProvider;
+  public SupplyinvoiceDto siProviderId(Long siProviderId) {
+    this.siProviderId = siProviderId;
     return this;
   }
 
   /**
-   * Get siProvider
-   * @return siProvider
+   * Get siProviderId
+   * @return siProviderId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public ProviderDto getSiProvider() {
-    return siProvider;
+  public Long getSiProviderId() {
+    return siProviderId;
   }
 
-  public void setSiProvider(ProviderDto siProvider) {
-    this.siProvider = siProvider;
+  public void setSiProviderId(Long siProviderId) {
+    this.siProviderId = siProviderId;
   }
 
 
@@ -361,13 +357,13 @@ public class SupplyinvoiceDto   {
         Objects.equals(this.siExpectedamount, supplyinvoiceDto.siExpectedamount) &&
         Objects.equals(this.siPaidamount, supplyinvoiceDto.siPaidamount) &&
         Objects.equals(this.siPaymentmethod, supplyinvoiceDto.siPaymentmethod) &&
-        Objects.equals(this.siPos, supplyinvoiceDto.siPos) &&
-        Objects.equals(this.siProvider, supplyinvoiceDto.siProvider);
+        Objects.equals(this.siPosId, supplyinvoiceDto.siPosId) &&
+        Objects.equals(this.siProviderId, supplyinvoiceDto.siProviderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, siCode, siComment, siPicture, siDeliverydate, siInvoicingdate, siTotalcolis, siExpectedamount, siPaidamount, siPaymentmethod, siPos, siProvider);
+    return Objects.hash(id, siCode, siComment, siPicture, siDeliverydate, siInvoicingdate, siTotalcolis, siExpectedamount, siPaidamount, siPaymentmethod, siPosId, siProviderId);
   }
 
   @Override
@@ -385,8 +381,8 @@ public class SupplyinvoiceDto   {
     sb.append("    siExpectedamount: ").append(toIndentedString(siExpectedamount)).append("\n");
     sb.append("    siPaidamount: ").append(toIndentedString(siPaidamount)).append("\n");
     sb.append("    siPaymentmethod: ").append(toIndentedString(siPaymentmethod)).append("\n");
-    sb.append("    siPos: ").append(toIndentedString(siPos)).append("\n");
-    sb.append("    siProvider: ").append(toIndentedString(siProvider)).append("\n");
+    sb.append("    siPosId: ").append(toIndentedString(siPosId)).append("\n");
+    sb.append("    siProviderId: ").append(toIndentedString(siProviderId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

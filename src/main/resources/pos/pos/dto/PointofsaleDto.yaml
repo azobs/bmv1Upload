@@ -14,12 +14,21 @@ properties:
   posBalance:
     type: number
     format: double
+#  posAddressId:
+#    type: integer
+#    format: int64
+#  posCurrencyId:
+#    type: integer
+#    format: int64
+  posEnterpriseId:
+    type: integer
+    format: int64
   posAddress:
     type: object
     $ref: '../../../general/dto/AddressDto.yaml'
   posCurrency:
     type: object
     $ref: '../../../currency/currency/dto/CurrencyDto.yaml'
-  posEnterprise:
-    type: object
-    $ref: '../../enterprise/dto/EnterpriseDto.yaml'
+#  posEnterprise:
+#    type: object
+#    $ref: '../../enterprise/dto/EnterpriseDto.yaml'

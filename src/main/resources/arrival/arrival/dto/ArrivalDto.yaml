@@ -32,10 +32,16 @@ properties:
       - Cover
       - Damage
     example: Cash
-  arrivalArticle:
-    type: object
-    $ref: '../../../product/article/dto/ArticleDto.yaml'
-  arrivalInvoice:
-    type: object
-    $ref: '../../supplyinvoice/dto/SupplyinvoiceDto.yaml'
+  arrivalArticleId:
+    type: integer
+    format: int64
+  arrivalInvoiceId:
+    type: integer
+    format: int64
+#  arrivalArticle:
+#    type: object
+#    $ref: '../../../product/article/dto/ArticleDto.yaml'
+#  arrivalInvoice:
+#    type: object
+#    $ref: '../../supplyinvoice/dto/SupplyinvoiceDto.yaml'
   

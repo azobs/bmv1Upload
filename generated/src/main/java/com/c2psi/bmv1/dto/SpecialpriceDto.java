@@ -1,7 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.BasepriceDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -14,7 +13,7 @@ import javax.validation.constraints.*;
  * A Specialprice in the system
  */
 @ApiModel(description = "A Specialprice in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class SpecialpriceDto   {
   @JsonProperty("id")
   private Long id;
@@ -34,8 +33,8 @@ public class SpecialpriceDto   {
   @JsonProperty("spPrecompte")
   private Double spPrecompte;
 
-  @JsonProperty("spBaseprice")
-  private BasepriceDto spBaseprice;
+  @JsonProperty("spBasepriceId")
+  private Long spBasepriceId;
 
   public SpecialpriceDto id(Long id) {
     this.id = id;
@@ -160,25 +159,24 @@ public class SpecialpriceDto   {
     this.spPrecompte = spPrecompte;
   }
 
-  public SpecialpriceDto spBaseprice(BasepriceDto spBaseprice) {
-    this.spBaseprice = spBaseprice;
+  public SpecialpriceDto spBasepriceId(Long spBasepriceId) {
+    this.spBasepriceId = spBasepriceId;
     return this;
   }
 
   /**
-   * Get spBaseprice
-   * @return spBaseprice
+   * Get spBasepriceId
+   * @return spBasepriceId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public BasepriceDto getSpBaseprice() {
-    return spBaseprice;
+  public Long getSpBasepriceId() {
+    return spBasepriceId;
   }
 
-  public void setSpBaseprice(BasepriceDto spBaseprice) {
-    this.spBaseprice = spBaseprice;
+  public void setSpBasepriceId(Long spBasepriceId) {
+    this.spBasepriceId = spBasepriceId;
   }
 
 
@@ -197,12 +195,12 @@ public class SpecialpriceDto   {
         Objects.equals(this.spDetailsprice, specialpriceDto.spDetailsprice) &&
         Objects.equals(this.spRistourne, specialpriceDto.spRistourne) &&
         Objects.equals(this.spPrecompte, specialpriceDto.spPrecompte) &&
-        Objects.equals(this.spBaseprice, specialpriceDto.spBaseprice);
+        Objects.equals(this.spBasepriceId, specialpriceDto.spBasepriceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, spWholeprice, spSemiwholeprice, spDetailsprice, spRistourne, spPrecompte, spBaseprice);
+    return Objects.hash(id, spWholeprice, spSemiwholeprice, spDetailsprice, spRistourne, spPrecompte, spBasepriceId);
   }
 
   @Override
@@ -216,7 +214,7 @@ public class SpecialpriceDto   {
     sb.append("    spDetailsprice: ").append(toIndentedString(spDetailsprice)).append("\n");
     sb.append("    spRistourne: ").append(toIndentedString(spRistourne)).append("\n");
     sb.append("    spPrecompte: ").append(toIndentedString(spPrecompte)).append("\n");
-    sb.append("    spBaseprice: ").append(toIndentedString(spBaseprice)).append("\n");
+    sb.append("    spBasepriceId: ").append(toIndentedString(spBasepriceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -11,4 +11,6 @@ public interface RoleService {
     RoleDto getRoleById(Long id);
     List<RoleDto> getListofRole(FilterRequest filterRequest);
     PageofRoleDto getPageofRole(FilterRequest filterRequest);
+
+    Boolean isRoleExistWithId(Long roleId);
 }

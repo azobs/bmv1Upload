@@ -1,7 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.PointofsaleDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -16,7 +15,7 @@ import javax.validation.constraints.*;
  * A Sale invoice in the system
  */
 @ApiModel(description = "A Sale invoice in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class SaleinvoiceDto   {
   @JsonProperty("id")
   private Long id;
@@ -80,8 +79,8 @@ public class SaleinvoiceDto   {
   @JsonProperty("siPaymentmethod")
   private SiPaymentmethodEnum siPaymentmethod;
 
-  @JsonProperty("siPos")
-  private PointofsaleDto siPos;
+  @JsonProperty("siPosId")
+  private Long siPosId;
 
   public SaleinvoiceDto id(Long id) {
     this.id = id;
@@ -244,25 +243,24 @@ public class SaleinvoiceDto   {
     this.siPaymentmethod = siPaymentmethod;
   }
 
-  public SaleinvoiceDto siPos(PointofsaleDto siPos) {
-    this.siPos = siPos;
+  public SaleinvoiceDto siPosId(Long siPosId) {
+    this.siPosId = siPosId;
     return this;
   }
 
   /**
-   * Get siPos
-   * @return siPos
+   * Get siPosId
+   * @return siPosId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public PointofsaleDto getSiPos() {
-    return siPos;
+  public Long getSiPosId() {
+    return siPosId;
   }
 
-  public void setSiPos(PointofsaleDto siPos) {
-    this.siPos = siPos;
+  public void setSiPosId(Long siPosId) {
+    this.siPosId = siPosId;
   }
 
 
@@ -283,12 +281,12 @@ public class SaleinvoiceDto   {
         Objects.equals(this.siExpectedamount, saleinvoiceDto.siExpectedamount) &&
         Objects.equals(this.siPaidamount, saleinvoiceDto.siPaidamount) &&
         Objects.equals(this.siPaymentmethod, saleinvoiceDto.siPaymentmethod) &&
-        Objects.equals(this.siPos, saleinvoiceDto.siPos);
+        Objects.equals(this.siPosId, saleinvoiceDto.siPosId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, siCode, siComment, siInvoicingdate, siTotalcolis, siExpectedamount, siPaidamount, siPaymentmethod, siPos);
+    return Objects.hash(id, siCode, siComment, siInvoicingdate, siTotalcolis, siExpectedamount, siPaidamount, siPaymentmethod, siPosId);
   }
 
   @Override
@@ -304,7 +302,7 @@ public class SaleinvoiceDto   {
     sb.append("    siExpectedamount: ").append(toIndentedString(siExpectedamount)).append("\n");
     sb.append("    siPaidamount: ").append(toIndentedString(siPaidamount)).append("\n");
     sb.append("    siPaymentmethod: ").append(toIndentedString(siPaymentmethod)).append("\n");
-    sb.append("    siPos: ").append(toIndentedString(siPos)).append("\n");
+    sb.append("    siPosId: ").append(toIndentedString(siPosId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

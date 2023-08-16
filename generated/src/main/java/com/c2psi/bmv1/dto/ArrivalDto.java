@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.ArticleDto;
-import com.c2psi.bmv1.dto.SupplyinvoiceDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -17,7 +15,7 @@ import javax.validation.constraints.*;
  * An arrival in the system
  */
 @ApiModel(description = "An arrival in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class ArrivalDto   {
   @JsonProperty("id")
   private Long id;
@@ -110,11 +108,11 @@ public class ArrivalDto   {
   @JsonProperty("arrivalNature")
   private ArrivalNatureEnum arrivalNature;
 
-  @JsonProperty("arrivalArticle")
-  private ArticleDto arrivalArticle;
+  @JsonProperty("arrivalArticleId")
+  private Long arrivalArticleId;
 
-  @JsonProperty("arrivalInvoice")
-  private SupplyinvoiceDto arrivalInvoice;
+  @JsonProperty("arrivalInvoiceId")
+  private Long arrivalInvoiceId;
 
   public ArrivalDto id(Long id) {
     this.id = id;
@@ -239,46 +237,44 @@ public class ArrivalDto   {
     this.arrivalNature = arrivalNature;
   }
 
-  public ArrivalDto arrivalArticle(ArticleDto arrivalArticle) {
-    this.arrivalArticle = arrivalArticle;
+  public ArrivalDto arrivalArticleId(Long arrivalArticleId) {
+    this.arrivalArticleId = arrivalArticleId;
     return this;
   }
 
   /**
-   * Get arrivalArticle
-   * @return arrivalArticle
+   * Get arrivalArticleId
+   * @return arrivalArticleId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public ArticleDto getArrivalArticle() {
-    return arrivalArticle;
+  public Long getArrivalArticleId() {
+    return arrivalArticleId;
   }
 
-  public void setArrivalArticle(ArticleDto arrivalArticle) {
-    this.arrivalArticle = arrivalArticle;
+  public void setArrivalArticleId(Long arrivalArticleId) {
+    this.arrivalArticleId = arrivalArticleId;
   }
 
-  public ArrivalDto arrivalInvoice(SupplyinvoiceDto arrivalInvoice) {
-    this.arrivalInvoice = arrivalInvoice;
+  public ArrivalDto arrivalInvoiceId(Long arrivalInvoiceId) {
+    this.arrivalInvoiceId = arrivalInvoiceId;
     return this;
   }
 
   /**
-   * Get arrivalInvoice
-   * @return arrivalInvoice
+   * Get arrivalInvoiceId
+   * @return arrivalInvoiceId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public SupplyinvoiceDto getArrivalInvoice() {
-    return arrivalInvoice;
+  public Long getArrivalInvoiceId() {
+    return arrivalInvoiceId;
   }
 
-  public void setArrivalInvoice(SupplyinvoiceDto arrivalInvoice) {
-    this.arrivalInvoice = arrivalInvoice;
+  public void setArrivalInvoiceId(Long arrivalInvoiceId) {
+    this.arrivalInvoiceId = arrivalInvoiceId;
   }
 
 
@@ -297,13 +293,13 @@ public class ArrivalDto   {
         Objects.equals(this.arrivalUnitprice, arrivalDto.arrivalUnitprice) &&
         Objects.equals(this.arrivalType, arrivalDto.arrivalType) &&
         Objects.equals(this.arrivalNature, arrivalDto.arrivalNature) &&
-        Objects.equals(this.arrivalArticle, arrivalDto.arrivalArticle) &&
-        Objects.equals(this.arrivalInvoice, arrivalDto.arrivalInvoice);
+        Objects.equals(this.arrivalArticleId, arrivalDto.arrivalArticleId) &&
+        Objects.equals(this.arrivalInvoiceId, arrivalDto.arrivalInvoiceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, deliveryQuantity, arrivalDate, arrivalUnitprice, arrivalType, arrivalNature, arrivalArticle, arrivalInvoice);
+    return Objects.hash(id, deliveryQuantity, arrivalDate, arrivalUnitprice, arrivalType, arrivalNature, arrivalArticleId, arrivalInvoiceId);
   }
 
   @Override
@@ -317,8 +313,8 @@ public class ArrivalDto   {
     sb.append("    arrivalUnitprice: ").append(toIndentedString(arrivalUnitprice)).append("\n");
     sb.append("    arrivalType: ").append(toIndentedString(arrivalType)).append("\n");
     sb.append("    arrivalNature: ").append(toIndentedString(arrivalNature)).append("\n");
-    sb.append("    arrivalArticle: ").append(toIndentedString(arrivalArticle)).append("\n");
-    sb.append("    arrivalInvoice: ").append(toIndentedString(arrivalInvoice)).append("\n");
+    sb.append("    arrivalArticleId: ").append(toIndentedString(arrivalArticleId)).append("\n");
+    sb.append("    arrivalInvoiceId: ").append(toIndentedString(arrivalInvoiceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

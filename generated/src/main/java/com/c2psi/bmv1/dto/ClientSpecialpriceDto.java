@@ -1,9 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.ArticleDto;
-import com.c2psi.bmv1.dto.ClientDto;
-import com.c2psi.bmv1.dto.SpecialpriceDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -17,7 +14,7 @@ import javax.validation.constraints.*;
  * A client in the system
  */
 @ApiModel(description = "A client in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class ClientSpecialpriceDto   {
   @JsonProperty("id")
   private Long id;
@@ -26,14 +23,14 @@ public class ClientSpecialpriceDto   {
   @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime appliedDate;
 
-  @JsonProperty("client")
-  private ClientDto client;
+  @JsonProperty("clientId")
+  private Long clientId;
 
-  @JsonProperty("specialprice")
-  private SpecialpriceDto specialprice;
+  @JsonProperty("specialpriceId")
+  private Long specialpriceId;
 
-  @JsonProperty("article")
-  private ArticleDto article;
+  @JsonProperty("articleId")
+  private Long articleId;
 
   public ClientSpecialpriceDto id(Long id) {
     this.id = id;
@@ -76,67 +73,64 @@ public class ClientSpecialpriceDto   {
     this.appliedDate = appliedDate;
   }
 
-  public ClientSpecialpriceDto client(ClientDto client) {
-    this.client = client;
+  public ClientSpecialpriceDto clientId(Long clientId) {
+    this.clientId = clientId;
     return this;
   }
 
   /**
-   * Get client
-   * @return client
+   * Get clientId
+   * @return clientId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public ClientDto getClient() {
-    return client;
+  public Long getClientId() {
+    return clientId;
   }
 
-  public void setClient(ClientDto client) {
-    this.client = client;
+  public void setClientId(Long clientId) {
+    this.clientId = clientId;
   }
 
-  public ClientSpecialpriceDto specialprice(SpecialpriceDto specialprice) {
-    this.specialprice = specialprice;
+  public ClientSpecialpriceDto specialpriceId(Long specialpriceId) {
+    this.specialpriceId = specialpriceId;
     return this;
   }
 
   /**
-   * Get specialprice
-   * @return specialprice
+   * Get specialpriceId
+   * @return specialpriceId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public SpecialpriceDto getSpecialprice() {
-    return specialprice;
+  public Long getSpecialpriceId() {
+    return specialpriceId;
   }
 
-  public void setSpecialprice(SpecialpriceDto specialprice) {
-    this.specialprice = specialprice;
+  public void setSpecialpriceId(Long specialpriceId) {
+    this.specialpriceId = specialpriceId;
   }
 
-  public ClientSpecialpriceDto article(ArticleDto article) {
-    this.article = article;
+  public ClientSpecialpriceDto articleId(Long articleId) {
+    this.articleId = articleId;
     return this;
   }
 
   /**
-   * Get article
-   * @return article
+   * Get articleId
+   * @return articleId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public ArticleDto getArticle() {
-    return article;
+  public Long getArticleId() {
+    return articleId;
   }
 
-  public void setArticle(ArticleDto article) {
-    this.article = article;
+  public void setArticleId(Long articleId) {
+    this.articleId = articleId;
   }
 
 
@@ -151,14 +145,14 @@ public class ClientSpecialpriceDto   {
     ClientSpecialpriceDto clientSpecialpriceDto = (ClientSpecialpriceDto) o;
     return Objects.equals(this.id, clientSpecialpriceDto.id) &&
         Objects.equals(this.appliedDate, clientSpecialpriceDto.appliedDate) &&
-        Objects.equals(this.client, clientSpecialpriceDto.client) &&
-        Objects.equals(this.specialprice, clientSpecialpriceDto.specialprice) &&
-        Objects.equals(this.article, clientSpecialpriceDto.article);
+        Objects.equals(this.clientId, clientSpecialpriceDto.clientId) &&
+        Objects.equals(this.specialpriceId, clientSpecialpriceDto.specialpriceId) &&
+        Objects.equals(this.articleId, clientSpecialpriceDto.articleId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, appliedDate, client, specialprice, article);
+    return Objects.hash(id, appliedDate, clientId, specialpriceId, articleId);
   }
 
   @Override
@@ -168,9 +162,9 @@ public class ClientSpecialpriceDto   {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    appliedDate: ").append(toIndentedString(appliedDate)).append("\n");
-    sb.append("    client: ").append(toIndentedString(client)).append("\n");
-    sb.append("    specialprice: ").append(toIndentedString(specialprice)).append("\n");
-    sb.append("    article: ").append(toIndentedString(article)).append("\n");
+    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
+    sb.append("    specialpriceId: ").append(toIndentedString(specialpriceId)).append("\n");
+    sb.append("    articleId: ").append(toIndentedString(articleId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

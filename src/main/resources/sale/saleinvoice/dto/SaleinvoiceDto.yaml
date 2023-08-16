@@ -28,6 +28,9 @@ properties:
       - Momo
       - Om
     example: Cash
-  siPos:
-    type: object
-    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  siPosId:
+    type: integer
+    format: int64
+#  siPos:
+#    type: object
+#    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'

@@ -121,4 +121,4 @@ src/main/java/com/c2psi/bmv1/dto/UnitDto.java
 src/main/java/com/c2psi/bmv1/dto/UnitconversionDto.java
 src/main/java/com/c2psi/bmv1/dto/UserbmDto.java
 src/main/java/com/c2psi/bmv1/dto/UserbmRoleDto.java
-src/main/java/com/c2psi/bmv1/dto/UserbmRolePermission.java
+src/main/java/com/c2psi/bmv1/dto/UserbmRolePermissionDto.java

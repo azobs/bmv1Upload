@@ -105,10 +105,10 @@ public class PointofsaleServiceImpl implements PointofsaleService{
          *On se rassure que l'id precise pour l'entreprise  identifie bel et bien
          * une entreprise en BD
          */
-        if(posDto.getPosEnterprise().getId() == null){
+        if(posDto.getPosEnterpriseId() == null){
             throw new NullValueException("L'id de l'entreprise associe au Pointofsale ne peut etre null");
         }
-        if(!enterpriseService.isEnterpriseExistWith(posDto.getPosEnterprise().getId())){
+        if(!enterpriseService.isEnterpriseExistWith(posDto.getPosEnterpriseId())){
             throw new ModelNotFoundException("L'entreprise indique pour le pointofsale n'existe pas en BD: Verifier " +
                     "l'id indique. Le pointofsale n'est donc pas valide ", ErrorCode.POINTOFSALE_NOT_VALID.name());
         }
@@ -214,14 +214,14 @@ public class PointofsaleServiceImpl implements PointofsaleService{
          * Si c'est l'entreprise qu'on veut changer on se rassure
          *  que le nouvel id identifie bien une entreprise
          */
-        if(posToUpdate.getPosEnterprise() != null && posDto.getPosEnterprise() != null) {
-            if (posToUpdate.getPosEnterprise().getId() != null && posDto.getPosEnterprise().getId() != null) {
-                if (posToUpdate.getPosEnterprise().getId().longValue() != posDto.getPosEnterprise().getId().longValue()) {
-                    if (!enterpriseService.isEnterpriseExistWith(posDto.getPosEnterprise().getId())) {
+        if(posToUpdate.getPosEnterprise() != null && posDto.getPosEnterpriseId() != null) {
+            if (posToUpdate.getPosEnterprise().getId() != null && posDto.getPosEnterpriseId() != null) {
+                if (posToUpdate.getPosEnterprise().getId().longValue() != posDto.getPosEnterpriseId().longValue()) {
+                    if (!enterpriseService.isEnterpriseExistWith(posDto.getPosEnterpriseId())) {
                         throw new ModelNotFoundException("L'entreprise indique pour la mise a jour du pointofsale n'existe pas en BD: Verifier " +
                                 "l'id indique. Le pointofsale n'est donc pas valide ", ErrorCode.POINTOFSALE_NOT_VALID.name());
                     }
-                    Enterprise newEnt = enterpriseMapper.dtoToEntity(enterpriseService.getEnterpriseById(posDto.getPosEnterprise().getId()));
+                    Enterprise newEnt = enterpriseMapper.dtoToEntity(enterpriseService.getEnterpriseById(posDto.getPosEnterpriseId()));
                     posToUpdate.setPosEnterprise(newEnt);
                 }
             }

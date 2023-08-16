@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.FormatDto;
-import com.c2psi.bmv1.dto.ProductDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -15,7 +13,7 @@ import javax.validation.constraints.*;
  * A product formated in the system
  */
 @ApiModel(description = "A product formated in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class ProductformatedDto   {
   @JsonProperty("id")
   private Long id;
@@ -23,11 +21,11 @@ public class ProductformatedDto   {
   @JsonProperty("pfPicture")
   private String pfPicture;
 
-  @JsonProperty("pfProduct")
-  private ProductDto pfProduct;
+  @JsonProperty("pfProductId")
+  private Long pfProductId;
 
-  @JsonProperty("pfFormat")
-  private FormatDto pfFormat;
+  @JsonProperty("pfFormatId")
+  private Long pfFormatId;
 
   public ProductformatedDto id(Long id) {
     this.id = id;
@@ -69,46 +67,44 @@ public class ProductformatedDto   {
     this.pfPicture = pfPicture;
   }
 
-  public ProductformatedDto pfProduct(ProductDto pfProduct) {
-    this.pfProduct = pfProduct;
+  public ProductformatedDto pfProductId(Long pfProductId) {
+    this.pfProductId = pfProductId;
     return this;
   }
 
   /**
-   * Get pfProduct
-   * @return pfProduct
+   * Get pfProductId
+   * @return pfProductId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public ProductDto getPfProduct() {
-    return pfProduct;
+  public Long getPfProductId() {
+    return pfProductId;
   }
 
-  public void setPfProduct(ProductDto pfProduct) {
-    this.pfProduct = pfProduct;
+  public void setPfProductId(Long pfProductId) {
+    this.pfProductId = pfProductId;
   }
 
-  public ProductformatedDto pfFormat(FormatDto pfFormat) {
-    this.pfFormat = pfFormat;
+  public ProductformatedDto pfFormatId(Long pfFormatId) {
+    this.pfFormatId = pfFormatId;
     return this;
   }
 
   /**
-   * Get pfFormat
-   * @return pfFormat
+   * Get pfFormatId
+   * @return pfFormatId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public FormatDto getPfFormat() {
-    return pfFormat;
+  public Long getPfFormatId() {
+    return pfFormatId;
   }
 
-  public void setPfFormat(FormatDto pfFormat) {
-    this.pfFormat = pfFormat;
+  public void setPfFormatId(Long pfFormatId) {
+    this.pfFormatId = pfFormatId;
   }
 
 
@@ -123,13 +119,13 @@ public class ProductformatedDto   {
     ProductformatedDto productformatedDto = (ProductformatedDto) o;
     return Objects.equals(this.id, productformatedDto.id) &&
         Objects.equals(this.pfPicture, productformatedDto.pfPicture) &&
-        Objects.equals(this.pfProduct, productformatedDto.pfProduct) &&
-        Objects.equals(this.pfFormat, productformatedDto.pfFormat);
+        Objects.equals(this.pfProductId, productformatedDto.pfProductId) &&
+        Objects.equals(this.pfFormatId, productformatedDto.pfFormatId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, pfPicture, pfProduct, pfFormat);
+    return Objects.hash(id, pfPicture, pfProductId, pfFormatId);
   }
 
   @Override
@@ -139,8 +135,8 @@ public class ProductformatedDto   {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    pfPicture: ").append(toIndentedString(pfPicture)).append("\n");
-    sb.append("    pfProduct: ").append(toIndentedString(pfProduct)).append("\n");
-    sb.append("    pfFormat: ").append(toIndentedString(pfFormat)).append("\n");
+    sb.append("    pfProductId: ").append(toIndentedString(pfProductId)).append("\n");
+    sb.append("    pfFormatId: ").append(toIndentedString(pfFormatId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

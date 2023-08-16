@@ -3,12 +3,18 @@ properties:
   id:
     type: integer
     format: int64
-  userbm:
-    type: object
-    $ref: "../../userbm/dto/UserbmDto.yaml"
-  role:
-    type: object
-    $ref: "../../role/dto/RoleDto.yaml"
+  userbmId:
+    type: integer
+    format: int64
+  roleId:
+    type: integer
+    format: int64
+#  userbm:
+#    type: object
+#    $ref: "../../userbm/dto/UserbmDto.yaml"
+#  role:
+#    type: object
+#    $ref: "../../role/dto/RoleDto.yaml"
   permissions:
     type: array
     items:

@@ -1,7 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.CurrencyDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -14,7 +13,7 @@ import javax.validation.constraints.*;
  * A conversion rule used to convert one currency in another
  */
 @ApiModel(description = "A conversion rule used to convert one currency in another")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class CurrencyconversionDto   {
   @JsonProperty("id")
   private Long id;
@@ -22,11 +21,11 @@ public class CurrencyconversionDto   {
   @JsonProperty("conversionFactor")
   private Double conversionFactor;
 
-  @JsonProperty("currencySource")
-  private CurrencyDto currencySource;
+  @JsonProperty("currencySourceId")
+  private Long currencySourceId;
 
-  @JsonProperty("currencyDestination")
-  private CurrencyDto currencyDestination;
+  @JsonProperty("currencyDestinationId")
+  private Long currencyDestinationId;
 
   public CurrencyconversionDto id(Long id) {
     this.id = id;
@@ -68,46 +67,44 @@ public class CurrencyconversionDto   {
     this.conversionFactor = conversionFactor;
   }
 
-  public CurrencyconversionDto currencySource(CurrencyDto currencySource) {
-    this.currencySource = currencySource;
+  public CurrencyconversionDto currencySourceId(Long currencySourceId) {
+    this.currencySourceId = currencySourceId;
     return this;
   }
 
   /**
-   * Get currencySource
-   * @return currencySource
+   * Get currencySourceId
+   * @return currencySourceId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public CurrencyDto getCurrencySource() {
-    return currencySource;
+  public Long getCurrencySourceId() {
+    return currencySourceId;
   }
 
-  public void setCurrencySource(CurrencyDto currencySource) {
-    this.currencySource = currencySource;
+  public void setCurrencySourceId(Long currencySourceId) {
+    this.currencySourceId = currencySourceId;
   }
 
-  public CurrencyconversionDto currencyDestination(CurrencyDto currencyDestination) {
-    this.currencyDestination = currencyDestination;
+  public CurrencyconversionDto currencyDestinationId(Long currencyDestinationId) {
+    this.currencyDestinationId = currencyDestinationId;
     return this;
   }
 
   /**
-   * Get currencyDestination
-   * @return currencyDestination
+   * Get currencyDestinationId
+   * @return currencyDestinationId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public CurrencyDto getCurrencyDestination() {
-    return currencyDestination;
+  public Long getCurrencyDestinationId() {
+    return currencyDestinationId;
   }
 
-  public void setCurrencyDestination(CurrencyDto currencyDestination) {
-    this.currencyDestination = currencyDestination;
+  public void setCurrencyDestinationId(Long currencyDestinationId) {
+    this.currencyDestinationId = currencyDestinationId;
   }
 
 
@@ -122,13 +119,13 @@ public class CurrencyconversionDto   {
     CurrencyconversionDto currencyconversionDto = (CurrencyconversionDto) o;
     return Objects.equals(this.id, currencyconversionDto.id) &&
         Objects.equals(this.conversionFactor, currencyconversionDto.conversionFactor) &&
-        Objects.equals(this.currencySource, currencyconversionDto.currencySource) &&
-        Objects.equals(this.currencyDestination, currencyconversionDto.currencyDestination);
+        Objects.equals(this.currencySourceId, currencyconversionDto.currencySourceId) &&
+        Objects.equals(this.currencyDestinationId, currencyconversionDto.currencyDestinationId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, conversionFactor, currencySource, currencyDestination);
+    return Objects.hash(id, conversionFactor, currencySourceId, currencyDestinationId);
   }
 
   @Override
@@ -138,8 +135,8 @@ public class CurrencyconversionDto   {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    conversionFactor: ").append(toIndentedString(conversionFactor)).append("\n");
-    sb.append("    currencySource: ").append(toIndentedString(currencySource)).append("\n");
-    sb.append("    currencyDestination: ").append(toIndentedString(currencyDestination)).append("\n");
+    sb.append("    currencySourceId: ").append(toIndentedString(currencySourceId)).append("\n");
+    sb.append("    currencyDestinationId: ").append(toIndentedString(currencyDestinationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

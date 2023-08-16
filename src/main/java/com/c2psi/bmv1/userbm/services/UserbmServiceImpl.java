@@ -481,6 +481,15 @@ public class UserbmServiceImpl implements UserbmService{
         }
     }
 
+    @Override
+    public Boolean isUserbmExistWithId(Long userbmId) {
+        if(userbmId == null){
+            throw new NullValueException("Le userbmId envoye est null");
+        }
+        Optional<Userbm> optionalUserbm = userbmDao.findUserbmById(userbmId);
+        return optionalUserbm.isPresent();
+    }
+
     PageofUserbmDto getPageofUserbmDto(Page<Userbm> userbmPage){
         PageofUserbmDto pageofUserbmDto = new PageofUserbmDto();
         pageofUserbmDto.setContent(userbmMapper.entityToDto(userbmPage.getContent()));

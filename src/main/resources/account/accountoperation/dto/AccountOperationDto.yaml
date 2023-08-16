@@ -10,10 +10,17 @@ properties:
     minimum: 0
     exclusiveMinimum: true
     example: 1
-  operation:
-    type: object
-    $ref: '../../operation/dto/OperationDto.yaml'
-  account:
-    type: object
-    $ref: '../../account/dto/AccountDto.yaml'
+  operationId:
+    type: integer
+    format: int64
+  accountId:
+    type: integer
+    format: int64
+
+#  operation:
+#    type: object
+#    $ref: '../../operation/dto/OperationDto.yaml'
+#  account:
+#    type: object
+#    $ref: '../../account/dto/AccountDto.yaml'
   

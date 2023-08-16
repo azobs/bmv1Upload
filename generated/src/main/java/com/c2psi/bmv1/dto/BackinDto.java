@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.CommandDto;
-import com.c2psi.bmv1.dto.UserbmDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -16,7 +14,7 @@ import javax.validation.constraints.*;
  * A Backin in the system which represent articles return back by a client after delivery
  */
 @ApiModel(description = "A Backin in the system which represent articles return back by a client after delivery")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class BackinDto   {
   @JsonProperty("id")
   private Long id;
@@ -28,11 +26,11 @@ public class BackinDto   {
   @JsonProperty("biComment")
   private String biComment;
 
-  @JsonProperty("biCommand")
-  private CommandDto biCommand;
+  @JsonProperty("biCommandId")
+  private Long biCommandId;
 
-  @JsonProperty("biSaler")
-  private UserbmDto biSaler;
+  @JsonProperty("biSalerId")
+  private Long biSalerId;
 
   public BackinDto id(Long id) {
     this.id = id;
@@ -95,46 +93,44 @@ public class BackinDto   {
     this.biComment = biComment;
   }
 
-  public BackinDto biCommand(CommandDto biCommand) {
-    this.biCommand = biCommand;
+  public BackinDto biCommandId(Long biCommandId) {
+    this.biCommandId = biCommandId;
     return this;
   }
 
   /**
-   * Get biCommand
-   * @return biCommand
+   * Get biCommandId
+   * @return biCommandId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public CommandDto getBiCommand() {
-    return biCommand;
+  public Long getBiCommandId() {
+    return biCommandId;
   }
 
-  public void setBiCommand(CommandDto biCommand) {
-    this.biCommand = biCommand;
+  public void setBiCommandId(Long biCommandId) {
+    this.biCommandId = biCommandId;
   }
 
-  public BackinDto biSaler(UserbmDto biSaler) {
-    this.biSaler = biSaler;
+  public BackinDto biSalerId(Long biSalerId) {
+    this.biSalerId = biSalerId;
     return this;
   }
 
   /**
-   * Get biSaler
-   * @return biSaler
+   * Get biSalerId
+   * @return biSalerId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public UserbmDto getBiSaler() {
-    return biSaler;
+  public Long getBiSalerId() {
+    return biSalerId;
   }
 
-  public void setBiSaler(UserbmDto biSaler) {
-    this.biSaler = biSaler;
+  public void setBiSalerId(Long biSalerId) {
+    this.biSalerId = biSalerId;
   }
 
 
@@ -150,13 +146,13 @@ public class BackinDto   {
     return Objects.equals(this.id, backinDto.id) &&
         Objects.equals(this.biDate, backinDto.biDate) &&
         Objects.equals(this.biComment, backinDto.biComment) &&
-        Objects.equals(this.biCommand, backinDto.biCommand) &&
-        Objects.equals(this.biSaler, backinDto.biSaler);
+        Objects.equals(this.biCommandId, backinDto.biCommandId) &&
+        Objects.equals(this.biSalerId, backinDto.biSalerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, biDate, biComment, biCommand, biSaler);
+    return Objects.hash(id, biDate, biComment, biCommandId, biSalerId);
   }
 
   @Override
@@ -167,8 +163,8 @@ public class BackinDto   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    biDate: ").append(toIndentedString(biDate)).append("\n");
     sb.append("    biComment: ").append(toIndentedString(biComment)).append("\n");
-    sb.append("    biCommand: ").append(toIndentedString(biCommand)).append("\n");
-    sb.append("    biSaler: ").append(toIndentedString(biSaler)).append("\n");
+    sb.append("    biCommandId: ").append(toIndentedString(biCommandId)).append("\n");
+    sb.append("    biSalerId: ").append(toIndentedString(biSalerId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

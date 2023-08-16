@@ -1,7 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.CategoryDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -14,7 +13,7 @@ import javax.validation.constraints.*;
  * A product in the system
  */
 @ApiModel(description = "A product in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class ProductDto   {
   @JsonProperty("id")
   private Long id;
@@ -34,8 +33,8 @@ public class ProductDto   {
   @JsonProperty("prodPerishable")
   private Boolean prodPerishable;
 
-  @JsonProperty("prodCat")
-  private CategoryDto prodCat;
+  @JsonProperty("prodCatId")
+  private Long prodCatId;
 
   public ProductDto id(Long id) {
     this.id = id;
@@ -157,25 +156,24 @@ public class ProductDto   {
     this.prodPerishable = prodPerishable;
   }
 
-  public ProductDto prodCat(CategoryDto prodCat) {
-    this.prodCat = prodCat;
+  public ProductDto prodCatId(Long prodCatId) {
+    this.prodCatId = prodCatId;
     return this;
   }
 
   /**
-   * Get prodCat
-   * @return prodCat
+   * Get prodCatId
+   * @return prodCatId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public CategoryDto getProdCat() {
-    return prodCat;
+  public Long getProdCatId() {
+    return prodCatId;
   }
 
-  public void setProdCat(CategoryDto prodCat) {
-    this.prodCat = prodCat;
+  public void setProdCatId(Long prodCatId) {
+    this.prodCatId = prodCatId;
   }
 
 
@@ -194,12 +192,12 @@ public class ProductDto   {
         Objects.equals(this.prodDescription, productDto.prodDescription) &&
         Objects.equals(this.prodAlias, productDto.prodAlias) &&
         Objects.equals(this.prodPerishable, productDto.prodPerishable) &&
-        Objects.equals(this.prodCat, productDto.prodCat);
+        Objects.equals(this.prodCatId, productDto.prodCatId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, prodName, prodCode, prodDescription, prodAlias, prodPerishable, prodCat);
+    return Objects.hash(id, prodName, prodCode, prodDescription, prodAlias, prodPerishable, prodCatId);
   }
 
   @Override
@@ -213,7 +211,7 @@ public class ProductDto   {
     sb.append("    prodDescription: ").append(toIndentedString(prodDescription)).append("\n");
     sb.append("    prodAlias: ").append(toIndentedString(prodAlias)).append("\n");
     sb.append("    prodPerishable: ").append(toIndentedString(prodPerishable)).append("\n");
-    sb.append("    prodCat: ").append(toIndentedString(prodCat)).append("\n");
+    sb.append("    prodCatId: ").append(toIndentedString(prodCatId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.DeliveryDto;
-import com.c2psi.bmv1.dto.PackagingDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -15,7 +13,7 @@ import javax.validation.constraints.*;
  * A Deliverydetails in the system which can contain multiple command
  */
 @ApiModel(description = "A Deliverydetails in the system which can contain multiple command")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class DeliverydetailsDto   {
   @JsonProperty("id")
   private Long id;
@@ -26,11 +24,11 @@ public class DeliverydetailsDto   {
   @JsonProperty("packageReturn")
   private Integer packageReturn;
 
-  @JsonProperty("ddPackaging")
-  private PackagingDto ddPackaging;
+  @JsonProperty("ddPackagingId")
+  private Long ddPackagingId;
 
-  @JsonProperty("ddDelivery")
-  private DeliveryDto ddDelivery;
+  @JsonProperty("ddDeliveryId")
+  private Long ddDeliveryId;
 
   public DeliverydetailsDto id(Long id) {
     this.id = id;
@@ -92,46 +90,44 @@ public class DeliverydetailsDto   {
     this.packageReturn = packageReturn;
   }
 
-  public DeliverydetailsDto ddPackaging(PackagingDto ddPackaging) {
-    this.ddPackaging = ddPackaging;
+  public DeliverydetailsDto ddPackagingId(Long ddPackagingId) {
+    this.ddPackagingId = ddPackagingId;
     return this;
   }
 
   /**
-   * Get ddPackaging
-   * @return ddPackaging
+   * Get ddPackagingId
+   * @return ddPackagingId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public PackagingDto getDdPackaging() {
-    return ddPackaging;
+  public Long getDdPackagingId() {
+    return ddPackagingId;
   }
 
-  public void setDdPackaging(PackagingDto ddPackaging) {
-    this.ddPackaging = ddPackaging;
+  public void setDdPackagingId(Long ddPackagingId) {
+    this.ddPackagingId = ddPackagingId;
   }
 
-  public DeliverydetailsDto ddDelivery(DeliveryDto ddDelivery) {
-    this.ddDelivery = ddDelivery;
+  public DeliverydetailsDto ddDeliveryId(Long ddDeliveryId) {
+    this.ddDeliveryId = ddDeliveryId;
     return this;
   }
 
   /**
-   * Get ddDelivery
-   * @return ddDelivery
+   * Get ddDeliveryId
+   * @return ddDeliveryId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public DeliveryDto getDdDelivery() {
-    return ddDelivery;
+  public Long getDdDeliveryId() {
+    return ddDeliveryId;
   }
 
-  public void setDdDelivery(DeliveryDto ddDelivery) {
-    this.ddDelivery = ddDelivery;
+  public void setDdDeliveryId(Long ddDeliveryId) {
+    this.ddDeliveryId = ddDeliveryId;
   }
 
 
@@ -147,13 +143,13 @@ public class DeliverydetailsDto   {
     return Objects.equals(this.id, deliverydetailsDto.id) &&
         Objects.equals(this.packageUsed, deliverydetailsDto.packageUsed) &&
         Objects.equals(this.packageReturn, deliverydetailsDto.packageReturn) &&
-        Objects.equals(this.ddPackaging, deliverydetailsDto.ddPackaging) &&
-        Objects.equals(this.ddDelivery, deliverydetailsDto.ddDelivery);
+        Objects.equals(this.ddPackagingId, deliverydetailsDto.ddPackagingId) &&
+        Objects.equals(this.ddDeliveryId, deliverydetailsDto.ddDeliveryId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, packageUsed, packageReturn, ddPackaging, ddDelivery);
+    return Objects.hash(id, packageUsed, packageReturn, ddPackagingId, ddDeliveryId);
   }
 
   @Override
@@ -164,8 +160,8 @@ public class DeliverydetailsDto   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    packageUsed: ").append(toIndentedString(packageUsed)).append("\n");
     sb.append("    packageReturn: ").append(toIndentedString(packageReturn)).append("\n");
-    sb.append("    ddPackaging: ").append(toIndentedString(ddPackaging)).append("\n");
-    sb.append("    ddDelivery: ").append(toIndentedString(ddDelivery)).append("\n");
+    sb.append("    ddPackagingId: ").append(toIndentedString(ddPackagingId)).append("\n");
+    sb.append("    ddDeliveryId: ").append(toIndentedString(ddDeliveryId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

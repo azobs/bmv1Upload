@@ -4,6 +4,11 @@ import com.c2psi.bmv1.bmapp.annotations.BmNotBlank;
 import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.Filter;
 import com.c2psi.bmv1.dto.Orderby;
+import com.c2psi.bmv1.dto.PointofsaleDto;
+import com.c2psi.bmv1.dto.RoleDto;
+import com.c2psi.bmv1.pos.enterprise.services.EnterpriseService;
+import com.c2psi.bmv1.pos.pos.models.Pointofsale;
+import com.c2psi.bmv1.pos.pos.service.PointofsaleService;
 import com.c2psi.bmv1.role.models.Role;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
@@ -16,16 +21,56 @@ import org.springframework.stereotype.Service;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service(value = "RoleValidatorV1")
 @Slf4j
 @RequiredArgsConstructor
 public class RoleValidator {
     final AppService appService;
+    final PointofsaleService posService;
+    final EnterpriseService entService;
+
+    public List<String> validate(RoleDto roleDto){
+        List<String> errors = new ArrayList<>();
+        if(roleDto == null){
+            errors.add("The roleDto to validate can't be null");
+        }
+        if(roleDto.getRolePosId() == null && roleDto.getRoleEntId() == null){
+            errors.add("A role must belong either to a pointofsale or to an enterprise. Both can't be null");
+        }
+        else{
+            boolean posValid = true;
+            if(roleDto.getRolePosId() != null) {
+                if(!posService.isPointofsaleExistWith(roleDto.getRolePosId())){
+                    errors.add("There is no Pointofsale in the DB with the rolePosId sent");
+                    posValid = false;
+                }
+            }
+
+            boolean entValid = true;
+            if(roleDto.getRoleEntId() != null){
+                if(!entService.isEnterpriseExistWith(roleDto.getRoleEntId())){
+                    errors.add("There is no Enterprise in the DB with the roleEntId sent");
+                    entValid = false;
+                }
+            }
+
+            if(roleDto.getRolePosId() != null && roleDto.getRoleEntId() != null) {
+                if (entValid && posValid) {
+                    /*****************************************
+                     * On doit se rassurer que le pos indique par son id est bel et bien un pos de l'entreprise indique
+                     */
+                    PointofsaleDto posDto = posService.getPointofsaleById(roleDto.getRolePosId());
+                    if (posDto.getPosEnterpriseId().longValue() != roleDto.getRoleEntId().longValue()) {
+                        errors.add("The posId sent don't identify a Pointofsale that belong to the enterprise " +
+                                "indicated by the entId");
+                    }
+                }
+            }
+        }
+        return errors;
+    }
 
     public List<String> validate(Role role){
         List<String> errors = new ArrayList<>();
@@ -47,14 +92,6 @@ public class RoleValidator {
         }
 
         errors.addAll(this.validateStringofBm(role));
-
-        /*****************************************************
-         * Le pointofsale du role et son entreprise ne peuvent pas
-         * etre null en meme temps
-         */
-        if(role.getRolePos() == null && role.getRoleEnt() == null){
-            errors.add("The pointofsale and enterprise owner of the role can't be null at the same time");
-        }
 
         return errors;
     }

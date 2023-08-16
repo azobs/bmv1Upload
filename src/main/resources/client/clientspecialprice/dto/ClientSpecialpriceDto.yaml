@@ -7,13 +7,22 @@ properties:
   appliedDate:
     type: string
     format: date-time
-  client:
-    type: object
-    $ref: '../../client/dto/ClientDto.yaml'
-  specialprice:
-    type: object
-    $ref: '../../../price/specialprice/dto/SpecialpriceDto.yaml'
-  article:
-    type: object
-    $ref: '../../../product/article/dto/ArticleDto.yaml'
+  clientId:
+    type: integer
+    format: int64
+  specialpriceId:
+    type: integer
+    format: int64
+  articleId:
+    type: integer
+    format: int64
+#  client:
+#    type: object
+#    $ref: '../../client/dto/ClientDto.yaml'
+#  specialprice:
+#    type: object
+#    $ref: '../../../price/specialprice/dto/SpecialpriceDto.yaml'
+#  article:
+#    type: object
+#    $ref: '../../../product/article/dto/ArticleDto.yaml'
   

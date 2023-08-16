@@ -9,9 +9,15 @@ properties:
     format: date-time
   biComment:
     type: string
-  biCommand:
-    type: object
-    $ref: '../../command/dto/CommandDto.yaml'
-  biSaler:
-    type: object
-    $ref: '../../../userbm/dto/UserbmDto.yaml'
+  biCommandId:
+    type: integer
+    format: int64
+  biSalerId:
+    type: integer
+    format: int64
+#  biCommand:
+#    type: object
+#    $ref: '../../command/dto/CommandDto.yaml'
+#  biSaler:
+#    type: object
+#    $ref: '../../../userbm/dto/UserbmDto.yaml'

@@ -22,12 +22,18 @@ properties:
   catDescription:
     type: string
     maxLength: 256
-  catParent:
-    type: object
-    $ref: './CategoryDto.yaml'
-  catPos:
-    type: object
-    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  catParentId:
+    type: integer
+    format: int64
+  catPosId:
+    type: integer
+    format: int64
+#  catParent:
+#    type: object
+#    $ref: './CategoryDto.yaml'
+#  catPos:
+#    type: object
+#    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
 required:
   - catName
   - posofCat

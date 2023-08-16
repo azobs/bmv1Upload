@@ -1,7 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.PointofsaleDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -15,7 +14,7 @@ import javax.validation.constraints.*;
  * An Inventory used in the system
  */
 @ApiModel(description = "An Inventory used in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class InventoryDto   {
   @JsonProperty("id")
   private Long id;
@@ -30,8 +29,8 @@ public class InventoryDto   {
   @JsonProperty("invCode")
   private String invCode;
 
-  @JsonProperty("invPos")
-  private PointofsaleDto invPos;
+  @JsonProperty("invPosId")
+  private Long invPosId;
 
   public InventoryDto id(Long id) {
     this.id = id;
@@ -114,25 +113,24 @@ public class InventoryDto   {
     this.invCode = invCode;
   }
 
-  public InventoryDto invPos(PointofsaleDto invPos) {
-    this.invPos = invPos;
+  public InventoryDto invPosId(Long invPosId) {
+    this.invPosId = invPosId;
     return this;
   }
 
   /**
-   * Get invPos
-   * @return invPos
+   * Get invPosId
+   * @return invPosId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public PointofsaleDto getInvPos() {
-    return invPos;
+  public Long getInvPosId() {
+    return invPosId;
   }
 
-  public void setInvPos(PointofsaleDto invPos) {
-    this.invPos = invPos;
+  public void setInvPosId(Long invPosId) {
+    this.invPosId = invPosId;
   }
 
 
@@ -149,12 +147,12 @@ public class InventoryDto   {
         Objects.equals(this.invComment, inventoryDto.invComment) &&
         Objects.equals(this.invDate, inventoryDto.invDate) &&
         Objects.equals(this.invCode, inventoryDto.invCode) &&
-        Objects.equals(this.invPos, inventoryDto.invPos);
+        Objects.equals(this.invPosId, inventoryDto.invPosId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, invComment, invDate, invCode, invPos);
+    return Objects.hash(id, invComment, invDate, invCode, invPosId);
   }
 
   @Override
@@ -166,7 +164,7 @@ public class InventoryDto   {
     sb.append("    invComment: ").append(toIndentedString(invComment)).append("\n");
     sb.append("    invDate: ").append(toIndentedString(invDate)).append("\n");
     sb.append("    invCode: ").append(toIndentedString(invCode)).append("\n");
-    sb.append("    invPos: ").append(toIndentedString(invPos)).append("\n");
+    sb.append("    invPosId: ").append(toIndentedString(invPosId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

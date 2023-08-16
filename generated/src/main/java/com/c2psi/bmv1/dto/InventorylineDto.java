@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.ArticleDto;
-import com.c2psi.bmv1.dto.InventoryDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -15,7 +13,7 @@ import javax.validation.constraints.*;
  * An Inventory line in the system
  */
 @ApiModel(description = "An Inventory line in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class InventorylineDto   {
   @JsonProperty("id")
   private Long id;
@@ -29,11 +27,11 @@ public class InventorylineDto   {
   @JsonProperty("logicqteinStock")
   private Double logicqteinStock;
 
-  @JsonProperty("inventory")
-  private InventoryDto inventory;
+  @JsonProperty("inventoryId")
+  private Long inventoryId;
 
-  @JsonProperty("invlineArticle")
-  private ArticleDto invlineArticle;
+  @JsonProperty("invlineArticleId")
+  private Long invlineArticleId;
 
   public InventorylineDto id(Long id) {
     this.id = id;
@@ -117,46 +115,44 @@ public class InventorylineDto   {
     this.logicqteinStock = logicqteinStock;
   }
 
-  public InventorylineDto inventory(InventoryDto inventory) {
-    this.inventory = inventory;
+  public InventorylineDto inventoryId(Long inventoryId) {
+    this.inventoryId = inventoryId;
     return this;
   }
 
   /**
-   * Get inventory
-   * @return inventory
+   * Get inventoryId
+   * @return inventoryId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public InventoryDto getInventory() {
-    return inventory;
+  public Long getInventoryId() {
+    return inventoryId;
   }
 
-  public void setInventory(InventoryDto inventory) {
-    this.inventory = inventory;
+  public void setInventoryId(Long inventoryId) {
+    this.inventoryId = inventoryId;
   }
 
-  public InventorylineDto invlineArticle(ArticleDto invlineArticle) {
-    this.invlineArticle = invlineArticle;
+  public InventorylineDto invlineArticleId(Long invlineArticleId) {
+    this.invlineArticleId = invlineArticleId;
     return this;
   }
 
   /**
-   * Get invlineArticle
-   * @return invlineArticle
+   * Get invlineArticleId
+   * @return invlineArticleId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public ArticleDto getInvlineArticle() {
-    return invlineArticle;
+  public Long getInvlineArticleId() {
+    return invlineArticleId;
   }
 
-  public void setInvlineArticle(ArticleDto invlineArticle) {
-    this.invlineArticle = invlineArticle;
+  public void setInvlineArticleId(Long invlineArticleId) {
+    this.invlineArticleId = invlineArticleId;
   }
 
 
@@ -173,13 +169,13 @@ public class InventorylineDto   {
         Objects.equals(this.invlineComment, inventorylineDto.invlineComment) &&
         Objects.equals(this.realqteinStock, inventorylineDto.realqteinStock) &&
         Objects.equals(this.logicqteinStock, inventorylineDto.logicqteinStock) &&
-        Objects.equals(this.inventory, inventorylineDto.inventory) &&
-        Objects.equals(this.invlineArticle, inventorylineDto.invlineArticle);
+        Objects.equals(this.inventoryId, inventorylineDto.inventoryId) &&
+        Objects.equals(this.invlineArticleId, inventorylineDto.invlineArticleId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, invlineComment, realqteinStock, logicqteinStock, inventory, invlineArticle);
+    return Objects.hash(id, invlineComment, realqteinStock, logicqteinStock, inventoryId, invlineArticleId);
   }
 
   @Override
@@ -191,8 +187,8 @@ public class InventorylineDto   {
     sb.append("    invlineComment: ").append(toIndentedString(invlineComment)).append("\n");
     sb.append("    realqteinStock: ").append(toIndentedString(realqteinStock)).append("\n");
     sb.append("    logicqteinStock: ").append(toIndentedString(logicqteinStock)).append("\n");
-    sb.append("    inventory: ").append(toIndentedString(inventory)).append("\n");
-    sb.append("    invlineArticle: ").append(toIndentedString(invlineArticle)).append("\n");
+    sb.append("    inventoryId: ").append(toIndentedString(inventoryId)).append("\n");
+    sb.append("    invlineArticleId: ").append(toIndentedString(invlineArticleId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

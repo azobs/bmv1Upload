@@ -19,10 +19,16 @@ properties:
       - Edited
       - Delivery
     example: InEditing
-  deliveryDeliver:
-    type: object
-    $ref: '../../../userbm/dto/UserbmDto.yaml'
-  deliveryPos:
-    type: object
-    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  deliveryDeliverId:
+    type: integer
+    format: int64
+  deliveryPosId:
+    type: integer
+    format: int64
+#  deliveryDeliver:
+#    type: object
+#    $ref: '../../../userbm/dto/UserbmDto.yaml'
+#  deliveryPos:
+#    type: object
+#    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
   

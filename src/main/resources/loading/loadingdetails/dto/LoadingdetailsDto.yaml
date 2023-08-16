@@ -12,10 +12,16 @@ properties:
     type: number
     format: double
     example: 0
-  ldArticle:
-    type: object
-    $ref: '../../../product/article/dto/ArticleDto.yaml'
-  ldLoading:
-    type: object
-    $ref: '../../loading/dto/LoadingDto.yaml'
+  ldArticleId:
+    type: integer
+    format: int64
+  ldLoadingId:
+    type: integer
+    format: int64
+#  ldArticle:
+#    type: object
+#    $ref: '../../../product/article/dto/ArticleDto.yaml'
+#  ldLoading:
+#    type: object
+#    $ref: '../../loading/dto/LoadingDto.yaml'
   

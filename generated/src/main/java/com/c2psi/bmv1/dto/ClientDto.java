@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.AddressDto;
-import com.c2psi.bmv1.dto.PointofsaleDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -15,7 +13,7 @@ import javax.validation.constraints.*;
  * A client in the system
  */
 @ApiModel(description = "A client in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class ClientDto   {
   @JsonProperty("id")
   private Long id;
@@ -32,11 +30,11 @@ public class ClientDto   {
   @JsonProperty("clientBalance")
   private Double clientBalance;
 
-  @JsonProperty("clientAddress")
-  private AddressDto clientAddress;
+  @JsonProperty("clientAddressId")
+  private Long clientAddressId;
 
-  @JsonProperty("clientPos")
-  private PointofsaleDto clientPos;
+  @JsonProperty("clientPosId")
+  private Long clientPosId;
 
   public ClientDto id(Long id) {
     this.id = id;
@@ -139,46 +137,44 @@ public class ClientDto   {
     this.clientBalance = clientBalance;
   }
 
-  public ClientDto clientAddress(AddressDto clientAddress) {
-    this.clientAddress = clientAddress;
+  public ClientDto clientAddressId(Long clientAddressId) {
+    this.clientAddressId = clientAddressId;
     return this;
   }
 
   /**
-   * Get clientAddress
-   * @return clientAddress
+   * Get clientAddressId
+   * @return clientAddressId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public AddressDto getClientAddress() {
-    return clientAddress;
+  public Long getClientAddressId() {
+    return clientAddressId;
   }
 
-  public void setClientAddress(AddressDto clientAddress) {
-    this.clientAddress = clientAddress;
+  public void setClientAddressId(Long clientAddressId) {
+    this.clientAddressId = clientAddressId;
   }
 
-  public ClientDto clientPos(PointofsaleDto clientPos) {
-    this.clientPos = clientPos;
+  public ClientDto clientPosId(Long clientPosId) {
+    this.clientPosId = clientPosId;
     return this;
   }
 
   /**
-   * Get clientPos
-   * @return clientPos
+   * Get clientPosId
+   * @return clientPosId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public PointofsaleDto getClientPos() {
-    return clientPos;
+  public Long getClientPosId() {
+    return clientPosId;
   }
 
-  public void setClientPos(PointofsaleDto clientPos) {
-    this.clientPos = clientPos;
+  public void setClientPosId(Long clientPosId) {
+    this.clientPosId = clientPosId;
   }
 
 
@@ -196,13 +192,13 @@ public class ClientDto   {
         Objects.equals(this.clientOthername, clientDto.clientOthername) &&
         Objects.equals(this.clientCni, clientDto.clientCni) &&
         Objects.equals(this.clientBalance, clientDto.clientBalance) &&
-        Objects.equals(this.clientAddress, clientDto.clientAddress) &&
-        Objects.equals(this.clientPos, clientDto.clientPos);
+        Objects.equals(this.clientAddressId, clientDto.clientAddressId) &&
+        Objects.equals(this.clientPosId, clientDto.clientPosId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, clientName, clientOthername, clientCni, clientBalance, clientAddress, clientPos);
+    return Objects.hash(id, clientName, clientOthername, clientCni, clientBalance, clientAddressId, clientPosId);
   }
 
   @Override
@@ -215,8 +211,8 @@ public class ClientDto   {
     sb.append("    clientOthername: ").append(toIndentedString(clientOthername)).append("\n");
     sb.append("    clientCni: ").append(toIndentedString(clientCni)).append("\n");
     sb.append("    clientBalance: ").append(toIndentedString(clientBalance)).append("\n");
-    sb.append("    clientAddress: ").append(toIndentedString(clientAddress)).append("\n");
-    sb.append("    clientPos: ").append(toIndentedString(clientPos)).append("\n");
+    sb.append("    clientAddressId: ").append(toIndentedString(clientAddressId)).append("\n");
+    sb.append("    clientPosId: ").append(toIndentedString(clientPosId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

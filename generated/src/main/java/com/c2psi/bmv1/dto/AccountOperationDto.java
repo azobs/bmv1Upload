@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.AccountDto;
-import com.c2psi.bmv1.dto.OperationDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -15,7 +13,7 @@ import javax.validation.constraints.*;
  * An account operation in the system. It concerns only Cover, Damage and Packaging
  */
 @ApiModel(description = "An account operation in the system. It concerns only Cover, Damage and Packaging")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class AccountOperationDto   {
   @JsonProperty("id")
   private Long id;
@@ -23,11 +21,11 @@ public class AccountOperationDto   {
   @JsonProperty("quantityinMvt")
   private Double quantityinMvt;
 
-  @JsonProperty("operation")
-  private OperationDto operation;
+  @JsonProperty("operationId")
+  private Long operationId;
 
-  @JsonProperty("account")
-  private AccountDto account;
+  @JsonProperty("accountId")
+  private Long accountId;
 
   public AccountOperationDto id(Long id) {
     this.id = id;
@@ -70,46 +68,44 @@ public class AccountOperationDto   {
     this.quantityinMvt = quantityinMvt;
   }
 
-  public AccountOperationDto operation(OperationDto operation) {
-    this.operation = operation;
+  public AccountOperationDto operationId(Long operationId) {
+    this.operationId = operationId;
     return this;
   }
 
   /**
-   * Get operation
-   * @return operation
+   * Get operationId
+   * @return operationId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public OperationDto getOperation() {
-    return operation;
+  public Long getOperationId() {
+    return operationId;
   }
 
-  public void setOperation(OperationDto operation) {
-    this.operation = operation;
+  public void setOperationId(Long operationId) {
+    this.operationId = operationId;
   }
 
-  public AccountOperationDto account(AccountDto account) {
-    this.account = account;
+  public AccountOperationDto accountId(Long accountId) {
+    this.accountId = accountId;
     return this;
   }
 
   /**
-   * Get account
-   * @return account
+   * Get accountId
+   * @return accountId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public AccountDto getAccount() {
-    return account;
+  public Long getAccountId() {
+    return accountId;
   }
 
-  public void setAccount(AccountDto account) {
-    this.account = account;
+  public void setAccountId(Long accountId) {
+    this.accountId = accountId;
   }
 
 
@@ -124,13 +120,13 @@ public class AccountOperationDto   {
     AccountOperationDto accountOperationDto = (AccountOperationDto) o;
     return Objects.equals(this.id, accountOperationDto.id) &&
         Objects.equals(this.quantityinMvt, accountOperationDto.quantityinMvt) &&
-        Objects.equals(this.operation, accountOperationDto.operation) &&
-        Objects.equals(this.account, accountOperationDto.account);
+        Objects.equals(this.operationId, accountOperationDto.operationId) &&
+        Objects.equals(this.accountId, accountOperationDto.accountId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, quantityinMvt, operation, account);
+    return Objects.hash(id, quantityinMvt, operationId, accountId);
   }
 
   @Override
@@ -140,8 +136,8 @@ public class AccountOperationDto   {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    quantityinMvt: ").append(toIndentedString(quantityinMvt)).append("\n");
-    sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
-    sb.append("    account: ").append(toIndentedString(account)).append("\n");
+    sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

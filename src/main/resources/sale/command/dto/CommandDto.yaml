@@ -27,22 +27,40 @@ properties:
       - Cover
       - Damage
     example: Cash
-  cmdDelivery:
-    type: object
-    $ref: '../../delivery/dto/DeliveryDto.yaml'
-  cmdLoading:
-    type: object
-    $ref: '../../../loading/loading/dto/LoadingDto.yaml'
-  cmdClient:
-    type: object
-    $ref: '../../../client/client/dto/ClientDto.yaml'
-  cmdSaler:
-    type: object
-    $ref: '../../../userbm/dto/UserbmDto.yaml'
-  cmdInvoice:
-    type: object
-    $ref: '../../saleinvoice/dto/SaleinvoiceDto.yaml'
-  cmdPos:
-    type: object
-    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  cmdDeliveryId:
+    type: integer
+    format: int64
+  cmdLoadingId:
+    type: integer
+    format: int64
+  cmdClientId:
+    type: integer
+    format: int64
+  cmdSalerId:
+    type: integer
+    format: int64
+  cmdInvoiceId:
+    type: integer
+    format: int64
+  cmdPosId:
+    type: integer
+    format: int64
+#  cmdDelivery:
+#    type: object
+#    $ref: '../../delivery/dto/DeliveryDto.yaml'
+#  cmdLoading:
+#    type: object
+#    $ref: '../../../loading/loading/dto/LoadingDto.yaml'
+#  cmdClient:
+#    type: object
+#    $ref: '../../../client/client/dto/ClientDto.yaml'
+#  cmdSaler:
+#    type: object
+#    $ref: '../../../userbm/dto/UserbmDto.yaml'
+#  cmdInvoice:
+#    type: object
+#    $ref: '../../saleinvoice/dto/SaleinvoiceDto.yaml'
+#  cmdPos:
+#    type: object
+#    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
   

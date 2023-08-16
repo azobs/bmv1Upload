@@ -2,7 +2,6 @@ package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
 import com.c2psi.bmv1.dto.AddressDto;
-import com.c2psi.bmv1.dto.PointofsaleDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -15,7 +14,7 @@ import javax.validation.constraints.*;
  * A provider in the system
  */
 @ApiModel(description = "A provider in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class ProviderDto   {
   @JsonProperty("id")
   private Long id;
@@ -35,8 +34,8 @@ public class ProviderDto   {
   @JsonProperty("providerAddress")
   private AddressDto providerAddress;
 
-  @JsonProperty("providerPos")
-  private PointofsaleDto providerPos;
+  @JsonProperty("providerPosId")
+  private Long providerPosId;
 
   public ProviderDto id(Long id) {
     this.id = id;
@@ -159,25 +158,24 @@ public class ProviderDto   {
     this.providerAddress = providerAddress;
   }
 
-  public ProviderDto providerPos(PointofsaleDto providerPos) {
-    this.providerPos = providerPos;
+  public ProviderDto providerPosId(Long providerPosId) {
+    this.providerPosId = providerPosId;
     return this;
   }
 
   /**
-   * Get providerPos
-   * @return providerPos
+   * Get providerPosId
+   * @return providerPosId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public PointofsaleDto getProviderPos() {
-    return providerPos;
+  public Long getProviderPosId() {
+    return providerPosId;
   }
 
-  public void setProviderPos(PointofsaleDto providerPos) {
-    this.providerPos = providerPos;
+  public void setProviderPosId(Long providerPosId) {
+    this.providerPosId = providerPosId;
   }
 
 
@@ -196,12 +194,12 @@ public class ProviderDto   {
         Objects.equals(this.providerDescription, providerDto.providerDescription) &&
         Objects.equals(this.providerBalance, providerDto.providerBalance) &&
         Objects.equals(this.providerAddress, providerDto.providerAddress) &&
-        Objects.equals(this.providerPos, providerDto.providerPos);
+        Objects.equals(this.providerPosId, providerDto.providerPosId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, providerName, providerAcronym, providerDescription, providerBalance, providerAddress, providerPos);
+    return Objects.hash(id, providerName, providerAcronym, providerDescription, providerBalance, providerAddress, providerPosId);
   }
 
   @Override
@@ -215,7 +213,7 @@ public class ProviderDto   {
     sb.append("    providerDescription: ").append(toIndentedString(providerDescription)).append("\n");
     sb.append("    providerBalance: ").append(toIndentedString(providerBalance)).append("\n");
     sb.append("    providerAddress: ").append(toIndentedString(providerAddress)).append("\n");
-    sb.append("    providerPos: ").append(toIndentedString(providerPos)).append("\n");
+    sb.append("    providerPosId: ").append(toIndentedString(providerPosId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

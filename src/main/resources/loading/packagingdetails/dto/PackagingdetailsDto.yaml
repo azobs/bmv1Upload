@@ -12,10 +12,16 @@ properties:
     type: integer
     format: int32
     example: 1
-  pdPackaging:
-    type: object
-    $ref: '../../../packaging/packaging/dto/PackagingDto.yaml'
+  pdPackagingId:
+    type: integer
+    format: int64
   pdLoading:
-    type: object
-    $ref: '../../loading/dto/LoadingDto.yaml'
+    type: integer
+    format: int64
+#  pdPackaging:
+#    type: object
+#    $ref: '../../../packaging/packaging/dto/PackagingDto.yaml'
+#  pdLoading:
+#    type: object
+#    $ref: '../../loading/dto/LoadingDto.yaml'
   

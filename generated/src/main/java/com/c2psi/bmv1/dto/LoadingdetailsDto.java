@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.ArticleDto;
-import com.c2psi.bmv1.dto.LoadingDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -15,7 +13,7 @@ import javax.validation.constraints.*;
  * A Loading details in the system
  */
 @ApiModel(description = "A Loading details in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class LoadingdetailsDto   {
   @JsonProperty("id")
   private Long id;
@@ -26,11 +24,11 @@ public class LoadingdetailsDto   {
   @JsonProperty("quantityReturn")
   private Double quantityReturn;
 
-  @JsonProperty("ldArticle")
-  private ArticleDto ldArticle;
+  @JsonProperty("ldArticleId")
+  private Long ldArticleId;
 
-  @JsonProperty("ldLoading")
-  private LoadingDto ldLoading;
+  @JsonProperty("ldLoadingId")
+  private Long ldLoadingId;
 
   public LoadingdetailsDto id(Long id) {
     this.id = id;
@@ -92,46 +90,44 @@ public class LoadingdetailsDto   {
     this.quantityReturn = quantityReturn;
   }
 
-  public LoadingdetailsDto ldArticle(ArticleDto ldArticle) {
-    this.ldArticle = ldArticle;
+  public LoadingdetailsDto ldArticleId(Long ldArticleId) {
+    this.ldArticleId = ldArticleId;
     return this;
   }
 
   /**
-   * Get ldArticle
-   * @return ldArticle
+   * Get ldArticleId
+   * @return ldArticleId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public ArticleDto getLdArticle() {
-    return ldArticle;
+  public Long getLdArticleId() {
+    return ldArticleId;
   }
 
-  public void setLdArticle(ArticleDto ldArticle) {
-    this.ldArticle = ldArticle;
+  public void setLdArticleId(Long ldArticleId) {
+    this.ldArticleId = ldArticleId;
   }
 
-  public LoadingdetailsDto ldLoading(LoadingDto ldLoading) {
-    this.ldLoading = ldLoading;
+  public LoadingdetailsDto ldLoadingId(Long ldLoadingId) {
+    this.ldLoadingId = ldLoadingId;
     return this;
   }
 
   /**
-   * Get ldLoading
-   * @return ldLoading
+   * Get ldLoadingId
+   * @return ldLoadingId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public LoadingDto getLdLoading() {
-    return ldLoading;
+  public Long getLdLoadingId() {
+    return ldLoadingId;
   }
 
-  public void setLdLoading(LoadingDto ldLoading) {
-    this.ldLoading = ldLoading;
+  public void setLdLoadingId(Long ldLoadingId) {
+    this.ldLoadingId = ldLoadingId;
   }
 
 
@@ -147,13 +143,13 @@ public class LoadingdetailsDto   {
     return Objects.equals(this.id, loadingdetailsDto.id) &&
         Objects.equals(this.quantityTaken, loadingdetailsDto.quantityTaken) &&
         Objects.equals(this.quantityReturn, loadingdetailsDto.quantityReturn) &&
-        Objects.equals(this.ldArticle, loadingdetailsDto.ldArticle) &&
-        Objects.equals(this.ldLoading, loadingdetailsDto.ldLoading);
+        Objects.equals(this.ldArticleId, loadingdetailsDto.ldArticleId) &&
+        Objects.equals(this.ldLoadingId, loadingdetailsDto.ldLoadingId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, quantityTaken, quantityReturn, ldArticle, ldLoading);
+    return Objects.hash(id, quantityTaken, quantityReturn, ldArticleId, ldLoadingId);
   }
 
   @Override
@@ -164,8 +160,8 @@ public class LoadingdetailsDto   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    quantityTaken: ").append(toIndentedString(quantityTaken)).append("\n");
     sb.append("    quantityReturn: ").append(toIndentedString(quantityReturn)).append("\n");
-    sb.append("    ldArticle: ").append(toIndentedString(ldArticle)).append("\n");
-    sb.append("    ldLoading: ").append(toIndentedString(ldLoading)).append("\n");
+    sb.append("    ldArticleId: ").append(toIndentedString(ldArticleId)).append("\n");
+    sb.append("    ldLoadingId: ").append(toIndentedString(ldLoadingId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

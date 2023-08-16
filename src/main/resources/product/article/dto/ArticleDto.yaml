@@ -30,15 +30,27 @@ properties:
     type: integer
     format: int32
     example: 0
-  artPf:
-    type: object
-    $ref: '../../pf/dto/ProductformatedDto.yaml'
-  artUnit:
-    type: object
-    $ref: '../../unit/unit/dto/UnitDto.yaml'
-  artBaseprice:
-    type: object
-    $ref: '../../../price/baseprice/dto/BasepriceDto.yaml'
-  artPos:
-    type: object
-    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  artPfId:
+    type: integer
+    format: int64
+  artUnitId:
+    type: integer
+    format: int64
+  artBasepriceId:
+    type: integer
+    format: int64
+  artPosId:
+    type: integer
+    format: int64
+#  artPf:
+#    type: object
+#    $ref: '../../pf/dto/ProductformatedDto.yaml'
+#  artUnit:
+#    type: object
+#    $ref: '../../unit/unit/dto/UnitDto.yaml'
+#  artBaseprice:
+#    type: object
+#    $ref: '../../../price/baseprice/dto/BasepriceDto.yaml'
+#  artPos:
+#    type: object
+#    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'

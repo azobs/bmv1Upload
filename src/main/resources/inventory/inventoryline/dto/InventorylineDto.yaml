@@ -18,10 +18,16 @@ properties:
     minimum: 0
     exclusiveMinimum: false
     example: 0
-  inventory:
-    type: object
-    $ref: '../../inventory/dto/InventoryDto.yaml'
-  invlineArticle:
-    type: object
-    $ref: '../../../product/article/dto/ArticleDto.yaml'
+  inventoryId:
+    type: integer
+    format: int64
+  invlineArticleId:
+    type: integer
+    format: int64
+#  inventory:
+#    type: object
+#    $ref: '../../inventory/dto/InventoryDto.yaml'
+#  invlineArticle:
+#    type: object
+#    $ref: '../../../product/article/dto/ArticleDto.yaml'
   

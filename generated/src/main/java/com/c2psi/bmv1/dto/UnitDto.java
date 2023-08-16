@@ -1,7 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.PointofsaleDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -14,7 +13,7 @@ import javax.validation.constraints.*;
  * A selling unit of product formated in the system
  */
 @ApiModel(description = "A selling unit of product formated in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class UnitDto   {
   @JsonProperty("id")
   private Long id;
@@ -25,8 +24,8 @@ public class UnitDto   {
   @JsonProperty("unitAbbreviation")
   private String unitAbbreviation;
 
-  @JsonProperty("unitPos")
-  private PointofsaleDto unitPos;
+  @JsonProperty("unitPosId")
+  private Long unitPosId;
 
   public UnitDto id(Long id) {
     this.id = id;
@@ -88,25 +87,24 @@ public class UnitDto   {
     this.unitAbbreviation = unitAbbreviation;
   }
 
-  public UnitDto unitPos(PointofsaleDto unitPos) {
-    this.unitPos = unitPos;
+  public UnitDto unitPosId(Long unitPosId) {
+    this.unitPosId = unitPosId;
     return this;
   }
 
   /**
-   * Get unitPos
-   * @return unitPos
+   * Get unitPosId
+   * @return unitPosId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public PointofsaleDto getUnitPos() {
-    return unitPos;
+  public Long getUnitPosId() {
+    return unitPosId;
   }
 
-  public void setUnitPos(PointofsaleDto unitPos) {
-    this.unitPos = unitPos;
+  public void setUnitPosId(Long unitPosId) {
+    this.unitPosId = unitPosId;
   }
 
 
@@ -122,12 +120,12 @@ public class UnitDto   {
     return Objects.equals(this.id, unitDto.id) &&
         Objects.equals(this.unitName, unitDto.unitName) &&
         Objects.equals(this.unitAbbreviation, unitDto.unitAbbreviation) &&
-        Objects.equals(this.unitPos, unitDto.unitPos);
+        Objects.equals(this.unitPosId, unitDto.unitPosId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, unitName, unitAbbreviation, unitPos);
+    return Objects.hash(id, unitName, unitAbbreviation, unitPosId);
   }
 
   @Override
@@ -138,7 +136,7 @@ public class UnitDto   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    unitName: ").append(toIndentedString(unitName)).append("\n");
     sb.append("    unitAbbreviation: ").append(toIndentedString(unitAbbreviation)).append("\n");
-    sb.append("    unitPos: ").append(toIndentedString(unitPos)).append("\n");
+    sb.append("    unitPosId: ").append(toIndentedString(unitPosId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

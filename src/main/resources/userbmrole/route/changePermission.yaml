@@ -5,7 +5,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../dto/UserbmRolePermission.yaml'
+          $ref: '../dto/UserbmRolePermissionDto.yaml'
   responses:
     '200':
       description: Userbm updated successfully

@@ -27,7 +27,10 @@ properties:
     type: number
     format: double
     example: 0
-  spBaseprice:
-    type: object
-    $ref: '../../baseprice/dto/BasepriceDto.yaml'
+  spBasepriceId:
+    type: integer
+    format: int64
+#  spBaseprice:
+#    type: object
+#    $ref: '../../baseprice/dto/BasepriceDto.yaml'
   

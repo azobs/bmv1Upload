@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.PermissionDto;
-import com.c2psi.bmv1.dto.UserbmRoleDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -15,16 +13,16 @@ import javax.validation.constraints.*;
 /**
  * UserbmRolePermission
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T07:21:43.424877600+01:00[Africa/Douala]")
 public class UserbmRolePermission   {
   @JsonProperty("id")
   private Long id;
 
-  @JsonProperty("userbmrole")
-  private UserbmRoleDto userbmrole;
+  @JsonProperty("userbmroleId")
+  private Long userbmroleId;
 
-  @JsonProperty("permission")
-  private PermissionDto permission;
+  @JsonProperty("permissionId")
+  private Long permissionId;
 
   /**
    * Gets or Sets operation
@@ -84,46 +82,44 @@ public class UserbmRolePermission   {
     this.id = id;
   }
 
-  public UserbmRolePermission userbmrole(UserbmRoleDto userbmrole) {
-    this.userbmrole = userbmrole;
+  public UserbmRolePermission userbmroleId(Long userbmroleId) {
+    this.userbmroleId = userbmroleId;
     return this;
   }
 
   /**
-   * Get userbmrole
-   * @return userbmrole
+   * Get userbmroleId
+   * @return userbmroleId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public UserbmRoleDto getUserbmrole() {
-    return userbmrole;
+  public Long getUserbmroleId() {
+    return userbmroleId;
   }
 
-  public void setUserbmrole(UserbmRoleDto userbmrole) {
-    this.userbmrole = userbmrole;
+  public void setUserbmroleId(Long userbmroleId) {
+    this.userbmroleId = userbmroleId;
   }
 
-  public UserbmRolePermission permission(PermissionDto permission) {
-    this.permission = permission;
+  public UserbmRolePermission permissionId(Long permissionId) {
+    this.permissionId = permissionId;
     return this;
   }
 
   /**
-   * Get permission
-   * @return permission
+   * Get permissionId
+   * @return permissionId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public PermissionDto getPermission() {
-    return permission;
+  public Long getPermissionId() {
+    return permissionId;
   }
 
-  public void setPermission(PermissionDto permission) {
-    this.permission = permission;
+  public void setPermissionId(Long permissionId) {
+    this.permissionId = permissionId;
   }
 
   public UserbmRolePermission operation(OperationEnum operation) {
@@ -157,14 +153,14 @@ public class UserbmRolePermission   {
     }
     UserbmRolePermission userbmRolePermission = (UserbmRolePermission) o;
     return Objects.equals(this.id, userbmRolePermission.id) &&
-        Objects.equals(this.userbmrole, userbmRolePermission.userbmrole) &&
-        Objects.equals(this.permission, userbmRolePermission.permission) &&
+        Objects.equals(this.userbmroleId, userbmRolePermission.userbmroleId) &&
+        Objects.equals(this.permissionId, userbmRolePermission.permissionId) &&
         Objects.equals(this.operation, userbmRolePermission.operation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, userbmrole, permission, operation);
+    return Objects.hash(id, userbmroleId, permissionId, operation);
   }
 
   @Override
@@ -173,8 +169,8 @@ public class UserbmRolePermission   {
     sb.append("class UserbmRolePermission {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    userbmrole: ").append(toIndentedString(userbmrole)).append("\n");
-    sb.append("    permission: ").append(toIndentedString(permission)).append("\n");
+    sb.append("    userbmroleId: ").append(toIndentedString(userbmroleId)).append("\n");
+    sb.append("    permissionId: ").append(toIndentedString(permissionId)).append("\n");
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.ArticleDto;
-import com.c2psi.bmv1.dto.BackinDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -15,7 +13,7 @@ import javax.validation.constraints.*;
  * A Backin in the system which represent articles return back by a client after delivery
  */
 @ApiModel(description = "A Backin in the system which represent articles return back by a client after delivery")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class BackindetailsDto   {
   @JsonProperty("id")
   private Long id;
@@ -26,11 +24,11 @@ public class BackindetailsDto   {
   @JsonProperty("bidComment")
   private String bidComment;
 
-  @JsonProperty("bidArticle")
-  private ArticleDto bidArticle;
+  @JsonProperty("bidArticleId")
+  private Long bidArticleId;
 
-  @JsonProperty("bidBackin")
-  private BackinDto bidBackin;
+  @JsonProperty("bidBackinId")
+  private Long bidBackinId;
 
   public BackindetailsDto id(Long id) {
     this.id = id;
@@ -92,46 +90,44 @@ public class BackindetailsDto   {
     this.bidComment = bidComment;
   }
 
-  public BackindetailsDto bidArticle(ArticleDto bidArticle) {
-    this.bidArticle = bidArticle;
+  public BackindetailsDto bidArticleId(Long bidArticleId) {
+    this.bidArticleId = bidArticleId;
     return this;
   }
 
   /**
-   * Get bidArticle
-   * @return bidArticle
+   * Get bidArticleId
+   * @return bidArticleId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public ArticleDto getBidArticle() {
-    return bidArticle;
+  public Long getBidArticleId() {
+    return bidArticleId;
   }
 
-  public void setBidArticle(ArticleDto bidArticle) {
-    this.bidArticle = bidArticle;
+  public void setBidArticleId(Long bidArticleId) {
+    this.bidArticleId = bidArticleId;
   }
 
-  public BackindetailsDto bidBackin(BackinDto bidBackin) {
-    this.bidBackin = bidBackin;
+  public BackindetailsDto bidBackinId(Long bidBackinId) {
+    this.bidBackinId = bidBackinId;
     return this;
   }
 
   /**
-   * Get bidBackin
-   * @return bidBackin
+   * Get bidBackinId
+   * @return bidBackinId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public BackinDto getBidBackin() {
-    return bidBackin;
+  public Long getBidBackinId() {
+    return bidBackinId;
   }
 
-  public void setBidBackin(BackinDto bidBackin) {
-    this.bidBackin = bidBackin;
+  public void setBidBackinId(Long bidBackinId) {
+    this.bidBackinId = bidBackinId;
   }
 
 
@@ -147,13 +143,13 @@ public class BackindetailsDto   {
     return Objects.equals(this.id, backindetailsDto.id) &&
         Objects.equals(this.bidQuantity, backindetailsDto.bidQuantity) &&
         Objects.equals(this.bidComment, backindetailsDto.bidComment) &&
-        Objects.equals(this.bidArticle, backindetailsDto.bidArticle) &&
-        Objects.equals(this.bidBackin, backindetailsDto.bidBackin);
+        Objects.equals(this.bidArticleId, backindetailsDto.bidArticleId) &&
+        Objects.equals(this.bidBackinId, backindetailsDto.bidBackinId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, bidQuantity, bidComment, bidArticle, bidBackin);
+    return Objects.hash(id, bidQuantity, bidComment, bidArticleId, bidBackinId);
   }
 
   @Override
@@ -164,8 +160,8 @@ public class BackindetailsDto   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    bidQuantity: ").append(toIndentedString(bidQuantity)).append("\n");
     sb.append("    bidComment: ").append(toIndentedString(bidComment)).append("\n");
-    sb.append("    bidArticle: ").append(toIndentedString(bidArticle)).append("\n");
-    sb.append("    bidBackin: ").append(toIndentedString(bidBackin)).append("\n");
+    sb.append("    bidArticleId: ").append(toIndentedString(bidArticleId)).append("\n");
+    sb.append("    bidBackinId: ").append(toIndentedString(bidBackinId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

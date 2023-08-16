@@ -2,8 +2,6 @@ package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
 import com.c2psi.bmv1.dto.PermissionDto;
-import com.c2psi.bmv1.dto.RoleDto;
-import com.c2psi.bmv1.dto.UserbmDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -17,16 +15,16 @@ import javax.validation.constraints.*;
 /**
  * UserbmRoleDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class UserbmRoleDto   {
   @JsonProperty("id")
   private Long id;
 
-  @JsonProperty("userbm")
-  private UserbmDto userbm;
+  @JsonProperty("userbmId")
+  private Long userbmId;
 
-  @JsonProperty("role")
-  private RoleDto role;
+  @JsonProperty("roleId")
+  private Long roleId;
 
   @JsonProperty("permissions")
   @Valid
@@ -52,48 +50,44 @@ public class UserbmRoleDto   {
     this.id = id;
   }
 
-  public UserbmRoleDto userbm(UserbmDto userbm) {
-    this.userbm = userbm;
+  public UserbmRoleDto userbmId(Long userbmId) {
+    this.userbmId = userbmId;
     return this;
   }
 
   /**
-   * Get userbm
-   * @return userbm
+   * Get userbmId
+   * @return userbmId
   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
-  @Valid
 
-  public UserbmDto getUserbm() {
-    return userbm;
+  public Long getUserbmId() {
+    return userbmId;
   }
 
-  public void setUserbm(UserbmDto userbm) {
-    this.userbm = userbm;
+  public void setUserbmId(Long userbmId) {
+    this.userbmId = userbmId;
   }
 
-  public UserbmRoleDto role(RoleDto role) {
-    this.role = role;
+  public UserbmRoleDto roleId(Long roleId) {
+    this.roleId = roleId;
     return this;
   }
 
   /**
-   * Get role
-   * @return role
+   * Get roleId
+   * @return roleId
   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
-  @Valid
 
-  public RoleDto getRole() {
-    return role;
+  public Long getRoleId() {
+    return roleId;
   }
 
-  public void setRole(RoleDto role) {
-    this.role = role;
+  public void setRoleId(Long roleId) {
+    this.roleId = roleId;
   }
 
   public UserbmRoleDto permissions(List<PermissionDto> permissions) {
@@ -136,14 +130,14 @@ public class UserbmRoleDto   {
     }
     UserbmRoleDto userbmRoleDto = (UserbmRoleDto) o;
     return Objects.equals(this.id, userbmRoleDto.id) &&
-        Objects.equals(this.userbm, userbmRoleDto.userbm) &&
-        Objects.equals(this.role, userbmRoleDto.role) &&
+        Objects.equals(this.userbmId, userbmRoleDto.userbmId) &&
+        Objects.equals(this.roleId, userbmRoleDto.roleId) &&
         Objects.equals(this.permissions, userbmRoleDto.permissions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, userbm, role, permissions);
+    return Objects.hash(id, userbmId, roleId, permissions);
   }
 
   @Override
@@ -152,8 +146,8 @@ public class UserbmRoleDto   {
     sb.append("class UserbmRoleDto {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    userbm: ").append(toIndentedString(userbm)).append("\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    userbmId: ").append(toIndentedString(userbmId)).append("\n");
+    sb.append("    roleId: ").append(toIndentedString(roleId)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("}");
     return sb.toString();

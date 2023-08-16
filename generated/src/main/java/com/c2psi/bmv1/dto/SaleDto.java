@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.ArticleDto;
-import com.c2psi.bmv1.dto.CommandDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -16,7 +14,7 @@ import javax.validation.constraints.*;
  * A Sale in the system
  */
 @ApiModel(description = "A Sale in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class SaleDto   {
   @JsonProperty("id")
   private Long id;
@@ -72,11 +70,11 @@ public class SaleDto   {
   @JsonProperty("saleType")
   private SaleTypeEnum saleType;
 
-  @JsonProperty("saleCommand")
-  private CommandDto saleCommand;
+  @JsonProperty("saleCommandId")
+  private Long saleCommandId;
 
-  @JsonProperty("saleArticle")
-  private ArticleDto saleArticle;
+  @JsonProperty("saleArticleId")
+  private Long saleArticleId;
 
   public SaleDto id(Long id) {
     this.id = id;
@@ -178,46 +176,44 @@ public class SaleDto   {
     this.saleType = saleType;
   }
 
-  public SaleDto saleCommand(CommandDto saleCommand) {
-    this.saleCommand = saleCommand;
+  public SaleDto saleCommandId(Long saleCommandId) {
+    this.saleCommandId = saleCommandId;
     return this;
   }
 
   /**
-   * Get saleCommand
-   * @return saleCommand
+   * Get saleCommandId
+   * @return saleCommandId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public CommandDto getSaleCommand() {
-    return saleCommand;
+  public Long getSaleCommandId() {
+    return saleCommandId;
   }
 
-  public void setSaleCommand(CommandDto saleCommand) {
-    this.saleCommand = saleCommand;
+  public void setSaleCommandId(Long saleCommandId) {
+    this.saleCommandId = saleCommandId;
   }
 
-  public SaleDto saleArticle(ArticleDto saleArticle) {
-    this.saleArticle = saleArticle;
+  public SaleDto saleArticleId(Long saleArticleId) {
+    this.saleArticleId = saleArticleId;
     return this;
   }
 
   /**
-   * Get saleArticle
-   * @return saleArticle
+   * Get saleArticleId
+   * @return saleArticleId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public ArticleDto getSaleArticle() {
-    return saleArticle;
+  public Long getSaleArticleId() {
+    return saleArticleId;
   }
 
-  public void setSaleArticle(ArticleDto saleArticle) {
-    this.saleArticle = saleArticle;
+  public void setSaleArticleId(Long saleArticleId) {
+    this.saleArticleId = saleArticleId;
   }
 
 
@@ -235,13 +231,13 @@ public class SaleDto   {
         Objects.equals(this.saleComment, saleDto.saleComment) &&
         Objects.equals(this.saleFinalprice, saleDto.saleFinalprice) &&
         Objects.equals(this.saleType, saleDto.saleType) &&
-        Objects.equals(this.saleCommand, saleDto.saleCommand) &&
-        Objects.equals(this.saleArticle, saleDto.saleArticle);
+        Objects.equals(this.saleCommandId, saleDto.saleCommandId) &&
+        Objects.equals(this.saleArticleId, saleDto.saleArticleId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, saleQuantity, saleComment, saleFinalprice, saleType, saleCommand, saleArticle);
+    return Objects.hash(id, saleQuantity, saleComment, saleFinalprice, saleType, saleCommandId, saleArticleId);
   }
 
   @Override
@@ -254,8 +250,8 @@ public class SaleDto   {
     sb.append("    saleComment: ").append(toIndentedString(saleComment)).append("\n");
     sb.append("    saleFinalprice: ").append(toIndentedString(saleFinalprice)).append("\n");
     sb.append("    saleType: ").append(toIndentedString(saleType)).append("\n");
-    sb.append("    saleCommand: ").append(toIndentedString(saleCommand)).append("\n");
-    sb.append("    saleArticle: ").append(toIndentedString(saleArticle)).append("\n");
+    sb.append("    saleCommandId: ").append(toIndentedString(saleCommandId)).append("\n");
+    sb.append("    saleArticleId: ").append(toIndentedString(saleArticleId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

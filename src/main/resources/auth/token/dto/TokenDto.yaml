@@ -15,10 +15,13 @@ properties:
     type: boolean
   revoked:
     type: boolean
-  tokenUserbm:
-    type: object
-    $ref: '../../../userbm/dto/UserbmDto.yaml'
+  tokenUserbmId:
+    type: integer
+    format: int64
+#  tokenUserbm:
+#    type: object
+#    $ref: '../../../userbm/dto/UserbmDto.yaml'
 required:
   - tokenValue
   - tokenType
-  - userbmDto
+  - tokenUserbmId

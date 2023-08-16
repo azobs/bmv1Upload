@@ -7,9 +7,15 @@ properties:
   conversionFactor:
     type: number
     format: double
-  unitSource:
-    type: object
-    $ref: '../../unit/dto/UnitDto.yaml'
-  unitDestination:
-    type: object
-    $ref: '../../unit/dto/UnitDto.yaml'
+  unitSourceId:
+    type: integer
+    format: int64
+  unitDestinationId:
+    type: integer
+    format: int64
+#  unitSource:
+#    type: object
+#    $ref: '../../unit/dto/UnitDto.yaml'
+#  unitDestination:
+#    type: object
+#    $ref: '../../unit/dto/UnitDto.yaml'

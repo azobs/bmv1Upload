@@ -25,14 +25,26 @@ properties:
       - MOMO_ACCOUNT
     example: MOMO_ACCOUNT
   operation:
-    type: object
-    $ref: '../../operation/dto/OperationDto.yaml'
-  posConcerned:
-    type: object
-    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
-  clientConcerned:
-    type: object
-    $ref: '../../../client/client/dto/ClientDto.yaml'
-  providerConcerned:
-    type: object
-    $ref: '../../../provider/provider/dto/ProviderDto.yaml'
+    type: integer
+    format: int64
+  posConcernedId:
+    type: integer
+    format: int64
+  clientConcernedId:
+    type: integer
+    format: int64
+  providerConcernedId:
+    type: integer
+    format: int64
+#  operation:
+#    type: object
+#    $ref: '../../operation/dto/OperationDto.yaml'
+#  posConcerned:
+#    type: object
+#    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+#  clientConcerned:
+#    type: object
+#    $ref: '../../../client/client/dto/ClientDto.yaml'
+#  providerConcerned:
+#    type: object
+#    $ref: '../../../provider/provider/dto/ProviderDto.yaml'

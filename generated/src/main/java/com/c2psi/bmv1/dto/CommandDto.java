@@ -1,12 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.ClientDto;
-import com.c2psi.bmv1.dto.DeliveryDto;
-import com.c2psi.bmv1.dto.LoadingDto;
-import com.c2psi.bmv1.dto.PointofsaleDto;
-import com.c2psi.bmv1.dto.SaleinvoiceDto;
-import com.c2psi.bmv1.dto.UserbmDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -21,7 +15,7 @@ import javax.validation.constraints.*;
  * A Command in the system
  */
 @ApiModel(description = "A Command in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class CommandDto   {
   @JsonProperty("id")
   private Long id;
@@ -118,23 +112,23 @@ public class CommandDto   {
   @JsonProperty("cmdNature")
   private CmdNatureEnum cmdNature;
 
-  @JsonProperty("cmdDelivery")
-  private DeliveryDto cmdDelivery;
+  @JsonProperty("cmdDeliveryId")
+  private Long cmdDeliveryId;
 
-  @JsonProperty("cmdLoading")
-  private LoadingDto cmdLoading;
+  @JsonProperty("cmdLoadingId")
+  private Long cmdLoadingId;
 
-  @JsonProperty("cmdClient")
-  private ClientDto cmdClient;
+  @JsonProperty("cmdClientId")
+  private Long cmdClientId;
 
-  @JsonProperty("cmdSaler")
-  private UserbmDto cmdSaler;
+  @JsonProperty("cmdSalerId")
+  private Long cmdSalerId;
 
-  @JsonProperty("cmdInvoice")
-  private SaleinvoiceDto cmdInvoice;
+  @JsonProperty("cmdInvoiceId")
+  private Long cmdInvoiceId;
 
-  @JsonProperty("cmdPos")
-  private PointofsaleDto cmdPos;
+  @JsonProperty("cmdPosId")
+  private Long cmdPosId;
 
   public CommandDto id(Long id) {
     this.id = id;
@@ -257,130 +251,124 @@ public class CommandDto   {
     this.cmdNature = cmdNature;
   }
 
-  public CommandDto cmdDelivery(DeliveryDto cmdDelivery) {
-    this.cmdDelivery = cmdDelivery;
+  public CommandDto cmdDeliveryId(Long cmdDeliveryId) {
+    this.cmdDeliveryId = cmdDeliveryId;
     return this;
   }
 
   /**
-   * Get cmdDelivery
-   * @return cmdDelivery
+   * Get cmdDeliveryId
+   * @return cmdDeliveryId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public DeliveryDto getCmdDelivery() {
-    return cmdDelivery;
+  public Long getCmdDeliveryId() {
+    return cmdDeliveryId;
   }
 
-  public void setCmdDelivery(DeliveryDto cmdDelivery) {
-    this.cmdDelivery = cmdDelivery;
+  public void setCmdDeliveryId(Long cmdDeliveryId) {
+    this.cmdDeliveryId = cmdDeliveryId;
   }
 
-  public CommandDto cmdLoading(LoadingDto cmdLoading) {
-    this.cmdLoading = cmdLoading;
+  public CommandDto cmdLoadingId(Long cmdLoadingId) {
+    this.cmdLoadingId = cmdLoadingId;
     return this;
   }
 
   /**
-   * Get cmdLoading
-   * @return cmdLoading
+   * Get cmdLoadingId
+   * @return cmdLoadingId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public LoadingDto getCmdLoading() {
-    return cmdLoading;
+  public Long getCmdLoadingId() {
+    return cmdLoadingId;
   }
 
-  public void setCmdLoading(LoadingDto cmdLoading) {
-    this.cmdLoading = cmdLoading;
+  public void setCmdLoadingId(Long cmdLoadingId) {
+    this.cmdLoadingId = cmdLoadingId;
   }
 
-  public CommandDto cmdClient(ClientDto cmdClient) {
-    this.cmdClient = cmdClient;
+  public CommandDto cmdClientId(Long cmdClientId) {
+    this.cmdClientId = cmdClientId;
     return this;
   }
 
   /**
-   * Get cmdClient
-   * @return cmdClient
+   * Get cmdClientId
+   * @return cmdClientId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public ClientDto getCmdClient() {
-    return cmdClient;
+  public Long getCmdClientId() {
+    return cmdClientId;
   }
 
-  public void setCmdClient(ClientDto cmdClient) {
-    this.cmdClient = cmdClient;
+  public void setCmdClientId(Long cmdClientId) {
+    this.cmdClientId = cmdClientId;
   }
 
-  public CommandDto cmdSaler(UserbmDto cmdSaler) {
-    this.cmdSaler = cmdSaler;
+  public CommandDto cmdSalerId(Long cmdSalerId) {
+    this.cmdSalerId = cmdSalerId;
     return this;
   }
 
   /**
-   * Get cmdSaler
-   * @return cmdSaler
+   * Get cmdSalerId
+   * @return cmdSalerId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public UserbmDto getCmdSaler() {
-    return cmdSaler;
+  public Long getCmdSalerId() {
+    return cmdSalerId;
   }
 
-  public void setCmdSaler(UserbmDto cmdSaler) {
-    this.cmdSaler = cmdSaler;
+  public void setCmdSalerId(Long cmdSalerId) {
+    this.cmdSalerId = cmdSalerId;
   }
 
-  public CommandDto cmdInvoice(SaleinvoiceDto cmdInvoice) {
-    this.cmdInvoice = cmdInvoice;
+  public CommandDto cmdInvoiceId(Long cmdInvoiceId) {
+    this.cmdInvoiceId = cmdInvoiceId;
     return this;
   }
 
   /**
-   * Get cmdInvoice
-   * @return cmdInvoice
+   * Get cmdInvoiceId
+   * @return cmdInvoiceId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public SaleinvoiceDto getCmdInvoice() {
-    return cmdInvoice;
+  public Long getCmdInvoiceId() {
+    return cmdInvoiceId;
   }
 
-  public void setCmdInvoice(SaleinvoiceDto cmdInvoice) {
-    this.cmdInvoice = cmdInvoice;
+  public void setCmdInvoiceId(Long cmdInvoiceId) {
+    this.cmdInvoiceId = cmdInvoiceId;
   }
 
-  public CommandDto cmdPos(PointofsaleDto cmdPos) {
-    this.cmdPos = cmdPos;
+  public CommandDto cmdPosId(Long cmdPosId) {
+    this.cmdPosId = cmdPosId;
     return this;
   }
 
   /**
-   * Get cmdPos
-   * @return cmdPos
+   * Get cmdPosId
+   * @return cmdPosId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public PointofsaleDto getCmdPos() {
-    return cmdPos;
+  public Long getCmdPosId() {
+    return cmdPosId;
   }
 
-  public void setCmdPos(PointofsaleDto cmdPos) {
-    this.cmdPos = cmdPos;
+  public void setCmdPosId(Long cmdPosId) {
+    this.cmdPosId = cmdPosId;
   }
 
 
@@ -399,17 +387,17 @@ public class CommandDto   {
         Objects.equals(this.cmdComment, commandDto.cmdComment) &&
         Objects.equals(this.cmdState, commandDto.cmdState) &&
         Objects.equals(this.cmdNature, commandDto.cmdNature) &&
-        Objects.equals(this.cmdDelivery, commandDto.cmdDelivery) &&
-        Objects.equals(this.cmdLoading, commandDto.cmdLoading) &&
-        Objects.equals(this.cmdClient, commandDto.cmdClient) &&
-        Objects.equals(this.cmdSaler, commandDto.cmdSaler) &&
-        Objects.equals(this.cmdInvoice, commandDto.cmdInvoice) &&
-        Objects.equals(this.cmdPos, commandDto.cmdPos);
+        Objects.equals(this.cmdDeliveryId, commandDto.cmdDeliveryId) &&
+        Objects.equals(this.cmdLoadingId, commandDto.cmdLoadingId) &&
+        Objects.equals(this.cmdClientId, commandDto.cmdClientId) &&
+        Objects.equals(this.cmdSalerId, commandDto.cmdSalerId) &&
+        Objects.equals(this.cmdInvoiceId, commandDto.cmdInvoiceId) &&
+        Objects.equals(this.cmdPosId, commandDto.cmdPosId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, cmdCode, cmdDate, cmdComment, cmdState, cmdNature, cmdDelivery, cmdLoading, cmdClient, cmdSaler, cmdInvoice, cmdPos);
+    return Objects.hash(id, cmdCode, cmdDate, cmdComment, cmdState, cmdNature, cmdDeliveryId, cmdLoadingId, cmdClientId, cmdSalerId, cmdInvoiceId, cmdPosId);
   }
 
   @Override
@@ -423,12 +411,12 @@ public class CommandDto   {
     sb.append("    cmdComment: ").append(toIndentedString(cmdComment)).append("\n");
     sb.append("    cmdState: ").append(toIndentedString(cmdState)).append("\n");
     sb.append("    cmdNature: ").append(toIndentedString(cmdNature)).append("\n");
-    sb.append("    cmdDelivery: ").append(toIndentedString(cmdDelivery)).append("\n");
-    sb.append("    cmdLoading: ").append(toIndentedString(cmdLoading)).append("\n");
-    sb.append("    cmdClient: ").append(toIndentedString(cmdClient)).append("\n");
-    sb.append("    cmdSaler: ").append(toIndentedString(cmdSaler)).append("\n");
-    sb.append("    cmdInvoice: ").append(toIndentedString(cmdInvoice)).append("\n");
-    sb.append("    cmdPos: ").append(toIndentedString(cmdPos)).append("\n");
+    sb.append("    cmdDeliveryId: ").append(toIndentedString(cmdDeliveryId)).append("\n");
+    sb.append("    cmdLoadingId: ").append(toIndentedString(cmdLoadingId)).append("\n");
+    sb.append("    cmdClientId: ").append(toIndentedString(cmdClientId)).append("\n");
+    sb.append("    cmdSalerId: ").append(toIndentedString(cmdSalerId)).append("\n");
+    sb.append("    cmdInvoiceId: ").append(toIndentedString(cmdInvoiceId)).append("\n");
+    sb.append("    cmdPosId: ").append(toIndentedString(cmdPosId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

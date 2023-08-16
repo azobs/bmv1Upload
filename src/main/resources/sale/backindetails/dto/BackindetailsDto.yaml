@@ -10,10 +10,16 @@ properties:
     example: 0
   bidComment:
     type: string
-  bidArticle:
-    type: object
-    $ref: '../../../product/article/dto/ArticleDto.yaml'
-  bidBackin:
-    type: object
-    $ref: '../../backin/dto/BackinDto.yaml'
+  bidArticleId:
+    type: integer
+    format: int64
+  bidBackinId:
+    type: integer
+    format: int64
+#  bidArticle:
+#    type: object
+#    $ref: '../../../product/article/dto/ArticleDto.yaml'
+#  bidBackin:
+#    type: object
+#    $ref: '../../backin/dto/BackinDto.yaml'
   

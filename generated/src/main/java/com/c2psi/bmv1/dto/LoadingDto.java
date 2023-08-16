@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.PointofsaleDto;
-import com.c2psi.bmv1.dto.UserbmDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -16,7 +14,7 @@ import javax.validation.constraints.*;
  * A Loading in the system
  */
 @ApiModel(description = "A Loading in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class LoadingDto   {
   @JsonProperty("id")
   private Long id;
@@ -40,14 +38,14 @@ public class LoadingDto   {
   @JsonProperty("loadReport")
   private String loadReport;
 
-  @JsonProperty("loadManager")
-  private UserbmDto loadManager;
+  @JsonProperty("loadManagerId")
+  private Long loadManagerId;
 
-  @JsonProperty("loadSaler")
-  private UserbmDto loadSaler;
+  @JsonProperty("loadSalerId")
+  private Long loadSalerId;
 
-  @JsonProperty("loadPos")
-  private PointofsaleDto loadPos;
+  @JsonProperty("loadPosId")
+  private Long loadPosId;
 
   public LoadingDto id(Long id) {
     this.id = id;
@@ -193,67 +191,64 @@ public class LoadingDto   {
     this.loadReport = loadReport;
   }
 
-  public LoadingDto loadManager(UserbmDto loadManager) {
-    this.loadManager = loadManager;
+  public LoadingDto loadManagerId(Long loadManagerId) {
+    this.loadManagerId = loadManagerId;
     return this;
   }
 
   /**
-   * Get loadManager
-   * @return loadManager
+   * Get loadManagerId
+   * @return loadManagerId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public UserbmDto getLoadManager() {
-    return loadManager;
+  public Long getLoadManagerId() {
+    return loadManagerId;
   }
 
-  public void setLoadManager(UserbmDto loadManager) {
-    this.loadManager = loadManager;
+  public void setLoadManagerId(Long loadManagerId) {
+    this.loadManagerId = loadManagerId;
   }
 
-  public LoadingDto loadSaler(UserbmDto loadSaler) {
-    this.loadSaler = loadSaler;
+  public LoadingDto loadSalerId(Long loadSalerId) {
+    this.loadSalerId = loadSalerId;
     return this;
   }
 
   /**
-   * Get loadSaler
-   * @return loadSaler
+   * Get loadSalerId
+   * @return loadSalerId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public UserbmDto getLoadSaler() {
-    return loadSaler;
+  public Long getLoadSalerId() {
+    return loadSalerId;
   }
 
-  public void setLoadSaler(UserbmDto loadSaler) {
-    this.loadSaler = loadSaler;
+  public void setLoadSalerId(Long loadSalerId) {
+    this.loadSalerId = loadSalerId;
   }
 
-  public LoadingDto loadPos(PointofsaleDto loadPos) {
-    this.loadPos = loadPos;
+  public LoadingDto loadPosId(Long loadPosId) {
+    this.loadPosId = loadPosId;
     return this;
   }
 
   /**
-   * Get loadPos
-   * @return loadPos
+   * Get loadPosId
+   * @return loadPosId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public PointofsaleDto getLoadPos() {
-    return loadPos;
+  public Long getLoadPosId() {
+    return loadPosId;
   }
 
-  public void setLoadPos(PointofsaleDto loadPos) {
-    this.loadPos = loadPos;
+  public void setLoadPosId(Long loadPosId) {
+    this.loadPosId = loadPosId;
   }
 
 
@@ -273,14 +268,14 @@ public class LoadingDto   {
         Objects.equals(this.loadPaidamount, loadingDto.loadPaidamount) &&
         Objects.equals(this.loadRemise, loadingDto.loadRemise) &&
         Objects.equals(this.loadReport, loadingDto.loadReport) &&
-        Objects.equals(this.loadManager, loadingDto.loadManager) &&
-        Objects.equals(this.loadSaler, loadingDto.loadSaler) &&
-        Objects.equals(this.loadPos, loadingDto.loadPos);
+        Objects.equals(this.loadManagerId, loadingDto.loadManagerId) &&
+        Objects.equals(this.loadSalerId, loadingDto.loadSalerId) &&
+        Objects.equals(this.loadPosId, loadingDto.loadPosId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, loadCode, loadDate, loadExpectedamount, loadPaidamount, loadRemise, loadReport, loadManager, loadSaler, loadPos);
+    return Objects.hash(id, loadCode, loadDate, loadExpectedamount, loadPaidamount, loadRemise, loadReport, loadManagerId, loadSalerId, loadPosId);
   }
 
   @Override
@@ -295,9 +290,9 @@ public class LoadingDto   {
     sb.append("    loadPaidamount: ").append(toIndentedString(loadPaidamount)).append("\n");
     sb.append("    loadRemise: ").append(toIndentedString(loadRemise)).append("\n");
     sb.append("    loadReport: ").append(toIndentedString(loadReport)).append("\n");
-    sb.append("    loadManager: ").append(toIndentedString(loadManager)).append("\n");
-    sb.append("    loadSaler: ").append(toIndentedString(loadSaler)).append("\n");
-    sb.append("    loadPos: ").append(toIndentedString(loadPos)).append("\n");
+    sb.append("    loadManagerId: ").append(toIndentedString(loadManagerId)).append("\n");
+    sb.append("    loadSalerId: ").append(toIndentedString(loadSalerId)).append("\n");
+    sb.append("    loadPosId: ").append(toIndentedString(loadPosId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

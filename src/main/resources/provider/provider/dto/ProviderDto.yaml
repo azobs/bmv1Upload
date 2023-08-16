@@ -19,7 +19,10 @@ properties:
   providerAddress:
     type: object
     $ref: '../../../general/dto/AddressDto.yaml'
-  providerPos:
-    type: object
-    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  providerPosId:
+    type: integer
+    format: int64
+#  providerPos:
+#    type: object
+#    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
   

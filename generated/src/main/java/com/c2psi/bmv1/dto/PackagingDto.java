@@ -1,8 +1,6 @@
 package com.c2psi.bmv1.dto;
 
 import java.util.Objects;
-import com.c2psi.bmv1.dto.PointofsaleDto;
-import com.c2psi.bmv1.dto.ProviderDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -15,7 +13,7 @@ import javax.validation.constraints.*;
  * A Packaging in the system
  */
 @ApiModel(description = "A Packaging in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-15T06:34:19.158834900+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
 public class PackagingDto   {
   @JsonProperty("id")
   private Long id;
@@ -32,11 +30,11 @@ public class PackagingDto   {
   @JsonProperty("packPrice")
   private Double packPrice;
 
-  @JsonProperty("packagingPos")
-  private PointofsaleDto packagingPos;
+  @JsonProperty("packagingPosId")
+  private Long packagingPosId;
 
-  @JsonProperty("packagingProvider")
-  private ProviderDto packagingProvider;
+  @JsonProperty("packagingProviderId")
+  private Long packagingProviderId;
 
   public PackagingDto id(Long id) {
     this.id = id;
@@ -138,46 +136,44 @@ public class PackagingDto   {
     this.packPrice = packPrice;
   }
 
-  public PackagingDto packagingPos(PointofsaleDto packagingPos) {
-    this.packagingPos = packagingPos;
+  public PackagingDto packagingPosId(Long packagingPosId) {
+    this.packagingPosId = packagingPosId;
     return this;
   }
 
   /**
-   * Get packagingPos
-   * @return packagingPos
+   * Get packagingPosId
+   * @return packagingPosId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public PointofsaleDto getPackagingPos() {
-    return packagingPos;
+  public Long getPackagingPosId() {
+    return packagingPosId;
   }
 
-  public void setPackagingPos(PointofsaleDto packagingPos) {
-    this.packagingPos = packagingPos;
+  public void setPackagingPosId(Long packagingPosId) {
+    this.packagingPosId = packagingPosId;
   }
 
-  public PackagingDto packagingProvider(ProviderDto packagingProvider) {
-    this.packagingProvider = packagingProvider;
+  public PackagingDto packagingProviderId(Long packagingProviderId) {
+    this.packagingProviderId = packagingProviderId;
     return this;
   }
 
   /**
-   * Get packagingProvider
-   * @return packagingProvider
+   * Get packagingProviderId
+   * @return packagingProviderId
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public ProviderDto getPackagingProvider() {
-    return packagingProvider;
+  public Long getPackagingProviderId() {
+    return packagingProviderId;
   }
 
-  public void setPackagingProvider(ProviderDto packagingProvider) {
-    this.packagingProvider = packagingProvider;
+  public void setPackagingProviderId(Long packagingProviderId) {
+    this.packagingProviderId = packagingProviderId;
   }
 
 
@@ -195,13 +191,13 @@ public class PackagingDto   {
         Objects.equals(this.packDescription, packagingDto.packDescription) &&
         Objects.equals(this.packFirstcolor, packagingDto.packFirstcolor) &&
         Objects.equals(this.packPrice, packagingDto.packPrice) &&
-        Objects.equals(this.packagingPos, packagingDto.packagingPos) &&
-        Objects.equals(this.packagingProvider, packagingDto.packagingProvider);
+        Objects.equals(this.packagingPosId, packagingDto.packagingPosId) &&
+        Objects.equals(this.packagingProviderId, packagingDto.packagingProviderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, packLabel, packDescription, packFirstcolor, packPrice, packagingPos, packagingProvider);
+    return Objects.hash(id, packLabel, packDescription, packFirstcolor, packPrice, packagingPosId, packagingProviderId);
   }
 
   @Override
@@ -214,8 +210,8 @@ public class PackagingDto   {
     sb.append("    packDescription: ").append(toIndentedString(packDescription)).append("\n");
     sb.append("    packFirstcolor: ").append(toIndentedString(packFirstcolor)).append("\n");
     sb.append("    packPrice: ").append(toIndentedString(packPrice)).append("\n");
-    sb.append("    packagingPos: ").append(toIndentedString(packagingPos)).append("\n");
-    sb.append("    packagingProvider: ").append(toIndentedString(packagingProvider)).append("\n");
+    sb.append("    packagingPosId: ").append(toIndentedString(packagingPosId)).append("\n");
+    sb.append("    packagingProviderId: ").append(toIndentedString(packagingProviderId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

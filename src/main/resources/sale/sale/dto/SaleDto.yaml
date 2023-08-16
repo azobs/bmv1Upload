@@ -20,10 +20,16 @@ properties:
       - Semiwhole
       - Whole
     example: Whole
-  saleCommand:
-    type: object
-    $ref: '../../command/dto/CommandDto.yaml'
-  saleArticle:
-    type: object
-    $ref: '../../../product/article/dto/ArticleDto.yaml'
+  saleCommandId:
+    type: integer
+    format: int64
+  saleArticleId:
+    type: integer
+    format: int64
+#  saleCommand:
+#    type: object
+#    $ref: '../../command/dto/CommandDto.yaml'
+#  saleArticle:
+#    type: object
+#    $ref: '../../../product/article/dto/ArticleDto.yaml'
   

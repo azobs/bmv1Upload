@@ -6,10 +6,16 @@ properties:
     format: int64
   pfPicture:
     type: string
-  pfProduct:
-    type: object
-    $ref: '../../product/dto/ProductDto.yaml'
-  pfFormat:
-    type: object
-    $ref: '../../format/dto/FormatDto.yaml'
+  pfProductId:
+    type: integer
+    format: int64
+  pfFormatId:
+    type: integer
+    format: int64
+#  pfProduct:
+#    type: object
+#    $ref: '../../product/dto/ProductDto.yaml'
+#  pfFormat:
+#    type: object
+#    $ref: '../../format/dto/FormatDto.yaml'
   

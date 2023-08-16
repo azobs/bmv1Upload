@@ -10,8 +10,11 @@ properties:
   unitAbbreviation:
     type: string
     example: UN
-  unitPos:
-    type: object
-    $ref: '../../../../pos/pos/dto/PointofsaleDto.yaml'
+  unitPosId:
+    type: integer
+    format: int64
+#  unitPos:
+#    type: object
+#    $ref: '../../../../pos/pos/dto/PointofsaleDto.yaml'
 
   

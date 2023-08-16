@@ -12,10 +12,16 @@ properties:
     type: integer
     format: int32
     example: 0
-  ddPackaging:
-    type: object
-    $ref: '../../../packaging/packaging/dto/PackagingDto.yaml'
-  ddDelivery:
-    type: object
-    $ref: '../../delivery/dto/DeliveryDto.yaml'
+  ddPackagingId:
+    type: integer
+    format: int64
+  ddDeliveryId:
+    type: integer
+    format: int64
+#  ddPackaging:
+#    type: object
+#    $ref: '../../../packaging/packaging/dto/PackagingDto.yaml'
+#  ddDelivery:
+#    type: object
+#    $ref: '../../delivery/dto/DeliveryDto.yaml'
   

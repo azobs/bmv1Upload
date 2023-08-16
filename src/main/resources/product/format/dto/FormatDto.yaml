@@ -10,7 +10,10 @@ properties:
   formatCapacity:
     type: number
     format: double
-  formatPos:
-    type: object
-    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
+  formatPosId:
+    type: integer
+    format: int64
+#  formatPos:
+#    type: object
+#    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
   
