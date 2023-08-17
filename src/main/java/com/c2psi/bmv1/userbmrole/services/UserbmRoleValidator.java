@@ -1,6 +1,5 @@
 package com.c2psi.bmv1.userbmrole.services;
 
-import com.c2psi.bmv1.bmapp.exceptions.ModelNotFoundException;
 import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.Filter;
 import com.c2psi.bmv1.dto.Orderby;
@@ -8,7 +7,6 @@ import com.c2psi.bmv1.dto.UserbmRoleDto;
 import com.c2psi.bmv1.role.services.RoleService;
 import com.c2psi.bmv1.userbm.models.Userbm;
 import com.c2psi.bmv1.userbm.services.UserbmService;
-import com.c2psi.bmv1.userbmrole.errorCode.ErrorCode;
 import com.c2psi.bmv1.userbmrole.models.UserbmRole;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;

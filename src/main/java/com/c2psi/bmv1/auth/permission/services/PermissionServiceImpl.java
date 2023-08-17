@@ -247,6 +247,15 @@ public class PermissionServiceImpl implements PermissionService{
         }
     }
 
+    @Override
+    public Boolean isPermissionExistWithId(Long permId) {
+        if(permId == null){
+            throw new NullValueException("L'id permId envoye est null");
+        }
+        Optional<Permission> optionalPermission = permissionDao.findPermissionById(permId);
+        return optionalPermission.isPresent();
+    }
+
     PageofPermissionDto getPageofPermissionDto(Page<Permission> permissionPage){
         PageofPermissionDto pageofPermissionDto = new PageofPermissionDto();
         pageofPermissionDto.setContent(permissionMapper.entityToDto(permissionPage.getContent()));

@@ -39,6 +39,7 @@ public class UserbmRolePermission {
 
 
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false)

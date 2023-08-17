@@ -14,4 +14,5 @@ public interface PermissionService {
     PermissionDto getPermissionByName(String permName);
     List<PermissionDto> getListofPermission(FilterRequest filterRequest);
     PageofPermissionDto getPageofPermission(FilterRequest filterRequest);
+    Boolean isPermissionExistWithId(Long permId);
 }

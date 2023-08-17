@@ -13,6 +13,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -33,6 +34,11 @@ public class UserbmRole {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "role_id", nullable = false, referencedColumnName = "id")
     Role role;
+
+    @OneToMany(mappedBy = "userbmRole", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    List<UserbmRolePermission> userbmRolePermissionList;
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
