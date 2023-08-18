@@ -15,13 +15,13 @@ import javax.validation.constraints.*;
 /**
  * PageofUserbmRoleDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
 public class PageofUserbmRoleDto   {
   @JsonProperty("id")
   private Long id;
 
   @JsonProperty("totalElements")
-  private Integer totalElements;
+  private Long totalElements;
 
   @JsonProperty("totalPages")
   private Integer totalPages;
@@ -56,7 +56,7 @@ public class PageofUserbmRoleDto   {
     this.id = id;
   }
 
-  public PageofUserbmRoleDto totalElements(Integer totalElements) {
+  public PageofUserbmRoleDto totalElements(Long totalElements) {
     this.totalElements = totalElements;
     return this;
   }
@@ -68,11 +68,11 @@ public class PageofUserbmRoleDto   {
   @ApiModelProperty(value = "")
 
 
-  public Integer getTotalElements() {
+  public Long getTotalElements() {
     return totalElements;
   }
 
-  public void setTotalElements(Integer totalElements) {
+  public void setTotalElements(Long totalElements) {
     this.totalElements = totalElements;
   }
 

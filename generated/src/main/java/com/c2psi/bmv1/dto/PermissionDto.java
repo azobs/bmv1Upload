@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * A permission that really give right to act on an object of the system
  */
 @ApiModel(description = "A permission that really give right to act on an object of the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T08:50:41.193143300+01:00[Africa/Douala]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
 public class PermissionDto   {
   @JsonProperty("id")
   private Long id;

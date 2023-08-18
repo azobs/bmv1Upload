@@ -13,6 +13,5 @@ public interface UserbmRoleService {
     UserbmRoleDto getUserbmRoleById(Long id);
     List<UserbmRoleDto> getListofUserbmRole(FilterRequest filterRequest);
     PageofUserbmRoleDto getPageofUserbmRole(FilterRequest filterRequest);
-
     Boolean isUserbmRoleExistWithId(Long userbmRoleId);
 }

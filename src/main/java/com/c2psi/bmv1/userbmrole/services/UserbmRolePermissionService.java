@@ -10,4 +10,5 @@ public interface UserbmRolePermissionService {
     Boolean deleteUserbmRolePermissionById(Long id);
     UserbmRolePermissionDto getUserbmRolePermissionById(Long id);
     List<UserbmRolePermissionDto> getListofUserbmRolePermission(FilterRequest filterRequest);
+    Boolean isUserbmRolePermissionExistWithId(Long userbmRolePermId);
 }

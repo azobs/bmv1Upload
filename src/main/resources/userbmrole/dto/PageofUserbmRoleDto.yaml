@@ -6,7 +6,7 @@ properties:
     readOnly: true # Returned by GET, not used in POST/PUT/PATCH
   totalElements:
     type: integer
-    format: int32
+    format: int64
   totalPages:
     type: integer
     format: int32
