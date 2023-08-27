@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "role", description = "the role API")
 public interface RoleApi {
@@ -32,7 +32,7 @@ public interface RoleApi {
     }
 
     /**
-     * DELETE /role/bmV1.0/delete/{id} : Path used to delete a role in the system with its id
+     * DELETE /role/bm/v1/delete/{id} : Path used to delete a role in the system with its id
      *
      * @param id The id that represent the Role to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Role deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface RoleApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/role/bmV1.0/delete/{id}",
+        value = "/role/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteRoleById(@ApiParam(value = "The id that represent the Role to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface RoleApi {
 
 
     /**
-     * GET /role/bmV1.0/getby/{id} : Find a Role in the system by its id
+     * GET /role/bm/v1/getby/{id} : Find a Role in the system by its id
      *
      * @param id The id that represent the Role found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Role found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface RoleApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/role/bmV1.0/getby/{id}",
+        value = "/role/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<RoleDto> _getRoleById(@ApiParam(value = "The id that represent the Role found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface RoleApi {
 
 
     /**
-     * GET /role/getby/{roletype} : Find a Role in the system by its login
+     * GET /role/bm/v1/getby/{roletype} : Find a Role in the system by its login
      *
      * @param roletype The role type that represent the Role found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Role found successfully (status code 200)
@@ -131,7 +131,7 @@ public interface RoleApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/role/getby/{roletype}",
+        value = "/role/bm/v1/getby/{roletype}",
         produces = { "application/json" }
     )
     default ResponseEntity<RoleDto> _getRoleByRoletype(@ApiParam(value = "The role type that represent the Role found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("roletype") String roletype) {
@@ -155,7 +155,7 @@ public interface RoleApi {
 
 
     /**
-     * POST /role/bmV1.0/list : Path used to list role that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /role/bm/v1/list : Path used to list role that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Role found successfully (status code 200)
@@ -165,7 +165,7 @@ public interface RoleApi {
         @ApiResponse(code = 200, message = "Role found successfully", response = RoleDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/role/bmV1.0/list",
+        value = "/role/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -190,7 +190,7 @@ public interface RoleApi {
 
 
     /**
-     * POST /role/bmV1.0/page : Path used to list roles page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /role/bm/v1/page : Path used to list roles page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Role page found successfully (status code 200)
@@ -200,7 +200,7 @@ public interface RoleApi {
         @ApiResponse(code = 200, message = "Role page found successfully", response = PageofRoleDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/role/bmV1.0/page",
+        value = "/role/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -225,7 +225,7 @@ public interface RoleApi {
 
 
     /**
-     * POST /role/bmV1.0/create : Path used to save a new role in the system
+     * POST /role/bm/v1/create : Path used to save a new role in the system
      *
      * @param roleDto  (optional)
      * @return Role saved successfully (status code 200)
@@ -245,7 +245,7 @@ public interface RoleApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/role/bmV1.0/create",
+        value = "/role/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -270,7 +270,7 @@ public interface RoleApi {
 
 
     /**
-     * PUT /role/bmV1.0/update : Path used to update or modify an existing role in the system
+     * PUT /role/bm/v1/update : Path used to update or modify an existing role in the system
      *
      * @param roleDto  (optional)
      * @return Role updated successfully (status code 200)
@@ -290,7 +290,7 @@ public interface RoleApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/role/bmV1.0/update",
+        value = "/role/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "format", description = "the format API")
 public interface FormatApi {
@@ -32,7 +32,7 @@ public interface FormatApi {
     }
 
     /**
-     * DELETE /format/bmV1.0/delete/{id} : Path used to delete a format in the system with its id
+     * DELETE /format/bm/v1/delete/{id} : Path used to delete a format in the system with its id
      *
      * @param id The id that represent the Format to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Format deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface FormatApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/format/bmV1.0/delete/{id}",
+        value = "/format/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteFormatById(@ApiParam(value = "The id that represent the Format to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface FormatApi {
 
 
     /**
-     * GET /format/bmV1.0/getby/{id} : Find a Format in the system by its id
+     * GET /format/bm/v1/getby/{id} : Find a Format in the system by its id
      *
      * @param id The id that represent the Format found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Format found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface FormatApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/format/bmV1.0/getby/{id}",
+        value = "/format/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<FormatDto> _getFormatById(@ApiParam(value = "The id that represent the Format found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface FormatApi {
 
 
     /**
-     * POST /format/bmV1.0/list : Path used to list format that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /format/bm/v1/list : Path used to list format that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Format list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface FormatApi {
         @ApiResponse(code = 200, message = "Format list found successfully", response = FormatDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/format/bmV1.0/list",
+        value = "/format/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +146,7 @@ public interface FormatApi {
 
 
     /**
-     * POST /format/bmV1.0/page : Path used to list format page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /format/bm/v1/page : Path used to list format page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Format page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface FormatApi {
         @ApiResponse(code = 200, message = "Format page found successfully", response = PageofFormatDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/format/bmV1.0/page",
+        value = "/format/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +181,7 @@ public interface FormatApi {
 
 
     /**
-     * POST /format/bmV1.0/create : Path used to save a new format of product in the system
+     * POST /format/bm/v1/create : Path used to save a new format of product in the system
      *
      * @param formatDto  (optional)
      * @return Format saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface FormatApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/format/bmV1.0/create",
+        value = "/format/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +226,7 @@ public interface FormatApi {
 
 
     /**
-     * PUT /format/bmV1.0/update : Path used to update or modify an existing format in the system
+     * PUT /format/bm/v1/update : Path used to update or modify an existing format in the system
      *
      * @param formatDto  (optional)
      * @return Format updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface FormatApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/format/bmV1.0/update",
+        value = "/format/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

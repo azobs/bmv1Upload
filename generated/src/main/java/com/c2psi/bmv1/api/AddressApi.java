@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "address", description = "the address API")
 public interface AddressApi {
@@ -30,7 +30,7 @@ public interface AddressApi {
     }
 
     /**
-     * DELETE /address/delete : Path used to delete an address in the system with its id
+     * DELETE /address/bm/v1/delete : Path used to delete an address in the system with its id
      *
      * @param id The id that represent the address to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Address deleted successfully (status code 200)
@@ -50,7 +50,7 @@ public interface AddressApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/address/delete",
+        value = "/address/bm/v1/delete",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteAddressById(@ApiParam(value = "The id that represent the address to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -65,7 +65,7 @@ public interface AddressApi {
 
 
     /**
-     * GET /address/bmV1.0/getby/{email} : Find a Address in the system by its email address
+     * GET /address/bm/v1/getby/{email} : Find a Address in the system by its email address
      *
      * @param email The email that represent the Address found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Address found successfully (status code 200)
@@ -85,7 +85,7 @@ public interface AddressApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/address/bmV1.0/getby/{email}",
+        value = "/address/bm/v1/getby/{email}",
         produces = { "application/json" }
     )
     default ResponseEntity<AddressDto> _getAddressByEmail(@ApiParam(value = "The email that represent the Address found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("email") String email) {
@@ -109,7 +109,7 @@ public interface AddressApi {
 
 
     /**
-     * GET /address/bmV1.0/getby/{id} : Find an Address in the system by its id
+     * GET /address/bm/v1/getby/{id} : Find an Address in the system by its id
      *
      * @param id The id that represent the Address found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Address found successfully (status code 200)
@@ -129,7 +129,7 @@ public interface AddressApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/address/bmV1.0/getby/{id}",
+        value = "/address/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<AddressDto> _getAddressById(@ApiParam(value = "The id that represent the Address found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -153,7 +153,7 @@ public interface AddressApi {
 
 
     /**
-     * POST /address/bmV1.0/create : Path used to save a new address in the system
+     * POST /address/bm/v1/create : Path used to save a new address in the system
      *
      * @param addressDto  (optional)
      * @return Address saved successfully (status code 200)
@@ -173,7 +173,7 @@ public interface AddressApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/address/bmV1.0/create",
+        value = "/address/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -198,7 +198,7 @@ public interface AddressApi {
 
 
     /**
-     * PUT /address/bmV1.0/update : Path used to update or modify an existing address in the system
+     * PUT /address/bm/v1/update : Path used to update or modify an existing address in the system
      *
      * @param addressDto  (optional)
      * @return Address updated successfully (status code 200)
@@ -218,7 +218,7 @@ public interface AddressApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/address/bmV1.0/update",
+        value = "/address/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

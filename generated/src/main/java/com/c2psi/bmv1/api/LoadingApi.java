@@ -7,7 +7,11 @@ package com.c2psi.bmv1.api;
 
 import com.c2psi.bmv1.dto.FilterRequest;
 import com.c2psi.bmv1.dto.LoadingDto;
+import com.c2psi.bmv1.dto.LoadingdetailsDto;
+import com.c2psi.bmv1.dto.PackagingdetailsDto;
 import com.c2psi.bmv1.dto.PageofLoadingDto;
+import com.c2psi.bmv1.dto.PageofLoadingdetailsDto;
+import com.c2psi.bmv1.dto.PageofPackagingdetailsDto;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,7 +26,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "loading", description = "the loading API")
 public interface LoadingApi {
@@ -32,7 +36,7 @@ public interface LoadingApi {
     }
 
     /**
-     * DELETE /loading/bmV1.0/delete/{id} : Path used to delete a loading in the system with its id
+     * DELETE /loading/bm/v1/delete/{id} : Path used to delete a loading in the system with its id
      *
      * @param id The id that represent the Loading to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Loading deleted successfully (status code 200)
@@ -52,7 +56,7 @@ public interface LoadingApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/loading/bmV1.0/delete/{id}",
+        value = "/loading/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteLoadingById(@ApiParam(value = "The id that represent the Loading to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +71,77 @@ public interface LoadingApi {
 
 
     /**
-     * GET /loading/bmV1.0/getby/{id} : Find a Loading in the system by its id
+     * DELETE /loading/bm/v1/details/delete/{id} : Path used to delete a loadingdetails in the system with its id
+     *
+     * @param id The id that represent the Loadingdetails to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
+     * @return Loadingdetails deleted successfully (status code 200)
+     *         or Bad request. Loading ID must be an integer and larger than 0. (status code 400)
+     *         or Authorization information is missing or invalid. (status code 401)
+     *         or The user who ask the ressource is Forbidden. (status code 403)
+     *         or The expected ressource is not found. (status code 404)
+     *         or Unexpected error at the server side. (status code 500)
+     */
+    @ApiOperation(value = "Path used to delete a loadingdetails in the system with its id", nickname = "deleteLoadingdetailsById", notes = "", response = Boolean.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Loadingdetails deleted successfully", response = Boolean.class),
+        @ApiResponse(code = 400, message = "Bad request. Loading ID must be an integer and larger than 0."),
+        @ApiResponse(code = 401, message = "Authorization information is missing or invalid."),
+        @ApiResponse(code = 403, message = "The user who ask the ressource is Forbidden."),
+        @ApiResponse(code = 404, message = "The expected ressource is not found."),
+        @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
+    @RequestMapping(
+        method = RequestMethod.DELETE,
+        value = "/loading/bm/v1/details/delete/{id}",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<Boolean> _deleteLoadingdetailsById(@ApiParam(value = "The id that represent the Loadingdetails to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
+        return deleteLoadingdetailsById(id);
+    }
+
+    // Override this method
+    default  ResponseEntity<Boolean> deleteLoadingdetailsById(Long id) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * DELETE /loading/bm/v1/packaging/details/delete/{id} : Path used to delete a packagingdetails in the system with its id
+     *
+     * @param id The id that represent the Packagingdetails to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
+     * @return Packagingdetails deleted successfully (status code 200)
+     *         or Bad request. Loading ID must be an integer and larger than 0. (status code 400)
+     *         or Authorization information is missing or invalid. (status code 401)
+     *         or The user who ask the ressource is Forbidden. (status code 403)
+     *         or The expected ressource is not found. (status code 404)
+     *         or Unexpected error at the server side. (status code 500)
+     */
+    @ApiOperation(value = "Path used to delete a packagingdetails in the system with its id", nickname = "deletePackagingdetailsById", notes = "", response = Boolean.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Packagingdetails deleted successfully", response = Boolean.class),
+        @ApiResponse(code = 400, message = "Bad request. Loading ID must be an integer and larger than 0."),
+        @ApiResponse(code = 401, message = "Authorization information is missing or invalid."),
+        @ApiResponse(code = 403, message = "The user who ask the ressource is Forbidden."),
+        @ApiResponse(code = 404, message = "The expected ressource is not found."),
+        @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
+    @RequestMapping(
+        method = RequestMethod.DELETE,
+        value = "/loading/bm/v1/packaging/details/delete/{id}",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<Boolean> _deletePackagingdetailsById(@ApiParam(value = "The id that represent the Packagingdetails to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
+        return deletePackagingdetailsById(id);
+    }
+
+    // Override this method
+    default  ResponseEntity<Boolean> deletePackagingdetailsById(Long id) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * GET /loading/bm/v1/getby/{id} : Find a Loading in the system by its id
      *
      * @param id The id that represent the Loading found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Loading found successfully (status code 200)
@@ -87,7 +161,7 @@ public interface LoadingApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/loading/bmV1.0/getby/{id}",
+        value = "/loading/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<LoadingDto> _getLoadingById(@ApiParam(value = "The id that represent the Loading found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +185,7 @@ public interface LoadingApi {
 
 
     /**
-     * POST /loading/bmV1.0/list : Path used to list loading that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /loading/bm/v1/list : Path used to list loading that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Loading list found successfully (status code 200)
@@ -121,7 +195,7 @@ public interface LoadingApi {
         @ApiResponse(code = 200, message = "Loading list found successfully", response = LoadingDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/loading/bmV1.0/list",
+        value = "/loading/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +220,7 @@ public interface LoadingApi {
 
 
     /**
-     * POST /loading/bmV1.0/page : Path used to list loading page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /loading/bm/v1/page : Path used to list loading page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Loading page found successfully (status code 200)
@@ -156,7 +230,7 @@ public interface LoadingApi {
         @ApiResponse(code = 200, message = "Loading page found successfully", response = PageofLoadingDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/loading/bmV1.0/page",
+        value = "/loading/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +255,235 @@ public interface LoadingApi {
 
 
     /**
-     * POST /loading/bmV1.0/create : Path used to save a new Loading in the system
+     * GET /loading/bm/v1/details/getby/{id} : Find a Loadingdetails in the system by its id
+     *
+     * @param id The id that represent the Loadingdetails found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
+     * @return Loadingdetails found successfully (status code 200)
+     *         or Bad request. Loadingdetails ID must be an integer and larger than 0. (status code 400)
+     *         or Authorization information is missing or invalid. (status code 401)
+     *         or The user who ask the ressource is Forbidden. (status code 403)
+     *         or The expected ressource is not found. (status code 404)
+     *         or Unexpected error at the server side. (status code 500)
+     */
+    @ApiOperation(value = "Find a Loadingdetails in the system by its id", nickname = "getLoadingdetailsById", notes = "", response = LoadingdetailsDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Loadingdetails found successfully", response = LoadingdetailsDto.class),
+        @ApiResponse(code = 400, message = "Bad request. Loadingdetails ID must be an integer and larger than 0."),
+        @ApiResponse(code = 401, message = "Authorization information is missing or invalid."),
+        @ApiResponse(code = 403, message = "The user who ask the ressource is Forbidden."),
+        @ApiResponse(code = 404, message = "The expected ressource is not found."),
+        @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/loading/bm/v1/details/getby/{id}",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<LoadingdetailsDto> _getLoadingdetailsById(@ApiParam(value = "The id that represent the Loadingdetails found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
+        return getLoadingdetailsById(id);
+    }
+
+    // Override this method
+    default  ResponseEntity<LoadingdetailsDto> getLoadingdetailsById(Long id) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"ldLoadingId\" : 1, \"quantityTaken\" : 1, \"quantityReturn\" : 0, \"id\" : 0, \"ldArticleId\" : 6 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * POST /loading/bm/v1/details/list : Path used to list loadingdetails that respect certain criteria. A criteria is an instance of a Filter object
+     *
+     * @param filterRequest  (optional)
+     * @return Loadingdetails list found successfully (status code 200)
+     */
+    @ApiOperation(value = "Path used to list loadingdetails that respect certain criteria. A criteria is an instance of a Filter object", nickname = "getLoadingdetailsList", notes = "", response = LoadingdetailsDto.class, responseContainer = "List", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Loadingdetails list found successfully", response = LoadingdetailsDto.class, responseContainer = "List") })
+    @RequestMapping(
+        method = RequestMethod.POST,
+        value = "/loading/bm/v1/details/list",
+        produces = { "application/json" },
+        consumes = { "application/json" }
+    )
+    default ResponseEntity<List<LoadingdetailsDto>> _getLoadingdetailsList(@ApiParam(value = "") @Valid @RequestBody(required = false) FilterRequest filterRequest) {
+        return getLoadingdetailsList(filterRequest);
+    }
+
+    // Override this method
+    default  ResponseEntity<List<LoadingdetailsDto>> getLoadingdetailsList(FilterRequest filterRequest) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"ldLoadingId\" : 1, \"quantityTaken\" : 1, \"quantityReturn\" : 0, \"id\" : 0, \"ldArticleId\" : 6 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * POST /loading/bm/v1/details/page : Path used to list loadingdetails page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     *
+     * @param filterRequest  (optional)
+     * @return Loadingdetails page found successfully (status code 200)
+     */
+    @ApiOperation(value = "Path used to list loadingdetails page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want", nickname = "getLoadingdetailsPage", notes = "", response = PageofLoadingdetailsDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Loadingdetails page found successfully", response = PageofLoadingdetailsDto.class) })
+    @RequestMapping(
+        method = RequestMethod.POST,
+        value = "/loading/bm/v1/details/page",
+        produces = { "application/json" },
+        consumes = { "application/json" }
+    )
+    default ResponseEntity<PageofLoadingdetailsDto> _getLoadingdetailsPage(@ApiParam(value = "") @Valid @RequestBody(required = false) FilterRequest filterRequest) {
+        return getLoadingdetailsPage(filterRequest);
+    }
+
+    // Override this method
+    default  ResponseEntity<PageofLoadingdetailsDto> getLoadingdetailsPage(FilterRequest filterRequest) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"ldLoadingId\" : 1, \"quantityTaken\" : 1, \"quantityReturn\" : 0, \"id\" : 0, \"ldArticleId\" : 6 }, { \"ldLoadingId\" : 1, \"quantityTaken\" : 1, \"quantityReturn\" : 0, \"id\" : 0, \"ldArticleId\" : 6 } ], \"totalElements\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * GET /loading/bm/v1/packaging/details/getby/{id} : Find a Packagingdetails in the system by its id
+     *
+     * @param id The id that represent the Packagingdetails found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
+     * @return Packagingdetails found successfully (status code 200)
+     *         or Bad request. Packagingdetails ID must be an integer and larger than 0. (status code 400)
+     *         or Authorization information is missing or invalid. (status code 401)
+     *         or The user who ask the ressource is Forbidden. (status code 403)
+     *         or The expected ressource is not found. (status code 404)
+     *         or Unexpected error at the server side. (status code 500)
+     */
+    @ApiOperation(value = "Find a Packagingdetails in the system by its id", nickname = "getPackagingdetailsById", notes = "", response = PackagingdetailsDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Packagingdetails found successfully", response = PackagingdetailsDto.class),
+        @ApiResponse(code = 400, message = "Bad request. Packagingdetails ID must be an integer and larger than 0."),
+        @ApiResponse(code = 401, message = "Authorization information is missing or invalid."),
+        @ApiResponse(code = 403, message = "The user who ask the ressource is Forbidden."),
+        @ApiResponse(code = 404, message = "The expected ressource is not found."),
+        @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/loading/bm/v1/packaging/details/getby/{id}",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<PackagingdetailsDto> _getPackagingdetailsById(@ApiParam(value = "The id that represent the Packagingdetails found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
+        return getPackagingdetailsById(id);
+    }
+
+    // Override this method
+    default  ResponseEntity<PackagingdetailsDto> getPackagingdetailsById(Long id) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdLoading\" : 1, \"pdPackagingId\" : 6, \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * POST /loading/bm/v1/packaging/details/list : Path used to list packagingdetails that respect certain criteria. A criteria is an instance of a Filter object
+     *
+     * @param filterRequest  (optional)
+     * @return Packagingdetails list found successfully (status code 200)
+     */
+    @ApiOperation(value = "Path used to list packagingdetails that respect certain criteria. A criteria is an instance of a Filter object", nickname = "getPackagingdetailsList", notes = "", response = PackagingdetailsDto.class, responseContainer = "List", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Packagingdetails list found successfully", response = PackagingdetailsDto.class, responseContainer = "List") })
+    @RequestMapping(
+        method = RequestMethod.POST,
+        value = "/loading/bm/v1/packaging/details/list",
+        produces = { "application/json" },
+        consumes = { "application/json" }
+    )
+    default ResponseEntity<List<PackagingdetailsDto>> _getPackagingdetailsList(@ApiParam(value = "") @Valid @RequestBody(required = false) FilterRequest filterRequest) {
+        return getPackagingdetailsList(filterRequest);
+    }
+
+    // Override this method
+    default  ResponseEntity<List<PackagingdetailsDto>> getPackagingdetailsList(FilterRequest filterRequest) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdLoading\" : 1, \"pdPackagingId\" : 6, \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * POST /loading/bm/v1/packaging/details/page : Path used to list packagingdetails page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     *
+     * @param filterRequest  (optional)
+     * @return Packagingdetails page found successfully (status code 200)
+     */
+    @ApiOperation(value = "Path used to list packagingdetails page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want", nickname = "getPackagingdetailsPage", notes = "", response = PageofPackagingdetailsDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Packagingdetails page found successfully", response = PageofPackagingdetailsDto.class) })
+    @RequestMapping(
+        method = RequestMethod.POST,
+        value = "/loading/bm/v1/packaging/details/page",
+        produces = { "application/json" },
+        consumes = { "application/json" }
+    )
+    default ResponseEntity<PageofPackagingdetailsDto> _getPackagingdetailsPage(@ApiParam(value = "") @Valid @RequestBody(required = false) FilterRequest filterRequest) {
+        return getPackagingdetailsPage(filterRequest);
+    }
+
+    // Override this method
+    default  ResponseEntity<PageofPackagingdetailsDto> getPackagingdetailsPage(FilterRequest filterRequest) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdLoading\" : 1, \"pdPackagingId\" : 6, \"id\" : 0 }, { \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdLoading\" : 1, \"pdPackagingId\" : 6, \"id\" : 0 } ], \"totalElements\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * POST /loading/bm/v1/create : Path used to save a new Loading in the system
      *
      * @param loadingDto  (optional)
      * @return Loading saved successfully (status code 200)
@@ -201,7 +503,7 @@ public interface LoadingApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/loading/bmV1.0/create",
+        value = "/loading/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +528,97 @@ public interface LoadingApi {
 
 
     /**
-     * PUT /loading/bmV1.0/update : Path used to update or modify an existing Loading in the system
+     * POST /loading/bm/v1/details/create : Path used to save a new Loadingdetails in the system
+     *
+     * @param loadingdetailsDto  (optional)
+     * @return Loading details saved successfully (status code 200)
+     *         or Bad request. There is something wrong in the request. (status code 400)
+     *         or Authorization information is missing or invalid. (status code 401)
+     *         or The user who ask the ressource is Forbidden. (status code 403)
+     *         or The expected ressource is not found. (status code 404)
+     *         or Unexpected error at the server side. (status code 500)
+     */
+    @ApiOperation(value = "Path used to save a new Loadingdetails in the system", nickname = "saveLoadingdetails", notes = "", response = LoadingdetailsDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Loading details saved successfully", response = LoadingdetailsDto.class),
+        @ApiResponse(code = 400, message = "Bad request. There is something wrong in the request."),
+        @ApiResponse(code = 401, message = "Authorization information is missing or invalid."),
+        @ApiResponse(code = 403, message = "The user who ask the ressource is Forbidden."),
+        @ApiResponse(code = 404, message = "The expected ressource is not found."),
+        @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
+    @RequestMapping(
+        method = RequestMethod.POST,
+        value = "/loading/bm/v1/details/create",
+        produces = { "application/json" },
+        consumes = { "application/json" }
+    )
+    default ResponseEntity<LoadingdetailsDto> _saveLoadingdetails(@ApiParam(value = "") @Valid @RequestBody(required = false) LoadingdetailsDto loadingdetailsDto) {
+        return saveLoadingdetails(loadingdetailsDto);
+    }
+
+    // Override this method
+    default  ResponseEntity<LoadingdetailsDto> saveLoadingdetails(LoadingdetailsDto loadingdetailsDto) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"ldLoadingId\" : 1, \"quantityTaken\" : 1, \"quantityReturn\" : 0, \"id\" : 0, \"ldArticleId\" : 6 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * POST /loading/bm/v1/packaging/details/create : Path used to save a new Packagingdetails in the system
+     *
+     * @param packagingdetailsDto  (optional)
+     * @return Packaging details saved successfully (status code 200)
+     *         or Bad request. There is something wrong in the request. (status code 400)
+     *         or Authorization information is missing or invalid. (status code 401)
+     *         or The user who ask the ressource is Forbidden. (status code 403)
+     *         or The expected ressource is not found. (status code 404)
+     *         or Unexpected error at the server side. (status code 500)
+     */
+    @ApiOperation(value = "Path used to save a new Packagingdetails in the system", nickname = "savePackagingdetails", notes = "", response = PackagingdetailsDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Packaging details saved successfully", response = PackagingdetailsDto.class),
+        @ApiResponse(code = 400, message = "Bad request. There is something wrong in the request."),
+        @ApiResponse(code = 401, message = "Authorization information is missing or invalid."),
+        @ApiResponse(code = 403, message = "The user who ask the ressource is Forbidden."),
+        @ApiResponse(code = 404, message = "The expected ressource is not found."),
+        @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
+    @RequestMapping(
+        method = RequestMethod.POST,
+        value = "/loading/bm/v1/packaging/details/create",
+        produces = { "application/json" },
+        consumes = { "application/json" }
+    )
+    default ResponseEntity<PackagingdetailsDto> _savePackagingdetails(@ApiParam(value = "") @Valid @RequestBody(required = false) PackagingdetailsDto packagingdetailsDto) {
+        return savePackagingdetails(packagingdetailsDto);
+    }
+
+    // Override this method
+    default  ResponseEntity<PackagingdetailsDto> savePackagingdetails(PackagingdetailsDto packagingdetailsDto) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdLoading\" : 1, \"pdPackagingId\" : 6, \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * PUT /loading/bm/v1/update : Path used to update or modify an existing Loading in the system
      *
      * @param loadingDto  (optional)
      * @return Loading updated successfully (status code 200)
@@ -246,7 +638,7 @@ public interface LoadingApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/loading/bmV1.0/update",
+        value = "/loading/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -260,6 +652,96 @@ public interface LoadingApi {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
                     String exampleString = "{ \"loadReport\" : \"loadReport\", \"loadSalerId\" : 2, \"loadPosId\" : 7, \"loadPaidamount\" : 1.1465812980502945, \"loadCode\" : \"L0000\", \"loadManagerId\" : 5, \"id\" : 0, \"loadExpectedamount\" : 1.6027456183070403, \"loadDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadRemise\" : 0.5962133916683182 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * PUT /loading/bm/v1/details/update : Path used to update or modify an existing Loadingdetails in the system
+     *
+     * @param loadingdetailsDto  (optional)
+     * @return Loadingdetails updated successfully (status code 200)
+     *         or Bad request. There is something wrong in the request. (status code 400)
+     *         or Authorization information is missing or invalid. (status code 401)
+     *         or The user who ask the ressource is Forbidden. (status code 403)
+     *         or The expected ressource is not found. (status code 404)
+     *         or Unexpected error at the server side. (status code 500)
+     */
+    @ApiOperation(value = "Path used to update or modify an existing Loadingdetails in the system", nickname = "updateLoadingdetails", notes = "", response = LoadingdetailsDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Loadingdetails updated successfully", response = LoadingdetailsDto.class),
+        @ApiResponse(code = 400, message = "Bad request. There is something wrong in the request."),
+        @ApiResponse(code = 401, message = "Authorization information is missing or invalid."),
+        @ApiResponse(code = 403, message = "The user who ask the ressource is Forbidden."),
+        @ApiResponse(code = 404, message = "The expected ressource is not found."),
+        @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
+    @RequestMapping(
+        method = RequestMethod.PUT,
+        value = "/loading/bm/v1/details/update",
+        produces = { "application/json" },
+        consumes = { "application/json" }
+    )
+    default ResponseEntity<LoadingdetailsDto> _updateLoadingdetails(@ApiParam(value = "") @Valid @RequestBody(required = false) LoadingdetailsDto loadingdetailsDto) {
+        return updateLoadingdetails(loadingdetailsDto);
+    }
+
+    // Override this method
+    default  ResponseEntity<LoadingdetailsDto> updateLoadingdetails(LoadingdetailsDto loadingdetailsDto) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"ldLoadingId\" : 1, \"quantityTaken\" : 1, \"quantityReturn\" : 0, \"id\" : 0, \"ldArticleId\" : 6 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * PUT /loading/bm/v1/packaging/details/update : Path used to update or modify an existing Packagingdetails in the system
+     *
+     * @param packagingdetailsDto  (optional)
+     * @return Packagingdetails updated successfully (status code 200)
+     *         or Bad request. There is something wrong in the request. (status code 400)
+     *         or Authorization information is missing or invalid. (status code 401)
+     *         or The user who ask the ressource is Forbidden. (status code 403)
+     *         or The expected ressource is not found. (status code 404)
+     *         or Unexpected error at the server side. (status code 500)
+     */
+    @ApiOperation(value = "Path used to update or modify an existing Packagingdetails in the system", nickname = "updatePackagingdetails", notes = "", response = PackagingdetailsDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Packagingdetails updated successfully", response = PackagingdetailsDto.class),
+        @ApiResponse(code = 400, message = "Bad request. There is something wrong in the request."),
+        @ApiResponse(code = 401, message = "Authorization information is missing or invalid."),
+        @ApiResponse(code = 403, message = "The user who ask the ressource is Forbidden."),
+        @ApiResponse(code = 404, message = "The expected ressource is not found."),
+        @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
+    @RequestMapping(
+        method = RequestMethod.PUT,
+        value = "/loading/bm/v1/packaging/details/update",
+        produces = { "application/json" },
+        consumes = { "application/json" }
+    )
+    default ResponseEntity<PackagingdetailsDto> _updatePackagingdetails(@ApiParam(value = "") @Valid @RequestBody(required = false) PackagingdetailsDto packagingdetailsDto) {
+        return updatePackagingdetails(packagingdetailsDto);
+    }
+
+    // Override this method
+    default  ResponseEntity<PackagingdetailsDto> updatePackagingdetails(PackagingdetailsDto packagingdetailsDto) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdLoading\" : 1, \"pdPackagingId\" : 6, \"id\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

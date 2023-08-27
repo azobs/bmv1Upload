@@ -1,5 +1,5 @@
 type: object
-description: 'A permission that really give right to act on an object of the system'
+description: 'A category of product in the system'
 properties:
   id:
     type: integer
@@ -36,4 +36,4 @@ properties:
 #    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'
 required:
   - catName
-  - posofCat
+  - catPosId

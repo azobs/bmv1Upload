@@ -42,7 +42,8 @@ public class Permission {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator")
+    @SequenceGenerator(name="id_generator", sequenceName = "id_seq", allocationSize=50)
     @Column(updatable = false)
     private Long id;
     @CreatedDate

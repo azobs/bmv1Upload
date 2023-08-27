@@ -19,7 +19,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "load", description = "the load API")
 public interface LoadApi {
@@ -29,7 +29,7 @@ public interface LoadApi {
     }
 
     /**
-     * GET /load/bmV1.0/picture/{id} : Load a picture
+     * GET /load/bm/v1/picture/{id} : Load a picture
      *
      * @param id The id of the element that represent the resource found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Resource found successfully (status code 200)
@@ -39,7 +39,7 @@ public interface LoadApi {
         @ApiResponse(code = 200, message = "Resource found successfully", response = org.springframework.core.io.Resource.class) })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/load/bmV1.0/picture/{id}",
+        value = "/load/bm/v1/picture/{id}",
         produces = { "image/_*" }
     )
     default ResponseEntity<org.springframework.core.io.Resource> _loadResourceById(@ApiParam(value = "The id of the element that represent the resource found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {

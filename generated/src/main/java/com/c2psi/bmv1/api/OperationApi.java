@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "operation", description = "the operation API")
 public interface OperationApi {
@@ -32,7 +32,7 @@ public interface OperationApi {
     }
 
     /**
-     * DELETE /operation/bmV1.0/delete/{id} : Path used to delete an operation in the system with its id
+     * DELETE /operation/bm/v1/delete/{id} : Path used to delete an operation in the system with its id
      *
      * @param id The id that represent the Operation to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Operation deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface OperationApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/operation/bmV1.0/delete/{id}",
+        value = "/operation/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteOperationById(@ApiParam(value = "The id that represent the Operation to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface OperationApi {
 
 
     /**
-     * GET /operation/bmV1.0/getby/{id} : Find an Operation in the system by its id
+     * GET /operation/bm/v1/getby/{id} : Find an Operation in the system by its id
      *
      * @param id The id that represent the Operation found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Operation found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface OperationApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/operation/bmV1.0/getby/{id}",
+        value = "/operation/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<OperationDto> _getOperationById(@ApiParam(value = "The id that represent the Operation found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface OperationApi {
 
 
     /**
-     * POST /operation/bmV1.0/list : Path used to list operation that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /operation/bm/v1/list : Path used to list operation that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Operation list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface OperationApi {
         @ApiResponse(code = 200, message = "Operation list found successfully", response = OperationDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/operation/bmV1.0/list",
+        value = "/operation/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +146,7 @@ public interface OperationApi {
 
 
     /**
-     * POST /operation/bmV1.0/page : Path used to list Operation page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /operation/bm/v1/page : Path used to list Operation page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Operation page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface OperationApi {
         @ApiResponse(code = 200, message = "Operation page found successfully", response = PageofOperationDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/operation/bmV1.0/page",
+        value = "/operation/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +181,7 @@ public interface OperationApi {
 
 
     /**
-     * POST /operation/bmV1.0/create : Path used to save a new Operation in the system to have history of all operations in the system
+     * POST /operation/bm/v1/create : Path used to save a new Operation in the system to have history of all operations in the system
      *
      * @param operationDto  (optional)
      * @return Operation saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface OperationApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/operation/bmV1.0/create",
+        value = "/operation/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +226,7 @@ public interface OperationApi {
 
 
     /**
-     * PUT /operation/bmV1.0/update : Path used to update or modify an existing Operation in the system
+     * PUT /operation/bm/v1/update : Path used to update or modify an existing Operation in the system
      *
      * @param operationDto  (optional)
      * @return Operation updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface OperationApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/operation/bmV1.0/update",
+        value = "/operation/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

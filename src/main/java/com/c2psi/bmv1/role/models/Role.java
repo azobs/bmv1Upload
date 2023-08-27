@@ -29,7 +29,11 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name="role",
         uniqueConstraints = {@UniqueConstraint(
-                columnNames = {"roleName", "roleType"})})
+                columnNames = {"roleName", "roleType"}),
+                @UniqueConstraint(
+                        columnNames = {"roleType", "pos_id"}),
+                @UniqueConstraint(
+                        columnNames = {"roleType", "ent_id"})})
 public class Role {
 
     @NotNull(message = "A role name can't be null value")
@@ -61,7 +65,8 @@ public class Role {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator")
+    @SequenceGenerator(name="id_generator", sequenceName = "id_seq", allocationSize=50)
     @Column(updatable = false)
     private Long id;
     @CreatedDate
@@ -74,5 +79,9 @@ public class Role {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(name = "lastModifiedDate")
     private LocalDateTime lastModifiedDate;
+
+
+
+
 
 }

@@ -1,16 +1,18 @@
 package com.c2psi.bmv1.pos.pos.service;
 
+import com.c2psi.bmv1.address.dao.AddressDao;
+import com.c2psi.bmv1.address.mappers.AddressMapper;
+import com.c2psi.bmv1.address.models.Address;
 import com.c2psi.bmv1.address.services.AddressService;
 import com.c2psi.bmv1.bmapp.dto.BmPageDto;
 import com.c2psi.bmv1.bmapp.exceptions.*;
 import com.c2psi.bmv1.bmapp.services.AppService;
+import com.c2psi.bmv1.currency.dao.CurrencyDao;
 import com.c2psi.bmv1.currency.mappers.CurrencyMapper;
 import com.c2psi.bmv1.currency.models.Currency;
 import com.c2psi.bmv1.currency.services.CurrencyService;
-import com.c2psi.bmv1.dto.FilterRequest;
-import com.c2psi.bmv1.dto.Pagebm;
-import com.c2psi.bmv1.dto.PageofPointofsaleDto;
-import com.c2psi.bmv1.dto.PointofsaleDto;
+import com.c2psi.bmv1.dto.*;
+import com.c2psi.bmv1.pos.enterprise.dao.EnterpriseDao;
 import com.c2psi.bmv1.pos.enterprise.mappers.EnterpriseMapper;
 import com.c2psi.bmv1.pos.enterprise.models.Enterprise;
 import com.c2psi.bmv1.pos.enterprise.services.EnterpriseService;
@@ -42,8 +44,11 @@ public class PointofsaleServiceImpl implements PointofsaleService{
     final PointofsaleValidator posValidator;
     final PointofsaleSpecService posSpecService;
     final AddressService addressService;
+    final AddressMapper addressMapper;
+    final AddressDao addressDao;
     final CurrencyService currencyService;
     final EnterpriseService enterpriseService;
+    //final EnterpriseDao enterpriseDao;
     final CurrencyMapper currencyMapper;
     final EnterpriseMapper enterpriseMapper;
 
@@ -59,11 +64,17 @@ public class PointofsaleServiceImpl implements PointofsaleService{
             throw new NullValueException("Le parametre posDto ne peut etre null");
         }
 
+        List<String> errorsDto = posValidator.validate(posDto);
+        if(!errorsDto.isEmpty()){
+            log.error("Validation problem with the entity pos to save {}", posDto);
+            throw new InvalidEntityException("Le pointofsale envoye pour enregistrement n'est pas valide ", errorsDto,
+                    ErrorCode.POINTOFSALE_NOT_VALID.name());
+        }
+
         /***********************************************************************************
          * On valide le parametre recuperer et si il n'est pas valide on leve une exception
          */
         List<String> errors = posValidator.validate(posMapper.dtoToEntity(posDto));
-
         if(!errors.isEmpty()){
             log.error("Validation problem with the entity pos to save {}", posDto);
             throw new InvalidEntityException("Le pointofsale envoye pour enregistrement n'est pas valide ", errors,
@@ -86,39 +97,36 @@ public class PointofsaleServiceImpl implements PointofsaleService{
                     ErrorCode.POINTOFSALE_DUPLICATED.name());
         }
 
-        /***********************************************************************************
-         *On se rassure que l'id precise pour le currency par defaut identifie bel et bien
-         * un currency en BD
-         * The method isCurrencyExistWith return true if the currency exist. then the negation
-         * of true is false and then the execption can't be throw
-         */
-        if(posDto.getPosCurrency().getId() == null){
-            throw new NullValueException("L'id du currency associe au Pointofsale ne peut etre null");
-        }
-        if(!currencyService.isCurrencyExistWith(posDto.getPosCurrency().getId())){
-            throw new ModelNotFoundException("Le currency indique pour le pointofsale n'existe pas en BD: Verifier " +
-                    "l'id indique. Le pointofsale n'est donc pas valide ", ErrorCode.POINTOFSALE_NOT_VALID.name());
-        }
-
-
-        /***********************************************************************************
-         *On se rassure que l'id precise pour l'entreprise  identifie bel et bien
-         * une entreprise en BD
-         */
-        if(posDto.getPosEnterpriseId() == null){
-            throw new NullValueException("L'id de l'entreprise associe au Pointofsale ne peut etre null");
-        }
-        if(!enterpriseService.isEnterpriseExistWith(posDto.getPosEnterpriseId())){
-            throw new ModelNotFoundException("L'entreprise indique pour le pointofsale n'existe pas en BD: Verifier " +
-                    "l'id indique. Le pointofsale n'est donc pas valide ", ErrorCode.POINTOFSALE_NOT_VALID.name());
-        }
-
         /**************************************************************************************
          * Si tout est bon on effectue l'enregistrement car avec les bon Id des entites lies
          * JPA pourra s'en sortir sans exceptions generees
          */
+
         log.info("After all verification, the Pointofsale can be safely saved in the DB");
-        Pointofsale pointofsaleSaved = posDao.save(posMapper.dtoToEntity(posDto));
+        //AddressDto addressDtoSaved = addressService.saveAddress(posDto.getPosAddress());
+        Pointofsale posToSaved = Pointofsale.builder()
+                .posBalance(posDto.getPosBalance())
+                .posName(posDto.getPosName())
+                .posAcronym(posDto.getPosAcronym())
+                //.posAddress(addressMapper.dtoToEntity(posDto.getPosAddress()))
+                .posAddress(
+                        Address.builder()
+                                .numtel1(posDto.getPosAddress().getNumtel1())
+                                .numtel2(posDto.getPosAddress().getNumtel2())
+                                .numtel3(posDto.getPosAddress().getNumtel3())
+                                .quarter(posDto.getPosAddress().getQuarter())
+                                .country(posDto.getPosAddress().getCountry())
+                                .town(posDto.getPosAddress().getTown())
+                                .localisation(posDto.getPosAddress().getLocalisation())
+                                .email(posDto.getPosAddress().getEmail())
+                                .build()
+                )
+                .posDescription(posDto.getPosDescription())
+                .posEnterprise(enterpriseMapper.dtoToEntity(enterpriseService.getEnterpriseById(posDto.getPosEnterpriseId())))
+                .posCurrency(currencyMapper.dtoToEntity(posDto.getPosCurrency()))
+                .build();
+
+        Pointofsale pointofsaleSaved = posDao.save(posToSaved);
 
         return posMapper.entityToDto(pointofsaleSaved);
     }
@@ -139,6 +147,13 @@ public class PointofsaleServiceImpl implements PointofsaleService{
          */
         if (posDto == null) {
             throw new NullValueException("Le posDto a update ne peut etre null");
+        }
+
+        List<String> errorsDto = posValidator.validate(posDto);
+        if (!errorsDto.isEmpty()) {
+            log.error("Validation problem with the entity pos to save {}", posDto);
+            throw new InvalidEntityException("Le pointofsale envoye pour update n'est pas valide ", errorsDto,
+                    ErrorCode.POINTOFSALE_NOT_VALID.name());
         }
 
         /****************************************************************
@@ -200,10 +215,6 @@ public class PointofsaleServiceImpl implements PointofsaleService{
         if(posToUpdate.getPosCurrency() != null && posDto.getPosCurrency() != null) {
             if(posToUpdate.getPosCurrency().getId() != null && posDto.getPosCurrency().getId() != null) {
                 if (posToUpdate.getPosCurrency().getId().longValue() != posDto.getPosCurrency().getId().longValue()) {
-                    if (!currencyService.isCurrencyExistWith(posDto.getPosCurrency().getId())) {
-                        throw new ModelNotFoundException("Le currency indique pour la mise a jour du pointofsale n'existe pas en BD: Verifier " +
-                                "l'id indique. Le pointofsale n'est donc pas valide ", ErrorCode.POINTOFSALE_NOT_VALID.name());
-                    }
                     Currency newCurrency = currencyMapper.dtoToEntity(currencyService.getCurrencyById(posDto.getPosCurrency().getId()));
                     posToUpdate.setPosCurrency(newCurrency);
                 }
@@ -217,10 +228,6 @@ public class PointofsaleServiceImpl implements PointofsaleService{
         if(posToUpdate.getPosEnterprise() != null && posDto.getPosEnterpriseId() != null) {
             if (posToUpdate.getPosEnterprise().getId() != null && posDto.getPosEnterpriseId() != null) {
                 if (posToUpdate.getPosEnterprise().getId().longValue() != posDto.getPosEnterpriseId().longValue()) {
-                    if (!enterpriseService.isEnterpriseExistWith(posDto.getPosEnterpriseId())) {
-                        throw new ModelNotFoundException("L'entreprise indique pour la mise a jour du pointofsale n'existe pas en BD: Verifier " +
-                                "l'id indique. Le pointofsale n'est donc pas valide ", ErrorCode.POINTOFSALE_NOT_VALID.name());
-                    }
                     Enterprise newEnt = enterpriseMapper.dtoToEntity(enterpriseService.getEnterpriseById(posDto.getPosEnterpriseId()));
                     posToUpdate.setPosEnterprise(newEnt);
                 }

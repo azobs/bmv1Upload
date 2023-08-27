@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "command", description = "the command API")
 public interface CommandApi {
@@ -32,7 +32,7 @@ public interface CommandApi {
     }
 
     /**
-     * DELETE /command/bmV1.0/delete/{id} : Path used to delete a command in the system with its id
+     * DELETE /command/bm/v1/delete/{id} : Path used to delete a command in the system with its id
      *
      * @param id The id that represent the Command to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Command deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface CommandApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/command/bmV1.0/delete/{id}",
+        value = "/command/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteCommandById(@ApiParam(value = "The id that represent the Command to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface CommandApi {
 
 
     /**
-     * GET /command/bmV1.0/getby/{id} : Find a Command in the system by its id
+     * GET /command/bm/v1/getby/{id} : Find a Command in the system by its id
      *
      * @param id The id that represent the Command found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Command found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface CommandApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/command/bmV1.0/getby/{id}",
+        value = "/command/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<CommandDto> _getCommandById(@ApiParam(value = "The id that represent the Command found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface CommandApi {
 
 
     /**
-     * POST /command/bmV1.0/list : Path used to list command that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /command/bm/v1/list : Path used to list command that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Command list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface CommandApi {
         @ApiResponse(code = 200, message = "Command list found successfully", response = CommandDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/command/bmV1.0/list",
+        value = "/command/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +146,7 @@ public interface CommandApi {
 
 
     /**
-     * POST /command/bmV1.0/page : Path used to list Command page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /command/bm/v1/page : Path used to list Command page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Command page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface CommandApi {
         @ApiResponse(code = 200, message = "Command page found successfully", response = PageofCommandDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/command/bmV1.0/page",
+        value = "/command/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +181,7 @@ public interface CommandApi {
 
 
     /**
-     * POST /command/bmV1.0/create : Path used to save a new Command in the system
+     * POST /command/bm/v1/create : Path used to save a new Command in the system
      *
      * @param commandDto  (optional)
      * @return Command saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface CommandApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/command/bmV1.0/create",
+        value = "/command/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +226,7 @@ public interface CommandApi {
 
 
     /**
-     * PUT /command/bmV1.0/update : Path used to update or modify an existing Command in the system
+     * PUT /command/bm/v1/update : Path used to update or modify an existing Command in the system
      *
      * @param commandDto  (optional)
      * @return Command updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface CommandApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/command/bmV1.0/update",
+        value = "/command/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

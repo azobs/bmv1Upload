@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T01:09:55.652176400+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "deliverydetails", description = "the deliverydetails API")
 public interface DeliverydetailsApi {
@@ -32,7 +32,7 @@ public interface DeliverydetailsApi {
     }
 
     /**
-     * DELETE /deliverydetails/bmV1.0/delete/{id} : Path used to delete a Deliverydetails in the system with its id
+     * DELETE /deliverydetails/bm/v1/delete/{id} : Path used to delete a Deliverydetails in the system with its id
      *
      * @param id The id that represent the Deliverydetails to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Deliverydetails deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface DeliverydetailsApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/deliverydetails/bmV1.0/delete/{id}",
+        value = "/deliverydetails/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteDeliverydetailsById(@ApiParam(value = "The id that represent the Deliverydetails to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface DeliverydetailsApi {
 
 
     /**
-     * GET /deliverydetails/bmV1.0/getby/{id} : Find a Deliverydetails in the system by its id
+     * GET /deliverydetails/bm/v1/getby/{id} : Find a Deliverydetails in the system by its id
      *
      * @param id The id that represent the Deliverydetails found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Deliverydetails found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface DeliverydetailsApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/deliverydetails/bmV1.0/getby/{id}",
+        value = "/deliverydetails/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<DeliverydetailsDto> _getDeliverydetailsById(@ApiParam(value = "The id that represent the Deliverydetails found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface DeliverydetailsApi {
 
 
     /**
-     * POST /deliverydetails/bmV1.0/list : Path used to list delivery details that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /deliverydetails/bm/v1/list : Path used to list delivery details that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Delivery details list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface DeliverydetailsApi {
         @ApiResponse(code = 200, message = "Delivery details list found successfully", response = DeliverydetailsDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/deliverydetails/bmV1.0/list",
+        value = "/deliverydetails/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +146,7 @@ public interface DeliverydetailsApi {
 
 
     /**
-     * POST /deliverydetails/bmV1.0/page : Path used to list deliverydetails page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /deliverydetails/bm/v1/page : Path used to list deliverydetails page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Deliverydetails page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface DeliverydetailsApi {
         @ApiResponse(code = 200, message = "Deliverydetails page found successfully", response = PageofDeliverydetailsDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/deliverydetails/bmV1.0/page",
+        value = "/deliverydetails/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +181,7 @@ public interface DeliverydetailsApi {
 
 
     /**
-     * POST /deliverydetails/bmV1.0/create : Path used to save a new Deliverydetails in the system
+     * POST /deliverydetails/bm/v1/create : Path used to save a new Deliverydetails in the system
      *
      * @param deliverydetailsDto  (optional)
      * @return Delivery details saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface DeliverydetailsApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/deliverydetails/bmV1.0/create",
+        value = "/deliverydetails/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +226,7 @@ public interface DeliverydetailsApi {
 
 
     /**
-     * PUT /deliverydetails/bmV1.0/update : Path used to update or modify an existing deliverydetails in the system
+     * PUT /deliverydetails/bm/v1/update : Path used to update or modify an existing deliverydetails in the system
      *
      * @param deliverydetailsDto  (optional)
      * @return Deliverydetails updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface DeliverydetailsApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/deliverydetails/bmV1.0/update",
+        value = "/deliverydetails/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

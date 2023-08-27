@@ -30,7 +30,7 @@ public class Enterprise /*extends AbstractEntity*/ {
     @NotNull(message = "An enterprise regime can't be null value")
     EntRegimeEnum entRegime;
 //    @NotBlank(message = "A Niu can't be blank value")
-    @Size(max = 30, message = "An enterprise social reason must have at most 30 characters")
+    @Size(max = 100, message = "An enterprise social reason must have at most 30 characters")
     String entSocialreason;
 //    @NotBlank(message = "A Niu can't be blank value")
     @Size(max = 256, message = "An enterprise description must have at most 256 characters")
@@ -42,7 +42,7 @@ public class Enterprise /*extends AbstractEntity*/ {
     @NotNull(message = "An enterprise name can't be null value")
     @NotEmpty(message = "An enterprise name can't be empty value")
     @NotBlank(message = "An enterprise name can't be blank value")
-    @Size(min = 2, max = 30, message = "An enterprise name must have at least 3 and at most 30 characters")
+    @Size(min = 2, max = 50, message = "An enterprise name must have at least 3 and at most 30 characters")
     String entName;
     @NotNull(message = "An enterprise acronym can't be null value")
     @NotEmpty(message = "An enterprise acronym can't be empty value")
@@ -60,7 +60,8 @@ public class Enterprise /*extends AbstractEntity*/ {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator")
+    @SequenceGenerator(name="id_generator", sequenceName = "id_seq", allocationSize=50)
     @Column(updatable = false)
     private Long id;
     @CreatedDate

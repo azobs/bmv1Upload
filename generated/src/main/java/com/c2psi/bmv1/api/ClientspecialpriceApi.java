@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "clientspecialprice", description = "the clientspecialprice API")
 public interface ClientspecialpriceApi {
@@ -32,7 +32,7 @@ public interface ClientspecialpriceApi {
     }
 
     /**
-     * DELETE /clientspecialprice/bmV1.0/delete/{id} : Path used to delete a clientspecialprice in the system with its id
+     * DELETE /clientspecialprice/bm/v1/delete/{id} : Path used to delete a clientspecialprice in the system with its id
      *
      * @param id The id that represent the clientspecialprice to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return ClientSpecialprice deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface ClientspecialpriceApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/clientspecialprice/bmV1.0/delete/{id}",
+        value = "/clientspecialprice/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteClientSpecialpriceById(@ApiParam(value = "The id that represent the clientspecialprice to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface ClientspecialpriceApi {
 
 
     /**
-     * GET /clientspecialprice/bmV1.0/getby/{id} : Find a ClientSpecialprice in the system by its id
+     * GET /clientspecialprice/bm/v1/getby/{id} : Find a ClientSpecialprice in the system by its id
      *
      * @param id The id that represent the ClientSpecialprice found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return ClientSpecialprice found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface ClientspecialpriceApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/clientspecialprice/bmV1.0/getby/{id}",
+        value = "/clientspecialprice/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<ClientSpecialpriceDto> _getClientSpecialpriceById(@ApiParam(value = "The id that represent the ClientSpecialprice found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface ClientspecialpriceApi {
 
 
     /**
-     * POST /clientspecialprice/bmV1.0/list : Path used to list clientspecialprice that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /clientspecialprice/bm/v1/list : Path used to list clientspecialprice that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return ClientSpecialprice list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface ClientspecialpriceApi {
         @ApiResponse(code = 200, message = "ClientSpecialprice list found successfully", response = ClientSpecialpriceDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/clientspecialprice/bmV1.0/list",
+        value = "/clientspecialprice/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +146,7 @@ public interface ClientspecialpriceApi {
 
 
     /**
-     * POST /clientspecialprice/bmV1.0/page : Path used to list clientspecialprice page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /clientspecialprice/bm/v1/page : Path used to list clientspecialprice page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return ClientSpecialprice page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface ClientspecialpriceApi {
         @ApiResponse(code = 200, message = "ClientSpecialprice page found successfully", response = PageofClientSpecialpriceDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/clientspecialprice/bmV1.0/page",
+        value = "/clientspecialprice/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +181,7 @@ public interface ClientspecialpriceApi {
 
 
     /**
-     * POST /clientspecialprice/bmV1.0/create : Path used to save a new ClientSpecialprice in the system
+     * POST /clientspecialprice/bm/v1/create : Path used to save a new ClientSpecialprice in the system
      *
      * @param clientSpecialpriceDto  (optional)
      * @return ClientSpecialprice saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface ClientspecialpriceApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/clientspecialprice/bmV1.0/create",
+        value = "/clientspecialprice/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +226,7 @@ public interface ClientspecialpriceApi {
 
 
     /**
-     * PUT /clientspecialprice/bmV1.0/update : Path used to update or modify an existing ClientSpecialprice in the system
+     * PUT /clientspecialprice/bm/v1/update : Path used to update or modify an existing ClientSpecialprice in the system
      *
      * @param clientSpecialpriceDto  (optional)
      * @return ClientSpecialprice updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface ClientspecialpriceApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/clientspecialprice/bmV1.0/update",
+        value = "/clientspecialprice/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "pos", description = "the pos API")
 public interface PosApi {
@@ -32,7 +32,7 @@ public interface PosApi {
     }
 
     /**
-     * DELETE /pos/bmV1.0/delete/{id} : Path used to delete a pointofsale in the system with its id
+     * DELETE /pos/bm/v1/delete/{id} : Path used to delete a pointofsale in the system with its id
      *
      * @param id The id that represent the Pointofsale to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Pointofsale deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface PosApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/pos/bmV1.0/delete/{id}",
+        value = "/pos/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deletePosById(@ApiParam(value = "The id that represent the Pointofsale to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface PosApi {
 
 
     /**
-     * GET /pos/bmV1.0/getby/{id} : Find an Pointofsale in the system by its id
+     * GET /pos/bm/v1/getby/{id} : Find an Pointofsale in the system by its id
      *
      * @param id The id that represent the Pointofsale found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Pointofsale found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface PosApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/pos/bmV1.0/getby/{id}",
+        value = "/pos/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<PointofsaleDto> _getPosById(@ApiParam(value = "The id that represent the Pointofsale found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface PosApi {
 
 
     /**
-     * POST /pos/bmV1.0/list : Path used to list pointofsale that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /pos/bm/v1/list : Path used to list pointofsale that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Pointofsale list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface PosApi {
         @ApiResponse(code = 200, message = "Pointofsale list found successfully", response = PointofsaleDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/pos/bmV1.0/list",
+        value = "/pos/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +146,7 @@ public interface PosApi {
 
 
     /**
-     * POST /pos/bmV1.0/page : Path used to list Pointofsale page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /pos/bm/v1/page : Path used to list Pointofsale page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Pointofsale page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface PosApi {
         @ApiResponse(code = 200, message = "Pointofsale page found successfully", response = PageofPointofsaleDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/pos/bmV1.0/page",
+        value = "/pos/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +181,7 @@ public interface PosApi {
 
 
     /**
-     * POST /pos/bmV1.0/create : Path used to save a new Pointofsale in the system
+     * POST /pos/bm/v1/create : Path used to save a new Pointofsale in the system
      *
      * @param pointofsaleDto  (optional)
      * @return Pointofsale saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface PosApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/pos/bmV1.0/create",
+        value = "/pos/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +226,7 @@ public interface PosApi {
 
 
     /**
-     * PUT /pos/bmV1.0/update : Path used to update or modify an existing Pointofsale in the system
+     * PUT /pos/bm/v1/update : Path used to update or modify an existing Pointofsale in the system
      *
      * @param pointofsaleDto  (optional)
      * @return Pointofsale updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface PosApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/pos/bmV1.0/update",
+        value = "/pos/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

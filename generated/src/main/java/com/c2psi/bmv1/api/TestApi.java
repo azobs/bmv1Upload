@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "test", description = "the test API")
 public interface TestApi {
@@ -30,7 +30,7 @@ public interface TestApi {
     }
 
     /**
-     * GET /test/bmV1.0
+     * GET /test/non_secure
      *
      * @return Sucessfull Test Operation (status code 200)
      */
@@ -39,7 +39,7 @@ public interface TestApi {
         @ApiResponse(code = 200, message = "Sucessfull Test Operation", response = TestDto.class) })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/test/bmV1.0",
+        value = "/test/non_secure",
         produces = { "application/json" }
     )
     default ResponseEntity<TestDto> _apiTest() {
@@ -48,6 +48,72 @@ public interface TestApi {
 
     // Override this method
     default  ResponseEntity<TestDto> apiTest() {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"test\" : \"test\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * GET /test/secure
+     *
+     * @return Sucessfull Test secure Operation (status code 200)
+     */
+    @ApiOperation(value = "", nickname = "apiTestSecure", notes = "", response = TestDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Sucessfull Test secure Operation", response = TestDto.class) })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/test/secure",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<TestDto> _apiTestSecure() {
+        return apiTestSecure();
+    }
+
+    // Override this method
+    default  ResponseEntity<TestDto> apiTestSecure() {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"test\" : \"test\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * GET /test/bm/v1/securebmv1
+     *
+     * @return Sucessfull Test secure Operation (status code 200)
+     */
+    @ApiOperation(value = "", nickname = "apiTestSecurebmv1", notes = "", response = TestDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Sucessfull Test secure Operation", response = TestDto.class) })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/test/bm/v1/securebmv1",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<TestDto> _apiTestSecurebmv1() {
+        return apiTestSecurebmv1();
+    }
+
+    // Override this method
+    default  ResponseEntity<TestDto> apiTestSecurebmv1() {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {

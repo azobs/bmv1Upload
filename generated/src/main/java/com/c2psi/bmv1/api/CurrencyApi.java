@@ -24,7 +24,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "currency", description = "the currency API")
 public interface CurrencyApi {
@@ -34,7 +34,7 @@ public interface CurrencyApi {
     }
 
     /**
-     * DELETE /currency/bmV1.0/delete/{id} : Path used to delete a currency in the system with its id
+     * DELETE /currency/bm/v1/delete/{id} : Path used to delete a currency in the system with its id
      *
      * @param id The id that represent the Currency to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Currency deleted successfully (status code 200)
@@ -54,7 +54,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/currency/bmV1.0/delete/{id}",
+        value = "/currency/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteCurrencyById(@ApiParam(value = "The id that represent the Currency to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -69,7 +69,7 @@ public interface CurrencyApi {
 
 
     /**
-     * DELETE /currency/conversion/bmV1.0/delete/{id} : Path used to delete a currency conversion in the system with its id
+     * DELETE /currency/bm/v1/conversion/delete/{id} : Path used to delete a currency conversion in the system with its id
      *
      * @param id The id that represent the Currencyconversion to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Currencyconversion deleted successfully (status code 200)
@@ -89,7 +89,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/currency/conversion/bmV1.0/delete/{id}",
+        value = "/currency/bm/v1/conversion/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteCurrencyconversionById(@ApiParam(value = "The id that represent the Currencyconversion to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -104,7 +104,7 @@ public interface CurrencyApi {
 
 
     /**
-     * GET /currency/bmV1.0/getby/{id} : Find a Currency in the system by its id
+     * GET /currency/bm/v1/getby/{id} : Find a Currency in the system by its id
      *
      * @param id The id that represent the Currency found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Currency found successfully (status code 200)
@@ -124,7 +124,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/currency/bmV1.0/getby/{id}",
+        value = "/currency/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<CurrencyDto> _getCurrencyById(@ApiParam(value = "The id that represent the Currency found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -148,7 +148,7 @@ public interface CurrencyApi {
 
 
     /**
-     * POST /currency/bmV1.0/list : Path used to list currency that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /currency/bm/v1/list : Path used to list currency that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Currency list found successfully (status code 200)
@@ -158,7 +158,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 200, message = "Currency list found successfully", response = CurrencyDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/currency/bmV1.0/list",
+        value = "/currency/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -183,7 +183,7 @@ public interface CurrencyApi {
 
 
     /**
-     * POST /currency/bmV1.0/page : Path used to list currency page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /currency/bm/v1/page : Path used to list currency page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Currency page found successfully (status code 200)
@@ -193,7 +193,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 200, message = "Currency page found successfully", response = PageofCurrencyDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/currency/bmV1.0/page",
+        value = "/currency/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -218,7 +218,7 @@ public interface CurrencyApi {
 
 
     /**
-     * GET /currency/conversion/bmV1.0/getby/{id} : Find a Currencyconversion in the system by its id
+     * GET /currency/bm/v1/conversion/getby/{id} : Find a Currencyconversion in the system by its id
      *
      * @param id The id that represent the Currencyconversion found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Currencyconversion found successfully (status code 200)
@@ -238,7 +238,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/currency/conversion/bmV1.0/getby/{id}",
+        value = "/currency/bm/v1/conversion/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<CurrencyconversionDto> _getCurrencyconversionById(@ApiParam(value = "The id that represent the Currencyconversion found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -262,7 +262,7 @@ public interface CurrencyApi {
 
 
     /**
-     * POST /currency/conversion/bmV1.0/list : Path used to list currencyconversion that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /currency/bm/v1/conversion/list : Path used to list currencyconversion that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Currencyconversion list found successfully (status code 200)
@@ -272,7 +272,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 200, message = "Currencyconversion list found successfully", response = CurrencyconversionDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/currency/conversion/bmV1.0/list",
+        value = "/currency/bm/v1/conversion/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -297,7 +297,7 @@ public interface CurrencyApi {
 
 
     /**
-     * POST /currency/conversion/bmV1.0/page : Path used to list currencyconversion page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /currency/bm/v1/conversion/page : Path used to list currencyconversion page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Currencyconversion page found successfully (status code 200)
@@ -307,7 +307,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 200, message = "Currencyconversion page found successfully", response = PageofCurrencyconversionDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/currency/conversion/bmV1.0/page",
+        value = "/currency/bm/v1/conversion/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -332,7 +332,7 @@ public interface CurrencyApi {
 
 
     /**
-     * POST /currency/bmV1.0/create : Path used to save a new Currency of product in the system
+     * POST /currency/bm/v1/create : Path used to save a new Currency of product in the system
      *
      * @param currencyDto  (optional)
      * @return Currency saved successfully (status code 200)
@@ -352,7 +352,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/currency/bmV1.0/create",
+        value = "/currency/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -377,7 +377,7 @@ public interface CurrencyApi {
 
 
     /**
-     * POST /currency/conversion/bmV1.0/create : Path used to save a new Currencyconversion of product in the system
+     * POST /currency/bm/v1/conversion/create : Path used to save a new Currencyconversion of product in the system
      *
      * @param currencyconversionDto  (optional)
      * @return Currencyconversion saved successfully (status code 200)
@@ -397,7 +397,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/currency/conversion/bmV1.0/create",
+        value = "/currency/bm/v1/conversion/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -422,7 +422,7 @@ public interface CurrencyApi {
 
 
     /**
-     * PUT /currency/bmV1.0/update : Path used to update or modify an existing currency in the system
+     * PUT /currency/bm/v1/update : Path used to update or modify an existing currency in the system
      *
      * @param currencyDto  (optional)
      * @return Currency updated successfully (status code 200)
@@ -442,7 +442,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/currency/bmV1.0/update",
+        value = "/currency/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -467,7 +467,7 @@ public interface CurrencyApi {
 
 
     /**
-     * PUT /currency/conversion/bmV1.0/update : Path used to update or modify an existing currencyconversion in the system
+     * PUT /currency/bm/v1/conversion/update : Path used to update or modify an existing currencyconversion in the system
      *
      * @param currencyconversionDto  (optional)
      * @return Currencyconversion updated successfully (status code 200)
@@ -487,7 +487,7 @@ public interface CurrencyApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/currency/conversion/bmV1.0/update",
+        value = "/currency/bm/v1/conversion/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

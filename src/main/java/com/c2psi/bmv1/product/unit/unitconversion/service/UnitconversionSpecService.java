@@ -1,4 +1,4 @@
-package com.c2psi.bmv1.userbmrole.services;
+package com.c2psi.bmv1.product.unit.unitconversion.service;
 
 import com.c2psi.bmv1.bmapp.exceptions.InvalidColumnNameException;
 import com.c2psi.bmv1.bmapp.exceptions.InvalidFilterOperatorException;
@@ -6,7 +6,7 @@ import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.Filter;
 import com.c2psi.bmv1.dto.FilterRequest;
 import com.c2psi.bmv1.dto.Orderby;
-import com.c2psi.bmv1.userbmrole.models.UserbmRolePermission;
+import com.c2psi.bmv1.product.unit.unitconversion.models.Unitconversion;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Order;
 import jakarta.persistence.criteria.Predicate;
@@ -21,30 +21,45 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service(value = "UserbmRolePermissionSpecServiceV1")
+@Service(value = "UnitconversionSpecServiceV1")
 @Transactional
 @RequiredArgsConstructor
 @Slf4j
-public class UserbmRolePermissionSpecService {
+public class UnitconversionSpecService {
     final AppService appService;
-    final UserbmRolePermissionValidator ubmRolePermValidator;
+    final UnitconversionValidator unitconversionValidator;
 
     Field getFieldType(String fieldName){
         try {
-            return UserbmRolePermission.class.getDeclaredField(fieldName);
+            return Unitconversion.class.getDeclaredField(fieldName);
         } catch (NoSuchFieldException e) {
-            throw new InvalidColumnNameException("UserbmRole Class don't have an attributes with the name "+fieldName);
+            throw new InvalidColumnNameException("Unit conversion Class don't have an attributes with the name "+fieldName);
         }
     }
 
+    Predicate getUnitconversionBetweenPredicate(Root<Unitconversion> root, CriteriaBuilder criteriaBuilder, Filter filter) {
+        Field field = getFieldType(filter.getFilterColumn());
+        var fieldType = field.getType().getName();
 
-    public Predicate getUserbmRolePermissionPredicate(Root root, CriteriaBuilder criteriaBuilder,
-                                            List<Filter> filterList, FilterRequest.LogicOperatorEnum operator){
+        return appService.getBetweenPredicate(root, criteriaBuilder, fieldType, filter.getFilterColumn(),
+                filter.getFilterValue());
+    }
+
+    Predicate getUnitconversionEqualPredicate(Root<Unitconversion> root, CriteriaBuilder criteriaBuilder, Filter filter) {
+        Field field = getFieldType(filter.getFilterColumn());
+        var fieldType = field.getType().getName();
+
+        return appService.getEqualPredicate(root, criteriaBuilder, fieldType, filter.getFilterColumn(),
+                filter.getFilterValue());
+    }
+
+    public Predicate getUnitconversionPredicate(Root root, CriteriaBuilder criteriaBuilder,
+                                      List<Filter> filterList, FilterRequest.LogicOperatorEnum operator){
         List<Predicate> predicateList = new ArrayList<>();
         for(Filter filter : filterList){
             switch (filter.getFilterOperator()){
                 case EQUAL:
-                    Predicate equal = getUserbmRolePermissionEqualPredicate(root, criteriaBuilder, filter);;
+                    Predicate equal = getUnitconversionEqualPredicate(root, criteriaBuilder, filter);;
                     predicateList.add(equal);
                     break;
                 case LIKE:
@@ -52,7 +67,7 @@ public class UserbmRolePermissionSpecService {
                     predicateList.add(like);
                     break;
                 case BETWEEN:
-                    Predicate between = getUserbmRolePermissionBetweenPredicate(root, criteriaBuilder, filter);
+                    Predicate between = getUnitconversionBetweenPredicate(root, criteriaBuilder, filter);
                     predicateList.add(between);
                     break;
                 default:
@@ -72,16 +87,14 @@ public class UserbmRolePermissionSpecService {
         }
     }
 
-
-    public Specification<UserbmRolePermission> getUserbmRolePermissionSpecification(List<Filter> filterList,
-                                                                FilterRequest.LogicOperatorEnum operator,
-                                                                List<Orderby> orderbyList) {
-        //Il faut d'abord valider les parametres donc chaque element des differentes listes devront etre valide
+    public Specification<Unitconversion> getUnitconversionSpecification(List<Filter> filterList,
+                                                    FilterRequest.LogicOperatorEnum operator,
+                                                    List<Orderby> orderbyList) {
         List<Orderby> sortCriterias;
 
         sortCriterias = orderbyList != null ? orderbyList: new ArrayList<>();
 
-        List<String> errors = ubmRolePermValidator.validate(filterList, sortCriterias);
+        List<String> errors = unitconversionValidator.validate(filterList, sortCriterias);
         if(!errors.isEmpty()){
             log.error("The filterColumn or sortColumn sent don't correspond to the properties of corresponding classes. " +
                     "Please check the following {}", errors);
@@ -92,29 +105,10 @@ public class UserbmRolePermissionSpecService {
         return ((root, query, criteriaBuilder) -> {
             List<Order> orderList = appService.getOrderList(root, criteriaBuilder, sortCriterias);
             query.orderBy(orderList);
-
-            return getUserbmRolePermissionPredicate(root, criteriaBuilder, filterList, operator);
+            Predicate predicate = getUnitconversionPredicate(root, criteriaBuilder, filterList, operator);
+            return predicate;
         });
+
     }
-
-    Predicate getUserbmRolePermissionBetweenPredicate(Root<UserbmRolePermission> root, CriteriaBuilder criteriaBuilder,
-                                                      Filter filter) {
-        Field field = getFieldType(filter.getFilterColumn());
-        var fieldType = field.getType().getName();
-
-        return appService.getBetweenPredicate(root, criteriaBuilder, fieldType, filter.getFilterColumn(),
-                filter.getFilterValue());
-    }
-
-    Predicate getUserbmRolePermissionEqualPredicate(Root<UserbmRolePermission> root, CriteriaBuilder criteriaBuilder,
-                                                    Filter filter) {
-        Field field = getFieldType(filter.getFilterColumn());
-        var fieldType = field.getType().getName();
-
-        return appService.getEqualPredicate(root, criteriaBuilder, fieldType, filter.getFilterColumn(),
-                filter.getFilterValue());
-    }
-
-
 
 }

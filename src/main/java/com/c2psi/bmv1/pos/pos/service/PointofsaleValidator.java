@@ -3,8 +3,11 @@ package com.c2psi.bmv1.pos.pos.service;
 import com.c2psi.bmv1.address.services.AddressValidator;
 import com.c2psi.bmv1.bmapp.annotations.BmNotBlank;
 import com.c2psi.bmv1.bmapp.services.AppService;
+import com.c2psi.bmv1.currency.services.CurrencyService;
 import com.c2psi.bmv1.dto.Filter;
 import com.c2psi.bmv1.dto.Orderby;
+import com.c2psi.bmv1.dto.PointofsaleDto;
+import com.c2psi.bmv1.pos.enterprise.services.EnterpriseService;
 import com.c2psi.bmv1.pos.pos.models.Pointofsale;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
@@ -28,6 +31,39 @@ import java.util.Set;
 public class PointofsaleValidator {
     final AppService appService;
     final AddressValidator addressValidator;
+    final EnterpriseService enterpriseService;
+    final CurrencyService currencyService;
+
+    public List<String> validate(PointofsaleDto posDto){
+        List<String> errors = new ArrayList<>();
+        if(posDto == null){
+            errors.add("The posDto to validate can't be null");
+        }
+        else if(posDto.getPosEnterpriseId() == null){
+            errors.add("The posEnterpriseId of the pointofsale can't be null");
+        }
+        else{
+            if(!enterpriseService.isEnterpriseExistWith(posDto.getPosEnterpriseId())){
+                errors.add("There is no Enterprise in DB with the id sent");
+            }
+        }
+
+        /***************************************************************
+         * Le currency par defaut ne doit pas etre null et
+         * L'id du Currency par defaut du Pointofsale ne peut etre null
+         */
+        if(posDto.getPosCurrency() == null){
+            errors.add("A default currency of a pointofsale can't be null");
+        } else if (posDto.getPosCurrency().getId() == null) {
+            errors.add("Id of the default currency of the pointofsale can't be null");
+        } else {
+            if(!currencyService.isCurrencyExistWith(posDto.getPosCurrency().getId())){
+                errors.add("There is no currency in the DB with the id sent");
+            }
+        }
+
+        return errors;
+    }
     public List<String> validate(Pointofsale pos){
         List<String> errors = new ArrayList<>();
 
@@ -57,24 +93,14 @@ public class PointofsaleValidator {
         errors.addAll(addressValidator.validate(pos.getPosAddress()));
 
 
-        /***************************************************************
-         * Le currency par defaut ne doit pas etre null et
-         * L'id du Currency par defaut du Pointofsale ne peut etre null
-         */
-        if(pos.getPosCurrency() == null){
-            errors.add("A default currency of a pointofsale can't be null");
-        } else if (pos.getPosCurrency().getId() == null) {
-            errors.add("Id of the default currency of the pointofsale can't be null");
-        }
-
         /*************************************************************************
          * L'Entreprise proprietaire du Pointofsale et son id ne peuvent etre null
          */
-        if(pos.getPosEnterprise() == null){
-            errors.add("The enterprise owner of the Pointofsale can't be null");
-        } else if (pos.getPosEnterprise().getId() == null) {
-            errors.add("The id of the enterprise owner of the pointofsale can't be null");
-        }
+//        if(pos.getPosEnterprise() == null){
+//            errors.add("The enterprise owner of the Pointofsale can't be null");
+//        } else if (pos.getPosEnterprise().getId() == null) {
+//            errors.add("The id of the enterprise owner of the pointofsale can't be null");
+//        }
 
         errors.addAll(this.validateStringofBm(pos));
 

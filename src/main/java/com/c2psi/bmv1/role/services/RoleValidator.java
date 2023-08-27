@@ -36,10 +36,24 @@ public class RoleValidator {
         if(roleDto == null){
             errors.add("The roleDto to validate can't be null");
         }
-        if(roleDto.getRolePosId() == null && roleDto.getRoleEntId() == null){
-            errors.add("A role must belong either to a pointofsale or to an enterprise. Both can't be null");
+
+        if(roleDto.getRoleType() == null){
+            errors.add("The roleType can't be null");
+        } else if (roleDto.getRoleType() != RoleDto.RoleTypeEnum.ADMINBM) {
+            if(roleDto.getRoleType() == RoleDto.RoleTypeEnum.ADMINENTERPRISE){
+                if(roleDto.getRoleEntId() == null){
+                    errors.add("A role of that type must belong to an enterprise.");
+                }
+            }
+            else{
+                if(roleDto.getRolePosId() == null || roleDto.getRoleEntId() == null){
+                    errors.add("A role of that type must belong either to a pointofsale or to an enterprise. Both can't be null");
+                }
+            }
         }
-        else{
+
+
+        if(roleDto.getRolePosId() == null || roleDto.getRoleEntId() == null){
             boolean posValid = true;
             if(roleDto.getRolePosId() != null) {
                 if(!posService.isPointofsaleExistWith(roleDto.getRolePosId())){
@@ -57,16 +71,17 @@ public class RoleValidator {
             }
 
             if(roleDto.getRolePosId() != null && roleDto.getRoleEntId() != null) {
-                if (entValid && posValid) {
-                    /*****************************************
-                     * On doit se rassurer que le pos indique par son id est bel et bien un pos de l'entreprise indique
-                     */
-                    PointofsaleDto posDto = posService.getPointofsaleById(roleDto.getRolePosId());
-                    if (posDto.getPosEnterpriseId().longValue() != roleDto.getRoleEntId().longValue()) {
-                        errors.add("The posId sent don't identify a Pointofsale that belong to the enterprise " +
-                                "indicated by the entId");
-                    }
-                }
+//                if (entValid && posValid) {
+//                    /*****************************************
+//                     * On doit se rassurer que le pos indique par son id est bel et bien un pos de l'entreprise indique
+//                     */
+//                    PointofsaleDto posDto = posService.getPointofsaleById(roleDto.getRolePosId());
+//                    if (posDto.getPosEnterpriseId().longValue() != roleDto.getRoleEntId().longValue()) {
+//                        errors.add("The posId sent don't identify a Pointofsale that belong to the enterprise " +
+//                                "indicated by the entId");
+//                    }
+//                }
+                errors.add("A role must belong either to a pointofsale or to an enterprise. Not to both");
             }
         }
         return errors;

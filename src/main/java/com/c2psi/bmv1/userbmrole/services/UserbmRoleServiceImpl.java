@@ -5,7 +5,6 @@ import com.c2psi.bmv1.bmapp.exceptions.*;
 import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.*;
 import com.c2psi.bmv1.role.dao.RoleDao;
-import com.c2psi.bmv1.role.models.Role;
 import com.c2psi.bmv1.userbm.dao.UserbmDao;
 import com.c2psi.bmv1.userbmrole.dao.UserbmRoleDao;
 import com.c2psi.bmv1.userbmrole.errorCode.ErrorCode;
@@ -191,6 +190,32 @@ public class UserbmRoleServiceImpl implements UserbmRoleService{
                     ErrorCode.USERBMROLE_NOT_FOUND.name());
         }
         return userbmRoleMapper.entityToDto(optionalUserbmRole.get());
+    }
+
+    @Override
+    public UserbmRoleDto getUserbmRoleByUserAndRole(Long userbmId, Long roleId) {
+        if(userbmId == null || roleId == null){
+            throw new NullValueException("The ids sent can't be null");
+        }
+        Optional<UserbmRole> optionalUserbmRole = userbmRoleDao.findUserbmRoleByUserbmAndRole(userbmId, roleId);
+        if(!optionalUserbmRole.isPresent()){
+            throw new ModelNotFoundException("Aucun userbmRole n'existe avec les ids envoye ",
+                    ErrorCode.USERBMROLE_NOT_FOUND.name());
+        }
+
+        return userbmRoleMapper.entityToDto(optionalUserbmRole.get());
+    }
+
+    @Override
+    public List<UserbmRoleDto> getRoleListofUserbm(Long userbmId) {
+        if(userbmId == null){
+            throw new NullValueException("L'id du Userbm envoye ne peut etre null");
+        }
+        Optional<List<UserbmRole>> optionalUserbmRoleList = userbmRoleDao.findAllRoleofUserbm(userbmId);
+        if(!optionalUserbmRoleList.isPresent()){
+            throw new ModelNotFoundException("Aucun user n'existe avec l'id envoye");
+        }
+        return userbmRoleMapper.entityToDto(optionalUserbmRoleList.get());
     }
 
     @Override

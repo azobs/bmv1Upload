@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T01:09:55.652176400+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "inventoryline", description = "the inventoryline API")
 public interface InventorylineApi {
@@ -32,7 +32,7 @@ public interface InventorylineApi {
     }
 
     /**
-     * DELETE /inventoryline/bmV1.0/delete/{id} : Path used to delete a inventoryline in the system with its id
+     * DELETE /inventoryline/bm/v1/delete/{id} : Path used to delete a inventoryline in the system with its id
      *
      * @param id The id that represent the Inventoryline to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Inventoryline deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface InventorylineApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/inventoryline/bmV1.0/delete/{id}",
+        value = "/inventoryline/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteInventorylineById(@ApiParam(value = "The id that represent the Inventoryline to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface InventorylineApi {
 
 
     /**
-     * GET /inventoryline/bmV1.0/getby/{id} : Find a Inventoryline in the system by its id
+     * GET /inventoryline/bm/v1/getby/{id} : Find a Inventoryline in the system by its id
      *
      * @param id The id that represent the Inventoryline found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Inventoryline found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface InventorylineApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/inventoryline/bmV1.0/getby/{id}",
+        value = "/inventoryline/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<InventorylineDto> _getInventorylineById(@ApiParam(value = "The id that represent the Inventoryline found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface InventorylineApi {
 
 
     /**
-     * POST /inventoryline/bmV1.0/list : Path used to list inventoryline that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /inventoryline/bm/v1/list : Path used to list inventoryline that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Inventoryline list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface InventorylineApi {
         @ApiResponse(code = 200, message = "Inventoryline list found successfully", response = InventorylineDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/inventoryline/bmV1.0/list",
+        value = "/inventoryline/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +146,7 @@ public interface InventorylineApi {
 
 
     /**
-     * POST /inventoryline/bmV1.0/page : Path used to list Inventoryline page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /inventoryline/bm/v1/page : Path used to list Inventoryline page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Inventoryline page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface InventorylineApi {
         @ApiResponse(code = 200, message = "Inventoryline page found successfully", response = PageofInventorylineDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/inventoryline/bmV1.0/page",
+        value = "/inventoryline/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +181,7 @@ public interface InventorylineApi {
 
 
     /**
-     * POST /inventoryline/bmV1.0/create : Path used to save a new Inventoryline in the system
+     * POST /inventoryline/bm/v1/create : Path used to save a new Inventoryline in the system
      *
      * @param inventorylineDto  (optional)
      * @return Inventoryline saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface InventorylineApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/inventoryline/bmV1.0/create",
+        value = "/inventoryline/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +226,7 @@ public interface InventorylineApi {
 
 
     /**
-     * PUT /inventoryline/bmV1.0/update : Path used to update or modify an existing inventoryline in the system
+     * PUT /inventoryline/bm/v1/update : Path used to update or modify an existing inventoryline in the system
      *
      * @param inventorylineDto  (optional)
      * @return Inventoryline updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface InventorylineApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/inventoryline/bmV1.0/update",
+        value = "/inventoryline/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

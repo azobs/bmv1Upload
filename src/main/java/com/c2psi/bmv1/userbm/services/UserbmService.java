@@ -17,4 +17,6 @@ public interface UserbmService {
 
      Boolean isUserbmExistWithId(Long userbmId);
 
+     UserbmDto loadUserbmByUsername(String username);
+
 }

@@ -1,5 +1,6 @@
 package com.c2psi.bmv1.userbmrole.models;
 
+import com.c2psi.bmv1.auth.models.UserbmRolePermission;
 import com.c2psi.bmv1.role.models.Role;
 import com.c2psi.bmv1.userbm.models.Userbm;
 import jakarta.persistence.*;
@@ -41,7 +42,8 @@ public class UserbmRole {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator")
+    @SequenceGenerator(name="id_generator", sequenceName = "id_seq", allocationSize=50)
     @Column(updatable = false)
     private Long id;
     @CreatedDate

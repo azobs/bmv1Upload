@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "saleinvoice", description = "the saleinvoice API")
 public interface SaleinvoiceApi {
@@ -32,7 +32,7 @@ public interface SaleinvoiceApi {
     }
 
     /**
-     * DELETE /saleinvoice/bmV1.0/delete/{id} : Path used to delete a Saleinvoice in the system with its id
+     * DELETE /saleinvoice/bm/v1/delete/{id} : Path used to delete a Saleinvoice in the system with its id
      *
      * @param id The id that represent the Saleinvoice to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Saleinvoice deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface SaleinvoiceApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/saleinvoice/bmV1.0/delete/{id}",
+        value = "/saleinvoice/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteSaleinvoiceById(@ApiParam(value = "The id that represent the Saleinvoice to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface SaleinvoiceApi {
 
 
     /**
-     * GET /saleinvoice/bmV1.0/getby/{id} : Find a Saleinvoice in the system by its id
+     * GET /saleinvoice/bm/v1/getby/{id} : Find a Saleinvoice in the system by its id
      *
      * @param id The id that represent the Saleinvoice found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Saleinvoice found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface SaleinvoiceApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/saleinvoice/bmV1.0/getby/{id}",
+        value = "/saleinvoice/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<SaleinvoiceDto> _getSaleinvoiceById(@ApiParam(value = "The id that represent the Saleinvoice found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface SaleinvoiceApi {
 
 
     /**
-     * POST /saleinvoice/bmV1.0/list : Path used to list saleinvoice that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /saleinvoice/bm/v1/list : Path used to list saleinvoice that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Saleinvoice list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface SaleinvoiceApi {
         @ApiResponse(code = 200, message = "Saleinvoice list found successfully", response = SaleinvoiceDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/saleinvoice/bmV1.0/list",
+        value = "/saleinvoice/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +146,7 @@ public interface SaleinvoiceApi {
 
 
     /**
-     * POST /saleinvoice/bmV1.0/page : Path used to list Saleinvoice page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /saleinvoice/bm/v1/page : Path used to list Saleinvoice page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Saleinvoice page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface SaleinvoiceApi {
         @ApiResponse(code = 200, message = "Saleinvoice page found successfully", response = PageofSaleinvoiceDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/saleinvoice/bmV1.0/page",
+        value = "/saleinvoice/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +181,7 @@ public interface SaleinvoiceApi {
 
 
     /**
-     * POST /saleinvoice/bmV1.0/create : Path used to save a new Saleinvoice in the system
+     * POST /saleinvoice/bm/v1/create : Path used to save a new Saleinvoice in the system
      *
      * @param saleinvoiceDto  (optional)
      * @return Saleinvoice saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface SaleinvoiceApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/saleinvoice/bmV1.0/create",
+        value = "/saleinvoice/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +226,7 @@ public interface SaleinvoiceApi {
 
 
     /**
-     * PUT /saleinvoice/bmV1.0/update : Path used to update or modify an existing Saleinvoice in the system
+     * PUT /saleinvoice/bm/v1/update : Path used to update or modify an existing Saleinvoice in the system
      *
      * @param saleinvoiceDto  (optional)
      * @return Saleinvoice updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface SaleinvoiceApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/saleinvoice/bmV1.0/update",
+        value = "/saleinvoice/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

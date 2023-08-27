@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "product", description = "the product API")
 public interface ProductApi {
@@ -32,7 +32,7 @@ public interface ProductApi {
     }
 
     /**
-     * DELETE /product/delete : Path used to delete a product in the system with its id
+     * DELETE /product/bm/v1/delete : Path used to delete a product in the system with its id
      *
      * @param id The id that represent the Product to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Product deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface ProductApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/product/delete",
+        value = "/product/bm/v1/delete",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteProductById(@ApiParam(value = "The id that represent the Product to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface ProductApi {
 
 
     /**
-     * GET /product/bmV1.0/getby/{id} : Find a Product in the system by its id
+     * GET /product/bm/v1/getby/{id} : Find a Product in the system by its id
      *
      * @param id The id that represent the Product found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Product found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface ProductApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/product/bmV1.0/getby/{id}",
+        value = "/product/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<ProductDto> _getProductById(@ApiParam(value = "The id that represent the Product found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface ProductApi {
 
 
     /**
-     * POST /product/bmV1.0/list : Path used to list product that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /product/bm/v1/list : Path used to list product that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Product list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface ProductApi {
         @ApiResponse(code = 200, message = "Product list found successfully", response = ProductDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/product/bmV1.0/list",
+        value = "/product/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +146,7 @@ public interface ProductApi {
 
 
     /**
-     * POST /product/bmV1.0/page : Path used to list product page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /product/bm/v1/page : Path used to list product page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Product page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface ProductApi {
         @ApiResponse(code = 200, message = "Product page found successfully", response = PageofProductDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/product/bmV1.0/page",
+        value = "/product/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +181,7 @@ public interface ProductApi {
 
 
     /**
-     * POST /product/bmV1.0/create : Path used to save a new product of product in the system
+     * POST /product/bm/v1/create : Path used to save a new product of product in the system
      *
      * @param productDto  (optional)
      * @return Product saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface ProductApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/product/bmV1.0/create",
+        value = "/product/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +226,7 @@ public interface ProductApi {
 
 
     /**
-     * PUT /product/bmV1.0/update : Path used to update or modify an existing product in the system
+     * PUT /product/bm/v1/update : Path used to update or modify an existing product in the system
      *
      * @param productDto  (optional)
      * @return Product updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface ProductApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/product/bmV1.0/update",
+        value = "/product/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

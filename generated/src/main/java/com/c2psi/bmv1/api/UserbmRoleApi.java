@@ -23,7 +23,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "userbm_role", description = "the userbm_role API")
 public interface UserbmRoleApi {
@@ -33,7 +33,7 @@ public interface UserbmRoleApi {
     }
 
     /**
-     * DELETE /userbm_role/bmV1.0/delete/{id} : Path used to delete a userbm_role in the system with its id
+     * DELETE /userbm_role/bm/v1/delete/{id} : Path used to delete a userbm_role in the system with its id
      *
      * @param id The id that represent the UserbmRole to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Userbm deleted successfully (status code 200)
@@ -53,7 +53,7 @@ public interface UserbmRoleApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/userbm_role/bmV1.0/delete/{id}",
+        value = "/userbm_role/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteUserbmRoleById(@ApiParam(value = "The id that represent the UserbmRole to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -68,7 +68,7 @@ public interface UserbmRoleApi {
 
 
     /**
-     * GET /userbm_role/bmV1.0/getby/{id} : Find a UserbmRole in the system by its id
+     * GET /userbm_role/bm/v1/getby/{id} : Find a UserbmRole in the system by its id
      *
      * @param id The id that represent the UserbmRole found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return UserbmRole found successfully (status code 200)
@@ -88,7 +88,7 @@ public interface UserbmRoleApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/userbm_role/bmV1.0/getby/{id}",
+        value = "/userbm_role/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<UserbmRoleDto> _getUserbmRoleById(@ApiParam(value = "The id that represent the UserbmRole found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -112,7 +112,7 @@ public interface UserbmRoleApi {
 
 
     /**
-     * POST /userbm_role/bmV1.0/list : Path used to list user_role that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /userbm_role/bm/v1/list : Path used to list user_role that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return UserbmRole list found successfully (status code 200)
@@ -122,7 +122,7 @@ public interface UserbmRoleApi {
         @ApiResponse(code = 200, message = "UserbmRole list found successfully", response = UserbmRoleDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/userbm_role/bmV1.0/list",
+        value = "/userbm_role/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -147,7 +147,7 @@ public interface UserbmRoleApi {
 
 
     /**
-     * POST /userbm_role/bmV1.0/page : Path used to list userrole page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /userbm_role/bm/v1/page : Path used to list userrole page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return UserbmRole page found successfully (status code 200)
@@ -157,7 +157,7 @@ public interface UserbmRoleApi {
         @ApiResponse(code = 200, message = "UserbmRole page found successfully", response = PageofUserbmRoleDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/userbm_role/bmV1.0/page",
+        value = "/userbm_role/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -182,7 +182,7 @@ public interface UserbmRoleApi {
 
 
     /**
-     * POST /userbm_role/bmV1.0/create : Path used to save a new user_role in the system
+     * POST /userbm_role/bm/v1/create : Path used to save a new user_role in the system
      *
      * @param userbmRoleDto  (optional)
      * @return Userbm_Role saved successfully (status code 200)
@@ -202,7 +202,7 @@ public interface UserbmRoleApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/userbm_role/bmV1.0/create",
+        value = "/userbm_role/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -227,7 +227,7 @@ public interface UserbmRoleApi {
 
 
     /**
-     * PUT /userbm_role/changepermission : Path used to update or modify an existing user_role in the system
+     * PUT /userbm_role/bm/v1/changepermission : Path used to update or modify an existing user_role in the system
      *
      * @param userbmRolePermissionDto  (optional)
      * @return Userbm updated successfully (status code 200)
@@ -247,7 +247,7 @@ public interface UserbmRoleApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/userbm_role/changepermission",
+        value = "/userbm_role/bm/v1/changepermission",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

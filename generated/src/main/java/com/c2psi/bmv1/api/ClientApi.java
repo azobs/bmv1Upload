@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "client", description = "the client API")
 public interface ClientApi {
@@ -32,7 +32,7 @@ public interface ClientApi {
     }
 
     /**
-     * DELETE /client/bmV1.0/delete/{id} : Path used to delete a client in the system with its id
+     * DELETE /client/bm/v1/delete/{id} : Path used to delete a client in the system with its id
      *
      * @param id The id that represent the client to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Client deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface ClientApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/client/bmV1.0/delete/{id}",
+        value = "/client/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteClientById(@ApiParam(value = "The id that represent the client to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface ClientApi {
 
 
     /**
-     * GET /client/bmV1.0/getby/{id} : Find a Client in the system by its id
+     * GET /client/bm/v1/getby/{id} : Find a Client in the system by its id
      *
      * @param id The id that represent the Client found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Client found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface ClientApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/client/bmV1.0/getby/{id}",
+        value = "/client/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<ClientDto> _getClientById(@ApiParam(value = "The id that represent the Client found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface ClientApi {
 
 
     /**
-     * POST /client/bmV1.0/list : Path used to list client that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /client/bm/v1/list : Path used to list client that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Client list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface ClientApi {
         @ApiResponse(code = 200, message = "Client list found successfully", response = ClientDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/client/bmV1.0/list",
+        value = "/client/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +146,7 @@ public interface ClientApi {
 
 
     /**
-     * POST /client/bmV1.0/page : Path used to list client page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /client/bm/v1/page : Path used to list client page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Client page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface ClientApi {
         @ApiResponse(code = 200, message = "Client page found successfully", response = PageofClientDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/client/bmV1.0/page",
+        value = "/client/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +181,7 @@ public interface ClientApi {
 
 
     /**
-     * POST /client/bmV1.0/create : Path used to save a new Client in the system
+     * POST /client/bm/v1/create : Path used to save a new Client in the system
      *
      * @param clientDto  (optional)
      * @return Client saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface ClientApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/client/bmV1.0/create",
+        value = "/client/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +226,7 @@ public interface ClientApi {
 
 
     /**
-     * PUT /client/bmV1.0/update : Path used to update or modify an existing Client in the system
+     * PUT /client/bm/v1/update : Path used to update or modify an existing Client in the system
      *
      * @param clientDto  (optional)
      * @return Client updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface ClientApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/client/bmV1.0/update",
+        value = "/client/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "packaging", description = "the packaging API")
 public interface PackagingApi {
@@ -32,7 +32,7 @@ public interface PackagingApi {
     }
 
     /**
-     * DELETE /packaging/bmV1.0/delete/{id} : Path used to delete a packaging in the system with its id
+     * DELETE /packaging/bm/v1/delete/{id} : Path used to delete a packaging in the system with its id
      *
      * @param id The id that represent the Packaging to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Packaging deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface PackagingApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/packaging/bmV1.0/delete/{id}",
+        value = "/packaging/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deletePackagingById(@ApiParam(value = "The id that represent the Packaging to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface PackagingApi {
 
 
     /**
-     * GET /packaging/bmV1.0/getby/{id} : Find a Packaging in the system by its id
+     * GET /packaging/bm/v1/getby/{id} : Find a Packaging in the system by its id
      *
      * @param id The id that represent the Packaging found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Packaging found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface PackagingApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/packaging/bmV1.0/getby/{id}",
+        value = "/packaging/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<PackagingDto> _getPackagingById(@ApiParam(value = "The id that represent the Packaging found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface PackagingApi {
 
 
     /**
-     * POST /packaging/bmV1.0/list : Path used to list packaging that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /packaging/bm/v1/list : Path used to list packaging that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Packaging list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface PackagingApi {
         @ApiResponse(code = 200, message = "Packaging list found successfully", response = PackagingDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/packaging/bmV1.0/list",
+        value = "/packaging/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +146,7 @@ public interface PackagingApi {
 
 
     /**
-     * POST /packaging/bmV1.0/page : Path used to list packaging page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /packaging/bm/v1/page : Path used to list packaging page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Packaging page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface PackagingApi {
         @ApiResponse(code = 200, message = "Packaging page found successfully", response = PageofPackagingDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/packaging/bmV1.0/page",
+        value = "/packaging/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +181,7 @@ public interface PackagingApi {
 
 
     /**
-     * POST /packaging/bmV1.0/create : Path used to save a new Packaging in the system
+     * POST /packaging/bm/v1/create : Path used to save a new Packaging in the system
      *
      * @param packagingDto  (optional)
      * @return Packaging saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface PackagingApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/packaging/bmV1.0/create",
+        value = "/packaging/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +226,7 @@ public interface PackagingApi {
 
 
     /**
-     * PUT /packaging/bmV1.0/update : Path used to update or modify an existing Packaging in the system
+     * PUT /packaging/bm/v1/update : Path used to update or modify an existing Packaging in the system
      *
      * @param packagingDto  (optional)
      * @return Packaging updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface PackagingApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/packaging/bmV1.0/update",
+        value = "/packaging/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

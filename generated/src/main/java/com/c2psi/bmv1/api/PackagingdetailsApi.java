@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T01:09:55.652176400+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "packagingdetails", description = "the packagingdetails API")
 public interface PackagingdetailsApi {
@@ -32,7 +32,7 @@ public interface PackagingdetailsApi {
     }
 
     /**
-     * DELETE /packagingdetails/bmV1.0/delete/{id} : Path used to delete a packagingdetails in the system with its id
+     * DELETE /packagingdetails/bm/v1/delete/{id} : Path used to delete a packagingdetails in the system with its id
      *
      * @param id The id that represent the Packagingdetails to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Packagingdetails deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface PackagingdetailsApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/packagingdetails/bmV1.0/delete/{id}",
+        value = "/packagingdetails/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deletePackagingdetailsById(@ApiParam(value = "The id that represent the Packagingdetails to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface PackagingdetailsApi {
 
 
     /**
-     * GET /packagingdetails/bmV1.0/getby/{id} : Find a Packagingdetails in the system by its id
+     * GET /packagingdetails/bm/v1/getby/{id} : Find a Packagingdetails in the system by its id
      *
      * @param id The id that represent the Packagingdetails found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Packagingdetails found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface PackagingdetailsApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/packagingdetails/bmV1.0/getby/{id}",
+        value = "/packagingdetails/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<PackagingdetailsDto> _getPackagingdetailsById(@ApiParam(value = "The id that represent the Packagingdetails found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface PackagingdetailsApi {
 
 
     /**
-     * POST /packagingdetails/bmV1.0/list : Path used to list packagingdetails that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /packagingdetails/bm/v1/list : Path used to list packagingdetails that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Packagingdetails list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface PackagingdetailsApi {
         @ApiResponse(code = 200, message = "Packagingdetails list found successfully", response = PackagingdetailsDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/packagingdetails/bmV1.0/list",
+        value = "/packagingdetails/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +146,7 @@ public interface PackagingdetailsApi {
 
 
     /**
-     * POST /packagingdetails/bmV1.0/page : Path used to list packagingdetails page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /packagingdetails/bm/v1/page : Path used to list packagingdetails page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Packagingdetails page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface PackagingdetailsApi {
         @ApiResponse(code = 200, message = "Packagingdetails page found successfully", response = PageofPackagingdetailsDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/packagingdetails/bmV1.0/page",
+        value = "/packagingdetails/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +181,7 @@ public interface PackagingdetailsApi {
 
 
     /**
-     * POST /packagingdetails/bmV1.0/create : Path used to save a new Packagingdetails in the system
+     * POST /packagingdetails/bm/v1/create : Path used to save a new Packagingdetails in the system
      *
      * @param packagingdetailsDto  (optional)
      * @return Packaging details saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface PackagingdetailsApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/packagingdetails/bmV1.0/create",
+        value = "/packagingdetails/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +226,7 @@ public interface PackagingdetailsApi {
 
 
     /**
-     * PUT /packagingdetails/bmV1.0/update : Path used to update or modify an existing Packagingdetails in the system
+     * PUT /packagingdetails/bm/v1/update : Path used to update or modify an existing Packagingdetails in the system
      *
      * @param packagingdetailsDto  (optional)
      * @return Packagingdetails updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface PackagingdetailsApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/packagingdetails/bmV1.0/update",
+        value = "/packagingdetails/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

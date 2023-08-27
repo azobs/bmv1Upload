@@ -1,7 +1,7 @@
-package com.c2psi.bmv1.userbmrole.mappers;
+package com.c2psi.bmv1.auth.mapper;
 
 import com.c2psi.bmv1.dto.UserbmRolePermissionDto;
-import com.c2psi.bmv1.userbmrole.models.UserbmRolePermission;
+import com.c2psi.bmv1.auth.models.UserbmRolePermission;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

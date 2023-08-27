@@ -14,9 +14,12 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collection;
 
 @Data
 @NoArgsConstructor
@@ -73,7 +76,8 @@ public class Userbm /*extends AbstractEntity*/ {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator")
+    @SequenceGenerator(name="id_generator", sequenceName = "id_seq", allocationSize=50)
     @Column(updatable = false)
     private Long id;
     @CreatedDate
@@ -102,4 +106,31 @@ public class Userbm /*extends AbstractEntity*/ {
     public String getUserPicture() {
         return userPicture;
     }
+
+
+    /*******************************
+     * About security
+     */
+    @Transient
+    String username;
+
+
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        /*******************************************************************************
+         * Il faut faire la liste des roles du Userbm
+         * c'est a dire la liste des UserbmRole dont le Userbm est celui qu'on cherche
+         */
+
+        /********************************************************************************
+         * Ensuite on va faire la liste des permissions associe a chaque UserbmRole
+         * Pour chaque UserbmRole recuperer, on cherche la liste des UserbmRolePermission
+         */
+
+        /************************************************************
+         * Avec cette liste de role et de permission on peut donc
+         * preparer les GrantedAuthorities
+         */
+        return null;
+    }
+
 }

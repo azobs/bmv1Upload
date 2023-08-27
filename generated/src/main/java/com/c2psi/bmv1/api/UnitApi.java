@@ -24,7 +24,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "unit", description = "the unit API")
 public interface UnitApi {
@@ -34,7 +34,7 @@ public interface UnitApi {
     }
 
     /**
-     * DELETE /unit/unit/bmV1.0/delete/{id} : Path used to delete a unit in the system with its id
+     * DELETE /unit/bm/v1/unit/delete/{id} : Path used to delete a unit in the system with its id
      *
      * @param id The id that represent the Unit to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Unit deleted successfully (status code 200)
@@ -54,7 +54,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/unit/unit/bmV1.0/delete/{id}",
+        value = "/unit/bm/v1/unit/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteUnitById(@ApiParam(value = "The id that represent the Unit to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -69,7 +69,7 @@ public interface UnitApi {
 
 
     /**
-     * DELETE /unit/conversion/bmV1.0/delete/{id} : Path used to delete a unit conversion in the system with its id
+     * DELETE /unit/bm/v1/conversion/delete/{id} : Path used to delete a unit conversion in the system with its id
      *
      * @param id The id that represent the Unitconversion to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Unitconversion deleted successfully (status code 200)
@@ -89,7 +89,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/unit/conversion/bmV1.0/delete/{id}",
+        value = "/unit/bm/v1/conversion/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteUnitconversionById(@ApiParam(value = "The id that represent the Unitconversion to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -104,7 +104,7 @@ public interface UnitApi {
 
 
     /**
-     * GET /unit/unit/bmV1.0/getby/{id} : Find a Unit in the system by its id
+     * GET /unit/bm/v1/unit/getby/{id} : Find a Unit in the system by its id
      *
      * @param id The id that represent the Unit found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Unit found successfully (status code 200)
@@ -124,7 +124,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/unit/unit/bmV1.0/getby/{id}",
+        value = "/unit/bm/v1/unit/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<UnitDto> _getUnitById(@ApiParam(value = "The id that represent the Unit found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -148,7 +148,7 @@ public interface UnitApi {
 
 
     /**
-     * POST /unit/unit/bmV1.0/list : Path used to list unit that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /unit/bm/v1/unit/list : Path used to list unit that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Unit list found successfully (status code 200)
@@ -158,7 +158,7 @@ public interface UnitApi {
         @ApiResponse(code = 200, message = "Unit list found successfully", response = UnitDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/unit/unit/bmV1.0/list",
+        value = "/unit/bm/v1/unit/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -183,7 +183,7 @@ public interface UnitApi {
 
 
     /**
-     * POST /unit/unit/bmV1.0/page : Path used to list unit page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /unit/bm/v1/unit/page : Path used to list unit page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Unit page found successfully (status code 200)
@@ -193,7 +193,7 @@ public interface UnitApi {
         @ApiResponse(code = 200, message = "Unit page found successfully", response = PageofUnitDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/unit/unit/bmV1.0/page",
+        value = "/unit/bm/v1/unit/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -218,7 +218,7 @@ public interface UnitApi {
 
 
     /**
-     * GET /unit/conversion/bmV1.0/getby/{id} : Find a Unitconversion in the system by its id
+     * GET /unit/bm/v1/conversion/getby/{id} : Find a Unitconversion in the system by its id
      *
      * @param id The id that represent the Unitconversion found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Unitconversion found successfully (status code 200)
@@ -238,7 +238,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/unit/conversion/bmV1.0/getby/{id}",
+        value = "/unit/bm/v1/conversion/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<UnitconversionDto> _getUnitconversionById(@ApiParam(value = "The id that represent the Unitconversion found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -262,7 +262,7 @@ public interface UnitApi {
 
 
     /**
-     * POST /unit/conversion/bmV1.0/list : Path used to list unitconversion that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /unit/bm/v1/conversion/list : Path used to list unitconversion that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Unitconversion list found successfully (status code 200)
@@ -272,7 +272,7 @@ public interface UnitApi {
         @ApiResponse(code = 200, message = "Unitconversion list found successfully", response = UnitconversionDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/unit/conversion/bmV1.0/list",
+        value = "/unit/bm/v1/conversion/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -297,7 +297,7 @@ public interface UnitApi {
 
 
     /**
-     * POST /unit/conversion/bmV1.0/page : Path used to list unitconversion page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /unit/bm/v1/conversion/page : Path used to list unitconversion page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Unitconversion page found successfully (status code 200)
@@ -307,7 +307,7 @@ public interface UnitApi {
         @ApiResponse(code = 200, message = "Unitconversion page found successfully", response = PageofUnitconversionDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/unit/conversion/bmV1.0/page",
+        value = "/unit/bm/v1/conversion/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -332,7 +332,7 @@ public interface UnitApi {
 
 
     /**
-     * POST /unit/unit/bmV1.0/create : Path used to save a new unit used to sell productformated in the system
+     * POST /unit/bm/v1/unit/create : Path used to save a new unit used to sell productformated in the system
      *
      * @param unitDto  (optional)
      * @return Unit saved successfully (status code 200)
@@ -352,7 +352,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/unit/unit/bmV1.0/create",
+        value = "/unit/bm/v1/unit/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -377,7 +377,7 @@ public interface UnitApi {
 
 
     /**
-     * POST /unit/conversion/bmV1.0/create : Path used to save a new unitconversion used to sell productformated in the system
+     * POST /unit/bm/v1/conversion/create : Path used to save a new unitconversion used to sell productformated in the system
      *
      * @param unitconversionDto  (optional)
      * @return Unitconversion saved successfully (status code 200)
@@ -397,7 +397,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/unit/conversion/bmV1.0/create",
+        value = "/unit/bm/v1/conversion/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -422,7 +422,7 @@ public interface UnitApi {
 
 
     /**
-     * PUT /unit/unit/bmV1.0/update : Path used to update or modify an existing unit in the system
+     * PUT /unit/bm/v1/unit/update : Path used to update or modify an existing unit in the system
      *
      * @param unitDto  (optional)
      * @return Unit updated successfully (status code 200)
@@ -442,7 +442,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/unit/unit/bmV1.0/update",
+        value = "/unit/bm/v1/unit/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -467,7 +467,7 @@ public interface UnitApi {
 
 
     /**
-     * PUT /unit/conversion/bmV1.0/update : Path used to update or modify an existing unitconversion in the system
+     * PUT /unit/bm/v1/conversion/update : Path used to update or modify an existing unitconversion in the system
      *
      * @param unitconversionDto  (optional)
      * @return Unitconversion updated successfully (status code 200)
@@ -487,7 +487,7 @@ public interface UnitApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/unit/conversion/bmV1.0/update",
+        value = "/unit/bm/v1/conversion/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

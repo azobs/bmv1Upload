@@ -1,6 +1,13 @@
 package com.c2psi.bmv1.userbm.services;
 
 import com.c2psi.bmv1.address.services.AddressService;
+import com.c2psi.bmv1.auth.config.JwtService;
+import com.c2psi.bmv1.auth.models.ExtendedUser;
+import com.c2psi.bmv1.auth.services.LoadUserbmService;
+import com.c2psi.bmv1.auth.token.dao.TokenDao;
+import com.c2psi.bmv1.auth.token.models.Token;
+import com.c2psi.bmv1.auth.token.services.TokenService;
+import com.c2psi.bmv1.bmapp.enumerations.TokenType;
 import com.c2psi.bmv1.bmapp.enumerations.UserStateEnum;
 import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.*;
@@ -17,10 +24,13 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -105,10 +115,17 @@ public class UserbmServiceImpl implements UserbmService{
          * After including security, the password confirm must be encrypted before saved
          * by using the PasswordEncoder of SpringSecurity
          ********************************************************************************/
+        String passwordToEncode = userbmDto.getUserPassword();
+        userbmDto.setUserPassword(new BCryptPasswordEncoder().encode(passwordToEncode));
 
-        log.info("After all verification, the Userbm {} sent can be safely saved in the DB ", userbmDto);
+        log.info("After all verification, the Userbm sent can be safely saved in the DB ");
 
         Userbm userbmSaved = userbmDao.save(userbmMapper.dtoToEntity(userbmDto));
+        ///////////////////////////////////////////////////
+
+        //TokenDto tokenDto =
+
+        ///////////////////////////////////////////////////
 
         return userbmMapper.entityToDto(userbmSaved);
     }
@@ -488,6 +505,25 @@ public class UserbmServiceImpl implements UserbmService{
         }
         Optional<Userbm> optionalUserbm = userbmDao.findUserbmById(userbmId);
         return optionalUserbm.isPresent();
+    }
+
+    @Override
+    public UserbmDto loadUserbmByUsername(String username) {
+        if(username == null){
+            throw new NullValueException("Le username du Userbm recherche ne peut etre null");
+        }
+        Optional<Userbm> optionalUserbm1 = userbmDao.findUserbmByEmail(username);
+        Optional<Userbm> optionalUserbm2 = userbmDao.findUserbmByUserLogin(username);
+        Optional<Userbm> optionalUserbm3 = userbmDao.findUserbmByUserCni(username);
+        if(optionalUserbm1.isPresent()){
+            return userbmMapper.entityToDto(optionalUserbm1.get());
+        } else if (optionalUserbm2.isPresent()) {
+            return userbmMapper.entityToDto(optionalUserbm2.get());
+        } else if (optionalUserbm3.isPresent()) {
+            return userbmMapper.entityToDto(optionalUserbm3.get());
+        }
+
+        throw new ModelNotFoundException("Aucun User n'existe avec les parametres envoye");
     }
 
     PageofUserbmDto getPageofUserbmDto(Page<Userbm> userbmPage){

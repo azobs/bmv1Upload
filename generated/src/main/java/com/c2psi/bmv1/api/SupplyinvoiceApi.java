@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "supplyinvoice", description = "the supplyinvoice API")
 public interface SupplyinvoiceApi {
@@ -32,7 +32,7 @@ public interface SupplyinvoiceApi {
     }
 
     /**
-     * DELETE /supplyinvoice/bmV1.0/delete/{id} : Path used to delete a supplyinvoice in the system with its id
+     * DELETE /supplyinvoice/bm/v1/delete/{id} : Path used to delete a supplyinvoice in the system with its id
      *
      * @param id The id that represent the Supplyinvoice to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Supplyinvoice deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface SupplyinvoiceApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/supplyinvoice/bmV1.0/delete/{id}",
+        value = "/supplyinvoice/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteSupplyinvoiceById(@ApiParam(value = "The id that represent the Supplyinvoice to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface SupplyinvoiceApi {
 
 
     /**
-     * GET /supplyinvoice/bmV1.0/getby/{id} : Find a Supplyinvoice in the system by its id
+     * GET /supplyinvoice/bm/v1/getby/{id} : Find a Supplyinvoice in the system by its id
      *
      * @param id The id that represent the Supplyinvoice found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Supplyinvoice found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface SupplyinvoiceApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/supplyinvoice/bmV1.0/getby/{id}",
+        value = "/supplyinvoice/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<SupplyinvoiceDto> _getSupplyinvoiceById(@ApiParam(value = "The id that represent the Supplyinvoice found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface SupplyinvoiceApi {
 
 
     /**
-     * POST /supplyinvoice/bmV1.0/list : Path used to list supplyinvoice that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /supplyinvoice/bm/v1/list : Path used to list supplyinvoice that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Supplyinvoice list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface SupplyinvoiceApi {
         @ApiResponse(code = 200, message = "Supplyinvoice list found successfully", response = SupplyinvoiceDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/supplyinvoice/bmV1.0/list",
+        value = "/supplyinvoice/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +146,7 @@ public interface SupplyinvoiceApi {
 
 
     /**
-     * POST /supplyinvoice/bmV1.0/page : Path used to list Supplyinvoice page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /supplyinvoice/bm/v1/page : Path used to list Supplyinvoice page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Supplyinvoice page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface SupplyinvoiceApi {
         @ApiResponse(code = 200, message = "Supplyinvoice page found successfully", response = PageofSupplyinvoiceDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/supplyinvoice/bmV1.0/page",
+        value = "/supplyinvoice/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +181,7 @@ public interface SupplyinvoiceApi {
 
 
     /**
-     * POST /supplyinvoice/bmV1.0/create : Path used to save a new supplyinvoice in the system
+     * POST /supplyinvoice/bm/v1/create : Path used to save a new supplyinvoice in the system
      *
      * @param supplyinvoiceDto  (optional)
      * @return Supply invoice saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface SupplyinvoiceApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/supplyinvoice/bmV1.0/create",
+        value = "/supplyinvoice/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +226,7 @@ public interface SupplyinvoiceApi {
 
 
     /**
-     * PUT /supplyinvoice/bmV1.0/update : Path used to update or modify a existing Supplyinvoice in the system
+     * PUT /supplyinvoice/bm/v1/update : Path used to update or modify a existing Supplyinvoice in the system
      *
      * @param supplyinvoiceDto  (optional)
      * @return Supplyinvoice updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface SupplyinvoiceApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/supplyinvoice/bmV1.0/update",
+        value = "/supplyinvoice/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

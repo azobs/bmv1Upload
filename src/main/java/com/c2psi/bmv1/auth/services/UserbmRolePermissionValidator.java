@@ -1,11 +1,12 @@
-package com.c2psi.bmv1.userbmrole.services;
+package com.c2psi.bmv1.auth.services;
 
 import com.c2psi.bmv1.auth.permission.services.PermissionService;
 import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.Filter;
 import com.c2psi.bmv1.dto.Orderby;
 import com.c2psi.bmv1.dto.UserbmRolePermissionDto;
-import com.c2psi.bmv1.userbmrole.models.UserbmRolePermission;
+import com.c2psi.bmv1.auth.models.UserbmRolePermission;
+import com.c2psi.bmv1.userbmrole.services.UserbmRoleService;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;

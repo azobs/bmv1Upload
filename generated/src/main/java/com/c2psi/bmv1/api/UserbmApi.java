@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "userbm", description = "the userbm API")
 public interface UserbmApi {
@@ -32,7 +32,7 @@ public interface UserbmApi {
     }
 
     /**
-     * DELETE /userbm/bmV1.0/delete/{id} : Path used to delete a userbm in the system with its id
+     * DELETE /userbm/bm/v1/delete/{id} : Path used to delete a userbm in the system with its id
      *
      * @param id The id that represent the Userbm to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Userbm deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface UserbmApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/userbm/bmV1.0/delete/{id}",
+        value = "/userbm/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteUserbmById(@ApiParam(value = "The id that represent the Userbm to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface UserbmApi {
 
 
     /**
-     * GET /userbm/bmV1.0/getby/{cni} : Find a Userbm in the system by its cni number
+     * GET /userbm/bm/v1/getby/{cni} : Find a Userbm in the system by its cni number
      *
      * @param cni The cni number that represent the Userbm found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Userbm found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface UserbmApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/userbm/bmV1.0/getby/{cni}",
+        value = "/userbm/bm/v1/getby/{cni}",
         produces = { "application/json" }
     )
     default ResponseEntity<UserbmDto> _getUserbmByCni(@ApiParam(value = "The cni number that represent the Userbm found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("cni") String cni) {
@@ -111,7 +111,7 @@ public interface UserbmApi {
 
 
     /**
-     * GET /userbm/bmV1.0/getby/{email} : Find a Userbm in the system by its email address
+     * GET /userbm/bm/v1/getby/{email} : Find a Userbm in the system by its email address
      *
      * @param email The email that represent the Userbm found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Userbm found successfully (status code 200)
@@ -131,7 +131,7 @@ public interface UserbmApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/userbm/bmV1.0/getby/{email}",
+        value = "/userbm/bm/v1/getby/{email}",
         produces = { "application/json" }
     )
     default ResponseEntity<UserbmDto> _getUserbmByEmail(@ApiParam(value = "The email that represent the Userbm found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("email") String email) {
@@ -155,7 +155,7 @@ public interface UserbmApi {
 
 
     /**
-     * GET /userbm/bmV1.0/getby/{id} : Find a Userbm in the system by its id
+     * GET /userbm/bm/v1/getby/{id} : Find a Userbm in the system by its id
      *
      * @param id The id that represent the Userbm found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Userbm found successfully (status code 200)
@@ -175,7 +175,7 @@ public interface UserbmApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/userbm/bmV1.0/getby/{id}",
+        value = "/userbm/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<UserbmDto> _getUserbmById(@ApiParam(value = "The id that represent the Userbm found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -199,7 +199,7 @@ public interface UserbmApi {
 
 
     /**
-     * GET /userbm/bmV1.0/getby/{login} : Find a Userbm in the system by its login
+     * GET /userbm/bm/v1/getby/{login} : Find a Userbm in the system by its login
      *
      * @param login The login that represent the Userbm found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Userbm found successfully (status code 200)
@@ -219,7 +219,7 @@ public interface UserbmApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/userbm/bmV1.0/getby/{login}",
+        value = "/userbm/bm/v1/getby/{login}",
         produces = { "application/json" }
     )
     default ResponseEntity<UserbmDto> _getUserbmByLogin(@ApiParam(value = "The login that represent the Userbm found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("login") String login) {
@@ -243,7 +243,7 @@ public interface UserbmApi {
 
 
     /**
-     * POST /userbm/bmV1.0/list : Path used to list user that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /userbm/bm/v1/list : Path used to list user that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Userbm list found successfully (status code 200)
@@ -253,7 +253,7 @@ public interface UserbmApi {
         @ApiResponse(code = 200, message = "Userbm list found successfully", response = UserbmDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/userbm/bmV1.0/list",
+        value = "/userbm/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -278,7 +278,7 @@ public interface UserbmApi {
 
 
     /**
-     * POST /userbm/bmV1.0/page : Path used to list users page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /userbm/bm/v1/page : Path used to list users page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Userbm page found successfully (status code 200)
@@ -288,7 +288,7 @@ public interface UserbmApi {
         @ApiResponse(code = 200, message = "Userbm page found successfully", response = PageofUserbmDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/userbm/bmV1.0/page",
+        value = "/userbm/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -313,7 +313,7 @@ public interface UserbmApi {
 
 
     /**
-     * POST /userbm/bmV1.0/create : Path used to save a new user in the system
+     * POST /userbm/bm/v1/create : Path used to save a new user in the system
      *
      * @param userbmDto  (optional)
      * @return Userbm saved successfully (status code 200)
@@ -333,7 +333,7 @@ public interface UserbmApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/userbm/bmV1.0/create",
+        value = "/userbm/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -358,7 +358,7 @@ public interface UserbmApi {
 
 
     /**
-     * PUT /userbm/bmV1.0/update : Path used to update or modify an existing user in the system
+     * PUT /userbm/bm/v1/update : Path used to update or modify an existing user in the system
      *
      * @param userbmDto  (optional)
      * @return Userbm updated successfully (status code 200)
@@ -378,7 +378,7 @@ public interface UserbmApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/userbm/bmV1.0/update",
+        value = "/userbm/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

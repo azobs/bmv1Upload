@@ -15,7 +15,7 @@ properties:
     type: boolean
   revoked:
     type: boolean
-  tokenUserbmId:
+  userbmId:
     type: integer
     format: int64
 #  tokenUserbm:

@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "bp", description = "the bp API")
 public interface BpApi {
@@ -30,7 +30,7 @@ public interface BpApi {
     }
 
     /**
-     * DELETE /bp/bmV1.0/delete/{id} : Path used to delete a baseprice in the system with its id
+     * DELETE /bp/bm/v1/delete/{id} : Path used to delete a baseprice in the system with its id
      *
      * @param id The id that represent the Baseprice to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Baseprice deleted successfully (status code 200)
@@ -50,7 +50,7 @@ public interface BpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/bp/bmV1.0/delete/{id}",
+        value = "/bp/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteBasepriceById(@ApiParam(value = "The id that represent the Baseprice to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -65,7 +65,7 @@ public interface BpApi {
 
 
     /**
-     * GET /bp/bmV1.0/getby/{id} : Find a Baseprice in the system by its id
+     * GET /bp/bm/v1/getby/{id} : Find a Baseprice in the system by its id
      *
      * @param id The id that represent the Baseprice found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Baseprice found successfully (status code 200)
@@ -85,7 +85,7 @@ public interface BpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/bp/bmV1.0/getby/{id}",
+        value = "/bp/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<BasepriceDto> _getBasepriceById(@ApiParam(value = "The id that represent the Baseprice found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -109,7 +109,7 @@ public interface BpApi {
 
 
     /**
-     * POST /bp/bmV1.0/create : Path used to save a new Baseprice of an article in the system
+     * POST /bp/bm/v1/create : Path used to save a new Baseprice of an article in the system
      *
      * @param basepriceDto  (optional)
      * @return Baseprice of an article saved successfully (status code 200)
@@ -129,7 +129,7 @@ public interface BpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/bp/bmV1.0/create",
+        value = "/bp/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -154,7 +154,7 @@ public interface BpApi {
 
 
     /**
-     * PUT /bp/bmV1.0/update : Path used to update or modify an existing Baseprice in the system
+     * PUT /bp/bm/v1/update : Path used to update or modify an existing Baseprice in the system
      *
      * @param basepriceDto  (optional)
      * @return Baseprice updated successfully (status code 200)
@@ -174,7 +174,7 @@ public interface BpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/bp/bmV1.0/update",
+        value = "/bp/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

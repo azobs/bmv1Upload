@@ -220,4 +220,65 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity(map, HttpStatus.CONFLICT);
     }
 
+    @ExceptionHandler(MalFormedTokenException.class)
+    public ResponseEntity<?> handleException(MalFormedTokenException exception,
+                                             WebRequest webRequest){
+        log.info("An MalFormedTokenException is thrown");
+        final HttpStatus badRequest = HttpStatus.BAD_REQUEST;
+        final ErrorDto errorDto =  ErrorDto.builder()
+                .httpCode(badRequest.value())
+                .exceptionMessage(exception.getMessage())
+                .errorAppMessage(exception.getErrorCode())
+                .errorList(exception.getErrors()!=null?(!exception.getErrors().isEmpty()?exception.getErrors().stream().toList():null):null)
+                .build();
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.clear();
+        map.put("status", HttpStatus.BAD_REQUEST);
+        map.put("message", "The token JWT is malformed and data can't be extracted form it");
+        map.put("data", errorDto);
+        map.put("cause", "Le token envoye est mal forme et les donnees ne peuvent pas ertre extraite de lui");
+        return new ResponseEntity(map, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(JwtBearerAuthenticationException.class)
+    public ResponseEntity<?> handleException(JwtBearerAuthenticationException exception,
+                                             WebRequest webRequest){
+        log.info("An JwtBearerAuthenticationException is thrown");
+        final HttpStatus badRequest = HttpStatus.BAD_REQUEST;
+        final ErrorDto errorDto =  ErrorDto.builder()
+                .httpCode(badRequest.value())
+                .exceptionMessage(exception.getMessage())
+                .errorAppMessage(exception.getErrorCode())
+                .errorList(exception.getErrors()!=null?(!exception.getErrors().isEmpty()?exception.getErrors().stream().toList():null):null)
+                .build();
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.clear();
+        map.put("status", HttpStatus.BAD_REQUEST);
+        map.put("message", "All request must respect the protocol of Jwt Token Authorization");
+        map.put("data", errorDto);
+        map.put("cause", "Toutes les requetes doivent etre forme selon le mode d'authorisation du JWT Bearer Authorization");
+        return new ResponseEntity(map, HttpStatus.BAD_REQUEST);
+    }
+
+    //FailedAuthenticationException
+    @ExceptionHandler(FailedAuthenticationException.class)
+    public ResponseEntity<?> handleException(FailedAuthenticationException exception,
+                                             WebRequest webRequest){
+        log.info("An FailedAuthenticationException is thrown");
+        final HttpStatus badRequest = HttpStatus.FORBIDDEN;
+        final ErrorDto errorDto =  ErrorDto.builder()
+                .httpCode(badRequest.value())
+                .exceptionMessage(exception.getMessage())
+                .errorAppMessage(exception.getErrorCode())
+                .errorList(exception.getErrors()!=null?(!exception.getErrors().isEmpty()?exception.getErrors().stream().toList():null):null)
+                .build();
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.clear();
+        map.put("status", HttpStatus.FORBIDDEN);
+        map.put("message", "Authentication failed with the credentials sent");
+        map.put("data", errorDto);
+        map.put("cause", "Les parametres de connexion envoyes ne sont pas valide");
+        return new ResponseEntity(map, HttpStatus.BAD_REQUEST);
+    }
+
 }

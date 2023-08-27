@@ -1,9 +1,9 @@
-package com.c2psi.bmv1.auth.permission.controllers;
+package com.c2psi.bmv1.auth.controllers;
 
 import com.c2psi.bmv1.api.AuthApi;
 import com.c2psi.bmv1.auth.permission.services.PermissionService;
+import com.c2psi.bmv1.auth.services.AuthenticationService;
 import com.c2psi.bmv1.dto.*;
-import com.c2psi.bmv1.dto.PermissionDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -17,8 +17,24 @@ import java.util.Map;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-public class PermissionController implements AuthApi {
+public class AuthenticationController implements AuthApi {
     final PermissionService permissionService;
+    final AuthenticationService authenticationService;
+    @Override
+    public ResponseEntity<AuthResponse> authenticate(AuthRequest authRequest) {
+        log.info("Lancement de la methode authenticate du controller");
+        Map<String, Object> map = new LinkedHashMap<>();
+        AuthResponse authResponse = authenticationService.authenticate(authRequest);
+        log.info("Execution de la methode Authenticate et le resultat est {}", authResponse);
+
+        map.clear();
+        map.put("status", HttpStatus.OK);
+        map.put("message", "Userbm authenticated successfully");
+        map.put("data", authResponse);
+        map.put("cause", "RAS");
+        return new ResponseEntity(map, HttpStatus.OK);
+    }
+
     @Override
     public ResponseEntity<Boolean> deletePermissionById(Long id) {
         Map<String, Object> map = new LinkedHashMap<>();
@@ -31,6 +47,11 @@ public class PermissionController implements AuthApi {
         map.put("data", deletePermission);
         map.put("cause", "RAS");
         return new ResponseEntity(map, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<Boolean> deleteTokenById(Long id) {
+        return AuthApi.super.deleteTokenById(id);
     }
 
     @Override
@@ -62,6 +83,11 @@ public class PermissionController implements AuthApi {
     }
 
     @Override
+    public ResponseEntity<TokenDto> getPermissionByTokenvalue(String tokenValue) {
+        return AuthApi.super.getPermissionByTokenvalue(tokenValue);
+    }
+
+    @Override
     public ResponseEntity<List<PermissionDto>> getPermissionList(FilterRequest filterRequest) {
         Map<String, Object> map = new LinkedHashMap<>();
         List<PermissionDto> permissionDtoList = permissionService.getListofPermission(filterRequest);
@@ -90,6 +116,16 @@ public class PermissionController implements AuthApi {
     }
 
     @Override
+    public ResponseEntity<TokenDto> getTokenById(Long id) {
+        return AuthApi.super.getTokenById(id);
+    }
+
+    @Override
+    public ResponseEntity<List<TokenDto>> getTokenList(FilterRequest filterRequest) {
+        return AuthApi.super.getTokenList(filterRequest);
+    }
+
+    @Override
     public ResponseEntity<PermissionDto> savePermission(PermissionDto permissionDto) {
         Map<String, Object> map = new LinkedHashMap<>();
         PermissionDto permissionDtoSaved = permissionService.savePermission(permissionDto);
@@ -101,5 +137,10 @@ public class PermissionController implements AuthApi {
         map.put("data", permissionDtoSaved);
         map.put("cause", "RAS");
         return new ResponseEntity(map, HttpStatus.CREATED);
+    }
+
+    @Override
+    public ResponseEntity<TokenDto> saveToken(TokenDto tokenDto) {
+        return AuthApi.super.saveToken(tokenDto);
     }
 }

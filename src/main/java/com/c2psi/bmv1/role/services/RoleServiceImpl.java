@@ -78,6 +78,16 @@ public class RoleServiceImpl implements RoleService {
                     ErrorCode.ROLE_DUPLICATED.name());
         }
 
+        if(!isRoleTypeAlreadyExistInPos(convert(roleDto.getRoleType()), roleDto.getRolePosId())){
+            throw new DuplicateEntityException("Un autre role de ce type existe deja dans ce pointofsale ",
+                    ErrorCode.ROLE_DUPLICATED.name());
+        }
+
+        if(!isRoleTypeAlreadyExistInEnt(convert(roleDto.getRoleType()), roleDto.getRoleEntId())){
+            throw new DuplicateEntityException("Un autre role de ce type existe deja dans cet enterprise ",
+                    ErrorCode.ROLE_DUPLICATED.name());
+        }
+
 
         /**********************************************************
          * Si tout est bon on effectue l'enregistrement
@@ -96,6 +106,16 @@ public class RoleServiceImpl implements RoleService {
 
     Boolean isRoleNameUsable(String roleName, RoleTypeEnum roleType){
         Optional<Role> optionalRole = roleDao.findRoleByRoleNameAndRoleType(roleName, roleType);
+        return optionalRole.isEmpty();
+    }
+
+    Boolean isRoleTypeAlreadyExistInPos(RoleTypeEnum roleType, Long posId){
+        Optional<Role> optionalRole = roleDao.findRoleByRoletypeAndPos(roleType, posId);
+        return optionalRole.isEmpty();
+    }
+
+    Boolean isRoleTypeAlreadyExistInEnt(RoleTypeEnum roleType, Long entId){
+        Optional<Role> optionalRole = roleDao.findRoleByRoletypeAndEnt(roleType, entId);
         return optionalRole.isEmpty();
     }
 
@@ -237,6 +257,18 @@ public class RoleServiceImpl implements RoleService {
             throw new ModelNotFoundException("Aucun role n'existe avec l'id envoye ", ErrorCode.ROLE_NOT_FOUND.name());
         }
 
+        return roleMapper.entityToDto(optionalRole.get());
+    }
+
+    @Override
+    public RoleDto getRoleByName(String roleName, RoleTypeEnum roleTypeEnum) {
+        if(roleName == null || roleTypeEnum == null){
+            throw new NullValueException("RoleName can't be null");
+        }
+        Optional<Role> optionalRole = roleDao.findRoleByRoleNameAndRoleType(roleName, roleTypeEnum);
+        if(!optionalRole.isPresent()){
+            throw new ModelNotFoundException("Aucun role n'existe avec les parametres envoye ");
+        }
         return roleMapper.entityToDto(optionalRole.get());
     }
 

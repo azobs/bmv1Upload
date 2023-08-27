@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 /**
  * Pagebm
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 public class Pagebm   {
   @JsonProperty("pagenum")
   private Integer pagenum;

@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "sp", description = "the sp API")
 public interface SpApi {
@@ -30,7 +30,7 @@ public interface SpApi {
     }
 
     /**
-     * DELETE /sp/bmV1.0/delete/{id} : Path used to delete a specialprice in the system with its id
+     * DELETE /sp/bm/v1/delete/{id} : Path used to delete a specialprice in the system with its id
      *
      * @param id The id that represent the Specialprice to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Specialprice deleted successfully (status code 200)
@@ -50,7 +50,7 @@ public interface SpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/sp/bmV1.0/delete/{id}",
+        value = "/sp/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteSpecialpriceById(@ApiParam(value = "The id that represent the Specialprice to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -65,7 +65,7 @@ public interface SpApi {
 
 
     /**
-     * GET /sp/bmV1.0/getby/{id} : Find a Specialprice in the system by its id
+     * GET /sp/bm/v1/getby/{id} : Find a Specialprice in the system by its id
      *
      * @param id The id that represent the Specialprice found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Specialprice found successfully (status code 200)
@@ -85,7 +85,7 @@ public interface SpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/sp/bmV1.0/getby/{id}",
+        value = "/sp/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<SpecialpriceDto> _getSpecialpriceById(@ApiParam(value = "The id that represent the Specialprice found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -109,7 +109,7 @@ public interface SpApi {
 
 
     /**
-     * POST /sp/bmV1.0/create : Path used to save a new Specialprice of an article link to a Baseprice in the system
+     * POST /sp/bm/v1/create : Path used to save a new Specialprice of an article link to a Baseprice in the system
      *
      * @param specialpriceDto  (optional)
      * @return Specialprice for a Baseprice of an article saved successfully (status code 200)
@@ -129,7 +129,7 @@ public interface SpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/sp/bmV1.0/create",
+        value = "/sp/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -154,7 +154,7 @@ public interface SpApi {
 
 
     /**
-     * PUT /sp/bmV1.0/update : Path used to update or modify an existing Specialprice in the system
+     * PUT /sp/bm/v1/update : Path used to update or modify an existing Specialprice in the system
      *
      * @param specialpriceDto  (optional)
      * @return Special price updated successfully (status code 200)
@@ -174,7 +174,7 @@ public interface SpApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/sp/bmV1.0/update",
+        value = "/sp/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

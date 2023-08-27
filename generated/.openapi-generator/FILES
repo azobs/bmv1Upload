@@ -5,7 +5,6 @@ src/main/java/com/c2psi/bmv1/api/ArrivalApi.java
 src/main/java/com/c2psi/bmv1/api/ArticleApi.java
 src/main/java/com/c2psi/bmv1/api/AuthApi.java
 src/main/java/com/c2psi/bmv1/api/BackinApi.java
-src/main/java/com/c2psi/bmv1/api/BackindetailsApi.java
 src/main/java/com/c2psi/bmv1/api/BpApi.java
 src/main/java/com/c2psi/bmv1/api/CategoryApi.java
 src/main/java/com/c2psi/bmv1/api/ClientApi.java
@@ -13,17 +12,13 @@ src/main/java/com/c2psi/bmv1/api/ClientspecialpriceApi.java
 src/main/java/com/c2psi/bmv1/api/CommandApi.java
 src/main/java/com/c2psi/bmv1/api/CurrencyApi.java
 src/main/java/com/c2psi/bmv1/api/DeliveryApi.java
-src/main/java/com/c2psi/bmv1/api/DeliverydetailsApi.java
 src/main/java/com/c2psi/bmv1/api/EnterpriseApi.java
 src/main/java/com/c2psi/bmv1/api/FormatApi.java
 src/main/java/com/c2psi/bmv1/api/InventoryApi.java
-src/main/java/com/c2psi/bmv1/api/InventorylineApi.java
 src/main/java/com/c2psi/bmv1/api/LoadApi.java
 src/main/java/com/c2psi/bmv1/api/LoadingApi.java
-src/main/java/com/c2psi/bmv1/api/LoadingdetailsApi.java
 src/main/java/com/c2psi/bmv1/api/OperationApi.java
 src/main/java/com/c2psi/bmv1/api/PackagingApi.java
-src/main/java/com/c2psi/bmv1/api/PackagingdetailsApi.java
 src/main/java/com/c2psi/bmv1/api/PfApi.java
 src/main/java/com/c2psi/bmv1/api/PosApi.java
 src/main/java/com/c2psi/bmv1/api/ProductApi.java

@@ -64,14 +64,14 @@ public class Pointofsale /*extends AbstractEntity*/ {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ent_id", nullable = false, referencedColumnName = "id")
-    @NotNull(message = "An enterprise of pos can't be null value")
     Enterprise posEnterprise;
 
 
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator")
+    @SequenceGenerator(name="id_generator", sequenceName = "id_seq", allocationSize=50)
     @Column(updatable = false)
     private Long id;
     @CreatedDate

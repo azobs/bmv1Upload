@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T01:09:55.652176400+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "backindetails", description = "the backindetails API")
 public interface BackindetailsApi {
@@ -32,7 +32,7 @@ public interface BackindetailsApi {
     }
 
     /**
-     * DELETE /backindetails/bmV1.0/delete/{id} : Path used to delete a backindetails in the system with its id
+     * DELETE /backindetails/bm/v1/delete/{id} : Path used to delete a backindetails in the system with its id
      *
      * @param id The id that represent the Backindetails to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Backindetails deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface BackindetailsApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/backindetails/bmV1.0/delete/{id}",
+        value = "/backindetails/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteBackindetailsById(@ApiParam(value = "The id that represent the Backindetails to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface BackindetailsApi {
 
 
     /**
-     * GET /backindetails/bmV1.0/getby/{id} : Find a Backindetails in the system by its id
+     * GET /backindetails/bm/v1/getby/{id} : Find a Backindetails in the system by its id
      *
      * @param id The id that represent the Backindetails found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Backindetails found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface BackindetailsApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/backindetails/bmV1.0/getby/{id}",
+        value = "/backindetails/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<BackindetailsDto> _getBackindetailsById(@ApiParam(value = "The id that represent the Backindetails found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface BackindetailsApi {
 
 
     /**
-     * POST /backindetails/bmV1.0/list : Path used to list backindetails that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /backindetails/bm/v1/list : Path used to list backindetails that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Backindetails list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface BackindetailsApi {
         @ApiResponse(code = 200, message = "Backindetails list found successfully", response = BackindetailsDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/backindetails/bmV1.0/list",
+        value = "/backindetails/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +146,7 @@ public interface BackindetailsApi {
 
 
     /**
-     * POST /backindetails/bmV1.0/page : Path used to list backindetails page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /backindetails/bm/v1/page : Path used to list backindetails page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Backindetails page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface BackindetailsApi {
         @ApiResponse(code = 200, message = "Backindetails page found successfully", response = PageofBackindetailsDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/backindetails/bmV1.0/page",
+        value = "/backindetails/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +181,7 @@ public interface BackindetailsApi {
 
 
     /**
-     * POST /backindetails/bmV1.0/create : Path used to save a new Backindetails in the system
+     * POST /backindetails/bm/v1/create : Path used to save a new Backindetails in the system
      *
      * @param backindetailsDto  (optional)
      * @return Backindetails saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface BackindetailsApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/backindetails/bmV1.0/create",
+        value = "/backindetails/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +226,7 @@ public interface BackindetailsApi {
 
 
     /**
-     * PUT /backindetails/bmV1.0/update : Path used to update or modify an existing backindetails in the system
+     * PUT /backindetails/bm/v1/update : Path used to update or modify an existing backindetails in the system
      *
      * @param backindetailsDto  (optional)
      * @return Backindetails updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface BackindetailsApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/backindetails/bmV1.0/update",
+        value = "/backindetails/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )

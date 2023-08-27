@@ -6,11 +6,13 @@ import com.c2psi.bmv1.dto.UserbmRoleDto;
 
 import java.util.List;
 
-public interface UserbmRoleService {
+public interface  UserbmRoleService {
     UserbmRoleDto saveUserbmRole(UserbmRoleDto userbmroleDto);
     UserbmRoleDto updateUserbmRole(UserbmRoleDto userbmroleDto);
     Boolean deleteUserbmRoleById(Long id);
     UserbmRoleDto getUserbmRoleById(Long id);
+    UserbmRoleDto getUserbmRoleByUserAndRole(Long userbmId, Long roleId);
+    List<UserbmRoleDto> getRoleListofUserbm(Long userbmId);
     List<UserbmRoleDto> getListofUserbmRole(FilterRequest filterRequest);
     PageofUserbmRoleDto getPageofUserbmRole(FilterRequest filterRequest);
     Boolean isUserbmRoleExistWithId(Long userbmRoleId);

@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-18T07:37:22.558276100+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "enterprise", description = "the enterprise API")
 public interface EnterpriseApi {
@@ -32,7 +32,7 @@ public interface EnterpriseApi {
     }
 
     /**
-     * DELETE /enterprise/bmV1.0/delete/{id} : Path used to delete a Enterprise in the system with its id
+     * DELETE /enterprise/bm/v1/delete/{id} : Path used to delete a Enterprise in the system with its id
      *
      * @param id The id that represent the Enterprise to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Enterprise deleted successfully (status code 200)
@@ -52,7 +52,7 @@ public interface EnterpriseApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/enterprise/bmV1.0/delete/{id}",
+        value = "/enterprise/bm/v1/delete/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<Boolean> _deleteEnterpriseById(@ApiParam(value = "The id that represent the Enterprise to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -67,7 +67,7 @@ public interface EnterpriseApi {
 
 
     /**
-     * GET /enterprise/bmV1.0/getby/{id} : Find an Enterprise in the system by its id
+     * GET /enterprise/bm/v1/getby/{id} : Find an Enterprise in the system by its id
      *
      * @param id The id that represent the Enterprise found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
      * @return Enterprise found successfully (status code 200)
@@ -87,7 +87,7 @@ public interface EnterpriseApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/enterprise/bmV1.0/getby/{id}",
+        value = "/enterprise/bm/v1/getby/{id}",
         produces = { "application/json" }
     )
     default ResponseEntity<EnterpriseDto> _getEnterpriseById(@ApiParam(value = "The id that represent the Enterprise found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
@@ -111,7 +111,7 @@ public interface EnterpriseApi {
 
 
     /**
-     * POST /enterprise/bmV1.0/list : Path used to list enterprise that respect certain criteria. A criteria is an instance of a Filter object
+     * POST /enterprise/bm/v1/list : Path used to list enterprise that respect certain criteria. A criteria is an instance of a Filter object
      *
      * @param filterRequest  (optional)
      * @return Enterprise list found successfully (status code 200)
@@ -121,7 +121,7 @@ public interface EnterpriseApi {
         @ApiResponse(code = 200, message = "Enterprise list found successfully", response = EnterpriseDto.class, responseContainer = "List") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/enterprise/bmV1.0/list",
+        value = "/enterprise/bm/v1/list",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -146,7 +146,7 @@ public interface EnterpriseApi {
 
 
     /**
-     * POST /enterprise/bmV1.0/page : Path used to list Enterprise page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     * POST /enterprise/bm/v1/page : Path used to list Enterprise page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
      *
      * @param filterRequest  (optional)
      * @return Enterprise page found successfully (status code 200)
@@ -156,7 +156,7 @@ public interface EnterpriseApi {
         @ApiResponse(code = 200, message = "Enterprise page found successfully", response = PageofEnterpriseDto.class) })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/enterprise/bmV1.0/page",
+        value = "/enterprise/bm/v1/page",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -181,7 +181,7 @@ public interface EnterpriseApi {
 
 
     /**
-     * POST /enterprise/bmV1.0/create : Path used to save a new Enterprise in the system
+     * POST /enterprise/bm/v1/create : Path used to save a new Enterprise in the system
      *
      * @param enterpriseDto  (optional)
      * @return Enterprise saved successfully (status code 200)
@@ -201,7 +201,7 @@ public interface EnterpriseApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/enterprise/bmV1.0/create",
+        value = "/enterprise/bm/v1/create",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
@@ -226,7 +226,7 @@ public interface EnterpriseApi {
 
 
     /**
-     * PUT /enterprise/bmV1.0/update : Path used to update or modify an existing Enterprise in the system
+     * PUT /enterprise/bm/v1/update : Path used to update or modify an existing Enterprise in the system
      *
      * @param enterpriseDto  (optional)
      * @return Enterprise updated successfully (status code 200)
@@ -246,7 +246,7 @@ public interface EnterpriseApi {
         @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
     @RequestMapping(
         method = RequestMethod.PUT,
-        value = "/enterprise/bmV1.0/update",
+        value = "/enterprise/bm/v1/update",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
