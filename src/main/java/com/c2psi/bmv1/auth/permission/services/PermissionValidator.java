@@ -27,27 +27,27 @@ import java.util.Set;
 public class PermissionValidator {
     final AppService appService;
 
-    public List<String> validate(Permission permission){
+    public List<String> validate(Permission permission) {
         List<String> errors = new ArrayList<>();
-        if(permission == null){
+        if (permission == null) {
             errors.add("The permission to validate can't be null");
         }
+        else{
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            Validator validator = factory.getValidator();
 
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
+            Set<ConstraintViolation<Permission>> constraintViolations = validator.validate(permission);
 
-        Set<ConstraintViolation<Permission>> constraintViolations = validator.validate(permission);
-
-        if (constraintViolations.size() > 0 ) {
-            for (ConstraintViolation<Permission> contraintes : constraintViolations) {
-                /*System.out.println(contraintes.getRootBeanClass().getSimpleName()+
-                        "." + contraintes.getPropertyPath() + " " + contraintes.getMessage());*/
-                errors.add(contraintes.getMessage());
+            if (constraintViolations.size() > 0) {
+                for (ConstraintViolation<Permission> contraintes : constraintViolations) {
+                    /*System.out.println(contraintes.getRootBeanClass().getSimpleName()+
+                            "." + contraintes.getPropertyPath() + " " + contraintes.getMessage());*/
+                    errors.add(contraintes.getMessage());
+                }
             }
+
+            errors.addAll(this.validateStringofBm(permission));
         }
-
-        errors.addAll(this.validateStringofBm(permission));
-
         return errors;
 
     }

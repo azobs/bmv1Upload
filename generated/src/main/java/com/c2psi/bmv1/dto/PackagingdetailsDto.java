@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * A Packaging details in the system
  */
 @ApiModel(description = "A Packaging details in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-01T16:05:37.277942500+01:00[Africa/Casablanca]")
 public class PackagingdetailsDto   {
   @JsonProperty("id")
   private Long id;
@@ -27,8 +27,8 @@ public class PackagingdetailsDto   {
   @JsonProperty("pdPackagingId")
   private Long pdPackagingId;
 
-  @JsonProperty("pdLoading")
-  private Long pdLoading;
+  @JsonProperty("pdLoadingId")
+  private Long pdLoadingId;
 
   public PackagingdetailsDto id(Long id) {
     this.id = id;
@@ -110,24 +110,24 @@ public class PackagingdetailsDto   {
     this.pdPackagingId = pdPackagingId;
   }
 
-  public PackagingdetailsDto pdLoading(Long pdLoading) {
-    this.pdLoading = pdLoading;
+  public PackagingdetailsDto pdLoadingId(Long pdLoadingId) {
+    this.pdLoadingId = pdLoadingId;
     return this;
   }
 
   /**
-   * Get pdLoading
-   * @return pdLoading
+   * Get pdLoadingId
+   * @return pdLoadingId
   */
   @ApiModelProperty(value = "")
 
 
-  public Long getPdLoading() {
-    return pdLoading;
+  public Long getPdLoadingId() {
+    return pdLoadingId;
   }
 
-  public void setPdLoading(Long pdLoading) {
-    this.pdLoading = pdLoading;
+  public void setPdLoadingId(Long pdLoadingId) {
+    this.pdLoadingId = pdLoadingId;
   }
 
 
@@ -144,12 +144,12 @@ public class PackagingdetailsDto   {
         Objects.equals(this.packagenumberUsed, packagingdetailsDto.packagenumberUsed) &&
         Objects.equals(this.packagenumberReturn, packagingdetailsDto.packagenumberReturn) &&
         Objects.equals(this.pdPackagingId, packagingdetailsDto.pdPackagingId) &&
-        Objects.equals(this.pdLoading, packagingdetailsDto.pdLoading);
+        Objects.equals(this.pdLoadingId, packagingdetailsDto.pdLoadingId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, packagenumberUsed, packagenumberReturn, pdPackagingId, pdLoading);
+    return Objects.hash(id, packagenumberUsed, packagenumberReturn, pdPackagingId, pdLoadingId);
   }
 
   @Override
@@ -161,7 +161,7 @@ public class PackagingdetailsDto   {
     sb.append("    packagenumberUsed: ").append(toIndentedString(packagenumberUsed)).append("\n");
     sb.append("    packagenumberReturn: ").append(toIndentedString(packagenumberReturn)).append("\n");
     sb.append("    pdPackagingId: ").append(toIndentedString(pdPackagingId)).append("\n");
-    sb.append("    pdLoading: ").append(toIndentedString(pdLoading)).append("\n");
+    sb.append("    pdLoadingId: ").append(toIndentedString(pdLoadingId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

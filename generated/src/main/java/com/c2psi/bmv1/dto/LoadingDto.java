@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * A Loading in the system
  */
 @ApiModel(description = "A Loading in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-01T16:05:37.277942500+01:00[Africa/Casablanca]")
 public class LoadingDto   {
   @JsonProperty("id")
   private Long id;
@@ -25,6 +25,10 @@ public class LoadingDto   {
   @JsonProperty("loadDate")
   @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime loadDate;
+
+  @JsonProperty("loadreturnDate")
+  @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime loadreturnDate;
 
   @JsonProperty("loadExpectedamount")
   private Double loadExpectedamount;
@@ -37,6 +41,9 @@ public class LoadingDto   {
 
   @JsonProperty("loadReport")
   private String loadReport;
+
+  @JsonProperty("loadOpen")
+  private Boolean loadOpen;
 
   @JsonProperty("loadManagerId")
   private Long loadManagerId;
@@ -106,6 +113,27 @@ public class LoadingDto   {
 
   public void setLoadDate(OffsetDateTime loadDate) {
     this.loadDate = loadDate;
+  }
+
+  public LoadingDto loadreturnDate(OffsetDateTime loadreturnDate) {
+    this.loadreturnDate = loadreturnDate;
+    return this;
+  }
+
+  /**
+   * Get loadreturnDate
+   * @return loadreturnDate
+  */
+  @ApiModelProperty(value = "")
+
+  @Valid
+
+  public OffsetDateTime getLoadreturnDate() {
+    return loadreturnDate;
+  }
+
+  public void setLoadreturnDate(OffsetDateTime loadreturnDate) {
+    this.loadreturnDate = loadreturnDate;
   }
 
   public LoadingDto loadExpectedamount(Double loadExpectedamount) {
@@ -191,6 +219,26 @@ public class LoadingDto   {
     this.loadReport = loadReport;
   }
 
+  public LoadingDto loadOpen(Boolean loadOpen) {
+    this.loadOpen = loadOpen;
+    return this;
+  }
+
+  /**
+   * Get loadOpen
+   * @return loadOpen
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Boolean getLoadOpen() {
+    return loadOpen;
+  }
+
+  public void setLoadOpen(Boolean loadOpen) {
+    this.loadOpen = loadOpen;
+  }
+
   public LoadingDto loadManagerId(Long loadManagerId) {
     this.loadManagerId = loadManagerId;
     return this;
@@ -264,10 +312,12 @@ public class LoadingDto   {
     return Objects.equals(this.id, loadingDto.id) &&
         Objects.equals(this.loadCode, loadingDto.loadCode) &&
         Objects.equals(this.loadDate, loadingDto.loadDate) &&
+        Objects.equals(this.loadreturnDate, loadingDto.loadreturnDate) &&
         Objects.equals(this.loadExpectedamount, loadingDto.loadExpectedamount) &&
         Objects.equals(this.loadPaidamount, loadingDto.loadPaidamount) &&
         Objects.equals(this.loadRemise, loadingDto.loadRemise) &&
         Objects.equals(this.loadReport, loadingDto.loadReport) &&
+        Objects.equals(this.loadOpen, loadingDto.loadOpen) &&
         Objects.equals(this.loadManagerId, loadingDto.loadManagerId) &&
         Objects.equals(this.loadSalerId, loadingDto.loadSalerId) &&
         Objects.equals(this.loadPosId, loadingDto.loadPosId);
@@ -275,7 +325,7 @@ public class LoadingDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, loadCode, loadDate, loadExpectedamount, loadPaidamount, loadRemise, loadReport, loadManagerId, loadSalerId, loadPosId);
+    return Objects.hash(id, loadCode, loadDate, loadreturnDate, loadExpectedamount, loadPaidamount, loadRemise, loadReport, loadOpen, loadManagerId, loadSalerId, loadPosId);
   }
 
   @Override
@@ -286,10 +336,12 @@ public class LoadingDto   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    loadCode: ").append(toIndentedString(loadCode)).append("\n");
     sb.append("    loadDate: ").append(toIndentedString(loadDate)).append("\n");
+    sb.append("    loadreturnDate: ").append(toIndentedString(loadreturnDate)).append("\n");
     sb.append("    loadExpectedamount: ").append(toIndentedString(loadExpectedamount)).append("\n");
     sb.append("    loadPaidamount: ").append(toIndentedString(loadPaidamount)).append("\n");
     sb.append("    loadRemise: ").append(toIndentedString(loadRemise)).append("\n");
     sb.append("    loadReport: ").append(toIndentedString(loadReport)).append("\n");
+    sb.append("    loadOpen: ").append(toIndentedString(loadOpen)).append("\n");
     sb.append("    loadManagerId: ").append(toIndentedString(loadManagerId)).append("\n");
     sb.append("    loadSalerId: ").append(toIndentedString(loadSalerId)).append("\n");
     sb.append("    loadPosId: ").append(toIndentedString(loadPosId)).append("\n");

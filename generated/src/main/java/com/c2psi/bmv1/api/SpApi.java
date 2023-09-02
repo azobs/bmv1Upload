@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-01T16:05:37.277942500+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "sp", description = "the sp API")
 public interface SpApi {
@@ -97,7 +97,7 @@ public interface SpApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"spSemiwholeprice\" : 0.14658129805029452, \"spWholeprice\" : 0.6027456183070403, \"spRistourne\" : 0, \"spDetailsprice\" : 0.5962133916683182, \"id\" : 0, \"spPrecompte\" : 0, \"spBasepriceId\" : 5 }";
+                    String exampleString = "{ \"spSemiwholeprice\" : 0.14658129805029452, \"spWholeprice\" : 0.6027456183070403, \"spRistourne\" : 0, \"spDetailsprice\" : 0.5962133916683182, \"id\" : 0, \"spCode\" : \"SP0001\", \"spPrecompte\" : 0, \"spBasepriceId\" : 5 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -142,7 +142,7 @@ public interface SpApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"spSemiwholeprice\" : 0.14658129805029452, \"spWholeprice\" : 0.6027456183070403, \"spRistourne\" : 0, \"spDetailsprice\" : 0.5962133916683182, \"id\" : 0, \"spPrecompte\" : 0, \"spBasepriceId\" : 5 }";
+                    String exampleString = "{ \"spSemiwholeprice\" : 0.14658129805029452, \"spWholeprice\" : 0.6027456183070403, \"spRistourne\" : 0, \"spDetailsprice\" : 0.5962133916683182, \"id\" : 0, \"spCode\" : \"SP0001\", \"spPrecompte\" : 0, \"spBasepriceId\" : 5 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -187,7 +187,7 @@ public interface SpApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"spSemiwholeprice\" : 0.14658129805029452, \"spWholeprice\" : 0.6027456183070403, \"spRistourne\" : 0, \"spDetailsprice\" : 0.5962133916683182, \"id\" : 0, \"spPrecompte\" : 0, \"spBasepriceId\" : 5 }";
+                    String exampleString = "{ \"spSemiwholeprice\" : 0.14658129805029452, \"spWholeprice\" : 0.6027456183070403, \"spRistourne\" : 0, \"spDetailsprice\" : 0.5962133916683182, \"id\" : 0, \"spCode\" : \"SP0001\", \"spPrecompte\" : 0, \"spBasepriceId\" : 5 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

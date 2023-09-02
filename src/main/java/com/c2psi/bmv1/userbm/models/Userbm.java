@@ -1,7 +1,6 @@
 package com.c2psi.bmv1.userbm.models;
 
 import com.c2psi.bmv1.bmapp.annotations.BmNotBlank;
-import com.c2psi.bmv1.bmapp.models.AbstractEntity;
 import com.c2psi.bmv1.address.models.Address;
 import com.c2psi.bmv1.bmapp.enumerations.UserStateEnum;
 import jakarta.persistence.*;

@@ -140,11 +140,11 @@ public class UnitController implements UnitApi {
         log.info("Unit saved successfully");
 
         map.clear();
-        map.put("status", HttpStatus.OK);
+        map.put("status", HttpStatus.CREATED);
         map.put("message", "Unit saved successfully");
         map.put("data", unitDtoSaved);
         map.put("cause", "RAS");
-        return new ResponseEntity(map, HttpStatus.OK);
+        return new ResponseEntity(map, HttpStatus.CREATED);
     }
 
     @Override
@@ -154,11 +154,11 @@ public class UnitController implements UnitApi {
         log.info("Unitconversion saved successfully");
 
         map.clear();
-        map.put("status", HttpStatus.OK);
+        map.put("status", HttpStatus.CREATED);
         map.put("message", "Unitconversion saved successfully");
         map.put("data", unitconvDtoSaved);
         map.put("cause", "RAS");
-        return new ResponseEntity(map, HttpStatus.OK);
+        return new ResponseEntity(map, HttpStatus.CREATED);
     }
 
     @Override

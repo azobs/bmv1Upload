@@ -289,6 +289,10 @@ paths:
     $ref: 'loading/loading/route/createLoading.yaml'
   /loading/bm/v1/update:
     $ref: 'loading/loading/route/updateLoading.yaml'
+  /loading/bm/v1/open:
+    $ref: 'loading/loading/route/openLoading.yaml'
+  /loading/bm/v1/close:
+    $ref: 'loading/loading/route/closeLoading.yaml'
   /loading/bm/v1/delete/{id}:
     $ref: 'loading/loading/route/deleteLoadingById.yaml'
   /loading/bm/v1/getby/{id}:

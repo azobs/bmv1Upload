@@ -58,18 +58,20 @@ public class UnitconversionValidator {
         if(unitconv == null){
             errors.add("The Unitconversion to validate can't be null");
         }
+        else {
 
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            Validator validator = factory.getValidator();
 
-        Set<ConstraintViolation<Unitconversion>> constraintViolations = validator.validate(unitconv);
+            Set<ConstraintViolation<Unitconversion>> constraintViolations = validator.validate(unitconv);
 
-        if (constraintViolations.size() > 0 ) {
-            for (ConstraintViolation<Unitconversion> contraintes : constraintViolations) {
-                errors.add(contraintes.getMessage());
+            if (constraintViolations.size() > 0) {
+                for (ConstraintViolation<Unitconversion> contraintes : constraintViolations) {
+                    errors.add(contraintes.getMessage());
+                }
             }
+            errors.addAll(this.validateStringofBm(unitconv));
         }
-        errors.addAll(this.validateStringofBm(unitconv));
         return errors;
     }
 

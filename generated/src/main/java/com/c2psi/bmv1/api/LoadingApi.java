@@ -26,7 +26,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-01T16:05:37.277942500+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "loading", description = "the loading API")
 public interface LoadingApi {
@@ -34,6 +34,50 @@ public interface LoadingApi {
     default Optional<NativeWebRequest> getRequest() {
         return Optional.empty();
     }
+
+    /**
+     * GET /loading/bm/v1/close : Close a Loading in the system by its id
+     *
+     * @param id The id that represent the Loading to close. It&#39;s compulsory if not the operation can&#39;t proceed (required)
+     * @return Loading closed successfully (status code 200)
+     *         or Bad request. Loading ID must be an integer and larger than 0. (status code 400)
+     *         or Authorization information is missing or invalid. (status code 401)
+     *         or The user who ask the ressource is Forbidden. (status code 403)
+     *         or The expected ressource is not found. (status code 404)
+     *         or Unexpected error at the server side. (status code 500)
+     */
+    @ApiOperation(value = "Close a Loading in the system by its id", nickname = "closeLoadingById", notes = "", response = LoadingDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Loading closed successfully", response = LoadingDto.class),
+        @ApiResponse(code = 400, message = "Bad request. Loading ID must be an integer and larger than 0."),
+        @ApiResponse(code = 401, message = "Authorization information is missing or invalid."),
+        @ApiResponse(code = 403, message = "The user who ask the ressource is Forbidden."),
+        @ApiResponse(code = 404, message = "The expected ressource is not found."),
+        @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/loading/bm/v1/close",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<LoadingDto> _closeLoadingById(@ApiParam(value = "The id that represent the Loading to close. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
+        return closeLoadingById(id);
+    }
+
+    // Override this method
+    default  ResponseEntity<LoadingDto> closeLoadingById(Long id) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"loadReport\" : \"loadReport\", \"loadSalerId\" : 2, \"loadPosId\" : 7, \"loadreturnDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadPaidamount\" : 1.1465812980502945, \"loadCode\" : \"L0000\", \"loadManagerId\" : 5, \"id\" : 0, \"loadExpectedamount\" : 1.6027456183070403, \"loadDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadRemise\" : 0.5962133916683182, \"loadOpen\" : true }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
 
     /**
      * DELETE /loading/bm/v1/delete/{id} : Path used to delete a loading in the system with its id
@@ -173,7 +217,7 @@ public interface LoadingApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"loadReport\" : \"loadReport\", \"loadSalerId\" : 2, \"loadPosId\" : 7, \"loadPaidamount\" : 1.1465812980502945, \"loadCode\" : \"L0000\", \"loadManagerId\" : 5, \"id\" : 0, \"loadExpectedamount\" : 1.6027456183070403, \"loadDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadRemise\" : 0.5962133916683182 }";
+                    String exampleString = "{ \"loadReport\" : \"loadReport\", \"loadSalerId\" : 2, \"loadPosId\" : 7, \"loadreturnDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadPaidamount\" : 1.1465812980502945, \"loadCode\" : \"L0000\", \"loadManagerId\" : 5, \"id\" : 0, \"loadExpectedamount\" : 1.6027456183070403, \"loadDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadRemise\" : 0.5962133916683182, \"loadOpen\" : true }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -208,7 +252,7 @@ public interface LoadingApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"loadReport\" : \"loadReport\", \"loadSalerId\" : 2, \"loadPosId\" : 7, \"loadPaidamount\" : 1.1465812980502945, \"loadCode\" : \"L0000\", \"loadManagerId\" : 5, \"id\" : 0, \"loadExpectedamount\" : 1.6027456183070403, \"loadDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadRemise\" : 0.5962133916683182 }";
+                    String exampleString = "{ \"loadReport\" : \"loadReport\", \"loadSalerId\" : 2, \"loadPosId\" : 7, \"loadreturnDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadPaidamount\" : 1.1465812980502945, \"loadCode\" : \"L0000\", \"loadManagerId\" : 5, \"id\" : 0, \"loadExpectedamount\" : 1.6027456183070403, \"loadDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadRemise\" : 0.5962133916683182, \"loadOpen\" : true }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -243,7 +287,7 @@ public interface LoadingApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"loadReport\" : \"loadReport\", \"loadSalerId\" : 2, \"loadPosId\" : 7, \"loadPaidamount\" : 1.1465812980502945, \"loadCode\" : \"L0000\", \"loadManagerId\" : 5, \"id\" : 0, \"loadExpectedamount\" : 1.6027456183070403, \"loadDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadRemise\" : 0.5962133916683182 }, { \"loadReport\" : \"loadReport\", \"loadSalerId\" : 2, \"loadPosId\" : 7, \"loadPaidamount\" : 1.1465812980502945, \"loadCode\" : \"L0000\", \"loadManagerId\" : 5, \"id\" : 0, \"loadExpectedamount\" : 1.6027456183070403, \"loadDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadRemise\" : 0.5962133916683182 } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"loadReport\" : \"loadReport\", \"loadSalerId\" : 2, \"loadPosId\" : 7, \"loadreturnDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadPaidamount\" : 1.1465812980502945, \"loadCode\" : \"L0000\", \"loadManagerId\" : 5, \"id\" : 0, \"loadExpectedamount\" : 1.6027456183070403, \"loadDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadRemise\" : 0.5962133916683182, \"loadOpen\" : true }, { \"loadReport\" : \"loadReport\", \"loadSalerId\" : 2, \"loadPosId\" : 7, \"loadreturnDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadPaidamount\" : 1.1465812980502945, \"loadCode\" : \"L0000\", \"loadManagerId\" : 5, \"id\" : 0, \"loadExpectedamount\" : 1.6027456183070403, \"loadDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadRemise\" : 0.5962133916683182, \"loadOpen\" : true } ], \"totalElements\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -401,7 +445,7 @@ public interface LoadingApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdLoading\" : 1, \"pdPackagingId\" : 6, \"id\" : 0 }";
+                    String exampleString = "{ \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdPackagingId\" : 6, \"id\" : 0, \"pdLoadingId\" : 1 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -436,7 +480,7 @@ public interface LoadingApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdLoading\" : 1, \"pdPackagingId\" : 6, \"id\" : 0 }";
+                    String exampleString = "{ \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdPackagingId\" : 6, \"id\" : 0, \"pdLoadingId\" : 1 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -471,7 +515,51 @@ public interface LoadingApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdLoading\" : 1, \"pdPackagingId\" : 6, \"id\" : 0 }, { \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdLoading\" : 1, \"pdPackagingId\" : 6, \"id\" : 0 } ], \"totalElements\" : 0 }";
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdPackagingId\" : 6, \"id\" : 0, \"pdLoadingId\" : 1 }, { \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdPackagingId\" : 6, \"id\" : 0, \"pdLoadingId\" : 1 } ], \"totalElements\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * GET /loading/bm/v1/open : Open a Loading in the system by its id
+     *
+     * @param id The id that represent the Loading to open. It&#39;s compulsory if not the operation can&#39;t proceed (required)
+     * @return Loading opened successfully (status code 200)
+     *         or Bad request. Loading ID must be an integer and larger than 0. (status code 400)
+     *         or Authorization information is missing or invalid. (status code 401)
+     *         or The user who ask the ressource is Forbidden. (status code 403)
+     *         or The expected ressource is not found. (status code 404)
+     *         or Unexpected error at the server side. (status code 500)
+     */
+    @ApiOperation(value = "Open a Loading in the system by its id", nickname = "openLoadingById", notes = "", response = LoadingDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Loading opened successfully", response = LoadingDto.class),
+        @ApiResponse(code = 400, message = "Bad request. Loading ID must be an integer and larger than 0."),
+        @ApiResponse(code = 401, message = "Authorization information is missing or invalid."),
+        @ApiResponse(code = 403, message = "The user who ask the ressource is Forbidden."),
+        @ApiResponse(code = 404, message = "The expected ressource is not found."),
+        @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/loading/bm/v1/open",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<LoadingDto> _openLoadingById(@ApiParam(value = "The id that represent the Loading to open. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
+        return openLoadingById(id);
+    }
+
+    // Override this method
+    default  ResponseEntity<LoadingDto> openLoadingById(Long id) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"loadReport\" : \"loadReport\", \"loadSalerId\" : 2, \"loadPosId\" : 7, \"loadreturnDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadPaidamount\" : 1.1465812980502945, \"loadCode\" : \"L0000\", \"loadManagerId\" : 5, \"id\" : 0, \"loadExpectedamount\" : 1.6027456183070403, \"loadDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadRemise\" : 0.5962133916683182, \"loadOpen\" : true }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -516,7 +604,7 @@ public interface LoadingApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"loadReport\" : \"loadReport\", \"loadSalerId\" : 2, \"loadPosId\" : 7, \"loadPaidamount\" : 1.1465812980502945, \"loadCode\" : \"L0000\", \"loadManagerId\" : 5, \"id\" : 0, \"loadExpectedamount\" : 1.6027456183070403, \"loadDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadRemise\" : 0.5962133916683182 }";
+                    String exampleString = "{ \"loadReport\" : \"loadReport\", \"loadSalerId\" : 2, \"loadPosId\" : 7, \"loadreturnDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadPaidamount\" : 1.1465812980502945, \"loadCode\" : \"L0000\", \"loadManagerId\" : 5, \"id\" : 0, \"loadExpectedamount\" : 1.6027456183070403, \"loadDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadRemise\" : 0.5962133916683182, \"loadOpen\" : true }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -606,7 +694,7 @@ public interface LoadingApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdLoading\" : 1, \"pdPackagingId\" : 6, \"id\" : 0 }";
+                    String exampleString = "{ \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdPackagingId\" : 6, \"id\" : 0, \"pdLoadingId\" : 1 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -651,7 +739,7 @@ public interface LoadingApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"loadReport\" : \"loadReport\", \"loadSalerId\" : 2, \"loadPosId\" : 7, \"loadPaidamount\" : 1.1465812980502945, \"loadCode\" : \"L0000\", \"loadManagerId\" : 5, \"id\" : 0, \"loadExpectedamount\" : 1.6027456183070403, \"loadDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadRemise\" : 0.5962133916683182 }";
+                    String exampleString = "{ \"loadReport\" : \"loadReport\", \"loadSalerId\" : 2, \"loadPosId\" : 7, \"loadreturnDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadPaidamount\" : 1.1465812980502945, \"loadCode\" : \"L0000\", \"loadManagerId\" : 5, \"id\" : 0, \"loadExpectedamount\" : 1.6027456183070403, \"loadDate\" : \"2000-01-23T04:56:07.000+00:00\", \"loadRemise\" : 0.5962133916683182, \"loadOpen\" : true }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -741,7 +829,7 @@ public interface LoadingApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdLoading\" : 1, \"pdPackagingId\" : 6, \"id\" : 0 }";
+                    String exampleString = "{ \"packagenumberUsed\" : 1, \"packagenumberReturn\" : 1, \"pdPackagingId\" : 6, \"id\" : 0, \"pdLoadingId\" : 1 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

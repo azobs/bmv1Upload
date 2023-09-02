@@ -15,20 +15,20 @@ properties:
   artDescription:
     type: string
   artThreshold:
-    type: integer
-    format: int32
+    type: number
+    format: double
     example: 0
   artLowlimitwholesale:
-    type: integer
-    format: int32
+    type: number
+    format: double
     example: 30
   artlowlimitSemiwholesale:
-    type: integer
-    format: int32
+    type: number
+    format: double
     example: 25
   artQuantityinstock:
-    type: integer
-    format: int32
+    type: number
+    format: double
     example: 0
   artPfId:
     type: integer

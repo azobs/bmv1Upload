@@ -4,6 +4,9 @@ properties:
   id:
     type: integer
     format: int64
+  spCode:
+    type: string
+    example: SP0001
   spWholeprice:
     type: number
     format: double

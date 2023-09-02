@@ -10,10 +10,10 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * A permission that really give right to act on an object of the system
+ * A category of product in the system
  */
-@ApiModel(description = "A permission that really give right to act on an object of the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
+@ApiModel(description = "A category of product in the system")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-01T16:05:37.277942500+01:00[Africa/Casablanca]")
 public class CategoryDto   {
   @JsonProperty("id")
   private Long id;
@@ -166,7 +166,8 @@ public class CategoryDto   {
    * Get catPosId
    * @return catPosId
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
 
   public Long getCatPosId() {

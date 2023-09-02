@@ -50,24 +50,25 @@ public class UnitValidator {
         if(unit == null){
             errors.add("The unit to validate can't be null");
         }
+        else {
 
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            Validator validator = factory.getValidator();
 
-        Set<ConstraintViolation<Unit>> constraintViolations = validator.validate(unit);
+            Set<ConstraintViolation<Unit>> constraintViolations = validator.validate(unit);
 
-        if (constraintViolations.size() > 0 ) {
-            for (ConstraintViolation<Unit> contraintes : constraintViolations) {
-                errors.add(contraintes.getMessage());
+            if (constraintViolations.size() > 0) {
+                for (ConstraintViolation<Unit> contraintes : constraintViolations) {
+                    errors.add(contraintes.getMessage());
+                }
             }
+
+            if (unit.getUnitPos() == null) {
+                errors.add("The Pointofsale of the Unit can't be null");
+            }
+
+            errors.addAll(this.validateStringofBm(unit));
         }
-
-        if(unit.getUnitPos() == null){
-            errors.add("The Pointofsale of the Unit can't be null");
-        }
-
-        errors.addAll(this.validateStringofBm(unit));
-
         return errors;
     }
 

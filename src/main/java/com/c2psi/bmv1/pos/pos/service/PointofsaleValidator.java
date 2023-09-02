@@ -34,16 +34,14 @@ public class PointofsaleValidator {
     final EnterpriseService enterpriseService;
     final CurrencyService currencyService;
 
-    public List<String> validate(PointofsaleDto posDto){
+    public List<String> validate(PointofsaleDto posDto) {
         List<String> errors = new ArrayList<>();
-        if(posDto == null){
+        if (posDto == null) {
             errors.add("The posDto to validate can't be null");
-        }
-        else if(posDto.getPosEnterpriseId() == null){
+        } else if (posDto.getPosEnterpriseId() == null) {
             errors.add("The posEnterpriseId of the pointofsale can't be null");
-        }
-        else{
-            if(!enterpriseService.isEnterpriseExistWith(posDto.getPosEnterpriseId())){
+        } else {
+            if (!enterpriseService.isEnterpriseExistWith(posDto.getPosEnterpriseId())) {
                 errors.add("There is no Enterprise in DB with the id sent");
             }
         }
@@ -52,16 +50,17 @@ public class PointofsaleValidator {
          * Le currency par defaut ne doit pas etre null et
          * L'id du Currency par defaut du Pointofsale ne peut etre null
          */
-        if(posDto.getPosCurrency() == null){
-            errors.add("A default currency of a pointofsale can't be null");
-        } else if (posDto.getPosCurrency().getId() == null) {
-            errors.add("Id of the default currency of the pointofsale can't be null");
-        } else {
-            if(!currencyService.isCurrencyExistWith(posDto.getPosCurrency().getId())){
-                errors.add("There is no currency in the DB with the id sent");
+        if(posDto != null){
+            if (posDto.getPosCurrency() == null) {
+                errors.add("A default currency of a pointofsale can't be null");
+            } else if (posDto.getPosCurrency().getId() == null) {
+                errors.add("Id of the default currency of the pointofsale can't be null");
+            } else {
+                if (!currencyService.isCurrencyExistWith(posDto.getPosCurrency().getId())) {
+                    errors.add("There is no currency in the DB with the id sent");
+                }
             }
         }
-
         return errors;
     }
     public List<String> validate(Pointofsale pos){
@@ -70,40 +69,40 @@ public class PointofsaleValidator {
         if(pos == null){
             errors.add("The pos to validate can't be null");
         }
+        else {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            Validator validator = factory.getValidator();
 
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
+            Set<ConstraintViolation<Pointofsale>> constraintViolations = validator.validate(pos);
 
-        Set<ConstraintViolation<Pointofsale>> constraintViolations = validator.validate(pos);
-
-        if (constraintViolations.size() > 0 ) {
-            for (ConstraintViolation<Pointofsale> contraintes : constraintViolations) {
+            if (constraintViolations.size() > 0) {
+                for (ConstraintViolation<Pointofsale> contraintes : constraintViolations) {
                 /*System.out.println(contraintes.getRootBeanClass().getSimpleName()+
                         "." + contraintes.getPropertyPath() + " " + contraintes.getMessage());*/
-                errors.add(contraintes.getMessage());
+                    errors.add(contraintes.getMessage());
+                }
             }
-        }
 
-        /*************************************************
-         * L'adresse du Pointofsale doit aussi etre valide
-         */
-        if(pos.getPosAddress() == null){
-            errors.add("The address of pos to validate can't be null");
-        }
-        errors.addAll(addressValidator.validate(pos.getPosAddress()));
+            /*************************************************
+             * L'adresse du Pointofsale doit aussi etre valide
+             */
+            if (pos.getPosAddress() == null) {
+                errors.add("The address of pos to validate can't be null");
+            }
+            errors.addAll(addressValidator.validate(pos.getPosAddress()));
 
 
-        /*************************************************************************
-         * L'Entreprise proprietaire du Pointofsale et son id ne peuvent etre null
-         */
+            /*************************************************************************
+             * L'Entreprise proprietaire du Pointofsale et son id ne peuvent etre null
+             */
 //        if(pos.getPosEnterprise() == null){
 //            errors.add("The enterprise owner of the Pointofsale can't be null");
 //        } else if (pos.getPosEnterprise().getId() == null) {
 //            errors.add("The id of the enterprise owner of the pointofsale can't be null");
 //        }
 
-        errors.addAll(this.validateStringofBm(pos));
-
+            errors.addAll(this.validateStringofBm(pos));
+        }
         return errors;
     }
 

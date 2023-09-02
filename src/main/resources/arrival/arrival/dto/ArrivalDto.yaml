@@ -24,10 +24,15 @@ properties:
     enum:
       - Standard
       - Divers
+      - Cash
+      - Cover
+      - Damage
     example: Standard
   arrivalNature:
     type: string
     enum:
+      - Standard
+      - Divers
       - Cash
       - Cover
       - Damage

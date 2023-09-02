@@ -4,6 +4,9 @@ properties:
   id:
     type: integer
     format: int64
+  bpCode:
+    type: string
+    example: BP0001
   bpPurchaseprice:
     type: number
     format: double
@@ -35,4 +38,7 @@ properties:
   bpCurrency:
     type: object
     $ref: '../../../currency/currency/dto/CurrencyDto.yaml'
+  bpPosId:
+    type: integer
+    format: int64
   

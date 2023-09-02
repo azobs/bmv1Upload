@@ -92,22 +92,23 @@ public class RoleValidator {
         if(role == null){
             errors.add("The role to validate can't be null");
         }
+        else {
 
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            Validator validator = factory.getValidator();
 
-        Set<ConstraintViolation<Role>> constraintViolations = validator.validate(role);
+            Set<ConstraintViolation<Role>> constraintViolations = validator.validate(role);
 
-        if (constraintViolations.size() > 0 ) {
-            for (ConstraintViolation<Role> contraintes : constraintViolations) {
+            if (constraintViolations.size() > 0) {
+                for (ConstraintViolation<Role> contraintes : constraintViolations) {
                 /*System.out.println(contraintes.getRootBeanClass().getSimpleName()+
                         "." + contraintes.getPropertyPath() + " " + contraintes.getMessage());*/
-                errors.add(contraintes.getMessage());
+                    errors.add(contraintes.getMessage());
+                }
             }
+
+            errors.addAll(this.validateStringofBm(role));
         }
-
-        errors.addAll(this.validateStringofBm(role));
-
         return errors;
     }
 

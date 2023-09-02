@@ -44,11 +44,8 @@ public class PointofsaleServiceImpl implements PointofsaleService{
     final PointofsaleValidator posValidator;
     final PointofsaleSpecService posSpecService;
     final AddressService addressService;
-    final AddressMapper addressMapper;
-    final AddressDao addressDao;
     final CurrencyService currencyService;
     final EnterpriseService enterpriseService;
-    //final EnterpriseDao enterpriseDao;
     final CurrencyMapper currencyMapper;
     final EnterpriseMapper enterpriseMapper;
 
@@ -104,28 +101,29 @@ public class PointofsaleServiceImpl implements PointofsaleService{
 
         log.info("After all verification, the Pointofsale can be safely saved in the DB");
         //AddressDto addressDtoSaved = addressService.saveAddress(posDto.getPosAddress());
-        Pointofsale posToSaved = Pointofsale.builder()
-                .posBalance(posDto.getPosBalance())
-                .posName(posDto.getPosName())
-                .posAcronym(posDto.getPosAcronym())
-                //.posAddress(addressMapper.dtoToEntity(posDto.getPosAddress()))
-                .posAddress(
-                        Address.builder()
-                                .numtel1(posDto.getPosAddress().getNumtel1())
-                                .numtel2(posDto.getPosAddress().getNumtel2())
-                                .numtel3(posDto.getPosAddress().getNumtel3())
-                                .quarter(posDto.getPosAddress().getQuarter())
-                                .country(posDto.getPosAddress().getCountry())
-                                .town(posDto.getPosAddress().getTown())
-                                .localisation(posDto.getPosAddress().getLocalisation())
-                                .email(posDto.getPosAddress().getEmail())
-                                .build()
-                )
-                .posDescription(posDto.getPosDescription())
-                .posEnterprise(enterpriseMapper.dtoToEntity(enterpriseService.getEnterpriseById(posDto.getPosEnterpriseId())))
-                .posCurrency(currencyMapper.dtoToEntity(posDto.getPosCurrency()))
-                .build();
+//        Pointofsale posToSaved = Pointofsale.builder()
+//                .posBalance(posDto.getPosBalance())
+//                .posName(posDto.getPosName())
+//                .posAcronym(posDto.getPosAcronym())
+//                //.posAddress(addressMapper.dtoToEntity(posDto.getPosAddress()))
+//                .posAddress(
+//                        Address.builder()
+//                                .numtel1(posDto.getPosAddress().getNumtel1())
+//                                .numtel2(posDto.getPosAddress().getNumtel2())
+//                                .numtel3(posDto.getPosAddress().getNumtel3())
+//                                .quarter(posDto.getPosAddress().getQuarter())
+//                                .country(posDto.getPosAddress().getCountry())
+//                                .town(posDto.getPosAddress().getTown())
+//                                .localisation(posDto.getPosAddress().getLocalisation())
+//                                .email(posDto.getPosAddress().getEmail())
+//                                .build()
+//                )
+//                .posDescription(posDto.getPosDescription())
+//                .posEnterprise(enterpriseMapper.dtoToEntity(enterpriseService.getEnterpriseById(posDto.getPosEnterpriseId())))
+//                .posCurrency(currencyMapper.dtoToEntity(posDto.getPosCurrency()))
+//                .build();
 
+        Pointofsale posToSaved = posMapper.dtoToEntity(posDto);
         Pointofsale pointofsaleSaved = posDao.save(posToSaved);
 
         return posMapper.entityToDto(pointofsaleSaved);

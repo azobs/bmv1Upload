@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * A article in the system
  */
 @ApiModel(description = "A article in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-01T16:05:37.277942500+01:00[Africa/Casablanca]")
 public class ArticleDto   {
   @JsonProperty("id")
   private Long id;
@@ -31,16 +31,16 @@ public class ArticleDto   {
   private String artDescription;
 
   @JsonProperty("artThreshold")
-  private Integer artThreshold;
+  private Double artThreshold;
 
   @JsonProperty("artLowlimitwholesale")
-  private Integer artLowlimitwholesale;
+  private Double artLowlimitwholesale;
 
   @JsonProperty("artlowlimitSemiwholesale")
-  private Integer artlowlimitSemiwholesale;
+  private Double artlowlimitSemiwholesale;
 
   @JsonProperty("artQuantityinstock")
-  private Integer artQuantityinstock;
+  private Double artQuantityinstock;
 
   @JsonProperty("artPfId")
   private Long artPfId;
@@ -154,7 +154,7 @@ public class ArticleDto   {
     this.artDescription = artDescription;
   }
 
-  public ArticleDto artThreshold(Integer artThreshold) {
+  public ArticleDto artThreshold(Double artThreshold) {
     this.artThreshold = artThreshold;
     return this;
   }
@@ -166,15 +166,15 @@ public class ArticleDto   {
   @ApiModelProperty(example = "0", value = "")
 
 
-  public Integer getArtThreshold() {
+  public Double getArtThreshold() {
     return artThreshold;
   }
 
-  public void setArtThreshold(Integer artThreshold) {
+  public void setArtThreshold(Double artThreshold) {
     this.artThreshold = artThreshold;
   }
 
-  public ArticleDto artLowlimitwholesale(Integer artLowlimitwholesale) {
+  public ArticleDto artLowlimitwholesale(Double artLowlimitwholesale) {
     this.artLowlimitwholesale = artLowlimitwholesale;
     return this;
   }
@@ -186,15 +186,15 @@ public class ArticleDto   {
   @ApiModelProperty(example = "30", value = "")
 
 
-  public Integer getArtLowlimitwholesale() {
+  public Double getArtLowlimitwholesale() {
     return artLowlimitwholesale;
   }
 
-  public void setArtLowlimitwholesale(Integer artLowlimitwholesale) {
+  public void setArtLowlimitwholesale(Double artLowlimitwholesale) {
     this.artLowlimitwholesale = artLowlimitwholesale;
   }
 
-  public ArticleDto artlowlimitSemiwholesale(Integer artlowlimitSemiwholesale) {
+  public ArticleDto artlowlimitSemiwholesale(Double artlowlimitSemiwholesale) {
     this.artlowlimitSemiwholesale = artlowlimitSemiwholesale;
     return this;
   }
@@ -206,15 +206,15 @@ public class ArticleDto   {
   @ApiModelProperty(example = "25", value = "")
 
 
-  public Integer getArtlowlimitSemiwholesale() {
+  public Double getArtlowlimitSemiwholesale() {
     return artlowlimitSemiwholesale;
   }
 
-  public void setArtlowlimitSemiwholesale(Integer artlowlimitSemiwholesale) {
+  public void setArtlowlimitSemiwholesale(Double artlowlimitSemiwholesale) {
     this.artlowlimitSemiwholesale = artlowlimitSemiwholesale;
   }
 
-  public ArticleDto artQuantityinstock(Integer artQuantityinstock) {
+  public ArticleDto artQuantityinstock(Double artQuantityinstock) {
     this.artQuantityinstock = artQuantityinstock;
     return this;
   }
@@ -226,11 +226,11 @@ public class ArticleDto   {
   @ApiModelProperty(example = "0", value = "")
 
 
-  public Integer getArtQuantityinstock() {
+  public Double getArtQuantityinstock() {
     return artQuantityinstock;
   }
 
-  public void setArtQuantityinstock(Integer artQuantityinstock) {
+  public void setArtQuantityinstock(Double artQuantityinstock) {
     this.artQuantityinstock = artQuantityinstock;
   }
 

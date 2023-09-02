@@ -70,20 +70,20 @@ public class UserbmRolePermissionValidator {
         if(ubmRolePerm == null){
             errors.add("The userbmRolePermission to validate can't be null");
         }
+        else {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            Validator validator = factory.getValidator();
 
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
+            Set<ConstraintViolation<UserbmRolePermission>> constraintViolations = validator.validate(ubmRolePerm);
 
-        Set<ConstraintViolation<UserbmRolePermission>> constraintViolations = validator.validate(ubmRolePerm);
-
-        if (constraintViolations.size() > 0 ) {
-            for (ConstraintViolation<UserbmRolePermission> contraintes : constraintViolations) {
+            if (constraintViolations.size() > 0) {
+                for (ConstraintViolation<UserbmRolePermission> contraintes : constraintViolations) {
                 /*System.out.println(contraintes.getRootBeanClass().getSimpleName()+
                         "." + contraintes.getPropertyPath() + " " + contraintes.getMessage());*/
-                errors.add(contraintes.getMessage());
+                    errors.add(contraintes.getMessage());
+                }
             }
         }
-
         return errors;
     }
 

@@ -278,6 +278,26 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         map.put("message", "Authentication failed with the credentials sent");
         map.put("data", errorDto);
         map.put("cause", "Les parametres de connexion envoyes ne sont pas valide");
+        return new ResponseEntity(map, HttpStatus.FORBIDDEN);
+    }
+    //InvalidDirectionofMouvementException
+    @ExceptionHandler(InvalidDirectionofMouvementException.class)
+    public ResponseEntity<?> handleException(InvalidDirectionofMouvementException exception,
+                                             WebRequest webRequest){
+        log.info("An InvalidDirectionofMouvementException is thrown");
+        final HttpStatus badRequest = HttpStatus.BAD_REQUEST;
+        final ErrorDto errorDto =  ErrorDto.builder()
+                .httpCode(badRequest.value())
+                .exceptionMessage(exception.getMessage())
+                .errorAppMessage(exception.getErrorCode())
+                .errorList(exception.getErrors()!=null?(!exception.getErrors().isEmpty()?exception.getErrors().stream().toList():null):null)
+                .build();
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.clear();
+        map.put("status", HttpStatus.BAD_REQUEST);
+        map.put("message", "The direction mouvement sent is not recognized by the system");
+        map.put("data", errorDto);
+        map.put("cause", "Le direction du mouvement envoye n'est pas pris en compte par le systeme");
         return new ResponseEntity(map, HttpStatus.BAD_REQUEST);
     }
 

@@ -64,6 +64,9 @@ public class LoadUserbmService implements UserDetailsService {
             }
         }
 
+        log.info("We must change the userbmState of the user");
+        userbmService.updateUserbmState(userbmDto.getId(), UserbmDto.UserStateEnum.CONNECTED);
+        log.info("At the end of the loadUserbyUsername we can now return the ExtendedUser which is the UserDetails of spring");
         ExtendedUser extendedUser = ExtendedUser.builder()
                 .userbmId(userbmDto.getId())
                 .password(userbmDto.getUserPassword())

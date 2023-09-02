@@ -66,20 +66,20 @@ public class UserbmRoleValidator {
         if(userbmRole == null){
             errors.add("The userbmRole to validate can't be null");
         }
+        else {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            Validator validator = factory.getValidator();
 
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
+            Set<ConstraintViolation<UserbmRole>> constraintViolations = validator.validate(userbmRole);
 
-        Set<ConstraintViolation<UserbmRole>> constraintViolations = validator.validate(userbmRole);
-
-        if (constraintViolations.size() > 0 ) {
-            for (ConstraintViolation<UserbmRole> contraintes : constraintViolations) {
+            if (constraintViolations.size() > 0) {
+                for (ConstraintViolation<UserbmRole> contraintes : constraintViolations) {
                 /*System.out.println(contraintes.getRootBeanClass().getSimpleName()+
                         "." + contraintes.getPropertyPath() + " " + contraintes.getMessage());*/
-                errors.add(contraintes.getMessage());
+                    errors.add(contraintes.getMessage());
+                }
             }
         }
-
         return errors;
     }
 

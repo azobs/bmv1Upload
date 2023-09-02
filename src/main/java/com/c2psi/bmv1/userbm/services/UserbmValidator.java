@@ -34,27 +34,30 @@ public class UserbmValidator {
         if(userbm == null){
             errors.add("The userbm to validate can't be null");
         }
+        else {
 
-        if(userbm.getUserAddress() == null){
-            errors.add("Address of User can't be null");
-        }
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            Validator validator = factory.getValidator();
 
-        errors.addAll(addressValidator.validate(userbm.getUserAddress()));
+            Set<ConstraintViolation<Userbm>> constraintViolations = validator.validate(userbm);
 
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
-
-        Set<ConstraintViolation<Userbm>> constraintViolations = validator.validate(userbm);
-
-        if (constraintViolations.size() > 0 ) {
-            for (ConstraintViolation<Userbm> contraintes : constraintViolations) {
+            if (constraintViolations.size() > 0) {
+                for (ConstraintViolation<Userbm> contraintes : constraintViolations) {
                 /*System.out.println(contraintes.getRootBeanClass().getSimpleName()+
                         "." + contraintes.getPropertyPath() + " " + contraintes.getMessage());*/
-                errors.add(contraintes.getMessage());
+                    errors.add(contraintes.getMessage());
+                }
             }
-        }
 
-        errors.addAll(this.validateStringofBm(userbm));
+            if(userbm.getUserAddress() == null){
+                errors.add("Address of User can't be null");
+            }
+            else {
+                errors.addAll(addressValidator.validate(userbm.getUserAddress()));
+            }
+
+            errors.addAll(this.validateStringofBm(userbm));
+        }
 
         return errors;
     }

@@ -7,6 +7,7 @@ import java.util.List;
 public interface UserbmService {
     UserbmDto saveUserbm(UserbmDto userbmDto);
     UserbmDto updateUserbm(UserbmDto userbmDto);
+    UserbmDto updateUserbmState(Long userbmId, UserbmDto.UserStateEnum userStateEnum);
     Boolean deleteUserbmById(Long id);
     UserbmDto getUserbmById(Long id);
     UserbmDto getUserbmByCni(String userCni);

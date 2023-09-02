@@ -46,22 +46,23 @@ public class TokenValidator {
         if(token == null){
             errors.add("The token to validate can't be null");
         }
+        else {
 
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            Validator validator = factory.getValidator();
 
-        Set<ConstraintViolation<Token>> constraintViolations = validator.validate(token);
+            Set<ConstraintViolation<Token>> constraintViolations = validator.validate(token);
 
-        if (constraintViolations.size() > 0 ) {
-            for (ConstraintViolation<Token> contraintes : constraintViolations) {
+            if (constraintViolations.size() > 0) {
+                for (ConstraintViolation<Token> contraintes : constraintViolations) {
                 /*System.out.println(contraintes.getRootBeanClass().getSimpleName()+
                         "." + contraintes.getPropertyPath() + " " + contraintes.getMessage());*/
-                errors.add(contraintes.getMessage());
+                    errors.add(contraintes.getMessage());
+                }
             }
+
+            errors.addAll(this.validateStringofBm(token));
         }
-
-        errors.addAll(this.validateStringofBm(token));
-
         return errors;
 
     }

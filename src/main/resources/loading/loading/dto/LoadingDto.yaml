@@ -10,6 +10,9 @@ properties:
   loadDate:
     type: string
     format: date-time
+  loadreturnDate:
+    type: string
+    format: date-time
   loadExpectedamount:
     type: number
     format: double
@@ -27,6 +30,8 @@ properties:
     exclusiveMinimum: false
   loadReport:
     type: string
+  loadOpen:
+    type: boolean
   loadManagerId:
     type: integer
     format: int64

@@ -15,7 +15,7 @@ properties:
   pdPackagingId:
     type: integer
     format: int64
-  pdLoading:
+  pdLoadingId:
     type: integer
     format: int64
 #  pdPackaging:

@@ -13,10 +13,13 @@ import javax.validation.constraints.*;
  * A Specialprice in the system
  */
 @ApiModel(description = "A Specialprice in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-01T16:05:37.277942500+01:00[Africa/Casablanca]")
 public class SpecialpriceDto   {
   @JsonProperty("id")
   private Long id;
+
+  @JsonProperty("spCode")
+  private String spCode;
 
   @JsonProperty("spWholeprice")
   private Double spWholeprice;
@@ -54,6 +57,26 @@ public class SpecialpriceDto   {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public SpecialpriceDto spCode(String spCode) {
+    this.spCode = spCode;
+    return this;
+  }
+
+  /**
+   * Get spCode
+   * @return spCode
+  */
+  @ApiModelProperty(example = "SP0001", value = "")
+
+
+  public String getSpCode() {
+    return spCode;
+  }
+
+  public void setSpCode(String spCode) {
+    this.spCode = spCode;
   }
 
   public SpecialpriceDto spWholeprice(Double spWholeprice) {
@@ -190,6 +213,7 @@ public class SpecialpriceDto   {
     }
     SpecialpriceDto specialpriceDto = (SpecialpriceDto) o;
     return Objects.equals(this.id, specialpriceDto.id) &&
+        Objects.equals(this.spCode, specialpriceDto.spCode) &&
         Objects.equals(this.spWholeprice, specialpriceDto.spWholeprice) &&
         Objects.equals(this.spSemiwholeprice, specialpriceDto.spSemiwholeprice) &&
         Objects.equals(this.spDetailsprice, specialpriceDto.spDetailsprice) &&
@@ -200,7 +224,7 @@ public class SpecialpriceDto   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, spWholeprice, spSemiwholeprice, spDetailsprice, spRistourne, spPrecompte, spBasepriceId);
+    return Objects.hash(id, spCode, spWholeprice, spSemiwholeprice, spDetailsprice, spRistourne, spPrecompte, spBasepriceId);
   }
 
   @Override
@@ -209,6 +233,7 @@ public class SpecialpriceDto   {
     sb.append("class SpecialpriceDto {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    spCode: ").append(toIndentedString(spCode)).append("\n");
     sb.append("    spWholeprice: ").append(toIndentedString(spWholeprice)).append("\n");
     sb.append("    spSemiwholeprice: ").append(toIndentedString(spSemiwholeprice)).append("\n");
     sb.append("    spDetailsprice: ").append(toIndentedString(spDetailsprice)).append("\n");

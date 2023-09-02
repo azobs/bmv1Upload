@@ -32,22 +32,23 @@ public class EnterpriseValidator {
         if(enterprise == null){
             errors.add("The enterprise to validate can't be null");
         }
+        else {
 
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            Validator validator = factory.getValidator();
 
-        Set<ConstraintViolation<Enterprise>> constraintViolations = validator.validate(enterprise);
+            Set<ConstraintViolation<Enterprise>> constraintViolations = validator.validate(enterprise);
 
-        if (constraintViolations.size() > 0 ) {
-            for (ConstraintViolation<Enterprise> contraintes : constraintViolations) {
+            if (constraintViolations.size() > 0) {
+                for (ConstraintViolation<Enterprise> contraintes : constraintViolations) {
                 /*System.out.println(contraintes.getRootBeanClass().getSimpleName()+
                         "." + contraintes.getPropertyPath() + " " + contraintes.getMessage());*/
-                errors.add(contraintes.getMessage());
+                    errors.add(contraintes.getMessage());
+                }
             }
+
+            errors.addAll(this.validateStringofBm(enterprise));
         }
-
-        errors.addAll(this.validateStringofBm(enterprise));
-
         return errors;
     }
 

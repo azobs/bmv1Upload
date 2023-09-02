@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface CategoryDao extends JpaRepository<Category, Long>, JpaSpecificationExecutor<Category> {
     Optional<Category> findCategoryById(Long id);
     @Query("""
-SELECT cat FROM Category cat WHERE (cat.catCode = : catCode AND cat.catPos.id = :posId)
+SELECT cat FROM Category cat WHERE (cat.catCode = :catCode AND cat.catPos.id = :posId)
 """)
     Optional<Category> findCategoryByCodeInPos(@Param("catCode") String catCode, @Param("posId") Long posId);
 }

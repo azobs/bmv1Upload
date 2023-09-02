@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * An arrival in the system
  */
 @ApiModel(description = "An arrival in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-01T16:05:37.277942500+01:00[Africa/Casablanca]")
 public class ArrivalDto   {
   @JsonProperty("id")
   private Long id;
@@ -36,7 +36,13 @@ public class ArrivalDto   {
   public enum ArrivalTypeEnum {
     STANDARD("Standard"),
     
-    DIVERS("Divers");
+    DIVERS("Divers"),
+    
+    CASH("Cash"),
+    
+    COVER("Cover"),
+    
+    DAMAGE("Damage");
 
     private String value;
 
@@ -72,6 +78,10 @@ public class ArrivalDto   {
    * Gets or Sets arrivalNature
    */
   public enum ArrivalNatureEnum {
+    STANDARD("Standard"),
+    
+    DIVERS("Divers"),
+    
     CASH("Cash"),
     
     COVER("Cover"),

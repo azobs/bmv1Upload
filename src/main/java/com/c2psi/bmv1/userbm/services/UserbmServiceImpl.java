@@ -313,6 +313,21 @@ public class UserbmServiceImpl implements UserbmService{
         return userbmMapper.entityToDto(userbmUpdated);
     }
 
+    @Override
+    public UserbmDto updateUserbmState(Long userbmId, UserbmDto.UserStateEnum userStateEnum) {
+        if(userbmId == null || userStateEnum == null){
+            throw new NullValueException("Les arguments envoyes sont nuls");
+        }
+        Optional<Userbm> optionalUserbm = userbmDao.findUserbmById(userbmId);
+        if(!optionalUserbm.isPresent()){
+            throw new ModelNotFoundException("Aucun Userbm n'existe avec l'id envoye", ErrorCode.USERBM_NOT_FOUND.name());
+        }
+        Userbm userbmToUpdate = optionalUserbm.get();
+        userbmToUpdate.setUserState(convert(userStateEnum));
+
+        return userbmMapper.entityToDto(userbmDao.save(userbmToUpdate));
+    }
+
     UserStateEnum convert(UserbmDto.UserStateEnum userStateEnum){
         switch (userStateEnum){
             case ACTIVATED -> {

@@ -14,10 +14,13 @@ import javax.validation.constraints.*;
  * A product formated in the system
  */
 @ApiModel(description = "A product formated in the system")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-01T16:05:37.277942500+01:00[Africa/Casablanca]")
 public class BasepriceDto   {
   @JsonProperty("id")
   private Long id;
+
+  @JsonProperty("bpCode")
+  private String bpCode;
 
   @JsonProperty("bpPurchaseprice")
   private Double bpPurchaseprice;
@@ -40,6 +43,9 @@ public class BasepriceDto   {
   @JsonProperty("bpCurrency")
   private CurrencyDto bpCurrency;
 
+  @JsonProperty("bpPosId")
+  private Long bpPosId;
+
   public BasepriceDto id(Long id) {
     this.id = id;
     return this;
@@ -58,6 +64,26 @@ public class BasepriceDto   {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public BasepriceDto bpCode(String bpCode) {
+    this.bpCode = bpCode;
+    return this;
+  }
+
+  /**
+   * Get bpCode
+   * @return bpCode
+  */
+  @ApiModelProperty(example = "BP0001", value = "")
+
+
+  public String getBpCode() {
+    return bpCode;
+  }
+
+  public void setBpCode(String bpCode) {
+    this.bpCode = bpCode;
   }
 
   public BasepriceDto bpPurchaseprice(Double bpPurchaseprice) {
@@ -205,6 +231,26 @@ public class BasepriceDto   {
     this.bpCurrency = bpCurrency;
   }
 
+  public BasepriceDto bpPosId(Long bpPosId) {
+    this.bpPosId = bpPosId;
+    return this;
+  }
+
+  /**
+   * Get bpPosId
+   * @return bpPosId
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Long getBpPosId() {
+    return bpPosId;
+  }
+
+  public void setBpPosId(Long bpPosId) {
+    this.bpPosId = bpPosId;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -216,18 +262,20 @@ public class BasepriceDto   {
     }
     BasepriceDto basepriceDto = (BasepriceDto) o;
     return Objects.equals(this.id, basepriceDto.id) &&
+        Objects.equals(this.bpCode, basepriceDto.bpCode) &&
         Objects.equals(this.bpPurchaseprice, basepriceDto.bpPurchaseprice) &&
         Objects.equals(this.bpWholeprice, basepriceDto.bpWholeprice) &&
         Objects.equals(this.bpSemiwholeprice, basepriceDto.bpSemiwholeprice) &&
         Objects.equals(this.bpDetailsprice, basepriceDto.bpDetailsprice) &&
         Objects.equals(this.bpPrecompte, basepriceDto.bpPrecompte) &&
         Objects.equals(this.bpRistourne, basepriceDto.bpRistourne) &&
-        Objects.equals(this.bpCurrency, basepriceDto.bpCurrency);
+        Objects.equals(this.bpCurrency, basepriceDto.bpCurrency) &&
+        Objects.equals(this.bpPosId, basepriceDto.bpPosId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, bpPurchaseprice, bpWholeprice, bpSemiwholeprice, bpDetailsprice, bpPrecompte, bpRistourne, bpCurrency);
+    return Objects.hash(id, bpCode, bpPurchaseprice, bpWholeprice, bpSemiwholeprice, bpDetailsprice, bpPrecompte, bpRistourne, bpCurrency, bpPosId);
   }
 
   @Override
@@ -236,6 +284,7 @@ public class BasepriceDto   {
     sb.append("class BasepriceDto {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    bpCode: ").append(toIndentedString(bpCode)).append("\n");
     sb.append("    bpPurchaseprice: ").append(toIndentedString(bpPurchaseprice)).append("\n");
     sb.append("    bpWholeprice: ").append(toIndentedString(bpWholeprice)).append("\n");
     sb.append("    bpSemiwholeprice: ").append(toIndentedString(bpSemiwholeprice)).append("\n");
@@ -243,6 +292,7 @@ public class BasepriceDto   {
     sb.append("    bpPrecompte: ").append(toIndentedString(bpPrecompte)).append("\n");
     sb.append("    bpRistourne: ").append(toIndentedString(bpRistourne)).append("\n");
     sb.append("    bpCurrency: ").append(toIndentedString(bpCurrency)).append("\n");
+    sb.append("    bpPosId: ").append(toIndentedString(bpPosId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

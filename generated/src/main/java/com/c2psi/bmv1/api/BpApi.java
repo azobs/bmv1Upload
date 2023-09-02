@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-27T14:53:37.924409800+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-01T16:05:37.277942500+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "bp", description = "the bp API")
 public interface BpApi {
@@ -97,7 +97,7 @@ public interface BpApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"bpSemiwholeprice\" : 0.5962133916683182, \"bpPurchaseprice\" : 0.6027456183070403, \"bpDetailsprice\" : 0.5637376656633328, \"id\" : 0, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\", \"id\" : 2 }, \"bpWholeprice\" : 0.14658129805029452, \"bpPrecompte\" : 0 }";
+                    String exampleString = "{ \"bpSemiwholeprice\" : 0.5962133916683182, \"bpPurchaseprice\" : 0.6027456183070403, \"bpDetailsprice\" : 0.5637376656633328, \"id\" : 0, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\", \"id\" : 2 }, \"bpPosId\" : 7, \"bpCode\" : \"BP0001\", \"bpWholeprice\" : 0.14658129805029452, \"bpPrecompte\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -142,7 +142,7 @@ public interface BpApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"bpSemiwholeprice\" : 0.5962133916683182, \"bpPurchaseprice\" : 0.6027456183070403, \"bpDetailsprice\" : 0.5637376656633328, \"id\" : 0, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\", \"id\" : 2 }, \"bpWholeprice\" : 0.14658129805029452, \"bpPrecompte\" : 0 }";
+                    String exampleString = "{ \"bpSemiwholeprice\" : 0.5962133916683182, \"bpPurchaseprice\" : 0.6027456183070403, \"bpDetailsprice\" : 0.5637376656633328, \"id\" : 0, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\", \"id\" : 2 }, \"bpPosId\" : 7, \"bpCode\" : \"BP0001\", \"bpWholeprice\" : 0.14658129805029452, \"bpPrecompte\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -187,7 +187,7 @@ public interface BpApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"bpSemiwholeprice\" : 0.5962133916683182, \"bpPurchaseprice\" : 0.6027456183070403, \"bpDetailsprice\" : 0.5637376656633328, \"id\" : 0, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\", \"id\" : 2 }, \"bpWholeprice\" : 0.14658129805029452, \"bpPrecompte\" : 0 }";
+                    String exampleString = "{ \"bpSemiwholeprice\" : 0.5962133916683182, \"bpPurchaseprice\" : 0.6027456183070403, \"bpDetailsprice\" : 0.5637376656633328, \"id\" : 0, \"bpRistourne\" : 0, \"bpCurrency\" : { \"currencyName\" : \"franc cfa\", \"currencyAbbreviation\" : \"F cfa\", \"id\" : 2 }, \"bpPosId\" : 7, \"bpCode\" : \"BP0001\", \"bpWholeprice\" : 0.14658129805029452, \"bpPrecompte\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
