@@ -67,8 +67,33 @@ public class LoadingServiceImpl implements LoadingService{
             }
         }
         log.info("We continue the saving process by preparing the Loading to save");
-        Loading loadingToSave = loadingMapper.dtoToEntity(loadingDto);
+        //Loading loadingToSave = loadingMapper.dtoToEntity(loadingDto);
+        /**************
+         * loadingToUpdate.setLoadCode(loadingDto.getLoadCode());
+         *         loadingToUpdate.setLoadDate(loadingDto.getLoadDate());
+         *         loadingToUpdate.setLoadreturnDate(loadingDto.getLoadreturnDate());
+         *         loadingToUpdate.setLoadExpectedamount(loadingDto.getLoadExpectedamount());
+         *         loadingToUpdate.setLoadPaidamount(loadingDto.getLoadPaidamount());
+         *         loadingToUpdate.setLoadRemise(loadingDto.getLoadRemise());
+         *         loadingToUpdate.setLoadReport(loadingDto.getLoadReport());
+         *         loadingToUpdate.setLoadManager(userbmMapper.dtoToEntity(userbmService.getUserbmById(loadingDto.getLoadManagerId())));
+         *         loadingToUpdate.setLoadSaler(userbmMapper.dtoToEntity(userbmService.getUserbmById(loadingDto.getLoadSalerId())));
+         *         loadingToUpdate.setLoadPos(posMapper.dtoToEntity(posService.getPointofsaleById(loadingDto.getLoadPosId())));
+         */
+        Loading loadingToSave = Loading.builder()
+                .loadCode(loadingDto.getLoadCode())
+                .loadDate(loadingDto.getLoadDate())
+                .loadExpectedamount(loadingDto.getLoadExpectedamount())
+                .loadPaidamount(loadingDto.getLoadPaidamount())
+                .loadRemise(loadingDto.getLoadRemise())
+                .loadReport(loadingDto.getLoadReport())
+                .loadManager(userbmMapper.dtoToEntity(userbmService.getUserbmById(loadingDto.getLoadManagerId())))
+                .loadSaler(userbmMapper.dtoToEntity(userbmService.getUserbmById(loadingDto.getLoadSalerId())))
+                .loadPos(posMapper.dtoToEntity(posService.getPointofsaleById(loadingDto.getLoadPosId())))
+                .build();
+
         loadingToSave.setLoadreturnDate(null);//le returnDate ne peut etre connu au moment de l'enregistrement du loading
+        loadingToSave.setLoadOpen(true);//Le loading est ouvert par defaut a la creation
         return loadingMapper.entityToDto(loadingDao.save(loadingToSave));
     }
 

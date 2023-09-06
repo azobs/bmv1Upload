@@ -57,12 +57,12 @@ public class FormatServiceImpl implements FormatService{
                     ErrorCode.FORMAT_DUPLICATED.name());
         }
 
-//        Format formatToSave = Format.builder()
-//                .formatCapacity(formatDto.getFormatCapacity())
-//                .formatName(formatDto.getFormatName())
-//                .formatPos(posMapper.dtoToEntity(posService.getPointofsaleById(formatDto.getFormatPosId())))
-//                .build();
-        Format formatToSave = formatMapper.dtoToEntity(formatDto);
+        Format formatToSave = Format.builder()
+                .formatCapacity(formatDto.getFormatCapacity())
+                .formatName(formatDto.getFormatName())
+                .formatPos(posMapper.dtoToEntity(posService.getPointofsaleById(formatDto.getFormatPosId())))
+                .build();
+        //Format formatToSave = formatMapper.dtoToEntity(formatDto);
         Format formatSaved = formatDao.save(formatToSave);
         return formatMapper.entityToDto(formatSaved);
     }

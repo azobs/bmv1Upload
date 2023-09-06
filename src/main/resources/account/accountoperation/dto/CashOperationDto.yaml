@@ -24,7 +24,7 @@ properties:
       - OM_ACCOUNT
       - MOMO_ACCOUNT
     example: MOMO_ACCOUNT
-  operation:
+  operationId:
     type: integer
     format: int64
   posConcernedId:

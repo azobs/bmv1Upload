@@ -75,7 +75,7 @@ public class ProviderValidator {
              * L'adresse du Pointofsale doit aussi etre valide
              */
             if (provider.getProviderAddress() == null) {
-                errors.add("The address of pos to validate can't be null");
+                errors.add("The address of provider to validate can't be null");
             }
             else {
                 errors.addAll(addressValidator.validate(provider.getProviderAddress()));

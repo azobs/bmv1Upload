@@ -65,7 +65,19 @@ public class InventoryServiceImpl implements InventoryService{
         }
         log.info("We continue saving an inventory by preparing the inventory to save");
 
-        Inventory inventoryToSave = invMapper.dtoToEntity(invDto);
+        //Inventory inventoryToSave = invMapper.dtoToEntity(invDto);
+        /******
+         * invToUpdate.setInvCode(invDto.getInvCode());
+         *         invToUpdate.setInvComment(invDto.getInvComment());
+         *         invToUpdate.setInvDate(invDto.getInvDate());
+         *         invToUpdate.setInvPos(posMapper.dtoToEntity(posService.getPointofsaleById(invDto.getInvPosId())));
+         */
+        Inventory inventoryToSave = Inventory.builder()
+                .invCode(invDto.getInvCode())
+                .invComment(invDto.getInvComment())
+                .invDate(invDto.getInvDate())
+                .invPos(posMapper.dtoToEntity(posService.getPointofsaleById(invDto.getInvPosId())))
+                .build();
 
         return invMapper.entityToDto(invDao.save(inventoryToSave));
     }

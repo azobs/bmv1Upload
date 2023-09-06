@@ -70,7 +70,25 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 
         log.info("After all verification, the Enterprise {} sent can be safely saved in the DB ", enterpriseDto);
 
-        Enterprise enterpriseSaved = enterpriseDao.save(enterpriseMapper.dtoToEntity(enterpriseDto));
+        //Enterprise enterpriseSaved = enterpriseDao.save(enterpriseMapper.dtoToEntity(enterpriseDto));
+        /***
+         * enterpriseToUpdate.setEntAcronym(enterpriseDto.getEntAcronym());
+         *         enterpriseToUpdate.setEntName(enterpriseDto.getEntName());
+         *         enterpriseToUpdate.setEntLogo(enterpriseDto.getEntLogo());
+         *         enterpriseToUpdate.setEntNiu(enterpriseDto.getEntNiu());
+         *         enterpriseToUpdate.setEntSocialreason(enterpriseDto.getEntSocialreason());
+         *         enterpriseToUpdate.setEntDescription(enterpriseDto.getEntDescription());
+         *         enterpriseToUpdate.setEntRegime(convertToEntRegimeEnum(enterpriseDto.getEntRegime()));
+         */
+        Enterprise enterpriseSaved = Enterprise.builder()
+                .entAcronym(enterpriseDto.getEntAcronym())
+                .entName(enterpriseDto.getEntName())
+                .entLogo(enterpriseDto.getEntLogo())
+                .entNiu(enterpriseDto.getEntNiu())
+                .entSocialreason(enterpriseDto.getEntSocialreason())
+                .entDescription(enterpriseDto.getEntDescription())
+                .entRegime(convertToEntRegimeEnum(enterpriseDto.getEntRegime()))
+                .build();
 
         return enterpriseMapper.entityToDto(enterpriseSaved);
     }
@@ -143,30 +161,32 @@ public class EnterpriseServiceImpl implements EnterpriseService{
         enterpriseToUpdate.setEntNiu(enterpriseDto.getEntNiu());
         enterpriseToUpdate.setEntSocialreason(enterpriseDto.getEntSocialreason());
         enterpriseToUpdate.setEntDescription(enterpriseDto.getEntDescription());
-        switch (enterpriseDto.getEntRegime()){
-            case IL:
-                enterpriseToUpdate.setEntRegime(EntRegimeEnum.IL);
-                break;
-            case SA:
-                enterpriseToUpdate.setEntRegime(EntRegimeEnum.SA);
-                break;
-            case SI:
-                enterpriseToUpdate.setEntRegime(EntRegimeEnum.SI);
-                break;
-            case SARL:
-                enterpriseToUpdate.setEntRegime(EntRegimeEnum.SARL);
-                break;
-            case GRP:
-                enterpriseToUpdate.setEntRegime(EntRegimeEnum.GRP);
-                break;
-            default:
-                throw new InvalidArgumentException("Le regime de l'entreprise n'est pas valide ou n'est pas encore " +
-                        "pris par le systeme");
-        }
+        enterpriseToUpdate.setEntRegime(convertToEntRegimeEnum(enterpriseDto.getEntRegime()));
 
         Enterprise enterpriseUpdated = enterpriseDao.save(enterpriseToUpdate);
 
         return enterpriseMapper.entityToDto(enterpriseUpdated);
+    }
+
+    EntRegimeEnum convertToEntRegimeEnum(EnterpriseDto.EntRegimeEnum entRegimeEnum){
+        if(entRegimeEnum == null){
+            throw  new NullValueException("L'argument est null");
+        }
+        switch (entRegimeEnum){
+            case IL:
+                return EntRegimeEnum.IL;
+            case SA:
+                return EntRegimeEnum.SA;
+            case SI:
+                return EntRegimeEnum.SI;
+            case SARL:
+                return EntRegimeEnum.SARL;
+            case GRP:
+                return EntRegimeEnum.GRP;
+            default:
+                throw new InvalidArgumentException("Le regime de l'entreprise n'est pas valide ou n'est pas encore " +
+                        "pris par le systeme");
+        }
     }
 
     @Override

@@ -76,20 +76,37 @@ public class SupplyinvoiceServiceImpl implements SupplyinvoiceService{
             }
         }
         log.info("The supplyinvoice saving process continue by preparing the entity to save");
-//        Supplyinvoice supplyinvoiceToSave = Supplyinvoice.builder()
-//                .siCode(siDto.getSiCode())
-//                .siComment(siDto.getSiComment())
-//                .siPicture(siDto.getSiPicture())
-//                .siDeliverydate(siDto.getSiDeliverydate())
-//                .siInvoicingdate(siDto.getSiInvoicingdate())
-//                .siTotalcolis(siDto.getSiTotalcolis())
-//                .siExpectedamount(siDto.getSiExpectedamount())
-//                .siPaidamount(siDto.getSiPaidamount())
-//                .siPaymentmethod(siDto.)
-//                .siPos()
-//                .siProvider()
-//                .build();
-        Supplyinvoice supplyinvoiceSaved = siDao.save(siMapper.dtoToEntity(siDto));
+
+        /**************
+         * supplyinvoiceToUpdate.setSiCode(siDto.getSiCode());
+         *         supplyinvoiceToUpdate.setSiComment(siDto.getSiComment());
+         *         supplyinvoiceToUpdate.setSiPicture(siDto.getSiPicture());
+         *         supplyinvoiceToUpdate.setSiDeliverydate(siDto.getSiDeliverydate());
+         *         supplyinvoiceToUpdate.setSiInvoicingdate(siDto.getSiInvoicingdate());
+         *         supplyinvoiceToUpdate.setSiTotalcolis(siDto.getSiTotalcolis());
+         *         supplyinvoiceToUpdate.setSiExpectedamount(siDto.getSiExpectedamount());
+         *         supplyinvoiceToUpdate.setSiPaidamount(siDto.getSiPaidamount());
+         *         supplyinvoiceToUpdate.setSiPaymentmethod(paymentMethodEnumToPaiementMethodEnum(siDto.getSiPaymentmethod()));
+         *         supplyinvoiceToUpdate.setSiPos(posMapper.dtoToEntity(posService.getPointofsaleById(siDto.getSiPosId())));
+         *         supplyinvoiceToUpdate.setSiProvider(siDto.getSiProviderId() != null? providerMapper.dtoToEntity(
+         *                 providerService.getProviderById(siDto.getSiProviderId())):null);
+         */
+        Supplyinvoice supplyinvoiceToSave = Supplyinvoice.builder()
+                .siCode(siDto.getSiCode())
+                .siComment(siDto.getSiComment())
+                .siPicture(siDto.getSiPicture())
+                .siDeliverydate(siDto.getSiDeliverydate())
+                .siInvoicingdate(siDto.getSiInvoicingdate())
+                .siTotalcolis(siDto.getSiTotalcolis())
+                .siExpectedamount(siDto.getSiExpectedamount())
+                .siPaidamount(siDto.getSiPaidamount())
+                .siPaymentmethod(paymentMethodEnumToPaiementMethodEnum(siDto.getSiPaymentmethod()))
+                .siPos(posMapper.dtoToEntity(posService.getPointofsaleById(siDto.getSiPosId())))
+                .siProvider(siDto.getSiProviderId() != null? providerMapper.dtoToEntity(
+                        providerService.getProviderById(siDto.getSiProviderId())):null)
+                .build();
+
+        Supplyinvoice supplyinvoiceSaved = siDao.save(supplyinvoiceToSave);
 
         return siMapper.entityToDto(supplyinvoiceSaved);
     }

@@ -76,11 +76,11 @@ public class UserbmRoleServiceImpl implements UserbmRoleService{
          * Si tout est bon on effectue l'enregistrement
          */
         log.info("After all verification, the userbmrole can be saved safely");
-//        UserbmRole userbmRoleToSaved = UserbmRole.builder()
-//                .userbm(userbmDao.findUserbmById(userbmroleDto.getUserbmId()).get())
-//                .role(roleDao.findRoleById(userbmroleDto.getRoleId()).get())
-//                .build();
-        UserbmRole userbmRoleToSaved = userbmRoleMapper.dtoToEntity(userbmroleDto);
+        UserbmRole userbmRoleToSaved = UserbmRole.builder()
+                .userbm(userbmDao.findUserbmById(userbmroleDto.getUserbmId()).get())
+                .role(roleDao.findRoleById(userbmroleDto.getRoleId()).get())
+                .build();
+        //UserbmRole userbmRoleToSaved = userbmRoleMapper.dtoToEntity(userbmroleDto);
 
         UserbmRole userbmRoleSaved = userbmRoleDao.save(userbmRoleToSaved);
         return userbmRoleMapper.entityToDto(userbmRoleSaved);

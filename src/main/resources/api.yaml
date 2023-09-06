@@ -618,6 +618,19 @@ paths:
   /account/bm/v1/operation/page:
     $ref: 'account/accountoperation/route/getAccountOperationPage.yaml'
 
+#CashOperation management
+  /account/bm/v1/cashoperation/create:
+    $ref: 'account/accountoperation/route/createCashOperation.yaml'
+  /account/bm/v1/cashoperation/update:
+    $ref: 'account/accountoperation/route/updateCashOperation.yaml'
+  /account/bm/v1/cashoperation/delete/{id}:
+    $ref: 'account/accountoperation/route/deleteCashOperationById.yaml'
+  /account/bm/v1/cashoperation/getby/{id}:
+    $ref: 'account/accountoperation/route/getCashOperationById.yaml'
+  /account/bm/v1/cashoperation/list:
+    $ref: 'account/accountoperation/route/getCashOperationList.yaml'
+  /account/bm/v1/cashoperation/page:
+    $ref: 'account/accountoperation/route/getCashOperationPage.yaml'
 
 ########################################################################################################################
 ########################################################################################################################

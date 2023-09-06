@@ -65,7 +65,21 @@ public class InventorylineServiceImpl implements InventorylineService{
                     "dans l'inventaire indique ", ErrorCode.INVENTORYLINE_DUPLICATED.name());
         }
         log.info("We continue the saving process by preparing the inventoryline to save");
-        Inventoryline invlineToSave = invlineMapper.dtoToEntity(invlineDto);
+        //Inventoryline invlineToSave = invlineMapper.dtoToEntity(invlineDto);
+        /****
+         * invlineToUpdate.setInvlineComment(invlineDto.getInvlineComment());
+         *         invlineToUpdate.setRealqteinStock(invlineDto.getRealqteinStock());
+         *         invlineToUpdate.setLogicqteinStock(invlineDto.getLogicqteinStock());
+         *         invlineToUpdate.setInvlineArticle(artMapper.dtoToEntity(artService.getArticleById(invlineDto.getInvlineArticleId())));
+         *         invlineToUpdate.setInventory(invMapper.dtoToEntity(invService.getInventoryById(invlineDto.getInventoryId())));
+         */
+        Inventoryline invlineToSave = Inventoryline.builder()
+                .invlineComment(invlineDto.getInvlineComment())
+                .realqteinStock(invlineDto.getRealqteinStock())
+                .logicqteinStock(invlineDto.getLogicqteinStock())
+                .invlineArticle(artMapper.dtoToEntity(artService.getArticleById(invlineDto.getInvlineArticleId())))
+                .inventory(invMapper.dtoToEntity(invService.getInventoryById(invlineDto.getInventoryId())))
+                .build();
         log.info("We can now save the inventoryline");
         Inventoryline invlineSaved = invlineDao.save(invlineToSave);
         return invlineMapper.entityToDto(invlineSaved);

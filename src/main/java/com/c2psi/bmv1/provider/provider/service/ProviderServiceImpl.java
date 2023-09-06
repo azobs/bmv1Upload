@@ -87,6 +87,9 @@ public class ProviderServiceImpl implements ProviderService{
                                 .build()
                 )
                 .build();
+
+        //Provider providerToSave = providerMapper.dtoToEntity(providerDto);
+
         log.info("We can prepare now register the provider");
         Provider providerSaved = providerDao.save(providerToSave);
         return providerMapper.entityToDto(providerSaved);
@@ -144,10 +147,14 @@ public class ProviderServiceImpl implements ProviderService{
         }
 
         log.info("We continue by ensure that all the constraint can't be violated");
-        if(!isProviderAttributesUsable(providerDto.getProviderName(), providerDto.getProviderAcronym(),
-                providerDto.getProviderPosId())){
-            throw new DuplicateEntityException("Il existe deja un provider dans le systeme pour le meme pointofsale " +
-                    "avec le meme nom et le meme acronym ", ErrorCode.PROVIDER_DUPLICATED.name());
+        boolean providerNameToChange = !providerToUpdate.getProviderName().equals(providerDto.getProviderName());
+        boolean providerAcronymToChange = !providerToUpdate.getProviderAcronym().equals(providerDto.getProviderAcronym());
+        if(providerNameToChange || providerAcronymToChange) {
+            if (!isProviderAttributesUsable(providerDto.getProviderName(), providerDto.getProviderAcronym(),
+                    providerDto.getProviderPosId())) {
+                throw new DuplicateEntityException("Il existe deja un provider dans le systeme pour le meme pointofsale " +
+                        "avec le meme nom et le meme acronym ", ErrorCode.PROVIDER_DUPLICATED.name());
+            }
         }
         log.info("We can continue by preparing the updating process");
 

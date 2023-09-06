@@ -64,12 +64,12 @@ public class ProductformatedServiceImpl implements ProductformatedService{
                     "attributs ", ErrorCode.PRODUCTFORMATED_DUPLICATED.name());
         }
 
-//        Productformated pfToSaved = Productformated.builder()
-//                .pfPicture(pfDto.getPfPicture())
-//                .pfProduct(productMapper.dtoToEntity(productService.getProductById(pfDto.getPfProductId())))
-//                .pfFormat(formatMapper.dtoToEntity(formatService.getFormatById(pfDto.getPfFormatId())))
-//                .build();
-        Productformated pfToSaved = pfMapper.dtoToEntity(pfDto);
+        Productformated pfToSaved = Productformated.builder()
+                .pfPicture(pfDto.getPfPicture())
+                .pfProduct(productMapper.dtoToEntity(productService.getProductById(pfDto.getPfProductId())))
+                .pfFormat(formatMapper.dtoToEntity(formatService.getFormatById(pfDto.getPfFormatId())))
+                .build();
+        //Productformated pfToSaved = pfMapper.dtoToEntity(pfDto);
 
         Productformated pfSaved = pfDao.save(pfToSaved);
 

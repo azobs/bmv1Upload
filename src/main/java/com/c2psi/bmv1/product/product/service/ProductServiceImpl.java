@@ -61,17 +61,17 @@ public class ProductServiceImpl implements ProductService{
             }
         }
 
-//        Product productToSave = Product.builder()
-//                .prodName(productDto.getProdName())
-//                .prodCode(productDto.getProdCode())
-//                .prodDescription(productDto.getProdDescription())
-//                .prodAlias(productDto.getProdAlias())
-//                .prodPerishable(productDto.getProdPerishable())
-//                .prodCat(categoryMapper.dtoToEntity(categoryService.getCategoryById(productDto.getProdCatId())))
-//                .build();
+        Product productToSave = Product.builder()
+                .prodName(productDto.getProdName())
+                .prodCode(productDto.getProdCode())
+                .prodDescription(productDto.getProdDescription())
+                .prodAlias(productDto.getProdAlias())
+                .prodPerishable(productDto.getProdPerishable())
+                .prodCat(categoryMapper.dtoToEntity(categoryService.getCategoryById(productDto.getProdCatId())))
+                .build();
 
 
-        Product productToSave = productMapper.dtoToEntity(productDto);
+        //Product productToSave = productMapper.dtoToEntity(productDto);
 
         Product productSaved = productDao.save(productToSave);
 

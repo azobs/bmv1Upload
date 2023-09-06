@@ -60,18 +60,18 @@ public class BasepriceServiceImpl implements BasepriceService{
             }
         }
 
-//        Baseprice basepriceToSave = Baseprice.builder()
-//                .bpPos(posMapper.dtoToEntity(posService.getPointofsaleById(basepriceDto.getBpPosId())))
-//                .bpCurrency(currencyMapper.dtoToEntity(basepriceDto.getBpCurrency()))
-//                .bpCode(basepriceDto.getBpCode())
-//                .bpDetailsprice(basepriceDto.getBpDetailsprice())
-//                .bpPrecompte(basepriceDto.getBpPrecompte())
-//                .bpPurchaseprice(basepriceDto.getBpPurchaseprice())
-//                .bpWholeprice(basepriceDto.getBpWholeprice())
-//                .bpRistourne(basepriceDto.getBpRistourne())
-//                .bpSemiwholeprice(basepriceDto.getBpSemiwholeprice())
-//                .build();
-        Baseprice basepriceToSave = basepriceMapper.dtoToEntity(basepriceDto);
+        Baseprice basepriceToSave = Baseprice.builder()
+                .bpPos(posMapper.dtoToEntity(posService.getPointofsaleById(basepriceDto.getBpPosId())))
+                .bpCurrency(currencyMapper.dtoToEntity(basepriceDto.getBpCurrency()))
+                .bpCode(basepriceDto.getBpCode())
+                .bpDetailsprice(basepriceDto.getBpDetailsprice())
+                .bpPrecompte(basepriceDto.getBpPrecompte())
+                .bpPurchaseprice(basepriceDto.getBpPurchaseprice())
+                .bpWholeprice(basepriceDto.getBpWholeprice())
+                .bpRistourne(basepriceDto.getBpRistourne())
+                .bpSemiwholeprice(basepriceDto.getBpSemiwholeprice())
+                .build();
+        //Baseprice basepriceToSave = basepriceMapper.dtoToEntity(basepriceDto);
         log.info("On peut donc tout enregistrer dans la BD");
         Baseprice basepriceSaved = basepriceDao.save(basepriceToSave);
 

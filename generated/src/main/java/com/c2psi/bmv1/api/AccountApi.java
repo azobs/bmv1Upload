@@ -7,9 +7,11 @@ package com.c2psi.bmv1.api;
 
 import com.c2psi.bmv1.dto.AccountDto;
 import com.c2psi.bmv1.dto.AccountOperationDto;
+import com.c2psi.bmv1.dto.CashOperationDto;
 import com.c2psi.bmv1.dto.FilterRequest;
 import com.c2psi.bmv1.dto.PageofAccountDto;
 import com.c2psi.bmv1.dto.PageofAccountOperationDto;
+import com.c2psi.bmv1.dto.PageofCashOperationDto;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -24,7 +26,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-01T16:05:37.277942500+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-05T20:37:01.434321300+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "account", description = "the account API")
 public interface AccountApi {
@@ -98,6 +100,41 @@ public interface AccountApi {
 
     // Override this method
     default  ResponseEntity<Boolean> deleteAccountOperationById(Long id) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * DELETE /account/bm/v1/cashoperation/delete/{id} : Path used to delete an cash operation in the system with its id
+     *
+     * @param id The id that represent the CashOperation to delete. It&#39;s compulsory if not the operation can&#39;t proceed (required)
+     * @return CashOperation deleted successfully (status code 200)
+     *         or Bad request. Operation ID must be an integer and larger than 0. (status code 400)
+     *         or Authorization information is missing or invalid. (status code 401)
+     *         or The user who ask the ressource is Forbidden. (status code 403)
+     *         or The expected ressource is not found. (status code 404)
+     *         or Unexpected error at the server side. (status code 500)
+     */
+    @ApiOperation(value = "Path used to delete an cash operation in the system with its id", nickname = "deleteCashOperationById", notes = "", response = Boolean.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "CashOperation deleted successfully", response = Boolean.class),
+        @ApiResponse(code = 400, message = "Bad request. Operation ID must be an integer and larger than 0."),
+        @ApiResponse(code = 401, message = "Authorization information is missing or invalid."),
+        @ApiResponse(code = 403, message = "The user who ask the ressource is Forbidden."),
+        @ApiResponse(code = 404, message = "The expected ressource is not found."),
+        @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
+    @RequestMapping(
+        method = RequestMethod.DELETE,
+        value = "/account/bm/v1/cashoperation/delete/{id}",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<Boolean> _deleteCashOperationById(@ApiParam(value = "The id that represent the CashOperation to delete. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
+        return deleteCashOperationById(id);
+    }
+
+    // Override this method
+    default  ResponseEntity<Boolean> deleteCashOperationById(Long id) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -332,6 +369,120 @@ public interface AccountApi {
 
 
     /**
+     * GET /account/bm/v1/cashoperation/getby/{id} : Find an CashOperation in the system by its id
+     *
+     * @param id The id that represent the CashOperation found. It&#39;s compulsory if not the operation can&#39;t proceed (required)
+     * @return CashOperation found successfully (status code 200)
+     *         or Bad request. Operation ID must be an integer and larger than 0. (status code 400)
+     *         or Authorization information is missing or invalid. (status code 401)
+     *         or The user who ask the ressource is Forbidden. (status code 403)
+     *         or The expected ressource is not found. (status code 404)
+     *         or Unexpected error at the server side. (status code 500)
+     */
+    @ApiOperation(value = "Find an CashOperation in the system by its id", nickname = "getCashOperationById", notes = "", response = CashOperationDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "CashOperation found successfully", response = CashOperationDto.class),
+        @ApiResponse(code = 400, message = "Bad request. Operation ID must be an integer and larger than 0."),
+        @ApiResponse(code = 401, message = "Authorization information is missing or invalid."),
+        @ApiResponse(code = 403, message = "The user who ask the ressource is Forbidden."),
+        @ApiResponse(code = 404, message = "The expected ressource is not found."),
+        @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/account/bm/v1/cashoperation/getby/{id}",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<CashOperationDto> _getCashOperationById(@ApiParam(value = "The id that represent the CashOperation found. It's compulsory if not the operation can't proceed", required = true) @PathVariable("id") Long id) {
+        return getCashOperationById(id);
+    }
+
+    // Override this method
+    default  ResponseEntity<CashOperationDto> getCashOperationById(Long id) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"clientConcernedId\" : 5, \"amountinMvt\" : 1, \"amountDestination\" : \"MOMO_ACCOUNT\", \"providerConcernedId\" : 5, \"operationId\" : 6, \"posConcernedId\" : 1, \"id\" : 0, \"amountSource\" : \"CASH_DESK\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * POST /account/bm/v1/cashoperation/list : Path used to list cashoperation that respect certain criteria. A criteria is an instance of a Filter object
+     *
+     * @param filterRequest  (optional)
+     * @return CashOperation list found successfully (status code 200)
+     */
+    @ApiOperation(value = "Path used to list cashoperation that respect certain criteria. A criteria is an instance of a Filter object", nickname = "getCashOperationList", notes = "", response = CashOperationDto.class, responseContainer = "List", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "CashOperation list found successfully", response = CashOperationDto.class, responseContainer = "List") })
+    @RequestMapping(
+        method = RequestMethod.POST,
+        value = "/account/bm/v1/cashoperation/list",
+        produces = { "application/json" },
+        consumes = { "application/json" }
+    )
+    default ResponseEntity<List<CashOperationDto>> _getCashOperationList(@ApiParam(value = "") @Valid @RequestBody(required = false) FilterRequest filterRequest) {
+        return getCashOperationList(filterRequest);
+    }
+
+    // Override this method
+    default  ResponseEntity<List<CashOperationDto>> getCashOperationList(FilterRequest filterRequest) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"clientConcernedId\" : 5, \"amountinMvt\" : 1, \"amountDestination\" : \"MOMO_ACCOUNT\", \"providerConcernedId\" : 5, \"operationId\" : 6, \"posConcernedId\" : 1, \"id\" : 0, \"amountSource\" : \"CASH_DESK\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * POST /account/bm/v1/cashoperation/page : Path used to list CashOperation page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want
+     *
+     * @param filterRequest  (optional)
+     * @return CashOperation page found successfully (status code 200)
+     */
+    @ApiOperation(value = "Path used to list CashOperation page by page that respect certain criteria. With the Page object, we can configure the page number and size that we want", nickname = "getCashOperationPage", notes = "", response = PageofCashOperationDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "CashOperation page found successfully", response = PageofCashOperationDto.class) })
+    @RequestMapping(
+        method = RequestMethod.POST,
+        value = "/account/bm/v1/cashoperation/page",
+        produces = { "application/json" },
+        consumes = { "application/json" }
+    )
+    default ResponseEntity<PageofCashOperationDto> _getCashOperationPage(@ApiParam(value = "") @Valid @RequestBody(required = false) FilterRequest filterRequest) {
+        return getCashOperationPage(filterRequest);
+    }
+
+    // Override this method
+    default  ResponseEntity<PageofCashOperationDto> getCashOperationPage(FilterRequest filterRequest) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"totalPages\" : 6, \"pageSize\" : 10, \"currentPage\" : 0, \"content\" : [ { \"clientConcernedId\" : 5, \"amountinMvt\" : 1, \"amountDestination\" : \"MOMO_ACCOUNT\", \"providerConcernedId\" : 5, \"operationId\" : 6, \"posConcernedId\" : 1, \"id\" : 0, \"amountSource\" : \"CASH_DESK\" }, { \"clientConcernedId\" : 5, \"amountinMvt\" : 1, \"amountDestination\" : \"MOMO_ACCOUNT\", \"providerConcernedId\" : 5, \"operationId\" : 6, \"posConcernedId\" : 1, \"id\" : 0, \"amountSource\" : \"CASH_DESK\" } ], \"totalElements\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
      * POST /account/bm/v1/create : Path used to save a new Account in the system to manage packaging, cover and damage article
      *
      * @param accountDto  (optional)
@@ -422,6 +573,51 @@ public interface AccountApi {
 
 
     /**
+     * POST /account/bm/v1/cashoperation/create : Path used to save a new CashOperation in the system to have history of all cash operations in the system
+     *
+     * @param cashOperationDto  (optional)
+     * @return CashOperation saved successfully (status code 200)
+     *         or Bad request. There is something wrong in the request. (status code 400)
+     *         or Authorization information is missing or invalid. (status code 401)
+     *         or The user who ask the ressource is Forbidden. (status code 403)
+     *         or The expected ressource is not found. (status code 404)
+     *         or Unexpected error at the server side. (status code 500)
+     */
+    @ApiOperation(value = "Path used to save a new CashOperation in the system to have history of all cash operations in the system", nickname = "saveCashOperation", notes = "", response = CashOperationDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "CashOperation saved successfully", response = CashOperationDto.class),
+        @ApiResponse(code = 400, message = "Bad request. There is something wrong in the request."),
+        @ApiResponse(code = 401, message = "Authorization information is missing or invalid."),
+        @ApiResponse(code = 403, message = "The user who ask the ressource is Forbidden."),
+        @ApiResponse(code = 404, message = "The expected ressource is not found."),
+        @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
+    @RequestMapping(
+        method = RequestMethod.POST,
+        value = "/account/bm/v1/cashoperation/create",
+        produces = { "application/json" },
+        consumes = { "application/json" }
+    )
+    default ResponseEntity<CashOperationDto> _saveCashOperation(@ApiParam(value = "") @Valid @RequestBody(required = false) CashOperationDto cashOperationDto) {
+        return saveCashOperation(cashOperationDto);
+    }
+
+    // Override this method
+    default  ResponseEntity<CashOperationDto> saveCashOperation(CashOperationDto cashOperationDto) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"clientConcernedId\" : 5, \"amountinMvt\" : 1, \"amountDestination\" : \"MOMO_ACCOUNT\", \"providerConcernedId\" : 5, \"operationId\" : 6, \"posConcernedId\" : 1, \"id\" : 0, \"amountSource\" : \"CASH_DESK\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
      * PUT /account/bm/v1/update : Path used to update or modify an existing Account in the system
      *
      * @param accountDto  (optional)
@@ -501,6 +697,51 @@ public interface AccountApi {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
                     String exampleString = "{ \"accountId\" : 1, \"quantityinMvt\" : 1, \"operationId\" : 6, \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * PUT /account/bm/v1/cashoperation/update : Path used to update or modify an existing CashOperation in the system
+     *
+     * @param cashOperationDto  (optional)
+     * @return CashOperation updated successfully (status code 200)
+     *         or Bad request. There is something wrong in the request. (status code 400)
+     *         or Authorization information is missing or invalid. (status code 401)
+     *         or The user who ask the ressource is Forbidden. (status code 403)
+     *         or The expected ressource is not found. (status code 404)
+     *         or Unexpected error at the server side. (status code 500)
+     */
+    @ApiOperation(value = "Path used to update or modify an existing CashOperation in the system", nickname = "updateCashOperation", notes = "", response = CashOperationDto.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "CashOperation updated successfully", response = CashOperationDto.class),
+        @ApiResponse(code = 400, message = "Bad request. There is something wrong in the request."),
+        @ApiResponse(code = 401, message = "Authorization information is missing or invalid."),
+        @ApiResponse(code = 403, message = "The user who ask the ressource is Forbidden."),
+        @ApiResponse(code = 404, message = "The expected ressource is not found."),
+        @ApiResponse(code = 500, message = "Unexpected error at the server side.") })
+    @RequestMapping(
+        method = RequestMethod.PUT,
+        value = "/account/bm/v1/cashoperation/update",
+        produces = { "application/json" },
+        consumes = { "application/json" }
+    )
+    default ResponseEntity<CashOperationDto> _updateCashOperation(@ApiParam(value = "") @Valid @RequestBody(required = false) CashOperationDto cashOperationDto) {
+        return updateCashOperation(cashOperationDto);
+    }
+
+    // Override this method
+    default  ResponseEntity<CashOperationDto> updateCashOperation(CashOperationDto cashOperationDto) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"clientConcernedId\" : 5, \"amountinMvt\" : 1, \"amountDestination\" : \"MOMO_ACCOUNT\", \"providerConcernedId\" : 5, \"operationId\" : 6, \"posConcernedId\" : 1, \"id\" : 0, \"amountSource\" : \"CASH_DESK\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

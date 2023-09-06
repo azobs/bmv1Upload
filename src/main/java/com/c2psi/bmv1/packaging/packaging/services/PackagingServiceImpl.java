@@ -65,7 +65,26 @@ public class PackagingServiceImpl implements PackagingService{
                     "pointofsale ", ErrorCode.PACKAGING_DUPLICATED.name());
         }
         log.info("We continue the saving process by preparing the Packaging to save");
-        Packaging packagingToSave = packagingMapper.dtoToEntity(packagingDto);
+        //Packaging packagingToSave = packagingMapper.dtoToEntity(packagingDto);
+        /***
+         *  packagingToUpdate.setPackLabel(packagingDto.getPackLabel());
+         *         packagingToUpdate.setPackDescription(packagingDto.getPackDescription());
+         *         packagingToUpdate.setPackFirstcolor(packagingDto.getPackFirstcolor());
+         *         packagingToUpdate.setPackPrice(packagingDto.getPackPrice());
+         *         packagingToUpdate.setPackagingProvider(provMapper.dtoToEntity(provService.getProviderById(
+         *                 packagingDto.getPackagingProviderId())));
+         *         packagingToUpdate.setPackagingPos(posMapper.dtoToEntity(posService.getPointofsaleById(
+         *                 packagingDto.getPackagingPosId())));
+         */
+        Packaging packagingToSave = Packaging.builder()
+                .packLabel(packagingDto.getPackLabel())
+                .packDescription(packagingDto.getPackDescription())
+                .packFirstcolor(packagingDto.getPackFirstcolor())
+                .packPrice(packagingDto.getPackPrice())
+                .packagingProvider(provMapper.dtoToEntity(provService.getProviderById(packagingDto.getPackagingProviderId())))
+                .packagingPos(posMapper.dtoToEntity(posService.getPointofsaleById(packagingDto.getPackagingPosId())))
+                .build();
+
         return packagingMapper.entityToDto(packagingDao.save(packagingToSave));
     }
 

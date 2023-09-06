@@ -81,15 +81,15 @@ public class CategoryServiceImpl implements CategoryService{
         /***********************************************************
          * Si tout s'est bien passe on effectue l'enregistrement
          */
-//        Category categoryToSave = Category.builder()
-//                .catName(categoryDto.getCatName())
-//                .catShortname(categoryDto.getCatShortname())
-//                .catCode(categoryDto.getCatCode())
-//                .catDescription(categoryDto.getCatDescription())
-//                .catParent(catParent)
-//                .catPos(posMapper.dtoToEntity(posService.getPointofsaleById(categoryDto.getCatPosId())))
-//                .build();
-        Category categoryToSave = categoryMapper.dtoToEntity(categoryDto);
+        Category categoryToSave = Category.builder()
+                .catName(categoryDto.getCatName())
+                .catShortname(categoryDto.getCatShortname())
+                .catCode(categoryDto.getCatCode())
+                .catDescription(categoryDto.getCatDescription())
+                .catParent(catParent)
+                .catPos(posMapper.dtoToEntity(posService.getPointofsaleById(categoryDto.getCatPosId())))
+                .build();
+        //Category categoryToSave = categoryMapper.dtoToEntity(categoryDto);
         Category categorySaved = categoryDao.save(categoryToSave);
 
         return categoryMapper.entityToDto(categorySaved);

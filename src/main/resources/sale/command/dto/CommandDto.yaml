@@ -19,10 +19,17 @@ properties:
       - Edited
       - InDelivery
       - Delivery
+      - Cash
+      - Cover
+      - Damage
     example: InEditing
   cmdNature:
     type: string
     enum:
+      - InEditing
+      - Edited
+      - InDelivery
+      - Delivery
       - Cash
       - Cover
       - Damage

@@ -56,17 +56,17 @@ public class SpecialpriceServiceImpl implements SpecialpriceService{
             }
         }
         log.info("After all verification we can prepare the specialprice saving process");
-//        Specialprice specialpriceToSave = Specialprice.builder()
-//                .spCode(specialpriceDto.getSpCode())
-//                .spWholeprice(specialpriceDto.getSpWholeprice())
-//                .spSemiwholeprice(specialpriceDto.getSpSemiwholeprice())
-//                .spDetailsprice(specialpriceDto.getSpDetailsprice())
-//                .spRistourne(specialpriceDto.getSpRistourne())
-//                .spPrecompte(specialpriceDto.getSpPrecompte())
-//                .spBaseprice(basepriceMapper.dtoToEntity(basepriceService.getBasepriceById(
-//                        specialpriceDto.getSpBasepriceId())))
-//                .build();
-        Specialprice specialpriceToSave = specialpriceMapper.dtoToEntity(specialpriceDto);
+        Specialprice specialpriceToSave = Specialprice.builder()
+                .spCode(specialpriceDto.getSpCode())
+                .spWholeprice(specialpriceDto.getSpWholeprice())
+                .spSemiwholeprice(specialpriceDto.getSpSemiwholeprice())
+                .spDetailsprice(specialpriceDto.getSpDetailsprice())
+                .spRistourne(specialpriceDto.getSpRistourne())
+                .spPrecompte(specialpriceDto.getSpPrecompte())
+                .spBaseprice(basepriceMapper.dtoToEntity(basepriceService.getBasepriceById(
+                        specialpriceDto.getSpBasepriceId())))
+                .build();
+        //Specialprice specialpriceToSave = specialpriceMapper.dtoToEntity(specialpriceDto);
         log.info("After all verification the specialprice can be saved safely");
         Specialprice specialpriceSaved = specialpriceDao.save(specialpriceToSave);
         return specialpriceMapper.entityToDto(specialpriceSaved);

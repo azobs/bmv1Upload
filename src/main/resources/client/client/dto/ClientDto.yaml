@@ -15,15 +15,15 @@ properties:
     format: double
     minimum: 0
     exclusiveMinimum: false
-  clientAddressId:
-    type: integer
-    format: int64
+#  clientAddressId:
+#    type: integer
+#    format: int64
   clientPosId:
     type: integer
     format: int64
-#  clientAddress:
-#    type: object
-#    $ref: '../../../general/dto/AddressDto.yaml'
+  clientAddress:
+    type: object
+    $ref: '../../../general/dto/AddressDto.yaml'
 #  clientPos:
 #    type: object
 #    $ref: '../../../pos/pos/dto/PointofsaleDto.yaml'

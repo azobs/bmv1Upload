@@ -43,6 +43,7 @@ src/main/java/com/c2psi/bmv1/dto/AuthResponse.java
 src/main/java/com/c2psi/bmv1/dto/BackinDto.java
 src/main/java/com/c2psi/bmv1/dto/BackindetailsDto.java
 src/main/java/com/c2psi/bmv1/dto/BasepriceDto.java
+src/main/java/com/c2psi/bmv1/dto/CashOperationDto.java
 src/main/java/com/c2psi/bmv1/dto/CategoryDto.java
 src/main/java/com/c2psi/bmv1/dto/ClientDto.java
 src/main/java/com/c2psi/bmv1/dto/ClientSpecialpriceDto.java
@@ -70,6 +71,7 @@ src/main/java/com/c2psi/bmv1/dto/PageofArrivalDto.java
 src/main/java/com/c2psi/bmv1/dto/PageofArticleDto.java
 src/main/java/com/c2psi/bmv1/dto/PageofBackinDto.java
 src/main/java/com/c2psi/bmv1/dto/PageofBackindetailsDto.java
+src/main/java/com/c2psi/bmv1/dto/PageofCashOperationDto.java
 src/main/java/com/c2psi/bmv1/dto/PageofCategoryDto.java
 src/main/java/com/c2psi/bmv1/dto/PageofClientDto.java
 src/main/java/com/c2psi/bmv1/dto/PageofClientSpecialpriceDto.java

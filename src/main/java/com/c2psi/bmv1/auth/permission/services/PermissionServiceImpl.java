@@ -64,7 +64,11 @@ public class PermissionServiceImpl implements PermissionService{
          * Si tout est bon on effectue l'enregistrement
          */
         log.info("After all verification, the permission can be saved safely");
-        Permission permissionSaved = permissionDao.save(permissionMapper.dtoToEntity(permissionDto));
+        Permission permissionToSave = Permission.builder()
+                .permissionName(permissionDto.getPermissionName())
+                .permissionDescription(permissionDto.getPermissionDescription())
+                .build();
+        Permission permissionSaved = permissionDao.save(permissionToSave);
         return permissionMapper.entityToDto(permissionSaved);
     }
 

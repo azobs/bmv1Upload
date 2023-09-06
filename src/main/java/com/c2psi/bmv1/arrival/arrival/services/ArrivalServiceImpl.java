@@ -71,8 +71,31 @@ public class ArrivalServiceImpl implements ArrivalService{
             }
         }
         log.info("We continue saving an arrival by preparing the arrival to save");
-        Arrival arrivalToSave = arrivalMapper.dtoToEntity(arrivalDto);
-        log.info("We continue saving an arrival by realy save the arrival in the DB");
+
+        //Arrival arrivalToSave = arrivalMapper.dtoToEntity(arrivalDto);
+        /******
+         * arrivalToUpdate.setArrivalDate(arrivalDto.getArrivalDate());
+         *         arrivalToUpdate.setArrivalUnitprice(arrivalDto.getArrivalUnitprice());
+         *         arrivalToUpdate.setArrivalType(ArrivalTypeEnumToArrivalDtoArrivalTypeEnum(arrivalDto.getArrivalType()));
+         *         arrivalToUpdate.setArrivalNature(ArrivalNatureEnumToArrivalDtoArrivalNatureEnum(arrivalDto.getArrivalNature()));
+         *         arrivalToUpdate.setArrivalArticle(articleMapper.dtoToEntity(
+         *                 articleService.getArticleById(arrivalDto.getArrivalArticleId())));
+         *         arrivalToUpdate.setArrivalSi(arrivalDto.getArrivalInvoiceId() == null? null :
+         *                 siMapper.dtoToEntity(siService.getSupplyinvoiceById(arrivalDto.getArrivalInvoiceId())));
+         */
+        Arrival arrivalToSave = Arrival.builder()
+                .arrivalDate(arrivalDto.getArrivalDate())
+                .arrivalUnitprice(arrivalDto.getArrivalUnitprice())
+                .arrivalType(ArrivalTypeEnumToArrivalDtoArrivalTypeEnum(arrivalDto.getArrivalType()))
+                .arrivalNature(ArrivalNatureEnumToArrivalDtoArrivalNatureEnum(arrivalDto.getArrivalNature()))
+                .arrivalArticle(articleMapper.dtoToEntity(articleService.getArticleById(arrivalDto.getArrivalArticleId())))
+                .arrivalSi(arrivalDto.getArrivalInvoiceId() == null? null : siMapper.dtoToEntity(
+                        siService.getSupplyinvoiceById(arrivalDto.getArrivalInvoiceId())))
+                .build();
+
+
+
+                log.info("We continue saving an arrival by realy save the arrival in the DB");
         Arrival arrivalSaved = arrivalDao.save(arrivalToSave);
         log.info("We continue saving an arrival by retrieving the corresponding article in the DB");
         Article articleToUpdate = arrivalSaved.getArrivalArticle();

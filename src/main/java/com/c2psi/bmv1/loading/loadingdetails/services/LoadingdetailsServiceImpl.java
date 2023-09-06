@@ -66,7 +66,22 @@ public class LoadingdetailsServiceImpl implements LoadingdetailsService{
                     ErrorCode.LOADINGDETAILS_DUPLICATED.name());
         }
         log.info("We continue the saving process by preparing the loadingdetails to save");
-        Loadingdetails loadingdetailsToSave = loaddetailsMapper.dtoToEntity(ldDto);
+        //Loadingdetails loadingdetailsToSave = loaddetailsMapper.dtoToEntity(ldDto);
+
+        /*******
+         * loadingdetailsToUpdate.setLdArticle(articleMapper.dtoToEntity(articleService.getArticleById(
+         *                 ldDto.getLdArticleId())));
+         *         loadingdetailsToUpdate.setLdLoading(loadingMapper.dtoToEntity(loadingService.getLoadingById(
+         *                 ldDto.getLdLoadingId())));
+         *         loadingdetailsToUpdate.setQuantityReturn(ldDto.getQuantityReturn());
+         *         loadingdetailsToUpdate.setQuantityTaken(ldDto.getQuantityTaken());
+         */
+        Loadingdetails loadingdetailsToSave = Loadingdetails.builder()
+                .ldArticle(articleMapper.dtoToEntity(articleService.getArticleById(ldDto.getLdArticleId())))
+                .ldLoading(loadingMapper.dtoToEntity(loadingService.getLoadingById(ldDto.getLdLoadingId())))
+                .quantityReturn(ldDto.getQuantityReturn())
+                .quantityTaken(ldDto.getQuantityTaken())
+                .build();
 
         return loaddetailsMapper.entityToDto(loaddetailsDao.save(loadingdetailsToSave));
     }

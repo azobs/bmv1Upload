@@ -1,5 +1,6 @@
 package com.c2psi.bmv1.userbm.services;
 
+import com.c2psi.bmv1.address.models.Address;
 import com.c2psi.bmv1.address.services.AddressService;
 import com.c2psi.bmv1.auth.config.JwtService;
 import com.c2psi.bmv1.auth.models.ExtendedUser;
@@ -120,7 +121,36 @@ public class UserbmServiceImpl implements UserbmService{
 
         log.info("After all verification, the Userbm sent can be safely saved in the DB ");
 
-        Userbm userbmSaved = userbmDao.save(userbmMapper.dtoToEntity(userbmDto));
+        /**
+         * userbmToUpdate.setUserCni(userbmDto.getUserCni());
+         * userbmToUpdate.setUserLogin(userbmDto.getUserLogin());
+         * userbmToUpdate.setUserName(userbmDto.getUserName());
+         * userbmToUpdate.setUserSurname(userbmDto.getUserSurname());
+         *  userbmToUpdate.setUserDob(userbmDto.getUserDob());
+         *  userbmToUpdate.setUserState(convert(userbmDto.getUserState()));
+         */
+        Userbm userbmToSave = Userbm.builder()
+                .userAddress(Address.builder()
+                        .numtel1(userbmDto.getUserAddress().getNumtel1())
+                        .numtel2(userbmDto.getUserAddress().getNumtel2())
+                        .numtel3(userbmDto.getUserAddress().getNumtel3())
+                        .quarter(userbmDto.getUserAddress().getQuarter())
+                        .country(userbmDto.getUserAddress().getCountry())
+                        .town(userbmDto.getUserAddress().getTown())
+                        .localisation(userbmDto.getUserAddress().getLocalisation())
+                        .email(userbmDto.getUserAddress().getEmail())
+                        .build())
+                .userCni(userbmDto.getUserCni())
+                .userLogin(userbmDto.getUserLogin())
+                .userName(userbmDto.getUserName())
+                .userSurname(userbmDto.getUserSurname())
+                .userDob(userbmDto.getUserDob())
+                .userState(convert(userbmDto.getUserState()))
+                .userPassword(userbmDto.getUserPassword())
+                .build();
+
+
+        Userbm userbmSaved = userbmDao.save(userbmToSave);
         ///////////////////////////////////////////////////
 
         //TokenDto tokenDto =

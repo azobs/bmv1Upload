@@ -7,7 +7,6 @@ import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.Filter;
 import com.c2psi.bmv1.dto.FilterRequest;
 import com.c2psi.bmv1.dto.Orderby;
-import com.c2psi.bmv1.pos.pos.models.Pointofsale;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Order;
 import jakarta.persistence.criteria.Predicate;
@@ -38,7 +37,7 @@ public class ArrivalSpecService {
         }
     }
 
-    Predicate getArrivalBetweenPredicate(Root<Pointofsale> root, CriteriaBuilder criteriaBuilder, Filter filter) {
+    Predicate getArrivalBetweenPredicate(Root<Arrival> root, CriteriaBuilder criteriaBuilder, Filter filter) {
         Field field = getFieldType(filter.getFilterColumn());
         var fieldType = field.getType().getName();
 
@@ -46,7 +45,7 @@ public class ArrivalSpecService {
                 filter.getFilterValue());
     }
 
-    Predicate getArrivalEqualPredicate(Root<Pointofsale> root, CriteriaBuilder criteriaBuilder, Filter filter) {
+    Predicate getArrivalEqualPredicate(Root<Arrival> root, CriteriaBuilder criteriaBuilder, Filter filter) {
         Field field = getFieldType(filter.getFilterColumn());
         var fieldType = field.getType().getName();
 
@@ -109,7 +108,6 @@ public class ArrivalSpecService {
             Predicate predicate = getArrivalPredicate(root, criteriaBuilder, filterList, operator);
             return predicate;
         });
-
     }
 
 

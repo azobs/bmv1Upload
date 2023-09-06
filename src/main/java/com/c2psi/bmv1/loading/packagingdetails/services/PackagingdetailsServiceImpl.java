@@ -65,7 +65,23 @@ public class PackagingdetailsServiceImpl implements PackagingdetailsService{
                     "le packaging indique ", ErrorCode.PACKAGINGDETAILS_DUPLICATED.name());
         }
         log.info("We continue the saving process by preparing the packagingdetails to save");
-        Packagingdetails packagingdetailsToSave = packagingdetailsMapper.dtoToEntity(packagingdetailsDto);
+        //Packagingdetails packagingdetailsToSave = packagingdetailsMapper.dtoToEntity(packagingdetailsDto);
+        /****
+         * packagingdetailsToUpdate.setPdLoading(loadingMapper.dtoToEntity(loadingService.getLoadingById(
+         *                 packagingdetailsDto.getPdLoadingId())));
+         *         packagingdetailsToUpdate.setPdPackaging(packagingMapper.dtoToEntity(packagingService.getPackagingById(
+         *                 packagingdetailsDto.getPdPackagingId())));
+         *         packagingdetailsToUpdate.setPackagenumberReturn(packagingdetailsDto.getPackagenumberReturn());
+         *         packagingdetailsToUpdate.setPackagenumberUsed(packagingdetailsDto.getPackagenumberUsed());
+         */
+        Packagingdetails packagingdetailsToSave = Packagingdetails.builder()
+                .pdLoading(loadingMapper.dtoToEntity(loadingService.getLoadingById(packagingdetailsDto.getPdLoadingId())))
+                .pdPackaging(packagingMapper.dtoToEntity(packagingService.getPackagingById(packagingdetailsDto.
+                        getPdPackagingId())))
+                .packagenumberReturn(packagingdetailsDto.getPackagenumberReturn())
+                .packagenumberUsed(packagingdetailsDto.getPackagenumberUsed())
+                .build();
+
         Packagingdetails packagingdetailsSaved = packagingdetailsDao.save(packagingdetailsToSave);
 
 

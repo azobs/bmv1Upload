@@ -86,21 +86,21 @@ public class ArticleServiceImpl implements ArticleService{
         }
         log.info("All constraint has been verified and the entity can be registered in the system");
 
-//        Article articleToSave = Article.builder()
-//                .artCode(articleDto.getArtCode())
-//                .artName(articleDto.getArtName())
-//                .artShortname(articleDto.getArtShortname())
-//                .artDescription(articleDto.getArtDescription())
-//                .artThreshold(Double.valueOf(articleDto.getArtThreshold()))
-//                .artLowlimitwholesale(Double.valueOf(articleDto.getArtLowlimitwholesale()))
-//                .artlowlimitSemiwholesale(Double.valueOf(articleDto.getArtlowlimitSemiwholesale()))
-//                .artQuantityinstock(Double.valueOf(articleDto.getArtQuantityinstock()))
-//                .artPf(pfMapper.dtoToEntity(pfService.getProductformatedById(articleDto.getArtPfId())))
-//                .artUnit(unitMapper.dtoToEntity(unitService.getUnitById(articleDto.getArtUnitId())))
-//                .artPos(posMapper.dtoToEntity(posService.getPointofsaleById(articleDto.getArtPosId())))
-//                .artBaseprice(basepriceMapper.dtoToEntity(basepriceService.getBasepriceById(articleDto.getArtBasepriceId())))
-//                .build();
-        Article articleToSave = articleMapper.dtoToEntity(articleDto);
+        Article articleToSave = Article.builder()
+                .artCode(articleDto.getArtCode())
+                .artName(articleDto.getArtName())
+                .artShortname(articleDto.getArtShortname())
+                .artDescription(articleDto.getArtDescription())
+                .artThreshold(Double.valueOf(articleDto.getArtThreshold()))
+                .artLowlimitwholesale(Double.valueOf(articleDto.getArtLowlimitwholesale()))
+                .artlowlimitSemiwholesale(Double.valueOf(articleDto.getArtlowlimitSemiwholesale()))
+                .artQuantityinstock(Double.valueOf(articleDto.getArtQuantityinstock()))
+                .artPf(pfMapper.dtoToEntity(pfService.getProductformatedById(articleDto.getArtPfId())))
+                .artUnit(unitMapper.dtoToEntity(unitService.getUnitById(articleDto.getArtUnitId())))
+                .artPos(posMapper.dtoToEntity(posService.getPointofsaleById(articleDto.getArtPosId())))
+                .artBaseprice(basepriceMapper.dtoToEntity(basepriceService.getBasepriceById(articleDto.getArtBasepriceId())))
+                .build();
+        //Article articleToSave = articleMapper.dtoToEntity(articleDto);
 
         Article articleSaved = articleDao.save(articleToSave);
         return articleMapper.entityToDto(articleSaved);

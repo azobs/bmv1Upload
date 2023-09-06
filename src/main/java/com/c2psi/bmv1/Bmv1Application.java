@@ -120,6 +120,7 @@ public class Bmv1Application {
 					ubmRoleSaved = ubmRoleService.getUserbmRoleByUserAndRole(userbmSaved.getId(), roleSaved.getId());
 				}
 				catch (Exception e){
+					//log.info("ubmRole = {}", ubmRole);
 					ubmRoleSaved = ubmRoleService.saveUserbmRole(ubmRole);
 					log.info("UserbmRole saved in the system is {}", ubmRoleSaved);
 				}

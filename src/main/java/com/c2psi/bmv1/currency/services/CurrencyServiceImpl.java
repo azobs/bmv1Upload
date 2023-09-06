@@ -69,7 +69,16 @@ public class CurrencyServiceImpl implements CurrencyService{
          * Si tout est bon on peut donc sauvegarder l'entite
          */
         log.info("After all verification the entity can be saved");
-        Currency currencySaved = currencyDao.save(currencyMapper.dtoToEntity(currencyDto));
+        /****
+         * currencyToUpdate.setCurrencyName(currencyDto.getCurrencyName());
+         *             currencyToUpdate.setCurrencyAbbreviation(currencyDto.getCurrencyAbbreviation());
+         */
+        Currency currencyToSave = Currency.builder()
+                .currencyName(currencyDto.getCurrencyName())
+                .currencyAbbreviation(currencyDto.getCurrencyAbbreviation())
+                .build();
+        Currency currencySaved = currencyDao.save(currencyToSave);
+
         return currencyMapper.entityToDto(currencySaved);
     }
 

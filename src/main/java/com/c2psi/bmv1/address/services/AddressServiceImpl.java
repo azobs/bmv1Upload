@@ -48,7 +48,30 @@ public class AddressServiceImpl implements AddressService{
 
         log.info("After all semantic verification, the address {} can be saved safely", addressDto);
 
-        Address addressSaved = addressDao.save(addressMapper.dtoToEntity(addressDto));
+        /***
+         * addressToUpdate.setEmail(addressDto.getEmail());
+         * addressToUpdate.setNumtel1(addressDto.getNumtel1());
+         *         addressToUpdate.setNumtel2(addressDto.getNumtel2());
+         *         addressToUpdate.setNumtel3(addressDto.getNumtel3());
+         *         addressToUpdate.setQuarter(addressDto.getQuarter());
+         *         addressToUpdate.setCountry(addressDto.getCountry());
+         *         addressToUpdate.setTown(addressDto.getTown());
+         *         addressToUpdate.setLocalisation(addressDto.getLocalisation());
+         */
+
+        Address addressToSave = Address.builder()
+                .email(addressDto.getEmail())
+                .numtel1(addressDto.getNumtel1())
+                .numtel2(addressDto.getNumtel2())
+                .numtel3(addressDto.getNumtel3())
+                .quarter(addressDto.getQuarter())
+                .country(addressDto.getCountry())
+                .town(addressDto.getTown())
+                .localisation(addressDto.getLocalisation())
+                .build();
+
+        //Address addressSaved = addressDao.save(addressMapper.dtoToEntity(addressDto));
+        Address addressSaved = addressDao.save(addressToSave);
 
         return addressMapper.entityToDto(addressSaved);
     }
