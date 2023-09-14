@@ -33,7 +33,9 @@ public class SecurityConfiguration {
                 "/arrival/bm/v1/**", "/supplyinvoice/bm/v1/**", "/command/bm/v1/**", "/sale/bm/v1/**", "/delivery/bm/v1/**",
                 "/backin/bm/v1/**", "/saleinvoice/bm/v1/**", "/pos/bm/v1/**", "/enterprise/bm/v1/**", "/client/bm/v1/**",
                 "/clientspecialprice/bm/v1/**", "/provider/bm/v1/**", "/currency/bm/v1/**", "/account/bm/v1/**",
-                "/operation/bm/v1/**", "/inventory/bm/v1/**", "/packaging/bm/v1/**", "/upload/bm/v1/**", "/load/bm/v1/**"};
+                "/operation/bm/v1/**", "/inventory/bm/v1/**", "/packaging/bm/v1/**", "/upload/bm/v1/**", "/load/bm/v1/**",
+                "/swagger-ui.html","/**/v2/api-docs","/swagger-resources","/swagger-resources/**","/configuration/ui",
+                "/configuration/security","/webjars/**","/v3/api-docs/**","/swagger-ui/**"};
         http
                 .csrf()
                 .disable()
