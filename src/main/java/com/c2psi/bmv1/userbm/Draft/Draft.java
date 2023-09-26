@@ -1,4 +1,4 @@
-package com.c2psi.bmv1.pos.pos.controllers.userbm.Draft;
+package com.c2psi.bmv1.userbm.Draft;
 
 
 public class Draft {

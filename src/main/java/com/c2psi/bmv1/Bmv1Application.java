@@ -9,19 +9,25 @@ import com.c2psi.bmv1.auth.token.models.Token;
 import com.c2psi.bmv1.auth.token.services.TokenService;
 import com.c2psi.bmv1.bmapp.enumerations.RoleTypeEnum;
 import com.c2psi.bmv1.bmapp.enumerations.TokenType;
+import com.c2psi.bmv1.bmapp.exceptions.UploadDirectoriesNotCreatedException;
 import com.c2psi.bmv1.dto.*;
 import com.c2psi.bmv1.role.services.RoleService;
 import com.c2psi.bmv1.userbm.models.Userbm;
 import com.c2psi.bmv1.userbm.services.UserbmService;
 import com.c2psi.bmv1.userbmrole.models.UserbmRole;
 import com.c2psi.bmv1.userbmrole.services.UserbmRoleService;
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +37,42 @@ import java.util.List;
 @Slf4j
 public class Bmv1Application {
 
-	public static void main(String[] args) {
+	@Value("${user.dir}/img/articles")
+	public String photosArticlesDir;
+	@Value("${user.dir}/img/pf")
+	public String photosPfDir;
 
+	@Value("${dir.images.persons}")
+	public String photosPersonsDir;
+
+	@Value("${user.dir}/img/logos")
+	public String photosLogosDir;
+
+	@Value("${user.dir}/img/invoices")
+	public String photosInvoicesDir;
+
+	@PostConstruct
+	void init(){
+		log.info("Creation or verification of the folder in which image or file will be uploaded {}, {}, {}, {}",
+				photosPersonsDir, photosArticlesDir, photosInvoicesDir, photosLogosDir);
+		try {
+			Files.createDirectories(Paths.get(photosArticlesDir));
+			Files.createDirectories(Paths.get(photosPersonsDir));
+			Files.createDirectories(Paths.get(photosInvoicesDir));
+			Files.createDirectories(Paths.get(photosLogosDir));
+			Files.createDirectories(Paths.get(photosPfDir));
+			BMGlobalArguments.photosArticlesDir = photosArticlesDir;
+			BMGlobalArguments.photosPersonsDir = photosPersonsDir;
+			BMGlobalArguments.photosInvoicesDir = photosInvoicesDir;
+			BMGlobalArguments.photosLogosDir = photosLogosDir;
+			BMGlobalArguments.photosPfDir = photosPfDir;
+		}
+		catch (IOException e){
+			throw new UploadDirectoriesNotCreatedException("Could not initialize folder for upload file!");
+		}
+	}
+
+	public static void main(String[] args) {
 		SpringApplication.run(Bmv1Application.class, args);
 	}
 
@@ -160,7 +200,7 @@ public class Bmv1Application {
 					tokenDtoSaved = tokenDtoList.get(0);
 				}
 
-				log.warn("The token value for the default user saved is", tokenDtoSaved.getTokenValue());
+				log.warn("The token value for the default user saved is {}", tokenDtoSaved.getTokenValue());
 				log.warn("{}", tokenDtoSaved.getTokenValue());
 			}
 		};

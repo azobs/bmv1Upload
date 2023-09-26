@@ -10,6 +10,9 @@ import com.c2psi.bmv1.packaging.packaging.mappers.PackagingMapper;
 import com.c2psi.bmv1.packaging.packaging.models.Packaging;
 import com.c2psi.bmv1.pos.pos.mapper.PointofsaleMapper;
 import com.c2psi.bmv1.pos.pos.service.PointofsaleService;
+import com.c2psi.bmv1.packaging.packaging.services.PackagingService;
+import com.c2psi.bmv1.packaging.packaging.services.PackagingSpecService;
+import com.c2psi.bmv1.packaging.packaging.services.PackagingValidator;
 import com.c2psi.bmv1.provider.provider.mappers.ProviderMapper;
 import com.c2psi.bmv1.provider.provider.service.ProviderService;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +32,7 @@ import java.util.Optional;
 @Transactional
 @RequiredArgsConstructor
 @Slf4j
-public class PackagingServiceImpl implements PackagingService{
+public class PackagingServiceImpl implements PackagingService {
 
     final PackagingDao packagingDao;
     final PackagingMapper packagingMapper;

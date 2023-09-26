@@ -19,7 +19,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-05T20:37:01.434321300+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-26T01:24:15.865861+01:00[Africa/Casablanca]")
 @Validated
 @Api(value = "upload", description = "the upload API")
 public interface UploadApi {
@@ -33,6 +33,7 @@ public interface UploadApi {
      *
      * @param id  (optional)
      * @param fileName  (optional)
+     * @param imageOf  (optional)
      * @return Resource uploaded successfully (status code 200)
      */
     @ApiOperation(value = "Path used to upload a picture that represent a resource in the system", nickname = "uploadPicture", notes = "", response = org.springframework.core.io.Resource.class, tags={  })
@@ -44,12 +45,12 @@ public interface UploadApi {
         produces = { "image/_*" },
         consumes = { "multipart/form-data" }
     )
-    default ResponseEntity<org.springframework.core.io.Resource> _uploadPicture(@ApiParam(value = "") @Valid @RequestPart(value = "id", required = false) Long id,@ApiParam(value = "") @Valid @RequestPart(value = "fileName", required = false) MultipartFile fileName) {
-        return uploadPicture(id, fileName);
+    default ResponseEntity<org.springframework.core.io.Resource> _uploadPicture(@ApiParam(value = "") @Valid @RequestPart(value = "id", required = false) Long id,@ApiParam(value = "") @Valid @RequestPart(value = "fileName", required = false) MultipartFile fileName,@ApiParam(value = "", allowableValues = "ARTICLE, LOGO, PERSON, PRODUCTFORMATED, INVOICE") @Valid @RequestPart(value = "imageOf", required = false) String imageOf) {
+        return uploadPicture(id, fileName, imageOf);
     }
 
     // Override this method
-    default  ResponseEntity<org.springframework.core.io.Resource> uploadPicture(Long id, MultipartFile fileName) {
+    default  ResponseEntity<org.springframework.core.io.Resource> uploadPicture(Long id, MultipartFile fileName, String imageOf) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }

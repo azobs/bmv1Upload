@@ -4,7 +4,6 @@ import com.c2psi.bmv1.bmapp.annotations.BmNotBlank;
 import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.*;
 import com.c2psi.bmv1.loading.loading.services.LoadingService;
-import com.c2psi.bmv1.loading.loadingdetails.models.Loadingdetails;
 import com.c2psi.bmv1.loading.packagingdetails.models.Packagingdetails;
 import com.c2psi.bmv1.packaging.packaging.services.PackagingService;
 import jakarta.validation.ConstraintViolation;

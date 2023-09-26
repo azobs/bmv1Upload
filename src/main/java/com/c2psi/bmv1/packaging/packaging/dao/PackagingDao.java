@@ -16,7 +16,7 @@ public interface PackagingDao extends JpaRepository<Packaging, Long>, JpaSpecifi
 SELECT pack FROM Packaging pack WHERE (pack.packLabel = :packLabel AND pack.packFirstcolor = :packFirstColor AND 
 pack.packagingProvider.id = :providerId AND pack.packagingPos.id = :posId)
 """)
-    Optional<Packaging> findPackagingByAttributes(@Param("packLabel") String packLabel,
-                                                  @Param("packFirstColor") String packFirstColor,
-                                                  @Param("providerId") Long providerId, @Param("posId") Long posId);
+    Optional<com.c2psi.bmv1.packaging.packaging.models.Packaging> findPackagingByAttributes(@Param("packLabel") String packLabel,
+                                                                                            @Param("packFirstColor") String packFirstColor,
+                                                                                            @Param("providerId") Long providerId, @Param("posId") Long posId);
 }

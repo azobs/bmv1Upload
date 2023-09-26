@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * A cash account operation in the system it concerns only operation on cash, momo or OM
  */
 @ApiModel(description = "A cash account operation in the system it concerns only operation on cash, momo or OM")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-05T20:37:01.434321300+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-26T01:24:15.865861+01:00[Africa/Casablanca]")
 public class CashOperationDto   {
   @JsonProperty("id")
   private Long id;

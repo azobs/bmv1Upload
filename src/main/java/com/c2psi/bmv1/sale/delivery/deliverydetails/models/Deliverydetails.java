@@ -1,7 +1,6 @@
 package com.c2psi.bmv1.sale.delivery.deliverydetails.models;
 
 import com.c2psi.bmv1.packaging.packaging.models.Packaging;
-import com.c2psi.bmv1.pos.pos.models.Pointofsale;
 import com.c2psi.bmv1.sale.delivery.delivery.models.Delivery;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

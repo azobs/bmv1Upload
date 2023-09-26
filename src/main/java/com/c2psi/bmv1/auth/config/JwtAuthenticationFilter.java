@@ -35,15 +35,17 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter  {
     protected void doFilterInternal(@NonNull HttpServletRequest request,
                                     @NonNull HttpServletResponse response, @NonNull FilterChain filterChain)
             throws ServletException, IOException {
-        System.err.println("Lancement du filtre JwtAuthenticationFilter avec sa methode doFilterInternal");
+        System.err.println("Lancement du filtre JwtAuthenticationFilter avec sa methode doFilterInternal ");
 
         final String authHeader = request.getHeader("Authorization");
         String jwt = null;
         String userName = null;
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            System.err.println("authHeader " + authHeader + " bearer is also null");
-            System.err.println("La requete doit avoir un header Authorization qui est du type Bearer");
+//            System.err.println("authHeader " + authHeader + " bearer is also null");
+//            System.err.println("La requete doit avoir un header Authorization qui est du type Bearer");
+
+            System.err.println(authHeader != null ? authHeader + "but don't start by Bearer": "authHeader is null");
 
             filterChain.doFilter(request, response);
             return;

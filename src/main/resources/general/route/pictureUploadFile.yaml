@@ -15,6 +15,14 @@ post:
               type: string
               format: binary
               nullable: true
+            imageOf:
+              type: string
+              enum:
+                - ARTICLE
+                - LOGO
+                - PERSON
+                - PRODUCTFORMATED
+                - INVOICE
   responses:
     '200':
       description: Resource uploaded successfully

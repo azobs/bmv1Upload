@@ -6,7 +6,6 @@ import com.c2psi.bmv1.bmapp.services.AppService;
 import com.c2psi.bmv1.dto.*;
 import com.c2psi.bmv1.loading.loading.mappers.LoadingMapper;
 import com.c2psi.bmv1.loading.loading.services.LoadingService;
-import com.c2psi.bmv1.loading.loadingdetails.models.Loadingdetails;
 import com.c2psi.bmv1.loading.packagingdetails.dao.PackagingdetailsDao;
 import com.c2psi.bmv1.loading.packagingdetails.errorCode.ErrorCode;
 import com.c2psi.bmv1.loading.packagingdetails.mappers.PackagingdetailsMapper;

@@ -1,6 +1,5 @@
 package com.c2psi.bmv1.account.account.models;
 
-import com.c2psi.bmv1.arrival.supplyinvoice.models.Supplyinvoice;
 import com.c2psi.bmv1.bmapp.enumerations.AccountTypeEnum;
 import com.c2psi.bmv1.client.client.models.Client;
 import com.c2psi.bmv1.packaging.packaging.models.Packaging;
