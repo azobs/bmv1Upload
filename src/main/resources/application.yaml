@@ -28,12 +28,18 @@ spring:
     multipart:
       max-file-size: 75MB
       max-request-size: 100MB
+      enabled: true
 server:
   port: 8081
 #specify the path of the openApi documentation
+bmv1:
+  openapi:
+    dev-url: http://localhost:8081
+    prod-url: https://localhost:8080
 springdoc:
   api-docs:
     path: /api-docs
+    enabled: true
   swagger-ui:
     path: /swagger-ui.html
     enabled: true

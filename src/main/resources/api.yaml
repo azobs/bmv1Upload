@@ -684,10 +684,18 @@ paths:
 ########################################################################################################################
 ########################################################################################################################
   #Api for file Uploaded with the id of the resource for which the image is uploaded
-  /upload/bm/v1/picture:
-    $ref: 'general/route/pictureUploadFile.yaml'
-  /load/bm/v1/picture/{id}:
-    $ref: 'general/route/pictureLoadFile.yaml'
+  /upload/bm/v1/person:
+    $ref: 'general/route/uploadPerson.yaml'
+  /upload/bm/v1/article:
+    $ref: 'general/route/uploadArticle.yaml'
+  /upload/bm/v1/logo:
+    $ref: 'general/route/uploadLogo.yaml'
+  /upload/bm/v1/pf:
+    $ref: 'general/route/uploadPf.yaml'
+  /upload/bm/v1/invoice:
+    $ref: 'general/route/uploadInvoice.yaml'
+  /loadresource/bm/v1/{id}:
+    $ref: 'general/route/loadFile.yaml'
 
 
 ########################################################################################################################

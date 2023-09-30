@@ -1,0 +1,21 @@
+post:
+  summary: Path used to upload a picture that represent a formated product in the system
+  operationId: uploadPictureofProductformated
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            fileName:
+              type: string
+              format: binary
+  responses:
+    '200':
+      description: Picture uploaded successfully
+      content:
+        application/json:
+          schema:
+            type: string
+summary: Represents a route used to upload a picture in the system
+description: Upload a picture in the system

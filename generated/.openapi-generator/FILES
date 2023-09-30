@@ -15,8 +15,8 @@ src/main/java/com/c2psi/bmv1/api/DeliveryApi.java
 src/main/java/com/c2psi/bmv1/api/EnterpriseApi.java
 src/main/java/com/c2psi/bmv1/api/FormatApi.java
 src/main/java/com/c2psi/bmv1/api/InventoryApi.java
-src/main/java/com/c2psi/bmv1/api/LoadApi.java
 src/main/java/com/c2psi/bmv1/api/LoadingApi.java
+src/main/java/com/c2psi/bmv1/api/LoadresourceApi.java
 src/main/java/com/c2psi/bmv1/api/OperationApi.java
 src/main/java/com/c2psi/bmv1/api/PackagingApi.java
 src/main/java/com/c2psi/bmv1/api/PfApi.java

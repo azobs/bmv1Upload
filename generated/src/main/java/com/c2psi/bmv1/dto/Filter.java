@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * Different filter used to filter the userbm result list
  */
 @ApiModel(description = "Different filter used to filter the userbm result list")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-26T01:24:15.865861+01:00[Africa/Casablanca]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-28T04:24:19.978343600+01:00[Africa/Casablanca]")
 public class Filter   {
   @JsonProperty("filterColumn")
   private String filterColumn;

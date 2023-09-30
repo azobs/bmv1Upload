@@ -28,15 +28,16 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         System.err.println("Configuration de la securite sur l'application ");
-        String[] pathAllowedToAll = new String[]{"/auth/bm/v1/**", "/address/bm/v1/**", "/userbm/bm/v1/**",
-                "/role/bm/v1/**", "/userbm_role/bm/v1/**", "/category/bm/v1/**", "/product/bm/v1/**", "/format/bm/v1/**",
-                "/pf/bm/v1/**", "/unit/bm/v1/**", "/article/bm/v1/**", "/bp/bm/v1/**", "/sp/bm/v1/**", "/loading/bm/v1/**",
-                "/arrival/bm/v1/**", "/supplyinvoice/bm/v1/**", "/command/bm/v1/**", "/sale/bm/v1/**", "/delivery/bm/v1/**",
-                "/backin/bm/v1/**", "/saleinvoice/bm/v1/**", "/pos/bm/v1/**", "/enterprise/bm/v1/**", "/client/bm/v1/**",
-                "/clientspecialprice/bm/v1/**", "/provider/bm/v1/**", "/currency/bm/v1/**", "/account/bm/v1/**",
-                "/operation/bm/v1/**", "/inventory/bm/v1/**", "/packaging/bm/v1/**", "/upload/bm/v1/**", "/load/bm/v1/**",
-                "/swagger-ui.html","/**/v2/api-docs","/swagger-resources","/swagger-resources/**","/configuration/ui",
-                "/configuration/security","/webjars/**","/v3/api-docs/**","/swagger-ui/**"};
+//        String[] pathAllowedToAll = new String[]{"/auth/bm/v1/**", "/address/bm/v1/**", "/userbm/bm/v1/**",
+//                "/role/bm/v1/**", "/userbm_role/bm/v1/**", "/category/bm/v1/**", "/product/bm/v1/**", "/format/bm/v1/**",
+//                "/pf/bm/v1/**", "/unit/bm/v1/**", "/article/bm/v1/**", "/bp/bm/v1/**", "/sp/bm/v1/**", "/loading/bm/v1/**",
+//                "/arrival/bm/v1/**", "/supplyinvoice/bm/v1/**", "/command/bm/v1/**", "/sale/bm/v1/**", "/delivery/bm/v1/**",
+//                "/backin/bm/v1/**", "/saleinvoice/bm/v1/**", "/pos/bm/v1/**", "/enterprise/bm/v1/**", "/client/bm/v1/**",
+//                "/clientspecialprice/bm/v1/**", "/provider/bm/v1/**", "/currency/bm/v1/**", "/account/bm/v1/**",
+//                "/operation/bm/v1/**", "/inventory/bm/v1/**", "/packaging/bm/v1/**", "/upload/bm/v1/**", "/load/bm/v1/**",
+//                "/swagger-ui.html","/**/v2/api-docs","/swagger-resources","/swagger-resources/**","/configuration/ui",
+//                "/configuration/security","/webjars/**","/v3/api-docs/**","/swagger-ui/**"};
+        String[] pathAllowedToAll = new String[]{"/auth/bm/v1/**", "/api-docs/**", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**"};
         http
                 .csrf()
                 .disable()
@@ -45,12 +46,10 @@ public class SecurityConfiguration {
                 //.requestMatchers("/bm/v1/auth/**")
                 .requestMatchers(pathAllowedToAll)
                 .permitAll()
-
                 //Ajout du 29-07-2023 pour la gestion des permissions sur les endpoint
                 //Secure all the management endpoint
                 .requestMatchers("/test/non_secure").hasAnyRole(RoleTypeEnum.ADMINBM.name(), RoleTypeEnum.EMPLOYE.name())
                 //.requestMatchers("/test/secure").hasAnyRole(RoleTypeEnum.ADMINBM.name())
-//
 //                //Secure each method on that management endpoint
                 .requestMatchers(GET, "/test/secure").hasAnyAuthority("ALLOW_TO_CREATE")
 //                .requestMatchers(POST, "/api/v1/management/**").hasAnyAuthority(ADMIN_POST.name(), MANAGER_POST.name())

@@ -37,6 +37,18 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter  {
             throws ServletException, IOException {
         System.err.println("Lancement du filtre JwtAuthenticationFilter avec sa methode doFilterInternal ");
 
+        if (request.getServletPath().contains("/api/v1/auth")) {
+            System.err.println("la servlet invoquee est destinee au chemin /api/v1/auth");
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        if (request.getServletPath().contains("/v3/api-docs") || request.getServletPath().contains("/swagger-ui")) {
+            System.err.println("la servlet invoquee est destinee au chemin /v3/api-docs ou /swagger-ui");
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         final String authHeader = request.getHeader("Authorization");
         String jwt = null;
         String userName = null;
@@ -46,11 +58,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter  {
 //            System.err.println("La requete doit avoir un header Authorization qui est du type Bearer");
 
             System.err.println(authHeader != null ? authHeader + "but don't start by Bearer": "authHeader is null");
-
             filterChain.doFilter(request, response);
             return;
         }
-
 
         jwt = authHeader.substring(7);
         //System.err.println("On recupere donc le jwt ==" + jwt);
@@ -80,6 +90,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter  {
                     //System.err.println("On a set les details de ce UsernamePasswordAuthenticationToken fabrique");
                     SecurityContextHolder.getContext().setAuthentication(authToken);
                     //System.err.println("On a place ce UsernamePasswordAuthenticationToken fabrique dans le contexte de securite");
+                }
+                else{
+                    System.err.println("Tout est bon mais le token a expire ou n'est plus utilisable ");
                 }
                 //System.err.println("le filtre JwtAuthenticationFilter a donc fini son travail ");
             }
