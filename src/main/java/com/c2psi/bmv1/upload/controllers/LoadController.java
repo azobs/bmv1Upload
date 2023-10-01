@@ -1,6 +1,6 @@
 package com.c2psi.bmv1.upload.controllers;
 
-import com.c2psi.bmv1.api.LoadApi;
+import com.c2psi.bmv1.api.LoadresourceApi;
 import com.c2psi.bmv1.upload.services.UploadService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +15,7 @@ import java.util.Map;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-public class LoadController implements LoadApi {
+public class LoadController implements LoadresourceApi {
     final UploadService uploadService;
 
     @Override

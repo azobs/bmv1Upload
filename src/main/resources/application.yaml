@@ -48,8 +48,5 @@ dir:
   images:
 #    articless: ${user.home}/BM/articles
 #    personss: ${user.home}/BM/persons
-    articles: ${user.dir}/img/articles
-    pf: ${user.dir}/img/pf
-    persons: ${user.dir}/img/persons
-    invoices: ${user.dir}/img/invoices
-    logos: ${user.dir}/img/logos
+    img: ${user.dir}/img
+

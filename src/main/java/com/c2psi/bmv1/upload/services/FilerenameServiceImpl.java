@@ -1,7 +1,7 @@
 package com.c2psi.bmv1.upload.services;
 
 import com.c2psi.bmv1.BMGlobalArguments;
-import com.c2psi.bmv1.bmapp.exceptions.UploadFileException;
+import com.c2psi.bmv1.upload.exceptions.UploadFileException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

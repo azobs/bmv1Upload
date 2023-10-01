@@ -19,45 +19,6 @@ public class UploadController implements UploadApi {
     final UploadService uploadService;
 
     @Override
-    public ResponseEntity<String> uploadPictureArticle(MultipartFile fileName) {
-        Map<String, Object> map = new LinkedHashMap<>();
-        String uploadedFilename = uploadService.uploadArticleImage(fileName);
-
-        map.clear();
-        map.put("status", HttpStatus.OK);
-        map.put("message", "Image of Article uploaded successfully");
-        map.put("data", uploadedFilename);
-        map.put("cause", "RAS");
-        return new ResponseEntity(map, HttpStatus.OK);
-    }
-
-    @Override
-    public ResponseEntity<String> uploadPictureInvoice(MultipartFile fileName) {
-        Map<String, Object> map = new LinkedHashMap<>();
-        String uploadedFilename = uploadService.uploadInvoiceImage(fileName);
-
-        map.clear();
-        map.put("status", HttpStatus.OK);
-        map.put("message", "Image of invoice uploaded successfully");
-        map.put("data", uploadedFilename);
-        map.put("cause", "RAS");
-        return new ResponseEntity(map, HttpStatus.OK);
-    }
-
-    @Override
-    public ResponseEntity<String> uploadPictureLogo(MultipartFile fileName) {
-        Map<String, Object> map = new LinkedHashMap<>();
-        String uploadedFilename = uploadService.uploadLogoImage(fileName);
-
-        map.clear();
-        map.put("status", HttpStatus.OK);
-        map.put("message", "Image of Logo uploaded successfully");
-        map.put("data", uploadedFilename);
-        map.put("cause", "RAS");
-        return new ResponseEntity(map, HttpStatus.OK);
-    }
-
-    @Override
     public ResponseEntity<String> uploadPictureofPerson(MultipartFile fileName) {
         Map<String, Object> map = new LinkedHashMap<>();
         String uploadedFilename = uploadService.uploadPersonImage(fileName);
@@ -70,16 +31,4 @@ public class UploadController implements UploadApi {
         return new ResponseEntity(map, HttpStatus.OK);
     }
 
-    @Override
-    public ResponseEntity<String> uploadPictureofProductformated(MultipartFile fileName) {
-        Map<String, Object> map = new LinkedHashMap<>();
-        String uploadedFilename = uploadService.uploadPfImage(fileName);
-
-        map.clear();
-        map.put("status", HttpStatus.OK);
-        map.put("message", "Image of Product formated uploaded successfully");
-        map.put("data", uploadedFilename);
-        map.put("cause", "RAS");
-        return new ResponseEntity(map, HttpStatus.OK);
-    }
 }
