@@ -1,8 +1,8 @@
-package com.c2psi.bmv1.upload.handlers;
+package com.c2psi.bmv1Upload.upload.handlers;
 
-import com.c2psi.bmv1.upload.exceptions.BMException;
-import com.c2psi.bmv1.upload.exceptions.UploadDirectoriesNotCreatedException;
-import com.c2psi.bmv1.upload.exceptions.UploadFileException;
+import com.c2psi.bmv1Upload.upload.exceptions.BMException;
+import com.c2psi.bmv1Upload.upload.exceptions.UploadDirectoriesNotCreatedException;
+import com.c2psi.bmv1Upload.upload.exceptions.UploadFileException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

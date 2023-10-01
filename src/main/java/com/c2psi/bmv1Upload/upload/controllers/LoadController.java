@@ -1,7 +1,7 @@
-package com.c2psi.bmv1.upload.controllers;
+package com.c2psi.bmv1Upload.upload.controllers;
 
 import com.c2psi.bmv1.api.LoadresourceApi;
-import com.c2psi.bmv1.upload.services.UploadService;
+import com.c2psi.bmv1Upload.upload.services.UploadService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;

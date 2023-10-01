@@ -1,4 +1,4 @@
-package com.c2psi.bmv1.upload.exceptions;
+package com.c2psi.bmv1Upload.upload.exceptions;
 
 import lombok.Data;
 

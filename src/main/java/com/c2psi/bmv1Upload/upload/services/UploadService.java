@@ -1,4 +1,4 @@
-package com.c2psi.bmv1.upload.services;
+package com.c2psi.bmv1Upload.upload.services;
 
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;

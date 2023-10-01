@@ -1,7 +1,7 @@
-package com.c2psi.bmv1.upload.services;
+package com.c2psi.bmv1Upload.upload.services;
 
-import com.c2psi.bmv1.BMGlobalArguments;
-import com.c2psi.bmv1.upload.exceptions.UploadFileException;
+import com.c2psi.bmv1Upload.BMGlobalArguments;
+import com.c2psi.bmv1Upload.upload.exceptions.UploadFileException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
